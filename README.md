@@ -8,6 +8,14 @@ Most of the material used in this course is created by Nico De Witte. However so
 
 Check out my github repos for the source of this book and for other gitbooks, code examples, ...: https://github.com/BioBoost
 
+## Alpha version
+
+Please note that this GitBook is still under development and did not even reach a draft version yet. Make sure to check at least every week for changes made.
+
+## Prerequisites
+
+This course does expect you to already have a basic knowledge of programming and object oriented concepts. If you don't please take the course "Object Oriented Programming with Java" which can be found at https://bioboost.gitbooks.io/object-oriented-programming-using-java/content/.
+
 ## Requirements
 
 To follow along you will need at least a C++ compiler for the operating system you are using. Best option is to use a GCC compiler. If you are a total beginner for C++ a good option can be Code::Blocks, a simple and free C++ IDE.
