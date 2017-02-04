@@ -21,6 +21,9 @@
         "simple-page-toc": {
             "maxDepth": 3,
             "skipFirstH1": true
+        },
+        "image-captions": {
+            "caption": "Image _PAGE_IMAGE_NUMBER_ - _CAPTION_"
         }
     }
 }
