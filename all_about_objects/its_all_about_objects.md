@@ -138,4 +138,8 @@ C++ uses three keywords called **access modifiers** to set those boundaries in a
 
 Trying to access members that are not available to you, will result in compile-time errors.
 
+![Hiding implementation - Important for both client and creator[^2]](img/hiding_implementation.gif)
+
+[^2]: Source http://javarevisited.blogspot.be/2010/10/abstraction-in-java.html
+
 ## Reusing implementation
