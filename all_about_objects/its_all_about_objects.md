@@ -24,9 +24,7 @@ In fact assembly language is an abstraction for machine code which is an abstrac
 
 Many imperative languages that followed (such as Fortran, C, Pascal, ...) were another level of abstraction introduced on top of the assembly language.
 
-![High-level Programming Languages [^2]](img/multiple_abstraction_layers.png)
-
-[^2]: Source http://www.webopedia.com/TERM/A/assembly_language.html
+![Multiple Layers of Abstraction](https://www.lucidchart.com/publicSegments/view/9795cc73-acd7-478a-a1e0-3bc66b19496c/image.png)
 
 So called imperative languages are a big improvement over the low-level assembly language. They do however still require that the programmer thinks in terms of the structure of the computer rather than in terms of the structure of the problem.
 
@@ -55,7 +53,7 @@ However, a connection does still exist between the solution and the computer. Th
 
 Alan Kay, a renowned computer scientist, listed the five characteristics of Smalltalk, the first successful object oriented programming language and one of the languages on which C++ is based. They summarize the characteristics that represent a pure approach to object oriented programming:
 
-1. **Everything is an Object.** An object contains both data and behavior, also knows as *encapsulation*. It keeps state and can satisfy outside requests by performing operations on itself. You can basically create objects of any conceptual component in the problem you are trying to solve (people, buildings, lists, records, ...).
+1. **Everything is an Object.** An object contains both data and behavior (this is  also knows as *encapsulation*). It keeps state and can satisfy outside requests by performing operations on itself. You can basically create objects of any conceptual component in the problem you are trying to solve (people, buildings, lists, records, ...).
 
 2. **A program is a bunch of objects telling each other what to do by sending messages.** To make a request of an object, a message needs to be send to it. This will call a certain method of that particular object.
 
@@ -65,10 +63,52 @@ Alan Kay, a renowned computer scientist, listed the five characteristics of Smal
 
 5. **All objects of a particular type can receive the same messages.** This is a bit more complex than it sounds. Basically, an object of type *circle* is also an object of type *shape*, meaning that a circle object will be guaranteed to also accept shape messages. This is where *polymorphism* comes into play: meaning you can write code that talks to shapes and automatically handles other objects that also fit the description of shapes, such as circles. This *substitutability* forms one of the most powerful concepts of OOP.
 
+## The interface of an Object
 
-## Object Contracts
+Aristotle was one of the first to study the concept of *type*. He spoke of *the class of fishes and the class of birds*. The idea is that each object is unique (because of their state) but is also part of a class of objects that share characteristics and behavior.
 
-[TODO]
+The fundamental keyword *class* was first used in Simula-67, the first object oriented programming language, and allowed for the creation of new types in the program.
+
+The number of objects that can be instantiated from a class is only limited by the memory available in the system the program is running on. Each object has its own state (contained within its data members) and identity.
+
+These objects can then be manipulated (by sending them messages) as if they were the elements from the problem that is being solved.
+
+Objects satisfy the requests that are being send to them (ex. draw something on the screen, complete a bank transaction, download a file from the Internet, ...). In practice, a *contract* is created between the creator of the class and the user of the class, which defines what messages can be send to a certain class of objects. This contract is realized by the **public interface** of the objects. In other words the interface of a class establishes what requests you can make to its objects.
+
+There must however be code somewhere to satisfy the requests. This along with the hidden data comprises the *implementation* of the class.
+
+So summarized: a type (class) has a method associated with each the possible requests (the interface) that can be made to the objects of that class. When a message is send to an object, the corresponding method is called, and the object figures out what to by executing the code that forms the implementation of that method.
+
+Lets take a look at a simple example such as a light bulb. It might be represented as shown below.
+
+![A UML class diagram of a light bulb](https://www.lucidchart.com/publicSegments/view/c41c9a49-31a1-48ba-8552-00a06f6da300/image.png)
+
+The diagram above follows the UML standard (Unified Modeling Language). The diagram consists of three parts:
+
+* The top box shows the **name of the class**. In this case Light. Note how the classname begins with a capital letter and is in the singular form.
+* Below that is a list of **attributes**. They contain the characteristics or state of the objects that will be created from the class.
+* Last is the box with the **methods** that are available for the class.
+
+Except for the name of the class, the other parts of the diagram are optional and are only added when useful.
+
+The minus '-' sign in front of the attributes state that these are private and cannot be accessed from outside the objects themselves. The plus '+' sign in front of the methods states that they are public and can be called by other type of objects.
+
+Note that the interface of the class only consists of the public portions of the methods and attributes. The methods and attributes that are private are not considered part of the **public interface** of the class. Because of this, some programmers will leave out the private parts of the class from the UML class diagram, as they are considered private details to the actual implementation of the class
+
+### Creating Objects in C++
+
+Once a class is defined, objects can be instantiated from the class. This is done as shown in the code example below. First the type is specified followed by a arbitrary name chosen by the programmer.
+
+```c++
+
+// Create an object of type Light
+Light bedroomLight;
+
+// Send message to turn it on (method call)
+bedroomLight.on();
+```
+
+The code sample also shows how a message can be send to the light bulb to request it to be turned on. This is was is what is called calling a method of that object. As a user of the object you need to specify the name that was given to the object (`bedroomLight` in this case), followed by the name of the method to call.
 
 ## Hiding implementation
 
