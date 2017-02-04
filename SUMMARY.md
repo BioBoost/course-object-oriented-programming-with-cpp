@@ -16,6 +16,10 @@
 * [Quiz](hello_universe/quiz.md)
 * [Exercises](hello_universe/exercises.md)
 
+### Solutions
+
+* [Solutions](solutions/solutions.md)
+
 ### Glossary and Sources
 
 * [Glossary](glossary.md)
