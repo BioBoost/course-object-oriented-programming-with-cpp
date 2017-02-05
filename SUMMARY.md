@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [Code::Blocks](https://sillevl.gitbooks.io/software-installation-guide/content/codeblocks/codeblocks.html)
+* [Code::Blocks](codeblocks.md)
 
 ### All about Objects
 
