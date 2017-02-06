@@ -268,3 +268,7 @@ Once you take a good look at the design it may become clear that the base class 
 However, this is quite a trivial example and real-world designs might not be so obvious.
 
 You may feel that pure substitution is the only way to go, and in fact it is nice if your design works out this way. However there will be times when it is equally clear that you need to extend the base interface with new methods.
+
+## Interchangeable objects and polymorphism
+
+[todo]
