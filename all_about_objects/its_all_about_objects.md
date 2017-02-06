@@ -230,3 +230,41 @@ Let's for example take a look at the following inheritance hierarchy. It may loo
 ![Bad inheritance decision](https://www.lucidchart.com/publicSegments/view/1d001280-a937-4f5b-8430-dd02798ff165/image.png)
 
 Now if you try out the same guideline and state "a Car is a Bicycle" you can definitely feel that something went wrong. While the design flaw can be spotted pretty easy here, it will not always be so obvious. A solution might be as simple as renaming Bicycle to Vehicle and if necessary create a subtype of Vehicle called Bicycle at the same level as Car.
+
+### Is-a versus is-like-a relationship
+
+When studying inheritance, it would seem that the cleanest way to create an inheritance hierarchy is to take the "pure" approach. That is, only methods that have been established in the base class or interface are to be overridden in the derived class, as seen in this diagram:
+
+![Pure inheritance](img/pure_inheritance.png)
+
+This can be called a pure "is-a" relationship because the interface of a class establishes what it is. Inheritance guarantees that any derived class will have the interface of the base class and nothing less. If you follow this diagram, derived classes will also have no more than the base-class interface.
+
+This can be thought of as pure substitution, because derived class objects can be perfectly substituted for the base class, and you never need to know any extra information about the subclasses when you're using them.
+
+![Talking to Shapes](img/talking_to_shapes.png)
+
+That is, the base class can receive any message you can send to the derived class because the two have exactly the same interface. All you need to do is upcast from the derived class and never look back to see what exact type of object you’re dealing with. Everything is handled through polymorphism.
+
+When you see it this way, it seems like a pure is-a relationship is the only sensible way to do things, and any other design indicates muddled thinking and is by definition broken.
+
+This too is a trap. As soon as you start thinking this way, you'll turn around and discover that extending the interface (which, unfortunately, the keyword `extends` seems to encourage) is the perfect solution to a particular problem. This could be termed an "is-like-a" relationship, because the derived class is like the base class - it has the same fundamental interface - but it has other features that require additional methods to implement:
+
+![Extending the interface](img/extension.png)
+
+While this is also a useful and sensible approach (depending on the situation), it has a drawback. The extended part of the interface in the derived class is not available from the base class, so once you upcast, you can't call the new methods:
+
+![Upcasting makes you lose the extension](img/upcasting.png)
+
+If you're not upcasting in this case, it won't bother you, but often you'll get into a situation in which you need to rediscover the exact type of the object so you can access the extended methods of that type. The following section shows how this is done.
+
+Consider the example of a house that wired with controls for a cooling system; that is, it has an interface to control cooling.
+
+![Temperate Control System](https://www.lucidchart.com/publicSegments/view/489489f0-1536-46b6-ba5a-6b5bcfe40c47/image.png)
+
+Imagine that later on you decide to replace the air conditioner with a heat pump which has both a heating and cooling system. The heat pump "is-like" your previous air conditioner but it can do more. Because your control system is limited to cooling, it can only talk to the cooling part of the new object. The new interface of the new system has been extended and the existing system doesn't know about anything but the original interface.
+
+Once you take a good look at the design it may become clear that the base class is not general enough and should be renamed to "TemperatureControlSystem" so that it can also include heating. At this point it would be possible to talk about "pure substitution".
+
+However, this is quite a trivial example and real-world designs might not be so obvious.
+
+You may feel that pure substitution is the only way to go, and in fact it is nice if your design works out this way. However there will be times when it is equally clear that you need to extend the base interface with new methods.
