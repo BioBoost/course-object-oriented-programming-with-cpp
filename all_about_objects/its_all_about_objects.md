@@ -255,7 +255,7 @@ While this is also a useful and sensible approach (depending on the situation), 
 
 ![Upcasting makes you lose the extension](img/upcasting.png)
 
-If you're not upcasting in this case, it won't bother you, but often you'll get into a situation in which you need to rediscover the exact type of the object so you can access the extended methods of that type. The following section shows how this is done.
+If you're not upcasting in this case, it won't bother you, but often you'll get into a situation in which you need to rediscover the exact type of the object so you can access the extended methods of that type.
 
 Consider the example of a house that wired with controls for a cooling system; that is, it has an interface to control cooling.
 
