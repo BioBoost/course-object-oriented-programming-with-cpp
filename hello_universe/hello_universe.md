@@ -105,6 +105,9 @@ Compiling a C++ source code file into an executable program is a four-step proce
 
 ![The Compilation Process of a C++ Program](img/the_compilation_process.png)
 
+> #### Hint::Hint Intermediate files
+> If you wish to test this in Code::Blocks you can navigate to "Settings => Compiler => Compilers settings => Other compiler options" and add `-save-temps=obj`. Now rebuild your project and navigate to your project directory with Windows Explorer. You will find the different intermediate files in the subdirectory 'obj/Debug'.
+
 ### Separate Compilation
 
 One of the features of C and C++ that's considered a strength is the idea of "separate compilation". Instead of writing all the code in one file, and compiling that one file, C/C++ allows you to write many .cpp files and compile them separately. With few exceptions, most .cpp files have a corresponding .h file.
@@ -117,7 +120,7 @@ A .cpp usually consists of:
 
 The corresponding .h file contains
 
-* class declarations,
+* class definitions,
 * function prototypes,
 * and extern variables (again, for global variables).
 * The purpose of the .h files is to export "services" to other .cpp files.
@@ -127,3 +130,19 @@ For example, suppose you wrote a Vector class. You would have a .h file which in
 Why all the talk about how .cpp files get compiled in C++? Because of the way C++ compiles files, IDE's can take advantage of the fact that when you have many .cpp files, it's not necessary to recompile all the files when you make changes. You only need to recompile a small subset of the files. Back in the old days compiling was slow, and therefore, having to avoid recompiling every single file meant saving a lot of time.
 
 Although it's much faster to compile now, it's still not very fast. If you begin to work on projects with hundreds of files, where recompiling the entire code can take many hours, you will still want to avoid having to recompile everything.
+
+## Hello World - Code analysis
+
+[todo]
+
+## Creating variables
+
+[todo]
+
+## Making objects
+
+[todo] => examples: strings
+
+## Using objects
+
+[todo]
