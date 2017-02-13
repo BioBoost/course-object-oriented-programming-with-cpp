@@ -24,9 +24,9 @@
 <!-- * [Quiz](basics_of_classes/quiz.md) -->
 <!-- * [Exercises](basics_of_classes/exercises.md) -->
 
-<!-- ### C++ Language Constructs -->
+### C++ Language Constructs
 
-<!-- * [C++ Language Constructs](cpp_language_constructs/cpp_language_constructs.md) -->
+* [C++ Language Constructs](cpp_language_constructs/cpp_language_constructs.md)
 <!-- * [Summary](cpp_language_constructs/summary.md) -->
 <!-- * [Quiz](cpp_language_constructs/quiz.md) -->
 <!-- * [Exercises](cpp_language_constructs/exercises.md) -->
