@@ -24,6 +24,13 @@
 <!-- * [Quiz](basics_of_classes/quiz.md) -->
 <!-- * [Exercises](basics_of_classes/exercises.md) -->
 
+### Dynamic Allocation
+
+* [Dynamic Allocation](dynamic_allocation/dynamic_allocation.md)
+<!-- * [Summary](dynamic_allocation/summary.md) -->
+<!-- * [Quiz](dynamic_allocation/quiz.md) -->
+<!-- * [Exercises](dynamic_allocation/exercises.md) -->
+
 ### C++ Language Constructs
 
 * [C++ Language Constructs](cpp_language_constructs/cpp_language_constructs.md)
