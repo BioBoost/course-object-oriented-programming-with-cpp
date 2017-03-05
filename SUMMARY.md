@@ -24,12 +24,12 @@
 <!-- * [Quiz](basics_of_classes/quiz.md) -->
 <!-- * [Exercises](basics_of_classes/exercises.md) -->
 
-### Dynamic Allocation
+### Memory Allocation
 
-* [Dynamic Allocation](dynamic_allocation/dynamic_allocation.md)
-<!-- * [Summary](dynamic_allocation/summary.md) -->
-<!-- * [Quiz](dynamic_allocation/quiz.md) -->
-<!-- * [Exercises](dynamic_allocation/exercises.md) -->
+* [Memory Allocation](memory_allocation/memory_allocation.md)
+<!-- * [Summary](memory_allocation/summary.md) -->
+<!-- * [Quiz](memory_allocation/quiz.md) -->
+<!-- * [Exercises](memory_allocation/exercises.md) -->
 
 ### C++ Language Constructs
 
