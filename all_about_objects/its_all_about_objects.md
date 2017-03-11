@@ -178,13 +178,13 @@ Another way to reuse implementation is by creating classes that consist of other
 
 Let's take an example of a relationship between Department and Teacher. A Teacher may belong to multiple departments. Hence Teacher is a part of a Department. But if we delete a Department object, no Teacher objects will be destroyed.
 
-![Aggregation relationship between Department and Teacher](https://www.lucidchart.com/publicSegments/view/9aec84f5-cb64-4dc3-81ab-d444b1360df6/image.png)
+![Aggregation relationship between Department and Teacher](img/aggregation.png)
 
 **Composition** is a specialized form of aggregation. It is a strong type of aggregation. In this relationship child objects do not have their own lifecycle. If a parent object is destroyed, all its child objects will also be destroyed. This represents a "death-relationship". In UML this is represented by a solid diamond followed by a line.
 
 Let's take an example of relationship between a House and a Room. House can contain multiple rooms, but there is no independent life of Room and a Room cannot belong to two different houses. If we destroy the house, the rooms will automatically be destroyed too.
 
-![Composition relationship between House and Room](https://www.lucidchart.com/publicSegments/view/3956209b-7d39-4c99-ba49-e476ec700b97/image.png)
+![Composition relationship between House and Room](img/composition.png)
 
 While a clear distinction is made here between aggregation and composition, it is not always done so in practice. In practice, one does often speak of composition even if he/she were to mean aggregation. As a result this course may also use the word composition where aggregation is meant. Of course in cases where a clear distinction is needed, the correct term will be used.
 
