@@ -31,6 +31,20 @@
 <!-- * [Quiz](memory_allocation/quiz.md) -->
 <!-- * [Exercises](memory_allocation/exercises.md) -->
 
+### Composition
+
+* [Composition](composition/composition.md)
+<!-- * [Summary](composition/summary.md) -->
+<!-- * [Quiz](composition/quiz.md) -->
+<!-- * [Exercises](composition/exercises.md) -->
+
+<!-- ### Inheritance -->
+
+<!-- * [Inheritance](inheritance/inheritance.md) -->
+<!-- * [Summary](inheritance/summary.md) -->
+<!-- * [Quiz](inheritance/quiz.md) -->
+<!-- * [Exercises](inheritance/exercises.md) -->
+
 ### C++ Language Constructs
 
 * [C++ Language Constructs](cpp_language_constructs/cpp_language_constructs.md)
