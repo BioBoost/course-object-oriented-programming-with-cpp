@@ -13,8 +13,8 @@
 ### Hello Universe
 
 * [Hello Universe](hello_universe/hello_universe.md)
-* [Summary](hello_universe/summary.md)
-* [Quiz](hello_universe/quiz.md)
+<!-- * [Summary](hello_universe/summary.md)
+* [Quiz](hello_universe/quiz.md) -->
 * [Exercises](hello_universe/exercises.md)
 
 ### Basics of Classes
