@@ -46,6 +46,142 @@ Consider the following example where a `DisplayDevice` is modelled as a composit
 
 By hiding the `LCD` object inside the `DisplayDevice` we hide the complexity of the hardware dependent class. This class may have methods for setting and resetting pixels, for changing hardware timings, for drawing rectangles, circles, and so on. We hide all that and we only expose the ability to show some text, through `display(text:string)`, and display a bitmap, through `display(image:Bitmap)`. This keeps our `DisplayDevice` simple and very user friendly.
 
+## How object are sprout to life
+
+Whenever an object of a class is instantiated, its constructor is called. This however is not all that happens:
+* the **parent constructor** is also called if the class inherits from another class
+* also all the constructors of all the composed objects are called
+
+Of course if the base class inherits from another class or the subobjects do, or contain other objects, this process repeats itself within those objects.
+
+Let's take a look at a more complex example of a `MotorCycle`. It inherits from a `MotorizedVehicle` class which in turn inherits from a `TransportationDevice`. A `MotorizedVehicle` contains a `Motor` and a `MotorCycle` is composed of a `Motor` (thorugh inheritance), two `Wheel`s, a `GearBox` and a `Battery`.
+
+![A Motorcycle Model](img/motorcycle.png)
+
+It is very important to know which constructors are called and at what time. Let's use the following implementation to illustrate which constructors are called when. Note that the implementation is shown below each class to make the code shorter.
+
+```c++
+class Motor {
+    public:
+        Motor(void);
+};
+
+Motor::Motor(void){
+   cout << "Constructing Motor" << endl;
+}
+```
+
+```c++
+class Wheel {
+    public:
+        Wheel(void);
+};
+
+Wheel::Wheel(void){
+   cout << "Constructing Wheel" << endl;
+}
+```
+
+```c++
+class GearBox {
+    public:
+        GearBox(void);
+};
+
+GearBox::GearBox(void){
+   cout << "Constructing GearBox" << endl;
+}
+```
+
+```c++
+
+class Battery {
+    public:
+        Battery(void);
+};
+
+Battery::Battery(void){
+   cout << "Constructing Battery" << endl;
+}
+```
+
+```c++
+class TransportationDevice {
+
+    public:
+        TransportationDevice(void);
+};
+
+TransportationDevice::TransportationDevice(void){
+   cout << "Constructing TransportationDevice" << endl;
+}
+```
+
+```c++
+class MotorizedVehicle : public TransportationDevice {
+    private:
+        Motor motor;
+
+    public:
+        MotorizedVehicle(void);
+};
+
+MotorizedVehicle::MotorizedVehicle(void){
+   cout << "Constructing MotorizedVehicle" << endl;
+}
+```
+
+```c++
+class Motorcycle : public MotorizedVehicle {
+
+    private:
+        Wheel front;
+        Wheel back;
+        GearBox gearbox;
+        Battery battery;
+
+    public:
+        Motorcycle(void);
+};
+
+Motorcycle::Motorcycle(void){
+   cout << "Constructing Motorcycle" << endl;
+}
+```
+
+The main program could be as simple as:
+
+```c++
+#include <iostream>
+#include "motorcycle.h"
+
+int main()
+{
+    Motorcycle vn800;
+    return 0;
+}
+
+This would output:
+
+```text
+Constructing TransportationDevice
+Constructing Motor
+Constructing MotorizedVehicle
+Constructing Wheel
+Constructing Wheel
+Constructing GearBox
+Constructing Battery
+Constructing Motorcycle
+```
+
+So basically, when constructing an object of a class the default constructor of its baseclass is called first. In turn if this class is also inheriting from another class, that baseclass default constructor is called first. Once the topclass is reached the constructors of the composed objects are called. Taking into account that also these can inherit from a baseclass. Once the object of the topclass is constructed, we traverse back toward the actual class object being constructed, under way constructing the composed objects of the baseclasses being traversed.
+
+Important to think about is this: Why are the constructors of the composed objects executed before the actual constructor of the composing object ? Simple, because those objects should be ready and in a valid state for the composing object to use it when it is constucted. For example: the MotorCycle may want to change the battery voltage to a different level in its constructor.
+
+
+![A Motorcycle Model - Constructors](img/motorcycle_constructors.png)
+
+By default, the constructors invoked are the **default** ("no-argument") constructors. Moreover, all of these constructors are called before the class's own constructor is called.
 
 
 
