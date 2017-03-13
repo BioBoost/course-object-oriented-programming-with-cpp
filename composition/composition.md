@@ -275,3 +275,9 @@ Constructing GearBox with 5 gears
 Constructing Battery
 Constructing Motorcycle
 ```
+
+Of course in practice most classes will have default constructors and if you need to change anything to the state of your internal objects you can often do this by calling the appropriate setters. However, if other constructors are available which initialize the subobject to the wanted state, it is a good idea to use them as it keep your code cleaner.
+
+## Pointers and Composition
+
+[todo]
