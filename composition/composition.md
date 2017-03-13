@@ -60,48 +60,40 @@ Let's take a look at a more complex example of a `MotorCycle`. It inherits from 
 
 It is very important to know which constructors are called and at what time. Let's use the following implementation to illustrate which constructors are called when. Note that the implementation is shown below each class to make the code shorter.
 
-*motor.h*
+
+[include](code/motorcycle_default_constructors/include/motor.h)
+
+[include](code/motorcycle_default_constructors/src/motor.cpp)
 
 
-*motor.cpp*
+[include](code/motorcycle_default_constructors/include/wheel.h)
+
+[include](code/motorcycle_default_constructors/src/wheel.cpp)
 
 
-*wheel.h*
+[include](code/motorcycle_default_constructors/include/gearbox.h)
+
+[include](code/motorcycle_default_constructors/src/gearbox.cpp)
 
 
-*wheel.cpp*
+[include](code/motorcycle_default_constructors/include/battery.h)
+
+[include](code/motorcycle_default_constructors/src/battery.cpp)
 
 
-*gearbox.h*
+[include](code/motorcycle_default_constructors/include/transportation_device.h)
+
+[include](code/motorcycle_default_constructors/src/transportation_device.cpp)
 
 
-*gearbox.cpp*
+[include](code/motorcycle_default_constructors/include/motorized_vehicle.h)
 
-*battery.h*
-
-
-*battery.cpp*
+[include](code/motorcycle_default_constructors/src/motorized_vehicle.cpp)
 
 
+[include](code/motorcycle_default_constructors/include/motorcycle.h)
 
-*transportation_device.h*
-
-
-*transportation_device.cpp*
-
-
-*motorized_vehicle.h*
-
-
-*motorized_vehicle.cpp*
-
-
-
-*motorcycle.h*
-
-
-*motorcycle.cpp*
-
+[include](code/motorcycle_default_constructors/src/motorcycle.cpp)
 
 
 The main program could be as simple as:
