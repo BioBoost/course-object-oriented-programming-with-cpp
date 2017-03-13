@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="motorcycle_non_default_constructors" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/motorcycle_non_default_constructors" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/motorcycle_non_default_constructors" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="include/battery.h" />
+		<Unit filename="include/motor.h" />
+		<Unit filename="include/wheel.h" />
+		<Unit filename="include/gearbox.h" />
+		<Unit filename="include/transportation_device.h" />
+		<Unit filename="include/motorized_vehicle.h" />
+		<Unit filename="include/motorcycle.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/battery.cpp" />
+		<Unit filename="src/motor.cpp" />
+		<Unit filename="src/wheel.cpp" />
+		<Unit filename="src/gearbox.cpp" />
+		<Unit filename="src/transportation_device.cpp" />
+		<Unit filename="src/motorized_vehicle.cpp" />
+		<Unit filename="src/motorcycle.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

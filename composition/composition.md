@@ -97,6 +97,7 @@ It is very important to know which constructors are called and at what time. Let
 
 
 The main program could be as simple as:
+
 [include](code/motorcycle_default_constructors/main.cpp)
 
 This would output:
@@ -115,7 +116,7 @@ Constructing Motorcycle
 So basically, when constructing an object of a class the default constructor of its baseclass is called first. In turn if this class is also inheriting from another class, that baseclass default constructor is called first. Once the topclass is reached the constructors of the composed objects are called. Taking into account that also these can inherit from a baseclass. Once the object of the topclass is constructed, we traverse back toward the actual class object being constructed, under way constructing the composed objects of the baseclasses being traversed.
 
 Important to think about is:
-* **Why are the constructors of the composed objects invoked before the actual constructor of the composing object ?** Simple, because those objects should be ready and in a valid state for the composing object to use it when it is constucted. For example: the MotorCycle may want to change the battery voltage to a different level in its constructor.
+* **Why are the constructors of the composed objects invoked before the actual constructor of the composing object ?** Simple, because those objects should be ready and in a valid state for the composing object to use it when it is constructed. For example: the MotorCycle may want to change the battery voltage to a different level in its constructor.
 * **Why are the constructors of the parent class invoked before the constructor of the child class ? ** Because each class should initialize the things that belong to it, not things that belong to other classes. So a child class should hand off the work of constructing the portion of it that belongs to the parent class. Second, the child class may depend on these fields when initializing its own fields; therefore, the constructor needs to be called before the child class's constructor runs.
 
 ![A Motorcycle Model - Constructors](https://www.lucidchart.com/publicSegments/view/8ea7fc2f-058f-41d3-82db-2ef5b9951153/image.png)
@@ -190,6 +191,87 @@ Bar: Name = Foo the Great
 Foo: Description = What can I say, Foo rules ...
 ```
 
+But what if we need to call a different constructor for an attribute of our class when our objects are composed of other objects. In that case we can again use the constructor initialization list, but instead of the classname we use the name of the attribute followed with an argument list.
+
+Let's for example take a television class that contains a powersupply that can convert any input voltage to any output voltage. We keep it simple and just implement the constructors to see what happens when the objects are instantiated.
+
+[include](code/composition_non_default_constructors/include/power_supply.h)
+
+[include](code/composition_non_default_constructors/src/power_supply.cpp)
+
+ Since the `PowerSupply` class has no default constructor, the `Television` class needs to use the constructor initialization list to call a constructor of `PowerSupply`. Note that it is the name of the attribute that is used and not the name of the class. Otherwise if multiple attributes of the same class would be available we would not be able to differentiate between them.
+
+[include](code/composition_non_default_constructors/include/television.h)
+
+[include](code/composition_non_default_constructors/src/television.cpp)
+
+A example program can be as simple as:
+
+[include](code/composition_non_default_constructors/main.cpp)
+
+Which would result in the output:
+
+```text
+Constructing PowerSupply: Input = 220 Output = 12
+Constructing Television
+```
+
+## A More Complex Example
+
 Let's recap on the Motorcycle example and add some none-default constructors.
 
-![A Motorcycle with non-default constructors](https://www.lucidchart.com/publicSegments/view/7bb78601-e55c-41d9-8f4d-2d528e427856/image.png)
+![A Motorcycle with non-default constructors](https://www.lucidchart.com/publicSegments/view/3b9f34ae-bbfa-4d4a-b0cf-0d3a41622285/image.png)
+
+This changes the implementation as follows:
+
+[include](code/motorcycle_non_default_constructors/include/motor.h)
+
+[include](code/motorcycle_non_default_constructors/src/motor.cpp)
+
+
+[include](code/motorcycle_non_default_constructors/include/wheel.h)
+
+[include](code/motorcycle_non_default_constructors/src/wheel.cpp)
+
+
+[include](code/motorcycle_non_default_constructors/include/gearbox.h)
+
+[include](code/motorcycle_non_default_constructors/src/gearbox.cpp)
+
+
+[include](code/motorcycle_non_default_constructors/include/battery.h)
+
+[include](code/motorcycle_non_default_constructors/src/battery.cpp)
+
+
+[include](code/motorcycle_non_default_constructors/include/transportation_device.h)
+
+[include](code/motorcycle_non_default_constructors/src/transportation_device.cpp)
+
+
+[include](code/motorcycle_non_default_constructors/include/motorized_vehicle.h)
+
+[include](code/motorcycle_non_default_constructors/src/motorized_vehicle.cpp)
+
+
+[include](code/motorcycle_non_default_constructors/include/motorcycle.h)
+
+[include](code/motorcycle_non_default_constructors/src/motorcycle.cpp)
+
+
+The main program then would need to change too.
+
+[include](code/motorcycle_non_default_constructors/main.cpp)
+
+This would output:
+
+```text
+Constructing TransportationDevice: Kawasaki VN800
+Constructing Motor with 2 cilinders
+Constructing MotorizedVehicle
+Constructing Wheel
+Constructing Wheel
+Constructing GearBox with 5 gears
+Constructing Battery
+Constructing Motorcycle
+```
