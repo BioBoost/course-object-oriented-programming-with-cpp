@@ -4,8 +4,7 @@
         "image-captions",
         "simple-page-toc",
         "copy-code-button",
-        "include-codeblock",
-        "ace"
+        "include-codeblock"
     ],
     "pluginsConfig": {
         "callouts":
@@ -28,7 +27,8 @@
             "caption": "Image _PAGE_IMAGE_NUMBER_ - _CAPTION_"
         },
         "include-codeblock": {
-            "template": "ace"
+            "template": "default",
+            "fixlang": true
         }
     }
 }
