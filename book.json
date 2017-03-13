@@ -27,7 +27,7 @@
             "caption": "Image _PAGE_IMAGE_NUMBER_ - _CAPTION_"
         },
         "include-codeblock": {
-            "template": "default",
+            "template": "full",
             "fixlang": true
         }
     }

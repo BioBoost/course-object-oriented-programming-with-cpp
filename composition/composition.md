@@ -61,162 +61,51 @@ Let's take a look at a more complex example of a `MotorCycle`. It inherits from 
 It is very important to know which constructors are called and at what time. Let's use the following implementation to illustrate which constructors are called when. Note that the implementation is shown below each class to make the code shorter.
 
 *motor.h*
-```c++
-#pragma once
 
-class Motor {
-    public:
-        Motor(void);
-};
-```
 
 *motor.cpp*
-```c++
-#include "motor.h"
-#include <iostream>
 
-Motor::Motor(void){
-   cout << "Constructing Motor" << std::endl;
-}
-```
 
 *wheel.h*
-```c++
-#pragma once
 
-class Wheel {
-    public:
-        Wheel(void);
-};
-```
 
 *wheel.cpp*
-```c++
-#include "wheel.h"
-#include <iostream>
 
-Wheel::Wheel(void){
-   cout << "Constructing Wheel" << std::endl;
-}
-```
 
 *gearbox.h*
-```c++
-#pragma once
 
-class GearBox {
-    public:
-        GearBox(void);
-};
-```
 
 *gearbox.cpp*
-```c++
-#include "wheel.h"
-#include <iostream>
-
-GearBox::GearBox(void){
-   cout << "Constructing GearBox" << std::endl;
-}
-```
-
 
 *battery.h*
-```c++
-#pragma once
 
-class Battery {
-    public:
-        Battery(void);
-};
-```
 
 *battery.cpp*
-```c++
-#include "wheel.h"
-#include <iostream>
 
-Battery::Battery(void){
-   cout << "Constructing Battery" << std::endl;
-}
-```
 
 
 *transportation_device.h*
-```c++
-#pragma once
 
-class TransportationDevice {
-
-    public:
-        TransportationDevice(void);
-};
-```
 
 *transportation_device.cpp*
-```c++
-#include "transportation_device.h"
-
-TransportationDevice::TransportationDevice(void){
-   cout << "Constructing TransportationDevice" << std::endl;
-}
-```
 
 
 *motorized_vehicle.h*
-```c++
-#pragma once
 
-#include "transportation_device.h"
-
-class MotorizedVehicle : public TransportationDevice {
-    private:
-        Motor motor;
-
-    public:
-        MotorizedVehicle(void);
-};
-```
 
 *motorized_vehicle.cpp*
-```c++
-#include "motorized_vehicle.h"
 
-MotorizedVehicle::MotorizedVehicle(void){
-   cout << "Constructing MotorizedVehicle" << std::endl;
-}
-```
 
 
 *motorcycle.h*
-```c++
-#pragma once
 
-class Motorcycle : public MotorizedVehicle {
-
-    private:
-        Wheel front;
-        Wheel back;
-        GearBox gearbox;
-        Battery battery;
-
-    public:
-        Motorcycle(void);
-};
-```
 
 *motorcycle.cpp*
-```c++
-Motorcycle::Motorcycle(void){
-   cout << "Constructing Motorcycle" << endl;
-}
-```
+
 
 
 The main program could be as simple as:
-
-
-[include](code/test.cpp)
+[include](code/motorcycle_default_constructors/main.cpp)
 
 This would output:
 
