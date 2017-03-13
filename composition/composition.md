@@ -215,9 +215,9 @@ Motorcycle::Motorcycle(void){
 
 The main program could be as simple as:
 
-```c++
+
 {% include "code/test.cpp" %}
-```
+
 
 This would output:
 
