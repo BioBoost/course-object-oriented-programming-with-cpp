@@ -216,8 +216,7 @@ Motorcycle::Motorcycle(void){
 The main program could be as simple as:
 
 
-{% include "code/test.cpp" %}
-
+[include](code/test.cpp)
 
 This would output:
 
