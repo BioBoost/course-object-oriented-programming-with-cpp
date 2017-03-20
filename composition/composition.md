@@ -195,9 +195,9 @@ But what if we need to call a different constructor for an attribute of our clas
 
 Let's for example take a television class that contains a powersupply that can convert any input voltage to any output voltage. We keep it simple and just implement the constructors to see what happens when the objects are instantiated.
 
-[include](code/composition_non_default_constructors/include/power_supply.h)
+[include](code/composition_non_default_constructors/include/powersupply.h)
 
-[include](code/composition_non_default_constructors/src/power_supply.cpp)
+[include](code/composition_non_default_constructors/src/powersupply.cpp)
 
  Since the `PowerSupply` class has no default constructor, the `Television` class needs to use the constructor initialization list to call a constructor of `PowerSupply`. Note that it is the name of the attribute that is used and not the name of the class. Otherwise if multiple attributes of the same class would be available we would not be able to differentiate between them.
 

@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -32,7 +34,11 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/power_supply.h" />
+		<Unit filename="include/television.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/power_supply.cpp" />
+		<Unit filename="src/television.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
