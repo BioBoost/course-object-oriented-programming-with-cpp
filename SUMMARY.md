@@ -38,7 +38,7 @@
 <!-- * [Quiz](composition/quiz.md) -->
 <!-- * [Exercises](composition/exercises.md) -->
 
-<!-- ### Inheritance -->
+### Inheritance
 
 * [Inheritance](inheritance/inheritance.md)
 <!-- * [Summary](inheritance/summary.md) -->
