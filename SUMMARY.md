@@ -40,7 +40,7 @@
 
 <!-- ### Inheritance -->
 
-<!-- * [Inheritance](inheritance/inheritance.md) -->
+* [Inheritance](inheritance/inheritance.md)
 <!-- * [Summary](inheritance/summary.md) -->
 <!-- * [Quiz](inheritance/quiz.md) -->
 <!-- * [Exercises](inheritance/exercises.md) -->
