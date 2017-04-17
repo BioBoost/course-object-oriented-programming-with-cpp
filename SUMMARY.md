@@ -45,6 +45,13 @@
 <!-- * [Quiz](inheritance/quiz.md) -->
 <!-- * [Exercises](inheritance/exercises.md) -->
 
+### Exceptions
+
+* [Exceptions](exceptions/exceptions.md)
+<!-- * [Summary](exceptions/summary.md) -->
+<!-- * [Quiz](exceptions/quiz.md) -->
+<!-- * [Exercises](exceptions/exercises.md) -->
+
 ### C++ Language Constructs
 
 * [C++ Language Constructs](cpp_language_constructs/cpp_language_constructs.md)
