@@ -144,7 +144,7 @@ class Foo {
 };
 ```
 
-### Class Methods
+### Instance Methods
 
 While attributes store the data of our objects, methods allow objects to have behavior. In C++ the declaration and actual definition of methods in separated. Inside the class definition we put the declaration of method, also known as the method **prototype**.
 
@@ -456,3 +456,10 @@ The two are entirely different and unrelated. In C++ (as in C), a header file ca
 Everything James said is true. It's also interesting that in updated standard C++, the C string file has been renamed to <cstring> - in fact all of the C standard library, when promoted to the C++ standard library, have been renamed with a 'c' prefix and no '.h' extension, i.e., cstdlib, cstdio, etc. It's supposed to be the case that the C functions are moved into the std namespace, as well. Many compilers continue to support <string.h>, et al., and not to put the C standard library in std::, but I believe they are not required to do either anymore. – jwismar May 10 '10 at 0:27
 
 @jwismar: All implementations are required to provide both the <cname> and <name.h> headers; the <cname> headers, as you say, put all their non-macro names into namespace std, and the <name.h> headers put all their non-macro names into the global namespace. In many implementations, the <cname> headers also put their names into the global namespace; this is technically not allowed in C++03, but will be permitted in the forthcoming C++0x. – James McNellis May 10 '10 at 0:32 -->
+
+
+
+
+<!-- ## Passing objects -->
+
+<!-- ## Copy Constructors -->

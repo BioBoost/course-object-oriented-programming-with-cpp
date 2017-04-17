@@ -54,7 +54,7 @@ Whenever an object of a class is instantiated, its constructor is called. This h
 
 Of course if the base class inherits from another class or the subobjects do, or contain other objects, this process repeats itself within those objects.
 
-Let's take a look at a more complex example of a `MotorCycle`. It inherits from a `MotorizedVehicle` class which in turn inherits from a `TransportationDevice`. A `MotorizedVehicle` contains a `Motor` and a `MotorCycle` is composed of a `Motor` (thorugh inheritance), two `Wheel`s, a `GearBox` and a `Battery`.
+Let's take a look at a more complex example of a `MotorCycle`. It inherits from a `MotorizedVehicle` class which in turn inherits from a `TransportationDevice`. A `MotorizedVehicle` contains a `Motor` and a `MotorCycle` is composed of a `Motor` (through inheritance), two `Wheel`s, a `GearBox` and a `Battery`.
 
 ![A Motorcycle Model](https://www.lucidchart.com/publicSegments/view/1eea9455-686b-4691-b71c-e8ddbac4f66e/image.png)
 
@@ -281,3 +281,5 @@ Of course in practice most classes will have default constructors and if you nee
 ## Pointers and Composition
 
 [todo]
+
+<!-- Deep copying and cloning and such -->
