@@ -34,3 +34,7 @@ This assignment cannot be used on the mBed as exceptions are disabled for this p
 
 Replace the integral data attribute of the Node with a `DigitalOut`. This will for example
 allow you to create a linked list of LEDs.
+
+### Part 5 - Reverse (optional)
+
+Add a reverse method to the linked list that reverses all the elements in the linked list.
