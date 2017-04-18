@@ -24,7 +24,13 @@ Extend the Node class with a `key` attribute which allows you to identify the it
 This will require you to add a method `get(std::string key)` which returns the data item with the specified key.
 The add method should also be changed to allow a `key` to be specified.
 
-### Part 3 - DigitalOut (mBed specific)
+### Part 3 - Exceptions (does not work for mBed)
+
+Throw a custom exception when you add an element and the specified key is already taken.
+
+This assignment cannot be used on the mBed as exceptions are disabled for this platform.
+
+### Part 4 - DigitalOut (mBed specific)
 
 Replace the integral data attribute of the Node with a `DigitalOut`. This will for example
 allow you to create a linked list of LEDs.
