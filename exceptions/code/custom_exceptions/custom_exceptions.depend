@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1492504961 source:c:\users\nico de witte\onedrive\vives\courses\object_oriented_programming_3\gitbook\exceptions\code\custom_exceptions\main.cpp
+	<iostream>
+	"cannot_divide_by_zero_exception.h"
+
+1492504989 c:\users\nico de witte\onedrive\vives\courses\object_oriented_programming_3\gitbook\exceptions\code\custom_exceptions\include\cannot_divide_by_zero_exception.h
+

@@ -170,6 +170,11 @@ This is a good practice as otherwise you do an implicit copy which can potential
 
 [include](code/custom_exceptions/include/cannot_divide_by_zero_exception.h)
 
+The C++ Standard library provides a base class specifically designed to declare objects to be thrown as exceptions.
+It is called `std::exception` and is defined in the `<exception>` header.
+This class has a virtual member function called `what()` that returns a null-terminated character sequence (of type `char *`)
+and that can be overwritten in derived classes to contain some sort of description of the exception.
+
 ## Catching all exceptions
 
 The catch-all clause `catch (...)` matches exceptions of any type. If present, it has to be the last catch clause.
