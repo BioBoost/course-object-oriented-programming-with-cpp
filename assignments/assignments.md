@@ -20,7 +20,9 @@ The following actions should be available for the linked list:
 
 ### Part 2 - Keys
 
-Extend the Node class with a `key` attribute which allows you to identify the items held by the linked list.
+Turn your linked list into a hashmap by adding a key attribute to identify your data.
+
+This can be achieve by extending the Node class with a `key` attribute which allows you to identify the items held by the linked list.
 This will require you to add a method `get(std::string key)` which returns the data item with the specified key.
 The add method should also be changed to allow a `key` to be specified.
 
@@ -32,8 +34,28 @@ This assignment cannot be used on the mBed as exceptions are disabled for this p
 
 ### Part 4 - DigitalOut (mBed specific)
 
-Replace the integral data attribute of the Node with a `DigitalOut`. This will for example
-allow you to create a linked list of LEDs.
+Replace the integral data attribute of the Node with a `DigitalOut`. This will for example allow you to create a linked list of LEDs.
+
+Now create a small main application that creates a hashmap (linked list) of four LEDs. Next ask the user which LED he wants to toggle. Use the pseudo code below as a demo program.
+
+```c++
+
+int main(void) {
+  LinkedList leds;
+  leds.add(LED1, "alive");
+  leds.add(LED2, "busy");
+  leds.add(LED3, "hungry");
+  leds.add(LED4, "sleepy");
+
+  do {
+    string input;
+    cin >> input;
+    leds.get(input).toggle();
+  } while (input != "exit");
+
+  return 0;
+}
+```
 
 ### Part 5 - Reverse (optional)
 
