@@ -34,7 +34,7 @@ This assignment cannot be used on the mBed as exceptions are disabled for this p
 
 ### Part 4 - DigitalOut (mBed specific)
 
-Replace the integral data attribute of the Node with a `DigitalOut`. This will for example allow you to create a linked list of LEDs.
+Replace the integral `data` attribute of the Node with a `DigitalOut`. This will for example allow you to create a linked list of LEDs.
 
 Now create a small main application that creates a hashmap (linked list) of four LEDs. Next ask the user which LED he wants to toggle. Use the pseudo code below as a demo program.
 
@@ -56,6 +56,8 @@ int main(void) {
   return 0;
 }
 ```
+
+Do note that LED1, LED2, ... are of type `PinName`.
 
 ### Part 5 - Reverse (optional)
 
