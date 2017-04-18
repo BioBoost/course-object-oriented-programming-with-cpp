@@ -88,3 +88,95 @@ There are many different types of runtime errors. One example is a **logic error
 A program crash is the most noticeable type of runtime error, since the program unexpectedly quits while running. Crashes can be caused by memory leaks or other programming errors. Common examples include dividing by zero, referencing missing files, calling invalid functions, or not handling certain input correctly.
 
 NOTE: Runtime errors are commonly called referred to as **bugs** and are often found during the debugging process, before the software is released. When runtime errors are found after a program has been distributed to the public, developers often release patches, or small updates, designed fix the errors.
+
+## Handling runtime errors
+
+Some runtime errors can be caught while a program is executing.
+
+Take for example a division-by-zero error; this can often be caught by checking the operands for valid values. If they are invalid the code can handle this case by throwing an error to the user, by skipping the calculation for that set of values, ...
+
+In the old days of C, many functions would return an integer or a boolean indicating of the function was able to perform its action or an error occurred (the main function is an example of this). This would lead to a list of error codes (just integral values) that were a hell to debug and were ever worse for the user of the application as they would often get a message like "Could not complete action, error 54788 occurred".
+
+The more modern way of handling errors is by using exceptions. If your application detects an erroneous condition and cannot handle it at that particular place in the code, you throw an exception and allow the calling code to handle the error or throw the exception again.
+
+## Exceptions
+
+An exception is a problem that arises during the execution of a program. A C++ exception is a response to an exceptional circumstance that arises while a program is running, such as an attempt to divide by zero.
+
+Exceptions provide a way to transfer control from one part of a program to another. C++ exception handling is built upon three keywords: try, catch, and throw.
+
+* `try`: A try block identifies a block of code for which particular exceptions will be activated. It's followed by one or more catch blocks.
+* `catch`: A program catches an exception with an exception handler at the place in a program where you want to handle the problem. The catch keyword indicates the catching of an exception.
+* `throw`: A program throws an exception when a problem shows up. This is done using a throw keyword.
+
+Assuming a block will raise an exception, a method catches an exception using a combination of the try and catch keywords. A try/catch block is placed around the code that might generate an exception. Code within a try/catch block is referred to as protected code, and the syntax for using try/catch looks like the following:
+
+```c++
+try {
+  // Code that can thrown an exception
+} catch(const <type_of_exception>& <name>) {
+   // Handle the exception
+} catch(const <type_of_exception>& <name>) {
+   // Handle the exception
+} catch(const <type_of_exception>& <name>) {
+   // Handle the exception
+}
+```
+
+You can list down multiple catch statements to catch different type of exceptions in case your try block raises more than one exception in different situations.
+
+### C++ Standard Exceptions
+
+C++ provides a list of standard exceptions defined in <exception> which we can use in our programs. These are arranged in a parent-child class hierarchy shown below:
+
+![C++ standard Exceptions](https://www.tutorialspoint.com/cplusplus/images/cpp_exceptions.jpg)
+
+Here is the small description of each exception mentioned in the above hierarchy:
+
+| Exception	| Description |
+| ---------- | --------- |
+| std::exception |	An exception and parent class of all the standard C++ exceptions. |
+| std::bad_alloc |	This can be thrown by new. |
+| std::bad_cast |	This can be thrown by dynamic_cast. |
+| std::bad_exception |	This is useful device to handle unexpected exceptions in a C++ program |
+| std::bad_typeid |	This can be thrown by typeid. |
+| std::logic_error |	An exception that theoretically can be detected by reading the code. |
+| std::domain_error |	This is an exception thrown when a mathematically invalid domain is used |
+| std::invalid_argument |	This is thrown due to invalid arguments. |
+| std::length_error |	This is thrown when a too big std::string is created |
+| std::out_of_range |	This can be thrown by the at method from for example a std::vector and std::bitset<>::operator[](). |
+| std::runtime_error |	An exception that theoretically can not be detected by reading the code. |
+| std::overflow_error |	This is thrown if a mathematical overflow occurs. |
+| std::range_error |	This is occured when you try to store a value which is out of range. |
+| std::underflow_error |	This is thrown if a mathematical underflow occurs. |
+
+### Catching possible exceptions
+
+Let's take a look at a simple example where we index inside a string outside of its size.
+
+[include](code/catching_exceptions/main.cpp)
+
+<!-- http://stackoverflow.com/questions/12833241/difference-between-c03-throw-specifier-c11-noexcept/12833405#12833405 -->
+<!-- When entering a catch clause, if its formal parameter is a base class of the exception type, it is copy-initialized from the base class subobject of the exception object. Otherwise, it is copy-initialized from the exception object (this copy is subject to copy elision). -->
+
+Note how the catch statement takes the exception passed as a reference (`const exception& e` instead of `const exception e`).
+This is a good practice as otherwise you do an implicit copy which can potentially result in an exception throw.
+
+<!-- It also breaks the polymorphism: if you want to catch pure virtual interface implementation instance, you would need to use a reference. -->
+
+## Custom exceptions
+
+[include](code/custom_exceptions/main.cpp)
+
+[include](code/custom_exceptions/include/cannot_divide_by_zero_exception.h)
+
+## Catching all exceptions
+
+The catch-all clause `catch (...)` matches exceptions of any type. If present, it has to be the last catch clause.
+
+A catch-all block may be used to ensure that no uncaught exceptions can possibly escape.
+<!-- from a function that offers nothrow exception guarantee -->
+
+
+<!-- Why there is no finally ?
+http://stackoverflow.com/questions/161177/does-c-support-finally-blocks-and-whats-this-raii-i-keep-hearing-about -->
