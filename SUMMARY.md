@@ -59,6 +59,10 @@
 <!-- * [Quiz](cpp_language_constructs/quiz.md) -->
 <!-- * [Exercises](cpp_language_constructs/exercises.md) -->
 
+### Assignments
+
+* [Assignments](assignments/assignments.md)
+
 ### Solutions
 
 * [Solutions](solutions/solutions.md)
