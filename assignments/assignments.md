@@ -20,7 +20,7 @@ The following actions should be available for the linked list:
 
 ### Part 2 - Keys
 
-Turn your linked list into a hashmap by adding a key attribute to identify your data.
+Turn your linked list into a dictionary by adding a key attribute to identify your data.
 
 This can be achieve by extending the Node class with a `key` attribute which allows you to identify the items held by the linked list.
 This will require you to add a method `get(std::string key)` which returns the data item with the specified key.
@@ -36,7 +36,7 @@ This assignment cannot be used on the mBed as exceptions are disabled for this p
 
 Replace the integral `data` attribute of the Node with a `DigitalOut`. This will for example allow you to create a linked list of LEDs.
 
-Now create a small main application that creates a hashmap (linked list) of four LEDs. Next ask the user which LED he wants to toggle. Use the pseudo code below as a demo program.
+Now create a small main application that creates a dictionary (linked list) of four LEDs. Next ask the user which LED he wants to toggle. Use the pseudo code below as a demo program.
 
 ```c++
 
