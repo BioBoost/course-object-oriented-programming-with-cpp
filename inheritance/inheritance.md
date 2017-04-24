@@ -142,6 +142,101 @@ class <subclass> : public <baseclass>
 
 Note that *extending* the baseclass is exactly what we are doing when implementing inheritance. We take a general class and add something to it: data, behavior or both.
 
+### Constructors and inheritance
+
+When creating objects, C++ will not only call the constructor of the type you are creating but it will implicitly call a constructor of each baseclass. Let's take a look at the inheritance hierarchy below.
+
+![Inheritance hierarchy of computer hardware](img/computer_hardware_inheritance.png)
+
+When for example creating an object of type *QuadCore*, the constructor of *QuadCore* will implicitly call the constructor of *Processor* which will call the constructor of *ComputerHardware* which will call the constructor of *Product*. These calls are provided by default by C++ and are done before anything else. That means that the rest of you constructor code will be executed ofter the contructor call to the baseclass.
+
+This basically means that the *Product* will be constructed first, next the *ComputerHardware*, after which the *Processor* and last the *QuadCore*. This is a bit logical as you can only initialize the specific data of *ComputerHardware* after the data of *Product* has been initialized.
+
+There is however a catch to this whole constructing system.
+
+Remember that if you do not define a constructor in C++, it will provide you with a *default constructor* for a class. However once you create a constructor yourself C++ will not provide this default constructor anymore. That means if you create a single constructor that takes arguments, your class will not have a default constructor anymore.
+
+Since C++ will add an implicit call to the default constructor of the baseclass for each subclass, it will not find one and the compiler will turn up a compiler error. In other words if no default constructor exists for the baseclass your program will fail.
+
+This can be fixed using two approaches:
+* add a default constructor to the baseclass. This is however not always possible or even advisable as you may not have access to the implementation of the baseclass or it might not make sense to add a default constructor.
+* explicitly call another constructor of the baseclass. This can be achieved by using the **constructor initialization list** to call a specific constructor of the baseclass.
+
+The second approach mostly takes the preference.
+
+An example of this for the constructor of the Tank class would be:
+
+```c++
+Tank::Tank(void)
+  : Entity(START_HEALTH) {
+    // ....
+  }
+```
+
+Note how the name of the baseclass is used to call a baseclass constructor. `START_HEALTH` is the default health value with which a tank enters the game.
+
+#### Quick summary
+
+* C++ provides a default constructor if you provide no constructor(s).
+* With inheritance each constructor is called from bottom to top but actually executed from top to bottom.
+* If no default constructor exists for the baseclass you will need to add one or call another constructor explicitly using the constructor initialization list and provide the required arguments.
+
+## Method overriding
+
+Method overriding, in object oriented programming, is a language feature that allows a subclass or child class to provide a specific implementation of a method that is already provided by one of its superclasses or parent classes. The implementation in the subclass overrides (replaces) the implementation in the superclass by providing a method that has the same name and the same parameters, and same return type as the method in the parent class. These three parts are all together called the **signature of a method**. An overriding method can also return a subtype of the type returned by the overridden method. This subtype is called a covariant return type.
+
+> #### Alert:: Method overriding <=> Method overloading
+> Method Overloading is a feature that allows a class to have two or more methods having same name, if their argument lists are different. Constructor overloading allows a class to have more than one constructors having different argument lists. Overloaded methods are differentiated by the number and the type of the arguments passed into the method.
+>
+
+The version of a method that is executed will be determined by the object that is used to invoke it. If an object of a parent class is used to invoke the method, then the version in the parent class will be executed, but if an object of the subclass is used to invoke the method, then the version in the child class will be executed.
+
+The ability of a subclass to override a method allows a class to inherit from a superclass whose behavior is "close enough" and then to modify behavior as needed.
+
+![Method Overriding](img/shapes_method_overriding.png)
+
+The UML diagram below shows a couple of examples of method overriding. First of all there is the `draw()` method that is defined for the *Shape* class and its descendants. It takes no arguments and has no return value. Next there are the `getArea()` and `getCircumference()` methods which do return a `double`. Last is the `doesContain()` method which checks if the *Shape* contains a *Point*. It takes an argument and returns a value. Important to note is that the *signature* of all these methods are the same! The rules for method overriding are less strict than that but more on this later.
+
+Some rules:
+
+* The argument list should be exactly the same as that of the overridden method.
+* The return type should be the same or a subtype of the return type declared in the original overridden method in the super class.
+* The access level cannot be more restrictive than the overridden method’s access level. For example: if the super class method is declared public then the overriding method in the sub class cannot be either private or protected.
+* A subclass can only override methods declared public or protected.
+* Constructors cannot be overridden.
+
+You can call methods of the base class by using the name of the baseclass followed by **scope resolution operator** `::` followed by the name of the method you wish to call. This can be useful if you do not want to replace the implementation of the baseclass but rather want to extend it.
+
+For example the `to_string()` implementations of Soldier can make use of the already existing implementation of the `to_string()` method of Entity as follows:
+
+```c++
+std::string Soldier::to_string(void) {
+  std::stringstream ss;
+  ss << Entity::to_string();
+  ss << " | Shells: " << numberOfShells;
+  return ss.str();
+}
+```
+
+Some main code lines like this:
+
+```c++
+Entity entity;
+Soldier soldier;
+Tank tank;
+
+cout << entity.to_string() << endl;
+cout << soldier.to_string() << endl;
+cout << tank.to_string() << endl;
+```
+
+would output something like:
+
+```
+[id = 13] Health = 510
+[id = 14] Health = 40 | Shells: 546
+[id = 15] Health = 301 | Shells: 98 (52mm)
+```
 
 
 
@@ -149,9 +244,29 @@ Note that *extending* the baseclass is exactly what we are doing when implementi
 
 
 
-## Poly:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ## Poly:
 
 Boss again: we need to be able to draw all items
+
+
+Important to know is that while method overriding can be done out of the box, polymorphism needs to be enabled in C++ and is default not. A method can be declared a candidate for late binding (polymorphism) by appending the keyword `virtual` before the declaration of the method in the class. -->
+
+
 
 <!-- ## Composition versus Inheritance
 
