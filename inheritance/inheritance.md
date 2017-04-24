@@ -106,13 +106,31 @@ While a Soldier had a `numberOfBullets` and Tank a `numberOfShells` both are act
 
 ## Private, protected and public members
 
-Very important to know is that a derived class inherits all the members of its base class, even the private ones, However it cannot access the **private members** of its baseclass. This means that the Tank class cannot directly access the id and health of Entity. For this reason getters are provided for these attributes.
+Attributes and methods are declared with an **access specifier** such as `private`, `protected` or `public`. These allow the developer to determine who can access the class, attributes or methods.
+
+Very important to know is that a derived class inherits all the members of its base class, even the private ones, However it cannot access the **private members** (both attributes and methods) of its baseclass. This means that the Tank class cannot directly access the id and health of Entity. For this reason getters are provided for these attributes.
 
 Since a Tank and Soldier both need to be able to change their health, a setter needs to be added to the Entity class. As a `heal()` method is already available, a `damage()` method was added to provide the opposite action of healing.
 
 Another solution would be to make the attributes protected. This would allow subclasses to access the attributes directly, while still keeping them inaccessible for outside classes. This can be a good solution in same cases, but most of the time it is cleaner to use accessors.
 
 Do note that you can also make methods protected, allowing subclasses to use them, but not outside classes.
+
+Let's take another example: consider a class `SpaceObject` with a subclass `Planet`. Than we also create a class `Space` which is composed of several `SpaceObject`s and `Planet`s. As shown below, protected attributes and methods are noted using the `#` symbol in UML.
+
+![A Space example using protected attributes](img/protected_space_example.png)
+
+In the example the `size` of a SpaceObject can only be accessed by SpaceObject itself, not even by the subclass Planet. However the `coordinates` are accessible by both SpaceObject and all of its subclasses (such as Planet). However not accessible from outside. `MAX_SIZE` is a `final` and `static` class variable which is made `public` and so accessible by all. However as it is `final` it can only be read and not written.
+
+Let's make an overview
+
+| Attribute of SpaceObject | Accessible by Planet? | Accessible by Space? |
+|----|----|----|
+|size|NO|NO|
+|coordinates|YES|NO|
+|MAX_SIZE|YES|YES|
+
+The same rules apply for access specifiers of methods.
 
 ## Is-a relationships
 
@@ -238,37 +256,275 @@ would output something like:
 [id = 15] Health = 301 | Shells: 98 (52mm)
 ```
 
+## Polymorphism
+
+Polymorphism comes from Greek and means:
+* Poly = many
+* Morph = form, shape
+
+So polymorphism is the ability of an object to take on many forms. The most common use of polymorphism in OOP occurs when a parent class reference is used to refer to a child class object.
+
+This basically means that you can do the following in our `Entity` example application:
+
+```c++
+Entity * entity = new Entity();
+Entity * soldier = new Soldier();
+Entity * tank = new Tank();
+```
+
+Do take note that this only works when using pointer of the baseclass type. We cannot do this when creating local variables on the stack unless we then access them via a pointer of the baseclass as so:
+
+```c++
+Soldier soldier;
+
+Entity * soldierEntity = &soldier;
+```
+
+This is often used when storing subtypes inside and array or container class:
+
+```c++
+std::vector<Entity*> entities;
+
+entities.push_back(new Entity());
+entities.push_back(new Soldier());
+entities.push_back(new Tank());
+```
+
+Of course in a realistic application we would populate the list from a database or a file.
+
+C++ tracks the actually type of object. This basically means that while all the objects created above
+are Entities because of inheritance, C++ still knows that some are Tanks or Soldier.
+
+Polymorphism allows us to store subtypes inside an array of the baseclass type> Now what would happen if we were to add the following code to the application:
+
+```c++
+for (unsigned int i = 0; i < entities.size(); i++) {
+  cout << entities[i]->to_string() << endl;
+}
+```
+
+Which would output:
+
+```
+[id = 17] Health = 510
+[id = 18] Health = 40
+[id = 19] Health = 301
+```
+
+This is actually not what we expected. We expected that each entities 'correct' `to_string()` method would be called.
+
+Important to know is that while method overriding can be done out of the box, polymorphism needs to be enabled in C++ and is default not. A method can be declared a candidate for late binding (polymorphism) by appending the keyword `virtual` before the declaration of the method in the class as shown below. Strictly speaking only the `to_string()` method of Entity needs to be declared virtual here.
+
+```c++
+class Entity {
+  // ...
+  public:
+    virtual std::string to_string(void);
+};
+
+class Soldier : public Entity {
+  // ...
+  public:
+    std::string to_string(void);
+};
+```
+
+If we execute the main code again now the output will be:
+
+```
+[id = 17] Health = 510
+[id = 18] Health = 40 | Shells: 546
+[id = 19] Health = 301 | Shells: 98 (52mm)
+```
+
+### Another look at polymorphism
+
+Source: http://stackoverflow.com/questions/2391679/why-do-we-need-virtual-functions-in-c#comment32597274_2392656
+
+Let's say you have these two classes:
+
+```c++
+class Animal {
+  public:
+    void eat(void) {
+      std::cout << "I'm eating generic food.";
+    }
+};
+```
+
+```c++
+class Cat : public Animal {
+  public:
+    void eat(void) {
+      std::cout << "I'm eating a rat.";
+    }
+};
+```
+
+In your main function:
+
+```c++
+void main(void) {
+  Animal * animal = new Animal();
+  Cat * cat = new Cat();
+
+  animal->eat(); // outputs: "I'm eating generic food."
+  cat->eat();    // outputs: "I'm eating a rat."
+}
+```
+
+So far so good right? Animals eat generic food, cats eat rats, all without virtual.
+
+Let's change it a little now so that eat() is called via an intermediate function (a trivial function just for this example):
+
+```c++
+
+void make_it_eat(Animal * animal) {
+  animal->eat();
+}
+
+void main(void) {
+  Animal * animal = new Animal();
+  Cat * cat = new Cat();
+
+  make_it_eat(animal);  // outputs: "I'm eating generic food."
+  make_it_eat(cat);     // outputs: "I'm eating generic food."
+}
+```
+
+Uh oh ... we passed a Cat into `make_it_eat()`, but it won't eat rats. Should you overload `make_it_eat()` so it takes a `Cat *` ? If you have to derive more animals from Animal they would all need their own `make_it_eat()`.
+
+The solution is to make `eat()` a virtual function:
+
+```c++
+class Animal {
+  public:
+    virtual void eat(void) {
+      std::cout << "I'm eating generic food.";
+    }
+};
+```
+
+Where now all goes well:
+
+```c++
+
+void make_it_eat(Animal * animal) {
+  animal->eat();
+}
+
+void main(void) {
+  Animal * animal = new Animal();
+  Cat * cat = new Cat();
+
+  make_it_eat(animal);  // outputs: "I'm eating generic food."
+  make_it_eat(cat);     // outputs: "I'm eating a rat."
+}
+```
+
+If we did not have this polymorphic behavior we would have to create a `make_it_eat()`
+method for each type of Animal. This would definitely cause lots of errors and headaches.
+
+So polymorphism is again another technique that allows us to write short, clean and maintainable code.
+
+### Virtual Destructors
+
+The `virtual` keyword is not only important for methods we which to override and access via baseclass pointers. It is also imporant when considering dynamic memory usage. When reserving memory in your objects, you need to free it once the objects are destroyed. This is accomplished using the `delete` keyword. This has been discussed in detail in the chapter "Memory Allocation".
+
+However what if you extend this class. Is the destructor of the baseclass still called in that case?
+
+Let's take a look at a simple example:
+
+```c++
+class Animal{
+  public:
+    ~Animal(){
+        std::cout << "Destroying an Animal" << std::endl;
+    }
+};
+```
+
+and a subclass from Animal named Cat:
+
+```c++
+class Cat : public Animal {
+  public:
+    ~Cat(){
+        std::cout << "Destroying a Cat" << std::endl;
+    }
+};
+```
+
+If we create a new Cat we expect both destructors to be called:
+
+```c++
+int main() {
+    Animal * a = new Cat();
+    delete a;
+    return 0;
+}
+```
+
+However the only thing the output shows is:
+
+```
+Destroying an Animal
+```
+
+Do note that this is not the case when a Cat object is created on the stack.
+
+To fix this, we are required to make the destructor of Animal `virtual`.
+
+```c++
+class Animal{
+  public:
+    virtual ~Animal(){
+        std::cout << "Destroying an Animal" << std::endl;
+    }
+};
+```
+
+```c++
+int main() {
+    Animal * a = new Cat();
+    delete a;
+    return 0;
+}
+```
+
+Rendering the output
+
+```
+Destroying a Cat
+Destroying an Animal
+```
+
+Note that the destructors are executed in the opposite order as the constructors.
+
+## Abstract classes
+
+Abstract classes are classes that cannot be instantiated. In other words you cannot construct objects from it.
+
+A common use of abstract classes is to provide an outline of a class. It can already provide functionality, i.e. some parts of the class are implemented and some parts are just outlined with a method declaration.
+
+While an abstract class cannot be instantiated, you can create a concrete class based on an abstract class (through inheritance), which then can be instantiated. To do so you have to inherit from the abstract class and override the abstract methods, i.e. implement them.
+
+An abstract class does a few things for the inheriting subclass:
+* Define methods which can be used by the inheriting subclass.
+* Define abstract methods which the inheriting subclass must implement.
+* Provide a common interface which allows the subclass to be interchanged with all other subclasses.
+
+A class is mostly made abstract because it contains some abstract methods. An abstract method is a method that is declared without an implementation (without braces, and followed `=0` and a semicolon), like this:
+
+```C++
+void draw() = 0;
+```
+
+In C++, a class is automatically and implicitly declared abstract if at least one method lacks an implementation.
+
+When an abstract class is subclassed, the subclass usually provides implementations for all of the abstract methods in its parent class. However, if it does not, then the subclass is also an abstract class.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- ## Poly:
-
-Boss again: we need to be able to draw all items
-
-
-Important to know is that while method overriding can be done out of the box, polymorphism needs to be enabled in C++ and is default not. A method can be declared a candidate for late binding (polymorphism) by appending the keyword `virtual` before the declaration of the method in the class. -->
-
-
-
-<!-- ## Composition versus Inheritance
-
-
-What to use when -->
+<!--
+Interfaces:
+A pure Abstract class has only abstract member functions and no data or concrete member functions. In general, a pure abstract class is used to define an interface and is intended to be inherited by concrete classes. It's a way of forcing a contract between the class designer and the users of that class. The users of this class must declare a matching member function for the class to compile. -->
