@@ -78,6 +78,69 @@ It should feel awkward to change two classes for a single change based on a sing
 
 Let's be lazier but smarter programmers and take another approach to this problem.
 
+## Introducing inheritance
+
+The extension of the classes with an id can be easily solved (literally minutes, even with 100 different types of vehicles and soldier classes) if we had some sort of general class that held all the common properties and actions of all the things that can fight in our game. This is exactly what inheritance provides for us.
+
+Inheritance allows a class to inherit (get) the properties and methods of another class. In other words, the **subclass** inherits the states and behaviors from the **base class**. The subclass is also called the **derived class** while the base class is also known as the **super-class**. The derived class can add its own additional attributes and methods. These additional attributes and methods differentiates the derived class from the base class.
+
+It is also possible to change the implementation of certain methods in the base class, also known as **method overriding**.
+
+A super-class can have any number of subclasses. While in java, a sublcass can have only one superclass, in C++ it is possible to inherit from multiple base classes, known as **multiple inheritance** (however not always a good idea or good practice).
+
+So going back to our example we could create a `Entity` class and put all the common properties of `Tank` and `Soldier` in this class. The same can be done for the methods of the `Tank` and `Soldier` class. Do take note that the constructor of the `Entity` class can only be used to create a general `Entity` object and does not know of the `Tank` and `Soldier` classes and their more specific properties such as *gunCalibre*.
+
+![UML class diagram of Tank and Soldier inheriting from Entity](https://www.lucidchart.com/publicSegments/view/fd3142ee-d6f4-4f19-a7e3-f29a1ef990cf/image.png)
+
+In an UML class diagram inheritance is depicted by drawing a closed arrow from the subclass to the base class as shown in the diagram above.
+
+Entity has two constructors (constructor overloading). One default (no arguments) and one that takes *health* as an argument. This second one was added because one could image that a tank has a lot more health than a soldier. So when a Tank object is constructed, we could use the constructor initialization list to call the second constructor of Entity.
+
+We also provided an implementation for the `to_string()` method.
+
+Now the derived class `Tank` can be refactored to a simple class with only the specific `numberOfShells` and `gunCalibre` attributes, a constructor, some getters, some setters and a more specific implementation of `to_string()`. The *fight* methods cannot be refactored yet and need to stay inside the specific classes. More on this later.
+
+A similar refactor needs to be done to the `Soldier` class.
+
+While a Soldier had a `numberOfBullets` and Tank a `numberOfShells` both are actually the same. However it feels incorrect to refactor this to `Entity` as this would mean that every Entity will have some sort of ballistic weapon with shells. As Agile programmers, we await a better solution.
+
+## Private, protected and public members
+
+Very important to know is that a derived class inherits all the members of its base class, even the private ones, However it cannot access the **private members** of its baseclass. This means that the Tank class cannot directly access the id and health of Entity. For this reason getters are provided for these attributes.
+
+Since a Tank and Soldier both need to be able to change their health, a setter needs to be added to the Entity class. As a `heal()` method is already available, a `damage()` method was added to provide the opposite action of healing.
+
+Another solution would be to make the attributes protected. This would allow subclasses to access the attributes directly, while still keeping them inaccessible for outside classes. This can be a good solution in same cases, but most of the time it is cleaner to use accessors.
+
+Do note that you can also make methods protected, allowing subclasses to use them, but not outside classes.
+
+## Is-a relationships
+
+The superclass and subclass have an **"is-a"** relationship between them. This means we can state that `Tank` is-an `Entity` and `Soldier` is-an `Entity` if we take the previous example.
+
+If you cannot logically state that 'subclass' is-a 'superclass' than you made a mistake to make 'subclass' inherit from 'superclass'. An example of this would be the case when you would create a subclass `Cement` from `Food` because `Cement` also has an expiration date. This may seem DRY but it is illogical. You can't state that `Cement` is-a `Food`.
+
+Let's see some examples:
+
+If we needed to model both a *Bus* class and a *Car* class it makes perfect sense to create a *Vehicle* class and make both *Bus* and *Car* inherit from them. It's perfectly valid to state that
+* a Bus is a Vehicle
+* a Car is a Vehicle
+
+However it would of been illogical to make *Bus* inherit from *Car* or vice versa as it would not have been logical to state that:
+* a Bus is a Car
+* a Car is a Bus
+
+## Inheritance in C++
+
+To implement inheritance in C++ all you need is a baseclass and a subclass. The subclass needs to extend the baseclass and this can be accomplished by using the syntax shown below:
+
+```c++
+class <subclass> : public <baseclass>
+  // Implementation
+}
+```
+
+Note that *extending* the baseclass is exactly what we are doing when implementing inheritance. We take a general class and add something to it: data, behavior or both.
 
 
 

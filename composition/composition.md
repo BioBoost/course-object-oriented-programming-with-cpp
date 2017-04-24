@@ -46,6 +46,8 @@ Consider the following example where a `DisplayDevice` is modelled as a composit
 
 By hiding the `LCD` object inside the `DisplayDevice` we hide the complexity of the hardware dependent class. This class may have methods for setting and resetting pixels, for changing hardware timings, for drawing rectangles, circles, and so on. We hide all that and we only expose the ability to show some text, through `display(text:string)`, and display a bitmap, through `display(image:Bitmap)`. This keeps our `DisplayDevice` simple and very user friendly.
 
+
+<!-- TODO: This should probable be moved to another chapter (after composition and inheritance) -->
 ## How Objects Sprout to Life
 
 Whenever an object of a class is instantiated, its constructor is called. This however is not all that happens:
