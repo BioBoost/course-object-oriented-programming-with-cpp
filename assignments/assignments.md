@@ -88,7 +88,7 @@ his equipment with this. This would allow you to create your own army and choose
 
 Display the battlefield using a console output, example:
 ```
-A B C D E F G H I J K L M N O P Q R S T
+  A B C D E F G H I J K L M N O P Q R S T
 0
 1
 2
