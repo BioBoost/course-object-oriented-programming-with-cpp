@@ -62,3 +62,48 @@ Do note that LED1, LED2, ... are of type `PinName`.
 ### Part 5 - Reverse (optional)
 
 Add a reverse method to the linked list that reverses all the elements in the linked list.
+
+## Battleships
+
+The basic idea of this assignment is to create a battleships clone.
+
+Battleships is a game where two players own battleships placed on a matrix field.
+Each player gets a turn to shoot at a location of the other player. The goal is to
+destroy the ships of the other player.
+
+Your clone should have a similar turn based gameplay.
+
+Each player can place different types of war machines on the battlefield. The types
+could for example be different kinds of Tanks:
+* normal tank
+* laser tank
+* rocket tank
+
+Each tank may have different health, range, damage, size, ...
+
+An extra gear of war could be a radar system that can scan a part of the opposite players battlefield.
+
+A possible start of the game could be that a player starts with a number of credits and can buy
+his equipment with this. This would allow you to create your own army and choose more strategic.
+
+Display the battlefield using a console output, example:
+```
+A B C D E F G H I J K L M N O P Q R S T
+0
+1
+2
+3
+4             T
+5
+6
+7
+8
+9
+```
+
+where T stands for Tank.
+
+All interaction with the user should happen via console. Tank selection, shoot location, ...
+
+As an opposite player you should create a very basic AI. Which for example selects random tanks,
+places them randomly and shoot randomly.
