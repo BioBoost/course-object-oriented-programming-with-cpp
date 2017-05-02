@@ -28,101 +28,94 @@ The second approach is to create a new class as a subtype of an existing class. 
 take the form of an existing class and extend it, and this without modifying the existing class.
 This is called **Inheritance** and it is one of the cornerstones of an object oriented programming language.
 
-## A wargame as an example
+## Learn by Example
 
-Let us start based on an example game. Imagine you get the assignment to create a simple game
-where a player can manage an army base, where they can build tanks and other gears of war. They can then use these to fight other players (could be computer controlled AI).
+Let us start based on an example application. Imagine yourself taking on the job to create an application for a store that
+sells antique war vehicles, boats, airplanes, weapons and such. As an example we will take a closer look at the modeling of some possible classes in this application.
+As we are just starting out, we start small and only implement parts as needed.
 
-As an example we will take a closer look at the modeling of some possible classes in this game. As we are just starting out with this game, we start easy and only implement parts as needed.
+To start of we create a *Bomber* class (a sort of airplane that can drop a number of bombs) and a *Tank* class (a vehicle with tracks and a huge main gun), which are currently sold by the store.
+Possible models of these classes are shown as UML diagrams below.
 
-To start of we create a *Tank* class and a *Soldier* class. The UML diagrams of both classes are depicted below.
+![Basic Tank and Bomber classes](https://www.lucidchart.com/publicSegments/view/0e35d7ef-e39c-444b-858b-1ad49326e953/image.png)
 
-![Basic Tank class](https://www.lucidchart.com/publicSegments/view/5b1b35dc-e10c-4d9e-8840-11c16162cb0e/image.png)
+For the Bomber class we define the attributes *bombCapacity*, *description*, *price* and *wingWidth*.
+For the Tank class we define the attributes *gunCaliber*, *description* and *price*.
 
-For the Tank class we define the properties *health*, *numberOfShells* and *gunCalibre*.
+All attributes are initialized to default values inside the constructor except for the description, which is passed as an argument.
+Other attributes can however be changed using the appropriate setters. Currently no getters are supplied, but all information is
+included in a string that can be retrieved using the `to_string()` method.
 
-All attributes are initialized to default values inside the default constructor. Some setters are adding to allow the Tank to resupply and repair. Getters allow access to the attributes to be displayed in some sort of interface.
-
-Since only two classes are available, two fight methods (overloading) are added so a Tank can fight a Tank and a Tank can fight a Soldier.
-
-![Basic Soldier class](https://www.lucidchart.com/publicSegments/view/db282903-1557-40da-92c2-66d9d534523d/image.png)
-
-For the Soldier class we define the properties *health* and *numberOfBullets*.
-
-All attributes are initialized to default values inside the default constructor. Some setters are adding to allow the Soldier to resupply and heal. Again all attributes can be accessed via getters.
-
-Two overloaded fight methods allow the Soldier to initiate a fight with another Soldier or Tank.
-
-In both classes the *to_string()* is mainly for debugging and logging.
-
-Even when your programming experience is still not that great, you might feel that there are a couple of things that feel wrong about these models. This will be fixed as we advance through this chapter. Some questions you need to ask yourself:
+Even when your programming experience is still not that great, you might feel that there are a couple of things that feel wrong about these models.
+This will be fixed as we advance through this chapter. Some questions you need to ask yourself:
 * Is this code DRY?
-* What if we added other gears of wars? Or other types of soldier and tanks?
-* What about the fight methods?
+* What if we added other gears of war? Or other types of tanks and planes?
+* What about the attributes that are available in both classes?
+* Why is Tank a more general class name than Bomber. Should we not rename Bomber to Airplane or something?
 
 ## Code always changes
 
-Something to remember is that code evolves. It changes over time as things get added, removed or refactored. Static code will eventually become outdated and die. On top of that your boss, client, teacher, ... will never tell you the whole story. Once they get the first prototype, and they like it, there will always a "would it be possible to add a ..." moment. That is also why it is also more fun to program based on methodologies such as SCRUM and Agile as they take the fact of change into account.
+Something to remember is that code evolves. It changes over time as things get added, removed or refactored. Static code will eventually become outdated and die. On top of that your boss, client, teacher, ... will never tell you the whole story. Once they get the first prototype, and they like it, there will always be a "would it be possible to add ..." moment. That is also why it is also more fun to program based on methodologies such as SCRUM and Agile as they take the fact of change into account.
 
-So let's take the game example from the previous section as an example. You created the *Tank* and *Soldier* class after which your boss shows up and tells you to add an identifier to the Soldier and Tank classes to be able to save them in a database. This means you need to change both classes as shown in the following UML class diagrams.
+So let's take the application example from the previous section a step further. We created the *Tank* and *Bomber* class after which your boss shows up and tells you to add an identifier to the Bomber and Tank classes to be able to save them in a database. This means you need to change both classes as shown in the following UML class diagrams.
 
-![Tank class UML diagram with ID](https://www.lucidchart.com/publicSegments/view/078ea71e-561b-42c7-9bf7-d66f36dba785/image.png)
+![Tank and Bomber classes with separate IDs](https://www.lucidchart.com/publicSegments/view/e283dd59-857b-46b0-ba70-b75a8a373ec4/image.png)
 
-![Soldier class UML diagram with ID](https://www.lucidchart.com/publicSegments/view/3f3a9b0e-933f-450c-af25-669b4056024a/image.png)
+An extra attribute `id` is added of type `long` to store this unique (in scope of a single class type) identifier. This identifier will be used to uniquely identify instances inside the database. A seconds constructor needs to be added to the application so that when instances are loaded from the database the already existing id can be used. The constructor that was already present generates the id based on the ones that are already taken. On top of that a getter method is also supplied for the id.
 
-Note that the id is not added as an argument to the constructor of the classes. This because of the assumption that most of the time the id will be generated based on the ones that are already taken. On top of the attribute a getter methods is also supplied for the id.
+Notice that two classes had to change to add an id attribute, a getter and a constructor. Actually the implementation of the already present constructor also needs to change to generate an id based on the ones that have already been taken. And if not careful, one might forget to change the `to_string()` implementation to also output the id.
 
-Notice that we had to change two classes to add an id attribute and a getter. We actually also need to change the implementation of the constructor to generate an id based on the ones already taken. And if we are not careful we might forget to change the `to_string()` implementation.
+It should feel awkward to change two classes for a single change based on a single property. And what if there were like 10, 20 or a 100 sorts of army weapons. It would be a days work to add this simple change to such an application.
 
-It should feel awkward to change two classes for a single change based on a single property. And what if we had like 10, 20 or a 100 sorts of army weapons. It would be a days work to add such a simple change to our game.
+A second change that will be required but has not been discussed yet is the fact that getters need to be implemented for all the attributes that will need to be stored in the database. Currently only the to_string method provides access to that information. However it would be an extreme bad design choice to parse the output of this to_string method for the needed information or to store the output string in the database.
 
 Let's be lazier but smarter programmers and take another approach to this problem.
 
 ## Introducing inheritance
 
-The extension of the classes with an id can be easily solved (literally minutes, even with 100 different types of vehicles and soldier classes) if we had some sort of general class that held all the common properties and actions of all the things that can fight in our game. This is exactly what inheritance provides for us.
+The extension of the classes with an id can be easily solved (literally minutes, even with 100 different types of vehicles, airplanes, ... classes) if some sort of general class existed that held all the common properties and actions of all the things that can be sold in the store. This is exactly what inheritance provides for us.
 
-Inheritance allows a class to inherit (get) the properties and methods of another class. In other words, the **subclass** inherits the states and behaviors from the **base class**. The subclass is also called the **derived class** while the base class is also known as the **super-class**. The derived class can add its own additional attributes and methods. These additional attributes and methods differentiates the derived class from the base class.
+Inheritance allows a class to inherit (get) the properties and methods of another class. In other words, the **subclass** inherits the states and behaviors from the **base class**. The subclass is also called the **derived class** while the base class is also known as the **super-class**. The derived classes can add their own additional attributes and methods. These additional attributes and methods differentiate the derived classes from the base class.
 
-It is also possible to change the implementation of certain methods in the base class, also known as **method overriding**.
+> #### Info::Inheritance = Extension
+>
+> Inheritance is also often described as a mechanism to **extend** the behavior and properties of the superclass.
+> This is just the reason why Java uses the extend keyword for inheritance.
 
-A super-class can have any number of subclasses. While in java, a sublcass can have only one superclass, in C++ it is possible to inherit from multiple base classes, known as **multiple inheritance** (however not always a good idea or good practice).
+It is also possible to change the implementation of certain methods in the base class, which is also known as **method overriding**.
 
-So going back to our example we could create a `Entity` class and put all the common properties of `Tank` and `Soldier` in this class. The same can be done for the methods of the `Tank` and `Soldier` class. Do take note that the constructor of the `Entity` class can only be used to create a general `Entity` object and does not know of the `Tank` and `Soldier` classes and their more specific properties such as *gunCalibre*.
+A super-class can have any number of subclasses. While in Java, a subclass can have only one superclass, in C++ it is possible to inherit from multiple base classes, known as **multiple inheritance** (however not always a good idea or good practice).
 
-![UML class diagram of Tank and Soldier inheriting from Entity](https://www.lucidchart.com/publicSegments/view/fd3142ee-d6f4-4f19-a7e3-f29a1ef990cf/image.png)
+So going back to the store example, it an `AntiqueItem` class could be created that contains all the common properties of `Tank` and `Bomber`. The same can be done for the shared behavior of both classes. Do take note that the constructor of the `AntiqueItem` class can only be used to create a general AntiqueItem object and does not know of the Tank and Bomber classes and their more specific properties such as *gunCaliber*, *bombCapacity* and *wingWidth*.
+
+![UML class diagram of Tank and Bomber inheriting from AntiqueItem](https://www.lucidchart.com/publicSegments/view/37fa920f-53bd-48fa-90bb-eaf38d1c9c28/image.png)
 
 In an UML class diagram inheritance is depicted by drawing a closed arrow from the subclass to the base class as shown in the diagram above.
 
-Entity has two constructors (constructor overloading). One default (no arguments) and one that takes *health* as an argument. This second one was added because one could image that a tank has a lot more health than a soldier. So when a Tank object is constructed, we could use the constructor initialization list to call the second constructor of Entity.
+AntiqueItem has two constructors (constructor overloading). One that takes a description and one that takes a description and an id. The correct constructors will need to be called from the initializer list of subclasses constructors. The to_string method will also provide a basic implementation for the information available inside an AntiqueItem object (id, description and price). The subclasses can extend this behavior or have their own implementation.
 
-We also provided an implementation for the `to_string()` method.
+Now the derived class `Tank` can be refactored to a simple class with only a specific `gunCaliber` attribute, two constructors, a setter for gun caliber and a more specific implementation of `to_string()`. Do note
+that `set_price()` and `get_id()` are not repeated in the class diagram of Tank and Bomber. While both do inherit these methods they do not override their behavior. For this reason most programmers will not repeat these methods inside the subclasses. However the `to_string` method does differ from the implementation of the superclass, therefore it is repeated in the subclasses diagrams.
 
-Now the derived class `Tank` can be refactored to a simple class with only the specific `numberOfShells` and `gunCalibre` attributes, a constructor, some getters, some setters and a more specific implementation of `to_string()`. The *fight* methods cannot be refactored yet and need to stay inside the specific classes. More on this later.
-
-A similar refactor needs to be done to the `Soldier` class.
-
-While a Soldier had a `numberOfBullets` and Tank a `numberOfShells` both are actually the same. However it feels incorrect to refactor this to `Entity` as this would mean that every Entity will have some sort of ballistic weapon with shells. As Agile programmers, we await a better solution.
+A similar refactor needs to be applied to the `Bomber` class.
 
 ## Private, protected and public members
 
 Attributes and methods are declared with an **access specifier** such as `private`, `protected` or `public`. These allow the developer to determine who can access the class, attributes or methods.
 
-Very important to know is that a derived class inherits all the members of its base class, even the private ones, However it cannot access the **private members** (both attributes and methods) of its baseclass. This means that the Tank class cannot directly access the id and health of Entity. For this reason getters are provided for these attributes.
+Very important to know is that a **derived class inherits all the members of its base class**, even the private ones, However it cannot access the **private members** (both attributes and methods) of its baseclass. This means that the Tank class cannot directly access the id and price of AntiqueItem. For this reason getters and setters need to be provided for subclasses to have access to the attributes of their superclass.
 
-Since a Tank and Soldier both need to be able to change their health, a setter needs to be added to the Entity class. As a `heal()` method is already available, a `damage()` method was added to provide the opposite action of healing.
-
-Another solution would be to make the attributes protected. This would allow subclasses to access the attributes directly, while still keeping them inaccessible for outside classes. This can be a good solution in same cases, but most of the time it is cleaner to use accessors.
+Another solution would be to make the attributes `protected`. This would allow subclasses to access the attributes directly, while still keeping them inaccessible for outside classes. This can be a good solution in same cases, but most of the time it is cleaner to use accessors (getters and setters).
 
 Do note that you can also make methods protected, allowing subclasses to use them, but not outside classes.
 
-Let's take another example: consider a class `SpaceObject` with a subclass `Planet`. Than we also create a class `Space` which is composed of several `SpaceObject`s and `Planet`s. As shown below, protected attributes and methods are noted using the `#` symbol in UML.
+Let's take another example: consider a class `SpaceObject` with a subclass `Planet`. Next to that is a class `Space` which is composed of several `SpaceObject`s and `Planet`s. As shown below, protected attributes and methods are noted using the `#` symbol in UML.
 
 ![A Space example using protected attributes](img/protected_space_example.png)
 
-In the example the `size` of a SpaceObject can only be accessed by SpaceObject itself, not even by the subclass Planet. However the `coordinates` are accessible by both SpaceObject and all of its subclasses (such as Planet). However not accessible from outside. `MAX_SIZE` is a `final` and `static` class variable which is made `public` and so accessible by all. However as it is `final` it can only be read and not written.
+In the example the `size` of a SpaceObject can only be accessed by SpaceObject itself, not even by the subclass Planet. However the `coordinates` are accessible by both SpaceObject and all of its subclasses (such as Planet). However not accessible from outside. `MAX_SIZE` is a `const` and `static` class variable which is made `public` and so accessible by all. However as it is `const` it can only be read and not written.
 
-Let's make an overview
+Below is an overview:
 
 | Attribute of SpaceObject | Accessible by Planet? | Accessible by Space? |
 |----|----|----|
@@ -131,6 +124,20 @@ Let's make an overview
 |MAX_SIZE|YES|YES|
 
 The same rules apply for access specifiers of methods.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Is-a relationships
 
