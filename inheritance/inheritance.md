@@ -194,18 +194,6 @@ Note how the name of the baseclass is used to call a baseclass constructor.
 * With inheritance each constructor is called from bottom to top but actually executed from top to bottom.
 * If no default constructor exists for the baseclass you will need to add one or call another constructor explicitly using the constructor initialization list and provide the required arguments.
 
-
-
-
-
-
-
-
-
-
-
-
-
 ## Method overriding
 
 Method overriding, in object oriented programming, is a language feature that allows a subclass or child class to provide a specific implementation of a method that is already provided by one of its superclasses or parent classes. The implementation in the subclass overrides (replaces) the implementation in the superclass by providing a method that has the same name and the same parameters, and same return type as the method in the parent class. These three parts are all together called the **signature of a method**. An overriding method can also return a subtype of the type returned by the overridden method. This subtype is called a covariant return type.
@@ -220,9 +208,9 @@ The ability of a subclass to override a method allows a class to inherit from a 
 
 ![Method Overriding](img/shapes_method_overriding.png)
 
-The UML diagram below shows a couple of examples of method overriding. First of all there is the `draw()` method that is defined for the *Shape* class and its descendants. It takes no arguments and has no return value. Next there are the `getArea()` and `getCircumference()` methods which do return a `double`. Last is the `doesContain()` method which checks if the *Shape* contains a *Point*. It takes an argument and returns a value. Important to note is that the *signature* of all these methods are the same! The rules for method overriding are less strict than that but more on this later.
+The UML diagram above shows a couple of examples of method overriding. First of all there is the `draw()` method that is defined for the *Shape* class and its descendants. It takes no arguments and has no return value. Next there are the `getArea()` and `getCircumference()` methods which do return a `double`. Last is the `doesContain()` method which checks if the *Shape* contains a *Point*. It takes an argument and returns a value. Important to note is that the *signature* of all these methods are the same!
 
-Some rules:
+The rules for method overriding can be summarized as follows:
 
 * The argument list should be exactly the same as that of the overridden method.
 * The return type should be the same or a subtype of the return type declared in the original overridden method in the super class.
@@ -232,35 +220,43 @@ Some rules:
 
 You can call methods of the base class by using the name of the baseclass followed by **scope resolution operator** `::` followed by the name of the method you wish to call. This can be useful if you do not want to replace the implementation of the baseclass but rather want to extend it.
 
-For example the `to_string()` implementations of Soldier can make use of the already existing implementation of the `to_string()` method of Entity as follows:
+For example the `to_string()` implementations of Tank can make use of the already existing implementation of the `to_string()` method of AntiqueItem as follows:
 
 ```c++
-std::string Soldier::to_string(void) {
+std::string Tank::to_string(void) {
   std::stringstream ss;
-  ss << Entity::to_string();
-  ss << " | Shells: " << numberOfShells;
+  ss << AntiqueItem::to_string();
+  ss << " | Gun caliber: " << gunCaliber;
   return ss.str();
 }
 ```
 
-Some main code lines like this:
+Some example code that could make use of this:
 
 ```c++
-Entity entity;
-Soldier soldier;
-Tank tank;
+AntiqueItem antique("A small rescue boat used in world war 2 in good shape.", 13);
+antique.set_price(510000);
 
-cout << entity.to_string() << endl;
-cout << soldier.to_string() << endl;
+Tank tank("A Tiger 1 tank prototype in bad shape.", 14);
+tank.set_price(299250);
+tank.set_gun_caliber(88);
+
+Bomber bomber("A B52 bomber in non-working condition. Needs revision.", 15);
+bomber.set_price(2000000);
+bomber.set_wing_width(56);
+bomber.set_bomb_capacity(32000);
+
+cout << antique.to_string() << endl;
 cout << tank.to_string() << endl;
+cout << bomber.to_string() << endl;
 ```
 
-would output something like:
+might output something like:
 
 ```
-[id = 13] Health = 510
-[id = 14] Health = 40 | Shells: 546
-[id = 15] Health = 301 | Shells: 98 (52mm)
+[id = 13] A small rescue boat used in world war 2 in good shape. Price = 510'000 euro
+[id = 14] A Tiger 1 tank prototype in bad shape. Price 299'250 euro | Gun caliber: 88
+[id = 15] A B52 bomber in non-working condition. Needs revision. Price = 2'000'000 euro | Wingspan = 56m | Max 32'000 kg of bombs
 ```
 
 ## Polymorphism
@@ -271,77 +267,80 @@ Polymorphism comes from Greek and means:
 
 So polymorphism is the ability of an object to take on many forms. The most common use of polymorphism in OOP occurs when a parent class reference is used to refer to a child class object.
 
-This basically means that you can do the following in our `Entity` example application:
+This basically means that you can do the following in our `AntiqueItem` example application:
 
 ```c++
-Entity * entity = new Entity();
-Entity * soldier = new Soldier();
-Entity * tank = new Tank();
+AntiqueItem * antique = new AntiqueItem("A small rescue boat used in world war 2 in good shape.", 13);
+AntiqueItem * tank = new Tank("A Tiger 1 tank prototype in bad shape.", 14);
+AntiqueItem * bomber = new Bomber("A B52 bomber in non-working condition. Needs revision.", 15);
 ```
 
-Do take note that this only works when using pointer of the baseclass type. We cannot do this when creating local variables on the stack unless we then access them via a pointer of the baseclass as so:
+Do take note that this only works when using pointers of the baseclass type. We cannot do this when creating local variables on the stack unless we then access them via a pointer of the baseclass as so:
 
 ```c++
-Soldier soldier;
+Tank tank;
 
-Entity * soldierEntity = &soldier;
+AntiqueItem * tankItem = &tank;
 ```
 
-This is often used when storing subtypes inside and array or container class:
+This is often used when storing subtypes inside an array or container class:
 
 ```c++
-std::vector<Entity*> entities;
+std::vector<AntiqueItem*> items;
 
-entities.push_back(new Entity());
-entities.push_back(new Soldier());
-entities.push_back(new Tank());
+items.push_back(new AntiqueItem("A small rescue boat used in world war 2 in good shape.", 13));
+items.push_back(new Tank("A Tiger 1 tank prototype in bad shape.", 14));
+items.push_back(new Bomber("A B52 bomber in non-working condition. Needs revision.", 15));
 ```
 
-Of course in a realistic application we would populate the list from a database or a file.
+This allows all the superclass and subclass instances to be store together in a list. If this were not possible it would be necessary to create separate lists for each type.
 
-C++ tracks the actually type of object. This basically means that while all the objects created above
-are Entities because of inheritance, C++ still knows that some are Tanks or Soldier.
+Of course in a realistic application the list would be populated from a database or a file.
 
-Polymorphism allows us to store subtypes inside an array of the baseclass type> Now what would happen if we were to add the following code to the application:
+C++ tracks the actually type of the objects. This basically means that while all the objects created above
+are AntiqueItems because of inheritance, C++ still knows that some are Tanks or Bombers.
+
+Polymorphism allows us to store subtypes inside an array of the baseclass type. Now what would happen if we were to add the following code to the application:
 
 ```c++
-for (unsigned int i = 0; i < entities.size(); i++) {
-  cout << entities[i]->to_string() << endl;
+for (unsigned int i = 0; i < items.size(); i++) {
+  cout << items[i]->to_string() << endl;
 }
 ```
 
 Which would output:
 
 ```
-[id = 17] Health = 510
-[id = 18] Health = 40
-[id = 19] Health = 301
+[id = 13] A small rescue boat used in world war 2 in good shape. Price = 510'000 euro
+[id = 14] A Tiger 1 tank prototype in bad shape. Price 299'250 euro
+[id = 15] A B52 bomber in non-working condition. Needs revision. Price = 2'000'000 euro
 ```
 
-This is actually not what we expected. We expected that each entities 'correct' `to_string()` method would be called.
+This is actually not what we expected. We expected that each antique item's 'correct' `to_string()` method would be called.
 
-Important to know is that while method overriding can be done out of the box, polymorphism needs to be enabled in C++ and is default not. A method can be declared a candidate for late binding (polymorphism) by appending the keyword `virtual` before the declaration of the method in the class as shown below. Strictly speaking only the `to_string()` method of Entity needs to be declared virtual here.
+Important to know is that while method overriding can be done out of the box, **polymorphism needs to be enabled in C++** and is default not. A method can be declared a candidate for late binding (polymorphism) by appending the keyword `virtual` before the declaration of the method in the class as shown below. Strictly speaking only the `to_string()` method of AntiqueItem needs to be declared virtual here.
 
 ```c++
-class Entity {
+class AntiqueItem {
   // ...
   public:
     virtual std::string to_string(void);
 };
-
-class Soldier : public Entity {
+```
+```c++
+class Tank : public AntiqueItem {
   // ...
   public:
     std::string to_string(void);
 };
 ```
 
-If we execute the main code again now the output will be:
+If the same main code is executed again the output will be:
 
 ```
-[id = 17] Health = 510
-[id = 18] Health = 40 | Shells: 546
-[id = 19] Health = 301 | Shells: 98 (52mm)
+[id = 13] A small rescue boat used in world war 2 in good shape. Price = 510'000 euro
+[id = 14] A Tiger 1 tank prototype in bad shape. Price 299'250 euro | Gun caliber: 88
+[id = 15] A B52 bomber in non-working condition. Needs revision. Price = 2'000'000 euro | Wingspan = 56m | Max 32'000 kg of bombs
 ```
 
 ### Another look at polymorphism
@@ -508,6 +507,51 @@ Destroying an Animal
 
 Note that the destructors are executed in the opposite order as the constructors.
 
+## Casting pointers of superclass to more specific subtypes
+
+Consider the code from the previous section
+
+```c++
+AntiqueItem * antique = new AntiqueItem("A small rescue boat used in world war 2 in good shape.", 13);
+AntiqueItem * tank = new Tank("A Tiger 1 tank prototype in bad shape.", 14);
+AntiqueItem * bomber = new Bomber("A B52 bomber in non-working condition. Needs revision.", 15);
+```
+
+While we as programmers know that the variable `tank` is a pointer to a Tank, it cannot be used in its current state to
+call a method that is not declared in the AntiqueItem class and that is specific for a Tank such as `set_gun_caliber()`.
+
+So the following code will fail:
+
+```c++
+AntiqueItem * tank = new Tank("A Tiger 1 tank prototype in bad shape.", 14);
+tank->set_gun_caliber(88);
+```
+
+While the actual instance is of type Tank, the pointer that is used to access the reference is of a **more general** type AntiqueItem.
+However, if you are sure that the pointer of the type you think it to be, you can always **cast** it to the more specific type as shown in the following example.
+
+```c++
+AntiqueItem * tank = new Tank("A Tiger 1 tank prototype in bad shape.", 14);
+((Tank*)tank)->set_gun_caliber(88);
+```
+
+Using the syntax above a supertype reference can be converted or cast to a more specific subtype.
+To accomplish this, specify the type to which to cast (name of class followed by a `*` to indicate that it needs to be a pointer) and surround this with parentheses.
+Next add the pointer variable you wish to cast. Surround the whole thing again with parentheses and threat this whole construct as a pointer to the subtype.
+
+If you require this construct multiple times it can be consider unDRY code. For this reason it may then be more reasonable to save the result of the construct in
+a pointer of the subtype as shown in the following example.
+
+```c++
+AntiqueItem * item = new Bomber("A B52 bomber in non-working condition. Needs revision.", 15);
+
+Bomber * bomber = ((Bomber*)item);
+
+bomber->set_price(2000000);
+bomber->set_wing_width(56);
+bomber->set_bomb_capacity(32000);
+```
+
 ## Abstract classes
 
 Abstract classes are classes that cannot be instantiated. In other words you cannot construct objects from it.
@@ -530,7 +574,6 @@ void draw() = 0;
 In C++, a class is automatically and implicitly declared abstract if at least one method lacks an implementation.
 
 When an abstract class is subclassed, the subclass usually provides implementations for all of the abstract methods in its parent class. However, if it does not, then the subclass is also an abstract class.
-
 
 <!--
 Interfaces:
