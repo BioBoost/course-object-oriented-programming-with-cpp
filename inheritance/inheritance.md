@@ -59,7 +59,7 @@ Something to remember is that code evolves. It changes over time as things get a
 
 So let's take the application example from the previous section a step further. We created the *Tank* and *Bomber* class after which your boss shows up and tells you to add an identifier to the Bomber and Tank classes to be able to save them in a database. This means you need to change both classes as shown in the following UML class diagrams.
 
-![Tank and Bomber classes with separate IDs](https://www.lucidchart.com/publicSegments/view/e283dd59-857b-46b0-ba70-b75a8a373ec4/image.png)
+![Tank and Bomber classes with separate IDs](https://www.lucidchart.com/publicSegments/view/6207f59f-b35f-4e7f-9655-765e77442561/image.png)
 
 An extra attribute `id` is added of type `long` to store this unique (in scope of a single class type) identifier. This identifier will be used to uniquely identify instances inside the database. A seconds constructor needs to be added to the application so that when instances are loaded from the database the already existing id can be used. The constructor that was already present generates the id based on the ones that are already taken. On top of that a getter method is also supplied for the id.
 
@@ -125,25 +125,11 @@ Below is an overview:
 
 The same rules apply for access specifiers of methods.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Is-a relationships
 
-The superclass and subclass have an **"is-a"** relationship between them. This means we can state that `Tank` is-an `Entity` and `Soldier` is-an `Entity` if we take the previous example.
+The superclass and subclass have an **"is-a"** relationship between them. This means one can state that a `Tank` is-an `AntiqueItem` and a `Bomber` is-an `AntiqueItem` if you consider the previous example.
 
-If you cannot logically state that 'subclass' is-a 'superclass' than you made a mistake to make 'subclass' inherit from 'superclass'. An example of this would be the case when you would create a subclass `Cement` from `Food` because `Cement` also has an expiration date. This may seem DRY but it is illogical. You can't state that `Cement` is-a `Food`.
+If it is not logical to state that 'subclass' is-a 'superclass' than you made a mistake to make 'subclass' inherit from 'superclass'. An example of this would be the case when you would create a subclass `Cement` from `Food` because `Cement` also has an expiration date. This may seem DRY but it is illogical. You can't state that `Cement` is-a `Food`.
 
 Let's see some examples:
 
@@ -157,7 +143,7 @@ However it would of been illogical to make *Bus* inherit from *Car* or vice vers
 
 ## Inheritance in C++
 
-To implement inheritance in C++ all you need is a baseclass and a subclass. The subclass needs to extend the baseclass and this can be accomplished by using the syntax shown below:
+To implement inheritance in C++ all you need is a baseclass and a subclass. The subclass needs to *extend* the baseclass and this can be accomplished by using the syntax shown below:
 
 ```c++
 class <subclass> : public <baseclass>
@@ -169,19 +155,17 @@ Note that *extending* the baseclass is exactly what we are doing when implementi
 
 ### Constructors and inheritance
 
-When creating objects, C++ will not only call the constructor of the type you are creating but it will implicitly call a constructor of each baseclass. Let's take a look at the inheritance hierarchy below.
+When creating objects, C++ will not only call the constructor of the type you are creating but it will implicitly call a constructor of each baseclass. Take a look at the inheritance hierarchy shown below.
 
-![Inheritance hierarchy of computer hardware](img/computer_hardware_inheritance.png)
+![Inheritance hierarchy of computer hardware](https://www.lucidchart.com/publicSegments/view/3f43216c-0936-45ca-8266-504ac621afed/image.png)
 
-When for example creating an object of type *QuadCore*, the constructor of *QuadCore* will implicitly call the constructor of *Processor* which will call the constructor of *ComputerHardware* which will call the constructor of *Product*. These calls are provided by default by C++ and are done before anything else. That means that the rest of you constructor code will be executed ofter the contructor call to the baseclass.
+When for example creating an object of type *QuadCore*, the constructor of *QuadCore* will implicitly call the constructor of *Processor* which will call the constructor of *ComputerHardware* which will call the constructor of *Product*. These calls are provided by default by C++ and are done before anything else. That means that the rest of you constructor code will be executed after the contructor call to the baseclass.
 
-This basically means that the *Product* will be constructed first, next the *ComputerHardware*, after which the *Processor* and last the *QuadCore*. This is a bit logical as you can only initialize the specific data of *ComputerHardware* after the data of *Product* has been initialized.
+This basically means that if you create an instance of a QuadCore, the *Product* portion will be constructed first, next the *ComputerHardware* portion, after which the *Processor* portion and last the *QuadCore* portion. This is a bit logical as you can only initialize the specific data of *ComputerHardware* after the data of *Product* has been initialized.
 
 There is however a catch to this whole constructing system.
 
-Remember that if you do not define a constructor in C++, it will provide you with a *default constructor* for a class. However once you create a constructor yourself C++ will not provide this default constructor anymore. That means if you create a single constructor that takes arguments, your class will not have a default constructor anymore.
-
-Since C++ will add an implicit call to the default constructor of the baseclass for each subclass, it will not find one and the compiler will turn up a compiler error. In other words if no default constructor exists for the baseclass your program will fail.
+Remember that if you do not define a constructor in C++, it will provide you with a *default constructor* (a constructor without arguments) for a class. However once you create a constructor yourself C++ will not provide this default constructor anymore. That means if you create a single constructor that takes arguments, your class will not have a default constructor anymore. Since C++ will add an implicit call to the default constructor of the baseclass for each subclass, it will not find one and the compiler will turn up a compiler error. In other words if no default constructor exists for the baseclass your program will fail.
 
 This can be fixed using two approaches:
 * add a default constructor to the baseclass. This is however not always possible or even advisable as you may not have access to the implementation of the baseclass or it might not make sense to add a default constructor.
@@ -189,22 +173,38 @@ This can be fixed using two approaches:
 
 The second approach mostly takes the preference.
 
-An example of this for the constructor of the Tank class would be:
+An example of this for the both constructors of the Tank class would be:
 
 ```c++
-Tank::Tank(void)
-  : Entity(START_HEALTH) {
+Tank::Tank(std::string description)
+  : AntiqueItem(description) {
+    // ....
+  }
+Tank::Tank(std::string description, long id)
+  : AntiqueItem(description, id) {
     // ....
   }
 ```
 
-Note how the name of the baseclass is used to call a baseclass constructor. `START_HEALTH` is the default health value with which a tank enters the game.
+Note how the name of the baseclass is used to call a baseclass constructor.
 
 #### Quick summary
 
 * C++ provides a default constructor if you provide no constructor(s).
 * With inheritance each constructor is called from bottom to top but actually executed from top to bottom.
 * If no default constructor exists for the baseclass you will need to add one or call another constructor explicitly using the constructor initialization list and provide the required arguments.
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Method overriding
 
