@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1494320012 source:c:\users\nico de witte\onedrive\vives\courses\object_oriented_programming_3\gitbook\inheritance\code\abstract_animal\src\animal.cpp
+	"animal.h"
+
+1494319975 c:\users\nico de witte\onedrive\vives\courses\object_oriented_programming_3\gitbook\inheritance\code\abstract_animal\include\animal.h
+	<string>
+
+1494320267 source:c:\users\nico de witte\onedrive\vives\courses\object_oriented_programming_3\gitbook\inheritance\code\abstract_animal\src\dog.cpp
+	"dog.h"
+
+1494320245 c:\users\nico de witte\onedrive\vives\courses\object_oriented_programming_3\gitbook\inheritance\code\abstract_animal\include\dog.h
+	"animal.h"
+

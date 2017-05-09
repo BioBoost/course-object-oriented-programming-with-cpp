@@ -565,7 +565,7 @@ An abstract class does a few things for the inheriting subclass:
 * Define abstract methods which the inheriting subclass must implement.
 * Provide a common interface which allows the subclass to be interchanged with all other subclasses.
 
-A class is mostly made abstract because it contains some abstract methods. An abstract method is a method that is declared without an implementation (without braces, and followed `=0` and a semicolon), like this:
+A class is mostly made abstract because it contains some abstract methods. An abstract method is a method that is declared without an implementation (without braces, and followed by `=0` and a semicolon), like this:
 
 ```C++
 void draw() = 0;
@@ -574,6 +574,51 @@ void draw() = 0;
 In C++, a class is automatically and implicitly declared abstract if at least one method lacks an implementation.
 
 When an abstract class is subclassed, the subclass usually provides implementations for all of the abstract methods in its parent class. However, if it does not, then the subclass is also an abstract class.
+
+Consider the example shown below. An abstract class `Animal` is defined which contains some attributes common to animals such as a `favoriteFood` and a `gender`. The class also implements getter methods for food and gender. By declaring an abstract method `make_noise(): String` a contract is created stating that every Animal can make noise. An implementation cannot be added for this method to the class as Animal is too general and it cannot be known what noise an Animal will make.
+
+![Abstract Animal](https://www.lucidchart.com/publicSegments/view/b5758ec7-18d9-4f94-bc4d-ca816648825c/image.png)
+
+This abstract class can however serve as a baseclass for more specific animal types such Dog, Cat, Bear, ... Those subclasses can implement the `make_noise()` method because the programmer knows that a Dog goes 'Woooofffff' and a cat goes 'Miiaaaauwwww'. An advantage of this approach is that a developer of an abstract class defines a common interface and also can provide a partial implementation.
+
+While **no objects can be instantiated from an abstract class** (compiler will complain with *cannot declare variable to be of abstract type*), it can serve as a datatype for referencing more specific subtypes. This serves the same purpose as outlined earlier in this chapter on polymorphism. You can for example create a method that takes an argument of type Animal and calls the `make_noise()` of that animal. This way a reference to any type of animal can be passed to the method, instead of creating a method for each existing type of animal.
+
+Let us take a look at the actual implementation of Animal and Dog.
+
+Important to note about the header file of Animal is that the `make_noise()` method lacks an implementation (done by assigning the signature `= 0`). The method also needs to be declared `virtual` otherwise the implementation of a subclass will not be called when a reference to Animal is used to reference for example a Dog instance.
+
+[include](code/abstract_animal/include/animal.h)
+
+The implementation of Animal is pretty straight forward. Do note that no definition for the `make_noise()` method is given in the cpp file.
+
+[include](code/abstract_animal/src/animal.cpp)
+
+When inheriting from the Animal class an implementation must be given to `make_noise()`, otherwise that subclass is also implicitly abstract. Because of this the method must not be assigned to `= 0` as shown below.
+
+[include](code/abstract_animal/include/dog.h)
+
+The Dog class has a simple implementation for `make_noise()` which just returns "Wooooffff". Note how the superclass constructor needs to be called using the constructor initialization list as Animal does not provide a default constructor.
+
+[include](code/abstract_animal/src/dog.cpp)
+
+Again, objects cannot be instantiated from an abstract class. The compiler will complain. Of course it would not make sense to have such objects, as they lack implementation for certain methods.
+
+As an example, a method `let_animal_speak()` is added which takes an Animal pointer as argument and calls the `make_noise()` method. The output is redirected to the console. A reference to any type of animal can be passed to this method. Assume a method had been created which takes a pointer to a Dog as an argument. Some time later it is decided to create a class Bear. Now a second method needs to be created to take an argument of type Bear, and so on. By using the superclass as datatype for the reference, any type of Animal can be made to make some noise.
+
+[include](code/abstract_animal/main.cpp)
+
+Of course, the reference of type Animal can only be used to call the methods that have been declared inside the Animal class. That means that specific methods for a Dog or a Cat cannot be called using this reference unless the reference is casted back to its original subtype.
+
+Important to note is also that this technique only works using pointers (or by passing objects by reference using `&` as shown by the second method in the example code above). The following example would not work as the objects are actually copied when passing an object into a method (pass-by-value). The compiler will complain that it *cannot declare variable animal to be of abstract type Animal*. This is normal because when passing by value, the compiler will actually create a new object of that class which is a copy of the original. This means it will need to be able to actually instantiate an object of type Animal.
+
+```c++
+void let_animal_speak(Animal animal) {
+    cout << animal.make_noise() << endl;
+}
+```
+
+Even when Animal would not have been an abstract class this would not work because the compiler would not be able to copy a subtype into a supertype object. This is understandable as the subtype is more specific than the general supertype. Its like trying to cram a Chicken into to memory space of a Bird because a Chicken is a type of Bird.
+
 
 <!--
 Interfaces:
