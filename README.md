@@ -50,19 +50,19 @@ For the exact details on the LABs, exams and tests you should take a look at the
 Below is a quick overview of the objectives of this course. By the end of the semester you should be able to check each of these of and consider them to be part of your programming skillset.
 
 At the end of this course, students will be able to 
-[ ] create basic OO applications in C++
-[ ] develop custom classes following good practices
-[ ] reuse implementation by applying composition and inheritance concepts
-[ ] separate interface from implementation by using header files and implementation files
-[ ] identify the different steps in the C++ compilation process 
-[ ] compile and use existing libraries
-[ ] develop their own libraries
-[ ] document code/libraries using doxygen and UML diagrams
-[ ] create small applications for mBed compatible systems using the offline toolchain
-[ ] indentify candidates and define abstract classes 
-[ ] create and use interfaces
-[ ] make correct use of multiple inheritance in C++
-[ ] catch and throw custom exceptions for advanced error handling
+* create basic OO applications in C++
+* develop custom classes following good practices
+* reuse implementation by applying composition and inheritance concepts
+* separate interface from implementation by using header files and implementation files
+* identify the different steps in the C++ compilation process 
+* compile and use existing libraries
+* develop their own libraries
+* document code/libraries using doxygen and UML diagrams
+* create small applications for mBed compatible systems using the offline toolchain
+* indentify candidates and define abstract classes 
+* create and use interfaces
+* make correct use of multiple inheritance in C++
+* catch and throw custom exceptions for advanced error handling
 
 Note that the objectives are not ordered based on their importance but more in order on which they are present in the course.
 
