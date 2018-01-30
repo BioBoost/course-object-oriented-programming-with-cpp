@@ -17,6 +17,10 @@ int main() {
 }
 ```
 
+The result should be the text "Hello World!" printed to the terminal as shown below.
+
+[Hello World output](img/hello_world_output.png)
+
 If you need more information on how to setup your development environment than please take a look at [https://www.gitbook.com/book/sillevl/software-installation-guide](https://www.gitbook.com/book/sillevl/software-installation-guide) at the section "Visual Studio Code".
 
 As a compiler you can make use of MinGW which stands for "Minimalist GNU for Windows", which is a native Windows port of the GNU Compiler Collection (GCC).
