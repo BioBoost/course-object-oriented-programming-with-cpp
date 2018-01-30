@@ -4,8 +4,7 @@
         "image-captions",
         "simple-page-toc",
         "copy-code-button",
-        "include-codeblock",
-	"todo"
+        "include-codeblock"
     ],
     "pluginsConfig": {
         "callouts":
