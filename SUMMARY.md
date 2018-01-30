@@ -1,7 +1,23 @@
 # Summary
 
 * [Introduction](README.md)
-* [Code::Blocks](codeblocks.md)
+
+### Hello World
+
+[Hello World](hello_world/readme.md)
+* [Hello World in C++](hello_world/hello_world_in_cpp.md)
+* [Code Analysis](hello_world/code_analysis.md)
+* [Exercises](hello_world/exercises.md)
+* [Solutions](hello_world/solutions.md)
+
+
+
+<!-- ### Introduction to C++
+* [Datatypes](introduction_to_cpp/datatypes.md)
+* [Operators](introduction_to_cpp/operators.md)
+* [Decision making](introduction_to_cpp/decision_making.md)
+* [Loop constructs](introduction_to_cpp/loop_constructs.md)
+* [Arrays](introduction_to_cpp/arrays.md) -->
 
 ### All about Objects
 
@@ -10,12 +26,6 @@
 <!-- * [Quiz](all_about_objects/quiz.md) -->
 * [Exercises](all_about_objects/exercises.md)
 
-### Hello Universe
-
-* [Hello Universe](hello_universe/hello_universe.md)
-<!-- * [Summary](hello_universe/summary.md) -->
-<!-- * [Quiz](hello_universe/quiz.md) -->
-* [Exercises](hello_universe/exercises.md)
 
 ### Basics of Classes
 
