@@ -9,9 +9,11 @@ Open your favorite editor or IDE and create a new C++ application. Place the cod
 
 using namespace std;
 
-int main(void) {
-    cout << "Hello world!" << endl;
-    return 0;
+int main() {
+  // Display Hello World! in the terminal
+  cout << "Hello World!" << endl;
+
+  return 0;
 }
 ```
 
