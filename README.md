@@ -6,7 +6,7 @@ The course will also contain some specifics for mBed platforms as they can be pr
 
 Most of the material used in this course is created by Nico De Witte. However some paragraphs, definitions, examples, images, ... may be copied from other online sources. In that case a reference can be found in the Sources chapter or as a footnote.
 
-Check out my github repos for the source of this book and for other gitbooks, code examples, ...: https://github.com/BioBoost
+Check out my github repos for the source of this book and for other gitbooks, code examples, ...: [https://github.com/BioBoost](https://github.com/BioBoost)
 
 ## Alpha version
 
@@ -14,13 +14,13 @@ Please note that this GitBook is still under development and did not even reach 
 
 ## Prerequisites
 
-This course does expect you to already have a basic knowledge of programming and object oriented concepts. If you don't please take the course "Object Oriented Programming with Java" which can be found at https://bioboost.gitbooks.io/object-oriented-programming-using-java/content/.
+This course does expect you to already have a basic knowledge of programming and object oriented concepts. If you don't please take the course "Object Oriented Programming with Java" which can be found at [https://bioboost.gitbooks.io/object-oriented-programming-using-java/content/](https://bioboost.gitbooks.io/object-oriented-programming-using-java/content/).
 
 ## Requirements
 
-To follow along you will need at least a C++ compiler for the operating system you are using. Best option is to use a GCC compiler. If you are a total beginner for C++ a good option can be Code::Blocks, a simple and free C++ IDE.
+To follow along you will need at least a C++ compiler for the operating system you are using. Best option is to use a GCC compiler. If you are a total beginner for C++ a good option can be Microsoft Visual Code, a free IDE that supports many programming languages.
 
-The exercises for mBed can be developed online at https://developer.mbed.org/compiler/ or using the offline toolchain https://docs.mbed.com/docs/mbed-os-handbook/en/latest/dev_tools/cli/
+The exercises for mBed can be developed online at [https://developer.mbed.org/compiler/](https://developer.mbed.org/compiler/) or using the offline toolchain [https://docs.mbed.com/docs/mbed-os-handbook/en/latest/dev_tools/cli/](https://docs.mbed.com/docs/mbed-os-handbook/en/latest/dev_tools/cli/).
 
 ## About this course
 
@@ -39,9 +39,31 @@ Feel free to ask questions in the lessons, via email or via slack.
 The LABs are there to practice what you have learned in the theory lessons. You will get some assignments through the semester on which you will be graded.
 
 This course also contains extra exercises to practice your OOP skills in either Java or C++ (or another language of your preference).
-
 There may be occasions for tests but these will mostly be announced.
 
 ### ECTS
 
 For the exact details on the LABs, exams and tests you should take a look at the ECTS fiche of this course.
+
+## Course Objectives
+
+Below is a quick overview of the objectives of this course. By the end of the semester you should be able to check each of these of and consider them to be part of your programming skillset.
+
+At the end of this course, students will be able to 
+- [ ] create basic OO applications in C++
+- [ ] develop custom classes following good practices
+- [ ] reuse implementation by applying composition and inheritance concepts
+- [ ] separate interface from implementation by using header files and implementation files
+- [ ] identify the different steps in the C++ compilation process 
+- [ ] compile and use existing libraries
+- [ ] develop their own libraries
+- [ ] document code/libraries using doxygen and UML diagrams
+- [ ] create small applications for mBed compatible systems using the offline toolchain
+- [ ] indentify candidates and define abstract classes 
+- [ ] create and use interfaces
+- [ ] make correct use of multiple inheritance in C++
+- [ ] catch and throw custom exceptions for advanced error handling
+
+Note that the objectives are not ordered based on their importance but more in order on which they are present in the course.
+
+Some of the above objectives rely on topics covered in the course "Software Engineering" taught at VIVES University College. It is expected that you can apply them for this course. Some examples are the use of Doxygen, UML diagrams and some well-known design patterns. All code solutions are expected to adhere to the good practices of developing software (DRY, SOLID, ...) and should be free of the well-known code smells.
