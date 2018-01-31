@@ -11,8 +11,7 @@
 <!-- * [The do while loop](../introduction_to_cpp/do_while_loop.md) -->
 <!-- * [Functions](../introduction_to_cpp/functions.md) -->
 <!-- * [Scope](../introduction_to_cpp/scope.md)  -->
-<!-- * [Overview of Keywords](../introduction_to_cpp/overview_keywords.md) -->
-
+* [Overview of Keywords](../introduction_to_cpp/overview_keywords.md)
 * [Exercises](../introduction_to_cpp/exercises.md)
 * [Solutions](../introduction_to_cpp/solutions.md)
 
