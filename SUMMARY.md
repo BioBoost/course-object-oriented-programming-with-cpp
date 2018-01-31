@@ -28,8 +28,8 @@
 <!-- * [Scope](introduction_to_cpp/scope.md)  -->
 <!-- * [Arrays](introduction_to_cpp/arrays.md) -->
 * [Overview of Keywords](introduction_to_cpp/overview_keywords.md)
-* [Exercises](introduction_to_cpp/exercises.md)
-* [Solutions](introduction_to_cpp/solutions.md)
+<!-- * [Exercises](introduction_to_cpp/exercises.md) -->
+<!-- * [Solutions](introduction_to_cpp/solutions.md) -->
 
 ### All about Objects
 
