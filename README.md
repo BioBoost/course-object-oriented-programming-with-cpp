@@ -60,7 +60,7 @@ At the end of this course, students will be able to
 * develop their own libraries
 * document code/libraries using doxygen and UML diagrams
 * create small applications for mBed compatible systems using the offline toolchain
-* indentify candidates and define abstract classes
+* identify candidates and define abstract classes
 * create and use interfaces
 * make correct use of multiple inheritance in C++
 * catch and throw custom exceptions for advanced error handling
