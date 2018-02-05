@@ -74,15 +74,16 @@
 <!-- * [Quiz](exceptions/quiz.md) -->
 <!-- * [Exercises](exceptions/exercises.md) -->
 
-<!-- ### Assignments -->
+### Assignments
 
-<!-- * [Assignments](assignments/assignments.md) -->
+* [Assignments](assignments/readme.md)
+* [Week 1](assignments/week_1/week_1.md)
 
 <!-- ### Solutions -->
 
 <!-- * [Solutions](solutions/solutions.md) -->
 
-### Glossary and Sources
+<!-- ### Glossary and Sources -->
 
-* [Glossary](glossary.md)
+<!-- * [Glossary](glossary.md) -->
 * [Sources](sources.md)
