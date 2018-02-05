@@ -68,3 +68,5 @@ At the end of this course, students will be able to
 Note that the objectives are not ordered based on their importance but more in order on which they are present in the course.
 
 Some of the above objectives rely on topics covered in the course "Software Engineering" taught at VIVES University College. It is expected that you can apply them for this course. Some examples are the use of Doxygen, UML diagrams and some well-known design patterns. All code solutions are expected to adhere to the good practices of developing software (DRY, SOLID, ...) and should be free of the well-known code smells.
+
+<!-- Trigger rebuild -->
