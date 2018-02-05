@@ -31,56 +31,56 @@
 <!-- * [Exercises](introduction_to_cpp/exercises.md) -->
 <!-- * [Solutions](introduction_to_cpp/solutions.md) -->
 
-### All about Objects
+<!-- ### All about Objects -->
 
-* [All about Objects](all_about_objects/its_all_about_objects.md)
+<!-- * [All about Objects](all_about_objects/its_all_about_objects.md) -->
 <!-- * [Summary](all_about_objects/summary.md) -->
 <!-- * [Quiz](all_about_objects/quiz.md) -->
-* [Exercises](all_about_objects/exercises.md)
+<!-- * [Exercises](all_about_objects/exercises.md) -->
 
 
-### Basics of Classes
+<!-- ### Basics of Classes -->
 
-* [Basics of Classes](basics_of_classes/basics_of_classes.md)
+<!-- * [Basics of Classes](basics_of_classes/basics_of_classes.md) -->
 <!-- * [Summary](basics_of_classes/summary.md) -->
 <!-- * [Quiz](basics_of_classes/quiz.md) -->
 <!-- * [Exercises](basics_of_classes/exercises.md) -->
 
-### Memory Allocation
+<!-- ### Memory Allocation -->
 
-* [Memory Allocation](memory_allocation/memory_allocation.md)
+<!-- * [Memory Allocation](memory_allocation/memory_allocation.md) -->
 <!-- * [Summary](memory_allocation/summary.md) -->
 <!-- * [Quiz](memory_allocation/quiz.md) -->
 <!-- * [Exercises](memory_allocation/exercises.md) -->
 
-### Composition
+<!-- ### Composition -->
 
-* [Composition](composition/composition.md)
+<!-- * [Composition](composition/composition.md) -->
 <!-- * [Summary](composition/summary.md) -->
 <!-- * [Quiz](composition/quiz.md) -->
 <!-- * [Exercises](composition/exercises.md) -->
 
-### Inheritance
+<!-- ### Inheritance -->
 
-* [Inheritance](inheritance/inheritance.md)
+<!-- * [Inheritance](inheritance/inheritance.md) -->
 <!-- * [Summary](inheritance/summary.md) -->
 <!-- * [Quiz](inheritance/quiz.md) -->
 <!-- * [Exercises](inheritance/exercises.md) -->
 
-### Exceptions
+<!-- ### Exceptions -->
 
-* [Exceptions](exceptions/exceptions.md)
+<!-- * [Exceptions](exceptions/exceptions.md) -->
 <!-- * [Summary](exceptions/summary.md) -->
 <!-- * [Quiz](exceptions/quiz.md) -->
 <!-- * [Exercises](exceptions/exercises.md) -->
 
-### Assignments
+<!-- ### Assignments -->
 
-* [Assignments](assignments/assignments.md)
+<!-- * [Assignments](assignments/assignments.md) -->
 
-### Solutions
+<!-- ### Solutions -->
 
-* [Solutions](solutions/solutions.md)
+<!-- * [Solutions](solutions/solutions.md) -->
 
 ### Glossary and Sources
 
