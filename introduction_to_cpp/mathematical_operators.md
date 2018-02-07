@@ -1,9 +1,5 @@
 ## Mathematical Operators
 
-The C++ programming languages has a lot of operators. The assignment operator `=` has already been discussed.
-
-### Basic Mathematical Operators
-
 The most basic operators are the mathematical operators. They are easy to understand because they have the same functionality as in math. The following operators are available to do basic math operations:
 
 * `+` Additive operator (also used for String concatenation)
@@ -51,7 +47,7 @@ double k = a / b;   // k = 1.5 (real division)
 
 Notice that even `double w = x / y;` results in `2.0`. The reason behind this is that `x / y` equals to `2` as it is a whole division since both operand are of integral type. The result is then implicitly converted to a double, and stored in `w`.
 
-While the precedence (order) in which mathematical operations are performed is defined in C++, most programmers do not know all of them by heart. It is much more clear and simpler to use round brackets `()` to enforce the precedence of the calculations. Take a look at the following piece of code:
+While the **precedence** (order) in which mathematical operations are performed is defined in C++, most programmers do not know all of them by heart. It is much more clear and simpler to use round brackets `()` to enforce the precedence of the calculations. Take a look at the following piece of code:
 
 ```c++
 int a = 5;
@@ -76,6 +72,8 @@ int result = (a * b) + c - (d * a / 5) - 3;     // result = 35
 
 std::cout << "The result is " << result << std::endl;
 ```
+
+Operators that have the same precedence are bound to their arguments in the direction of their associativity. For example, the expression `a = b = c` is parsed as `a = (b = c)` because of right-to-left associativity of assignment. The expression `a + b - c` is parsed `(a + b) - c` because of left-to-right associativity of addition and subtraction.
 
 ### Compound Operators
 
@@ -120,4 +118,4 @@ int i = 5;
 int b = i++;
 ```
 
-While this may not seem all that important at the moment we will require to know if once we start to work with arrays (lists).
+While this may not seem all that important at the moment we will require to know this once we start to work with arrays.
