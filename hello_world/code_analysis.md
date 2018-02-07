@@ -27,7 +27,7 @@ In order to refer to the elements in the `std` namespace a program must either q
 
 Essentially, a function is a block of statements that are grouped by a name, in this case `main`. The return type of the main function is `int`, short for integer, stating that the function returns an integral value upon completion. This also explains the `return 0` statement at the end of the function block. Applications are always terminated with an integral value that represents the state with which the application was terminated. A value different from `0` indicates that something has gone wrong. If you execute your application via a terminal such as `Bash` or `PowerShell` you can display the status code (the value returned by the main function in this case) by executing the command `echo $?`.
 
-[Status Code of an Application](img/status_code.png)
+![Status Code of an Application](img/status_code.png)
 
 Optionally the main function can be declared to take arguments from the command line (declared between the parentheses `()`). This will however be discussed later on in this course.
 
