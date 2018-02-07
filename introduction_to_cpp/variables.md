@@ -50,6 +50,26 @@ As shown in the example above, you can also initialize the variable while defini
 
 The name of a variable can be composed of letters, digits, and the underscore character. It must begin with either a letter or an underscore, not with a digit. Upper and lowercase letters are distinct because **C++ is case-sensitive**.
 
+### The Assignment Operator
+
+The most used operator is the assignment operator `=`. It assigns a value to a variable. For example:
+
+```c++
+int x = 5;
+```
+
+This statement assigns the integer value `5` to the variable `x`. The assignment operation always takes place from right to left, and never the other way around:
+
+```c++
+int x = 5;
+// ...
+int y = x;
+```
+
+The last statement assigns the value of the variable `x` to the variable `y`. The old value of `y` is lost as soon as the statement is executed and replaced by the value of `x`.
+
+Consider also that we are only assigning the value of `x` to `y` at the moment of the assignment operation. Therefore, if `x` changes at a later moment, it will not affect the value held by `y`.
+
 ### Variable initialization
 
 While a variable does not need to be initialized, it should not be used before a meaningful value is assigned to it. Uninitialized variables in C++ actually cause garbage data and may cause unpredictable results if their value is used before they are assigned a decent value.
@@ -80,6 +100,6 @@ b = 0
 c = 0
 ```
 
-Both C and C++ define the values as undefined. Undefined means it may be **anything**, including being initialized to 0, taking previous value of the memory, being initialized to 0xDEADBEEF or consecutive bytes of string "blarg! blarg! blarg!", or anything else. In modern operating systems memory is usually zeroed at start and hence short-lived programs will typically have 0s everywhere. Basically you're getting a random value, which happens to sometimes be 0. But it's not guaranteed to be 0.
+Both C and C++ define the values as undefined. Undefined means it may be **anything**, including being initialized to 0, taking previous value of the memory, being initialized to `0xDEADBEEF` or consecutive bytes of string `"blarg! blarg! blarg!"`, or anything else. In modern operating systems memory is usually zeroed at start and hence short-lived programs will typically have 0s everywhere. Basically you're getting a random value, which happens to sometimes be 0. But it's not guaranteed to be 0.
 
 So important lesson: **Make sure to assign a meaningful value to variables before using them as they may lead to hard-to-track bugs inside your application.**
