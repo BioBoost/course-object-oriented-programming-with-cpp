@@ -1,10 +1,10 @@
 ## Variables
 
-While programming in any programming language, you need to reserve memory when you wish to store data. This can be achieved by using variables. When you create a variable, you actually **reserve space in memory**. Luckily you do not need to use the actual memory location to access the data, but you can use the variable which is a symbolic name that references the memory location.
+While programming in any programming language, you need to reserve memory when you wish to store data. This can be achieved by using variables. When you create a variable, you actually **reserve space in memory**. Luckily you do not need to use the actual memory location to access the data, but you can use the variable which is a **symbolic name** that references the memory location.
 
-C++ supports several **primitive datatypes** as shown in the following table.
+Primitive types are the **most basic data types available** within a programming language. These types serve as the building blocks of data manipulation. Such types serve only one purpose - containing pure, simple values of a certain type. Because these data types are defined into the type system by default, they come with a number of operations predefined (`+`, `-`, `*`, `/`, `%`, ...). C++ supports several **primitive datatypes** as shown in the following table.
 
-Primitive types are the **most basic data types available** within a programming language. These types serve as the building blocks of data manipulation. Such types serve only one purpose - containing pure, simple values of a certain type. Because these data types are defined into the type system by default, they come with a number of operations predefined (`+`, `-`, `*`, `/`, `%`, ...).
+![C++ primitive data types](img/cpp_data_types.png)
 
 Primitive data types are basic types implemented directly by the language that represent the basic storage units supported natively by most systems. They can mainly be classified into:
 * **Character types**: These can represent a single character, such as `'A'` or `'$'`. The most basic type is `char`, representing a single character. Other types are also provided for wider characters.
@@ -12,13 +12,11 @@ Primitive data types are basic types implemented directly by the language that r
 * **Floating-point types**: These types represent real values, such as `3.14` or `0.01`, with different levels of precision, depending on which of the three floating-point types is used.
 * **Boolean type**: The boolean type, known in C++ as `bool`, can only represent one of two states, `true` or `false`.
 
-![C++ primitive data types](img/cpp_data_types.png)
-
 > #### Alert::Datatype sizes
 >
-> Note that the C++ standard does not specify a concrete size for each type. This means that the size of the data types is actually dependent on the system you are compiling for. In certain situations you will need to keep this in mind.
+> Note that the C++ standard does not specify a concrete size for each type. This means that the size of the data types actually dependent on the system you are compiling for. In certain situations you will need to keep this in mind.
 
-Within each of the groups above, the difference between types is only their size (i.e., how much they occupy in memory): the first type in each group is the smallest, and the last is the largest, with each type being at least as large as the one preceding it in the same group. Other than that, the types in a group have the same properties.
+Within each of the groups above, the difference between types is only their size (i.e., how much space they occupy in memory): the first type in each group is the smallest, and the last is the largest, with each type being at least as large as the one preceding it in the same group. Other than that, the types in a group have the same properties.
 
 > #### Info::The fundamental storage unit in C++
 >
@@ -56,19 +54,10 @@ The most used operator is the assignment operator `=`. It assigns a value to a v
 
 ```c++
 int x = 5;
+int y = x;      // Assign value of x to y
 ```
 
-This statement assigns the integer value `5` to the variable `x`. The assignment operation always takes place from right to left, and never the other way around:
-
-```c++
-int x = 5;
-// ...
-int y = x;
-```
-
-The last statement assigns the value of the variable `x` to the variable `y`. The old value of `y` is lost as soon as the statement is executed and replaced by the value of `x`.
-
-Consider also that we are only assigning the value of `x` to `y` at the moment of the assignment operation. Therefore, if `x` changes at a later moment, it will not affect the value held by `y`.
+The last statement assigns the value of the variable `x` to the variable `y`. Consider also that we are only assigning the value of `x` to `y` at the moment of the assignment operation. Therefore, if `x` changes at a later moment, it will not affect the value held by `y`.
 
 ### Variable initialization
 
