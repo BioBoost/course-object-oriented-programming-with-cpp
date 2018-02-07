@@ -12,6 +12,32 @@ Primitive data types are basic types implemented directly by the language that r
 * **Floating-point types**: These types represent real values, such as `3.14` or `0.01`, with different levels of precision, depending on which of the three floating-point types is used.
 * **Boolean type**: The boolean type, known in C++ as `bool`, can only represent one of two states, `true` or `false`.
 
+While the `bool` type does represent a `true` or `false` value, in the background it is actually an integer value. `false` is represented with the value of `0` and `true` is represented with anything different from `0`.
+
+```c++
+bool a = true;
+bool b = false;
+bool c = 0;
+bool d = -15;
+bool e = 23;
+
+std::cout << "Value of a: " << a << std::endl;
+std::cout << "Value of b: " << b << std::endl;
+std::cout << "Value of c: " << c << std::endl;
+std::cout << "Value of d: " << d << std::endl;
+std::cout << "Value of e: " << e << std::endl;
+```
+
+Results in
+
+```text
+Value of a: 1
+Value of b: 0
+Value of c: 0
+Value of d: 1
+Value of e: 1
+```
+
 > #### Alert::Datatype sizes
 >
 > Note that the C++ standard does not specify a concrete size for each type. This means that the size of the data types actually dependent on the system you are compiling for. In certain situations you will need to keep this in mind.
