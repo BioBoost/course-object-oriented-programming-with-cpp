@@ -16,7 +16,7 @@
 * [Variables](introduction_to_cpp/variables.md)
 <!-- * [Standard IO](introduction_to_cpp/standard_io.md) -->
 * [Mathematical Operators](introduction_to_cpp/mathematical_operators.md)
-<!-- * [Comparison Operators](introduction_to_cpp/comparison_operators.md) -->
+* [Comparison Operators](introduction_to_cpp/comparison_operators.md)
 <!-- * [Conditional Operators](introduction_to_cpp/conditional_operators.md) -->
 <!-- * [The if statement](introduction_to_cpp/if_statement.md) -->
 <!-- * [The switch statement](introduction_to_cpp/switch_statement.md) -->
