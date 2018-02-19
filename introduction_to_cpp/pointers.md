@@ -1,8 +1,8 @@
 ## Pointers
 
-A pointer is **a variable whose value is the address of another variable**. C++ pointers may seem complex at first, but when used correctly they can be fun and handy. In certain areas they cannot be avoided, such as for example for **dynamic memory allocation**.
+A pointer is **a variable which holds the address to a location in memory**. C++ gives you the power to manipulate data in the computer's memory directly via a pointer. C++ pointers may seem complex at first, but when used correctly they can be fun and handy. In certain areas they cannot be avoided, such as for example for **dynamic memory allocation**.
 
-As stated before, a variable is a symbolic name for a certain location inside your computer memory. This location is actually an address. Using the ampersand `&` operator one can determine the address of the variable. Consider the following example which will print the address of the variables `x` and `y`:
+As stated before, a variable is a symbolic name for a certain location inside your computer memory. This location is actually an address. Using the reference operator `&` one can determine the address of the variable. Consider the following example which will print the address of the variables `x` and `y`:
 
 ```c++
 #include <iostream>
