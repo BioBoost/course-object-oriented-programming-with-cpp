@@ -11,8 +11,8 @@
 <!-- * [The while loop](../introduction_to_cpp/while_loop.md) -->
 <!-- * [The do while loop](../introduction_to_cpp/do_while_loop.md) -->
 * [Arrays](../introduction_to_cpp/arrays.md)
-* [Pointers](../introduction_to_cpp/pointers.md)
 * [Functions](../introduction_to_cpp/functions.md)
+* [Pointers](../introduction_to_cpp/pointers.md)
 * [Overview of Keywords](../introduction_to_cpp/overview_keywords.md)
 * [Exercises](../introduction_to_cpp/exercises.md)
 <!-- * [Solutions](../introduction_to_cpp/solutions.md) -->
