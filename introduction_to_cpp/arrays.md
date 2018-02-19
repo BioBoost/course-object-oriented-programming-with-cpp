@@ -99,3 +99,57 @@ If you provide enough initialization values you can also omit the array size. Th
 ```c++
 int myArray[] = { 1, 2, 3, 4, 5 };      // Will automatically create an array of 5 elements
 ```
+
+### Multi-Dimensional Arrays
+
+C++ allows the declaration of multi-dimensional arrays. Multidimensional arrays can be described as **"arrays of arrays"**. Below is the general declaration template of such a structure:
+
+```c++
+<type> name_of_array[size1][size2]...[sizeN];
+```
+
+The simplest form of the multi-dimensional array is the two-dimensional array. A two-dimensional array is, in essence, an array of one-dimensional arrays. To declare a two-dimensional integer array of size 2 by 4 one would declare it as follows:
+
+```c++
+int matrix[2][4];
+```
+
+So this can be thought of as an array with two elements where each element points to an array of 4 elements.
+
+The initialization list can also be used with multi-dimensional arrays as shown below:
+
+```c++
+int matrix[2][4] = {  
+   {0, 1, 2, 3},
+   {4, 5, 6, 7}
+};
+```
+
+Of course if you wish to access the elements you will need to provide as much indexes as there are dimensions in the array structure.
+
+Take a look at the three-dimensional array initialization example shown below.
+
+<!-- TODO: A bit of a stupid example. Think of something more useful. -->
+```c++
+#include <iostream>
+using namespace std;
+int main()
+{
+    const int SIZE_X = 5, SIZE_Y = 5, SIZE_Z = 5;
+    double space[SIZE_X][SIZE_Y][SIZE_Z] = {};
+          // Initialize all to zero
+
+    for (unsigned int x = 0; x < SIZE_X; x++) {
+        for (unsigned int y = 0; y < SIZE_Y; y++) {
+            for (unsigned int z = 0; z < SIZE_Z; z++) {
+                cout << "space[" << x << "][" << y << "]["
+                    << z << "] = " << space[x][y][z] << endl;
+            }
+        }
+    }
+
+    return 0;
+}
+```
+
+As multi-dimensional arrays can become complex quite fast, it is important to name your indexes clearly and also to keep it as simple as possible.
