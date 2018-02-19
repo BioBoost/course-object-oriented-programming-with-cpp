@@ -120,3 +120,41 @@ c = 0
 Both C and C++ define the values as undefined. Undefined means it may be **anything**, including being initialized to 0, taking previous value of the memory, being initialized to `0xDEADBEEF` or consecutive bytes of string `"blarg! blarg! blarg!"`, or anything else. In modern operating systems memory is usually zeroed at start and hence short-lived programs will typically have 0s everywhere. Basically you're getting a random value, which happens to sometimes be 0. But it's not guaranteed to be 0.
 
 So important lesson: **Make sure to assign a meaningful value to variables before using them as they may lead to hard-to-track bugs inside your application.**
+
+## Constants
+
+In C++ there are two ways to define constant values:
+* Using the preprocessor `#define` directive
+* Using the `const` keyword
+
+Constants can be defined using a preprocessor directive using the following template.
+
+```c++
+#define IDENTIFIER <value>
+```
+
+Notice that no assignment operator or statement terminator is required.
+
+An example:
+```c++
+#define MAX_NUMBER_OF_STUDENTS 25
+```
+
+When the application is compiled the preprocessor actually replaces all the occurrences of these directives with their actual values. Think of it as an automatic search and replace in your source code.
+
+You can also use `const` prefix to declare constants with a specific type as follows:
+
+```c++
+const <datatype> VARIABLE_NAME = <value>;
+```
+
+For example:
+```c++
+const int NUMBER_OF_TEACHERS = 85;
+```
+
+A const variable declaration declares an actual variable in the language, which you can use like a real variable: take its address, pass it around, use it, cast it, convert it, etc.
+
+Perhaps one might think that avoiding the declaration of a variable saves time and space, but with any sensible compiler optimization levels there will be no difference, as constant values are already substituted and folded at compile time. But you gain the huge advantage of type checking and making your code known to the debugger, so there's really no reason not to use const variables.
+
+Typically constants are defined using an all CAPITALS name and underscores between the different words. This is a good programming practice.
