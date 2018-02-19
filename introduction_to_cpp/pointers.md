@@ -174,6 +174,8 @@ int main()
 }
 ```
 
+<!-- Maybe also add example with simple addition -->
+
 ### Passing Pointers as Function Parameters
 
 TODO
