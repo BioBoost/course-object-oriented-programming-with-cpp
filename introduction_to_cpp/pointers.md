@@ -27,7 +27,7 @@ y = 0 and has an address of 0x6afef8
 
 ### Declaring a Pointer
 
-Like any variable or constant, you must declare a pointer before you can work with it. The general form of a pointer variable declaration is:
+Like any variable or constant, you must declare a pointer before you can work with it. As C++ is a statically typed language, the type is required to declare a pointer. This is the type of data that will live at the memory address it points to. The general form of a pointer variable declaration is:
 
 ```c++
 <type> * variable_name;
@@ -83,15 +83,96 @@ While not strictly necessary to add parentheses around the dereferenced pointers
 
 ### Pointers and Arrays
 
-TODO
+Pointers and arrays are strongly related. In fact, an array variable is nothing more than a **constant pointer pointing at the first element of the array**. Actually a pointer can be dereferenced using the indexing operator used on an array variable as shown in the example below:
 
-### Pointer Arithmetic
+```c++
+#include <iostream>
+using namespace std;
+int main()
+{
+    const int SIZE = 5;
+    int numbers[SIZE];
+    int * pNumbers = numbers;
 
-TODO
+    for (unsigned int i = 0; i < SIZE; i++) {
+        pNumbers[i] = 3 * i;
+    }
 
-### Pointers to Pointers
+    for (unsigned int i = 0; i < SIZE; i++) {
+        cout << pNumbers[i] << endl;
+    }
 
-TODO
+    return 0;
+}
+```
+
+Also note that we do not need to request the address of the array to initialize the pointer. This because the array variable is already a pointer. Of course if you do wish to use the address-of operator you can use the following construct:
+
+```c++
+const int SIZE = 5;
+int numbers[SIZE];
+int * pNumbers = &(numbers[0]);
+```
+
+This would allow you to create a pointer to an element somewhere inside the boundaries of the array. For example for the second element:
+
+```c++
+const int SIZE = 5;
+int numbers[SIZE];
+int * pToElement = &(numbers[2]);
+```
+
+Since an array variable is actually a pointer, it is perfectly valid to dereference it using the dereference operator `*`.
+
+```c++
+const int SIZE = 5;
+int numbers[SIZE];
+
+(* numbers) = 15;      // Would change the first element to a value of 15
+```
+
+However do keep in mind that an array variable is **constant pointer**. This means that the array variable itself cannot be made to point to something else than the first element of the actual array in memory.
+
+```c++
+const int SIZE = 5;
+int numbers[SIZE];
+// Invalid !!!!!!
+numbers = &(numbers[3])
+```
+
+#### Pointer Arithmetic
+
+Since pointers hold addresses, it is perfectly legal to perform some arithmetic operations on the actual value held by the pointer. There are four arithmetic operators that can be performed on pointers:
+* Increment: ++
+* Decrement: --
+* Addition: +
+* Subtraction: -
+
+To understand pointer arithmetic one needs to keep in mind that the size of the datatype to which the pointer refers to, is also put into account. This means that if you have a pointer that points to integer at memory address `5000` on a 32-bit computer and you add `1` you will end up at address `5004`, assuming that the integer is represented using 32 bits.
+
+This can actually be used in combination with a pointer to an array. Take a close look at the example below where a pointer is incremented to index all the array elements:
+
+```c++
+#include <iostream>
+using namespace std;
+int main()
+{
+    const int SIZE = 5;
+    int numbers[SIZE];
+    int * pNumbers = numbers;
+
+    for (unsigned int i = 0; i < SIZE; i++) {
+        *(pNumbers++) = 3 * i;
+    }
+
+    pNumbers = numbers;
+    for (unsigned int i = 0; i < SIZE; i++) {
+        cout << "numbers[" << i << "] @ " << pNumbers << " = " << *(pNumbers++) << endl;
+    }
+
+    return 0;
+}
+```
 
 ### Passing Pointers as Function Parameters
 
