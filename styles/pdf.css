@@ -2,3 +2,10 @@
   border-left: grey solid 2px;
   padding-left: 1em;
 }
+
+/* Make code blocks a smaller fonsize */
+.book .book-body .page-wrapper .page-inner section.normal code {
+    font-size: 80%;
+    margin: 0;
+    padding: 0.2em 0;
+}
