@@ -2,3 +2,7 @@
   border-left: grey solid 2px;
   padding-left: 1em;
 }
+
+code {
+  font-size: 80%;
+}
