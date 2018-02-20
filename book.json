@@ -30,5 +30,14 @@
             "template": "full",
             "fixlang": true
         }
-    }
+    },
+    "pdf": {
+        "fontSize": 10,
+        "paperSize": "a4",
+        "margin": {
+            "right": 31,
+            "left": 31,
+            "top": 18,
+            "bottom": 18
+        }
 }
