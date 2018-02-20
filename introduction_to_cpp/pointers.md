@@ -178,6 +178,53 @@ int main()
 
 ### Passing Pointers as Function Parameters
 
-TODO
+C++ allows you to pass a pointer as a parameter to a function. To do so, simply declare the function parameter as a pointer type.
 
-<!-- Simple usage - a swap method -->
+Passing data to functions via pointers is often applied in the following situations:
+* to allow the function to alter the actual value of the passed arguments
+* to be able to return more than one value from a function (this is often used in C, less required in C++ as there we can use data objects)
+* performance wise it is often done to pass larger and more complex objects (less memory usage)
+* to pass an array to a function
+
+Remember the `swap()` example from the "Functions" chapter. To get this to work we can actually use pointers to integers:
+
+```c++
+#include <iostream>
+using namespace std;
+
+void swap(int * x, int * y) {
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+int main()
+{
+    int a = 10;
+    int b = 136;
+
+    cout << "Before call to swap:" << endl;
+    cout << "a: " << a << endl;
+    cout << "b: " << b << endl;
+
+    swap(&a, &b);
+
+    cout << "\nAfter call to swap:" << endl;
+    cout << "a: " << a << endl;
+    cout << "b: " << b << endl;
+
+    return 0;
+}
+```
+
+While the parameters are still passed by value, this time the addresses to the actual memory are copied. However via that same address we have access to the original data.
+
+```text
+Before call to swap:
+a: 10
+b: 136
+
+After call to swap:
+a: 136
+b: 10
+```
