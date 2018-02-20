@@ -2,9 +2,3 @@
   border-left: grey solid 2px;
   padding-left: 1em;
 }
-
-/* Make code blocks a smaller fonsize */
-code {
-    font-size: 8px !important;
-    color: red !important;
-}
