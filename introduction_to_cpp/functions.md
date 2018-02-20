@@ -203,4 +203,49 @@ While calling a function, there are three ways that arguments can be passed to a
 
 By default, C++ uses pass by value to pass arguments. In general, this means that code within a function cannot alter the arguments used to call the function.
 
-More on this later.
+Take for example the code below where a `swap()` function tries to swap the values of two variables.
+
+```c++
+#include <iostream>
+using namespace std;
+
+void swap(int x, int y) {
+    int temp = x;
+    x = y;
+    y = temp;
+}
+
+int main()
+{
+    int a = 10;
+    int b = 136;
+
+    cout << "Before call to swap:" << endl;
+    cout << "a: " << a << endl;
+    cout << "b: " << b << endl;
+
+    swap(a, b);
+
+    cout << "\nAfter call to swap:" << endl;
+    cout << "a: " << a << endl;
+    cout << "b: " << b << endl;
+
+    return 0;
+}
+```
+
+As C++ passes arguments by value, a copy of `a` and `b` is created and placed inside the local parameter variables `x` and `y`. Because of this changes to `x` and `y` are local to the scope of the function itself. Luckily enough because otherwise every function would be able to alter the original variables which would lead to a lot of bugs and hard to solve problems.
+
+The output being:
+
+```text
+Before call to swap:
+a: 10
+b: 136
+
+After call to swap:
+a: 10
+b: 136
+```
+
+But what if we wanted this to work. Well then you need to pass the data using pointers or references. More on this later.
