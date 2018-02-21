@@ -140,6 +140,21 @@ int numbers[SIZE];
 numbers = &(numbers[3])
 ```
 
+Since an array is a constant pointer, it is also possible to use the indexing operator `[]` on a pointer to use a pointer as an array. The example below shows a small example where a pointer is indexed:
+
+```c++
+const int SIZE = 5;
+int numbers[SIZE];
+int * pNumbers = numbers;
+
+// Indexing of normal pointer as with an array
+for (unsigned int i = 0; i < SIZE; i++) {
+    cout << i << ": " << pNumbers[i] << endl;
+}
+```
+
+Note that the indexing operator already dereferences the actual address.
+
 #### Pointer Arithmetic
 
 Since pointers hold addresses, it is perfectly legal to perform some arithmetic operations on the actual value held by the pointer. There are four arithmetic operators that can be performed on pointers:
@@ -174,10 +189,152 @@ int main()
 }
 ```
 
-<!-- Maybe also add example with simple addition -->
+Since an array is a constant pointer, it is also possible to use the indexing operator `[]` on a pointer to use a pointer as an array. The example below shows a full overview of some usage
+
+```c++
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    const int SIZE_OF_NUMBERS = 5;
+    int numbers[SIZE_OF_NUMBERS];
+
+    // Array is nothing but constant pointer so
+    int * pNumbers = numbers;
+    int * pNumbersIncrement = numbers;
+
+    cout << "Address of numbers: " << numbers << endl;
+    cout << "Or via pointer: " << pNumbers << endl << endl;
+
+    for (unsigned int i = 0; i < SIZE_OF_NUMBERS; i++) {
+        // We can increment pointer
+        cout << "@" << pNumbersIncrement << ": " << *(pNumbersIncrement) << endl;
+        pNumbersIncrement++;
+
+        // If array is pointer
+        // then we can also use indexing on pointer
+        cout << "@" << &(pNumbers[i]) << ": " << pNumbers[i] << endl;
+
+        // Simple addition
+        cout << "@" << (pNumbers+i) << ": " << *(pNumbers+i) << endl << endl;
+    }
+
+    return 0;
+}
+```
+
+How about an example with some pointer arithmetic's put together.
+
+```c++
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    const int SIZE_OF_NUMBERS = 5;
+    int numbers[SIZE_OF_NUMBERS];
+
+    // Array is nothing but constant pointer so
+    int * pNumbers = numbers;
+    int * pNumbersIncrement = numbers;
+
+    cout << "Address of numbers: " << numbers << endl;
+    cout << "Or via pointer: " << pNumbers << endl << endl;
+
+    for (unsigned int i = 0; i < SIZE_OF_NUMBERS; i++) {
+        // We can increment pointer
+        cout << "@" << pNumbersIncrement << ": " << *(pNumbersIncrement) << endl;
+        pNumbersIncrement++;
+
+        // If array is pointer
+        // then we can also use indexing on pointer
+        cout << "@" << &(pNumbers[i]) << ": " << pNumbers[i] << endl;
+
+        // Simple addition
+        cout << "@" << (pNumbers+i) << ": " << *(pNumbers+i) << endl << endl;
+    }
+
+    return 0;
+}
+```
+
+which would result in a similar output:
+
+```text
+Address of numbers: 0x61fef0
+Or via pointer: 0x61fef0
+
+@0x61fef0: 4201424
+@0x61fef0: 4201424
+@0x61fef0: 4201424
+
+@0x61fef4: 6422240
+@0x61fef4: 6422240
+@0x61fef4: 6422240
+
+@0x61fef8: 6422296
+@0x61fef8: 6422296
+@0x61fef8: 6422296
+
+@0x61fefc: 6422476
+@0x61fefc: 6422476
+@0x61fefc: 6422476
+
+@0x61ff00: 1996867696
+@0x61ff00: 1996867696
+@0x61ff00: 1996867696
+```
 
 ### Passing Pointers as Function Parameters
 
-TODO
+C++ allows you to pass a pointer as a parameter to a function. To do so, simply declare the function parameter as a pointer type.
 
-<!-- Simple usage - a swap method -->
+Passing data to functions via pointers is often applied in the following situations:
+* to allow the function to alter the actual value of the passed arguments
+* to be able to return more than one value from a function (this is often used in C, less required in C++ as there we can use data objects)
+* performance wise it is often done to pass larger and more complex objects (less memory usage)
+* to pass an array to a function
+
+Remember the `swap()` example from the "Functions" chapter. To get this to work we can actually use pointers to integers:
+
+```c++
+#include <iostream>
+using namespace std;
+
+void swap(int * x, int * y) {
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+int main()
+{
+    int a = 10;
+    int b = 136;
+
+    cout << "Before call to swap:" << endl;
+    cout << "a: " << a << endl;
+    cout << "b: " << b << endl;
+
+    swap(&a, &b);
+
+    cout << "\nAfter call to swap:" << endl;
+    cout << "a: " << a << endl;
+    cout << "b: " << b << endl;
+
+    return 0;
+}
+```
+
+While the parameters are still passed by value, this time the addresses to the actual memory are copied. However via that same address we have access to the original data.
+
+```text
+Before call to swap:
+a: 10
+b: 136
+
+After call to swap:
+a: 136
+b: 10
+```
