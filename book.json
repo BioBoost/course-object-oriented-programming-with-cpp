@@ -32,12 +32,6 @@
         }
     },
     "pdf": {
-        "paperSize": "a4",
-        "margin": {
-            "right": 36,
-            "left": 36,
-            "top": 36,
-            "bottom": 36
-        }
+        "paperSize": "a4"
     }
 }
