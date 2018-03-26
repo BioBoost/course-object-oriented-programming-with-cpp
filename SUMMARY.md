@@ -45,32 +45,23 @@
 * [Creating Objects](basics_of_classes/creating_objects.md)
 * [Constructors](basics_of_classes/constructors.md)
 
+### Memory Allocation
+* [Memory Allocation](memory_allocation/memory_allocation.md)
+* [Summary](memory_allocation/summary.md)
+* [Quiz](memory_allocation/quiz.md)
+* [Exercises](memory_allocation/exercises.md)
 
-<!-- * [Basics of Classes](basics_of_classes/basics_of_classes.md) -->
-<!-- * [Summary](basics_of_classes/summary.md) -->
-<!-- * [Quiz](basics_of_classes/quiz.md) -->
-<!-- * [Exercises](basics_of_classes/exercises.md) -->
+### Composition
+* [Composition](composition/composition.md)
+* [Summary](composition/summary.md)
+* [Quiz](composition/quiz.md)
+* [Exercises](composition/exercises.md)
 
-<!-- ### Memory Allocation -->
-
-<!-- * [Memory Allocation](memory_allocation/memory_allocation.md) -->
-<!-- * [Summary](memory_allocation/summary.md) -->
-<!-- * [Quiz](memory_allocation/quiz.md) -->
-<!-- * [Exercises](memory_allocation/exercises.md) -->
-
-<!-- ### Composition -->
-
-<!-- * [Composition](composition/composition.md) -->
-<!-- * [Summary](composition/summary.md) -->
-<!-- * [Quiz](composition/quiz.md) -->
-<!-- * [Exercises](composition/exercises.md) -->
-
-<!-- ### Inheritance -->
-
-<!-- * [Inheritance](inheritance/inheritance.md) -->
-<!-- * [Summary](inheritance/summary.md) -->
-<!-- * [Quiz](inheritance/quiz.md) -->
-<!-- * [Exercises](inheritance/exercises.md) -->
+### Inheritance
+* [Inheritance](inheritance/inheritance.md)
+* [Summary](inheritance/summary.md)
+* [Quiz](inheritance/quiz.md)
+* [Exercises](inheritance/exercises.md)
 
 <!-- ### Exceptions -->
 
