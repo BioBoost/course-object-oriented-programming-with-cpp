@@ -6,10 +6,8 @@
 * [Creating Objects](../basics_of_classes/creating_objects.md)
 * [Constructors](../basics_of_classes/constructors.md)
 
-<!-- This chapter needs a serious refactor -->
-
 # Basics of Classes
 
-Classes are the central feature of C++ that support the Object Oriented Programming paradigm. They are often called user-defined types. Classes are the representation of elements from the problem space inside the solution space. They combine both data and methods into one neat package (also known as **encapsulation**).
+Classes are the central feature of C++ that support the Object Oriented Programming paradigm. They are often called user-defined types. Classes are the representation of elements from the problem space inside the solution space. They combine both **data** (attributes) and **behavior** (methods) into one neat little package (also known as **encapsulation**).
 
-The data and methods within a class are called members of the class.
+In C++ the attributes and methods within a class are called the **members** of that class.
