@@ -9,7 +9,6 @@ A class definition in C++ is constructed using the format shown below:
 
 ```c++
 class <name_of_class> {
-
 };
 ```
 
