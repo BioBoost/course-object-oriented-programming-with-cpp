@@ -40,8 +40,8 @@
 * [Basics of Classes](basics_of_classes/readme.md)
 * [Class Definition](basics_of_classes/class_definition.md)
 * [Header Files](basics_of_classes/header_files.md)
-* [Attributes](basics_of_classes/attributes.md)
-* [Methods](basics_of_classes/methods.md)
+* [Adding Data - Attributes](basics_of_classes/attributes.md)
+* [Adding Behavior - Methods](basics_of_classes/methods.md)
 * [Creating Objects](basics_of_classes/creating_objects.md)
 * [Constructors](basics_of_classes/constructors.md)
 
