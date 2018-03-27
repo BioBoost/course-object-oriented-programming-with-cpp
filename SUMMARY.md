@@ -44,6 +44,8 @@
 * [Adding Behavior - Methods](basics_of_classes/methods.md)
 * [Creating Objects](basics_of_classes/creating_objects.md)
 * [Constructors](basics_of_classes/constructors.md)
+* [Exercises](basics_of_classes/exercises.md)
+* [Solutions](basics_of_classes/solutions.md)
 
 ### Memory Allocation
 * [Memory Allocation](memory_allocation/memory_allocation.md)
