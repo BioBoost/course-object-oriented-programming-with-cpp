@@ -52,6 +52,7 @@
 * [Summary](memory_allocation/summary.md)
 * [Quiz](memory_allocation/quiz.md)
 * [Exercises](memory_allocation/exercises.md)
+* [Solutions](memory_allocation/solutions.md)
 
 ### Composition
 * [Composition](composition/composition.md)
