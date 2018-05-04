@@ -1,0 +1,33 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build application",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-Wall", "--std=c++11",
+                "-I", "${workspaceFolder}/include",
+                "-g", "main.cpp", "src/arraylist.cpp",
+                "-o", "${workspaceFolder}/bin/app.exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "run application",
+            "type": "shell",
+            "command": "${workspaceFolder}/bin/app.exe",
+            "args": [],
+            "presentation": {
+                "reveal": "always"
+            },
+            "dependsOn": [
+                "build application"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}

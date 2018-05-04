@@ -40,16 +40,19 @@
 * [Basics of Classes](basics_of_classes/readme.md)
 * [Class Definition](basics_of_classes/class_definition.md)
 * [Header Files](basics_of_classes/header_files.md)
-* [Attributes](basics_of_classes/attributes.md)
-* [Methods](basics_of_classes/methods.md)
+* [Adding Data - Attributes](basics_of_classes/attributes.md)
+* [Adding Behavior - Methods](basics_of_classes/methods.md)
 * [Creating Objects](basics_of_classes/creating_objects.md)
 * [Constructors](basics_of_classes/constructors.md)
+* [Exercises](basics_of_classes/exercises.md)
+* [Solutions](basics_of_classes/solutions.md)
 
 ### Memory Allocation
 * [Memory Allocation](memory_allocation/memory_allocation.md)
 * [Summary](memory_allocation/summary.md)
 * [Quiz](memory_allocation/quiz.md)
 * [Exercises](memory_allocation/exercises.md)
+* [Solutions](memory_allocation/solutions.md)
 
 ### Composition
 * [Composition](composition/composition.md)
