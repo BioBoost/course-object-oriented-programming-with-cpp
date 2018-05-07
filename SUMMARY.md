@@ -73,6 +73,9 @@
 <!-- * [Quiz](exceptions/quiz.md) -->
 <!-- * [Exercises](exceptions/exercises.md) -->
 
+### Hands On MQTT
+* [MQTT](hands_on/mqtt/readme.md)
+
 ### Assignments
 
 * [Assignments](assignments/readme.md)
