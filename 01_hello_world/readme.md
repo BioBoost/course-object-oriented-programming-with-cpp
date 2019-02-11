@@ -1,3 +1,54 @@
+---
+description: This chapter introduces the hello world example in C++.
+---
+
+# Chapter 01 - Hello World
+
+A "Hello, World!" application is a computer program that outputs or displays the message "Hello, World!" to the user. Being a very simple program in most programming languages, it is often used to illustrate the basic syntax of a programming language for a working program. It is often the very first program people write when they are new to the language.
+
+![Hello World](img/hello_world.jpg)
+
+A "Hello, world!" program is often used to introduce novice programmers to a programming language. In general, it is simple enough to be understood easily, especially with the guidance of a teacher or a written guide.
+
+In addition, "Hello world!" can be a useful sanity test to make sure that a language's compiler, development environment, and run-time environment are correctly installed. Configuring a complete programming toolchain from scratch to the point where even trivial programs can be compiled and run can involve substantial amounts of work. For this reason, a simple program is used first when testing a new tool chain.
+
+"Hello world!" is also used by computer hackers as a proof of concept that arbitrary code can be executed through an exploit where the system designers did not intend code to be executed—for example, on Sony's PlayStation Portable. This is the first step in using homemade content ("home brew") on such a device.
+
+![Hello World on PSP](img/psp_hello_world.jpeg)
+
+## Hello World in C++
+
+Let's jump right in and create our "Hello World" application in C++.
+
+Open your favorite editor or IDE and create a new C++ application. Place the code below in a file called `main.cpp`. This file often serves as the entry point of the application containing the `main` function which contains the code to execute when the application is started. Compile and execute the application.
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  // Display Hello World! in the terminal
+  cout << "Hello World!" << endl;
+
+  return 0;
+}
+```
+
+The result should be the text "Hello World!" printed to the terminal as shown below.
+
+[Hello World output](img/hello_world_output.png)
+
+If you need more information on how to setup your development environment than please take a look at [https://vives.gitbook.io/software-installation-guide](https://vives.gitbook.io/software-installation-guide) at the section "Visual Studio Code".
+
+As a compiler you can make use of MinGW which stands for "Minimalist GNU for Windows", which is a native Windows port of the GNU Compiler Collection (GCC).
+
+> **INFO** - **GNU**
+>
+> GNU is an operating system and an extensive collection of computer software. GNU is composed wholly of free software, most of which is licensed under GNU's own GPL (General Purpose License).
+>
+> GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code. The GNU project includes an operating system kernel, GNU HURD, which was the original focus of the Free Software Foundation (FSF). However, non-GNU kernels, most famously Linux, can also be used with GNU software; and since the kernel is the least mature part of GNU, this is how it is usually used. The combination of GNU software and the Linux kernel is commonly known as Linux (or less frequently GNU/Linux).
+
 ## Code Analysis
 
 Below is a small analysis of the "Hello World" application. It will get you familiarized with the syntax of C++ and will serve as a starting point for almost every application you will ever create in C++.
@@ -35,10 +86,10 @@ The open brace `{` indicates the beginning of statement block, in this case the 
 
 Two forward slash signs `//` indicate that the rest of the line is a **comment**. Comments have no effect on the behavior of the application. They are actually ignored by the compiler. Often programmers insert comments to describe certain pieces of code or to explain their decisions.
 
-
 The line `cout << "Hello World!" << endl;` is called a C++ **statement**. A statement is an expression that can actually produce some effect. This will not always be visual output. The statements specify the actual behavior of the application. Statements are executed in the same order that they appear.
 
 This statement has three parts:
+
 * `cout`, which identifies the standard character output device (usually, this is the computer screen).
 * The insertion operator `<<`, which indicates that what follows is inserted into `cout`.
 * A text sentence within quotes ("Hello world!"), being the content inserted into the standard output. In this case a string (denoted by the double quotes).
