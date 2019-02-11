@@ -1,4 +1,4 @@
-# Exercises
+## Chapter 02 - Introduction to C++
 
 ## Displaying variable value
 
@@ -8,11 +8,11 @@ Develop an application that defines a variable of type integer and displays its 
 
 Create an application that determines the 21% VAT (BTW) of a given number (floating point). Display both the value with and without VAT like you would see on an invoice. Use a second variable to store the actual VAT value.
 
-Can you change the application so the number is requested from the user. Checkout http://www.cplusplus.com/doc/tutorial/basic_io/ for more info on input and input to STDOUT and from STDIN.
+Can you change the application so the number is requested from the user. Checkout [http://www.cplusplus.com/doc/tutorial/basic_io/](http://www.cplusplus.com/doc/tutorial/basic_io/) for more info on input and input to STDOUT and from STDIN.
 
 ## Generating random numbers
 
-Checkout the following code: http://www.dreamincode.net/forums/topic/14057-producing-random-numbers/
+Checkout the following code: [http://www.dreamincode.net/forums/topic/14057-producing-random-numbers/](http://www.dreamincode.net/forums/topic/14057-producing-random-numbers/)
 
 Is uses some functions and libraries to generate random numbers.
 
