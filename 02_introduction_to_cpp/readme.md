@@ -1,23 +1,8 @@
-[Introduction to C++](../introduction_to_cpp/readme.md)
-<!-- * [Variables](../introduction_to_cpp/variables.md) -->
-<!-- * [Scope](../introduction_to_cpp/scope.md)  -->
-<!-- * [Standard IO](../introduction_to_cpp/standard_io.md) -->
-<!-- * [Mathematical Operators](../introduction_to_cpp/mathematical_operators.md) -->
-<!-- * [Comparison Operators](../introduction_to_cpp/comparison_operators.md) -->
-<!-- * [Conditional Operators](../introduction_to_cpp/conditional_operators.md) -->
-* [The if statement](../introduction_to_cpp/if_statement.md)
-* [The switch statement](../introduction_to_cpp/switch_statement.md)
-* [The for loop](../introduction_to_cpp/for_loop.md)
-<!-- * [The while loop](../introduction_to_cpp/while_loop.md) -->
-<!-- * [The do while loop](../introduction_to_cpp/do_while_loop.md) -->
-* [Arrays](../introduction_to_cpp/arrays.md)
-* [Functions](../introduction_to_cpp/functions.md)
-* [Pointers](../introduction_to_cpp/pointers.md)
-* [Overview of Keywords](../introduction_to_cpp/overview_keywords.md)
-* [Exercises](../introduction_to_cpp/exercises.md)
-<!-- * [Solutions](../introduction_to_cpp/solutions.md) -->
+---
+description: This chapter will introduce the basics of the C++ language.
+---
 
-# Introduction to C++
+# Chapter 02 - Introduction to C++
 
 This chapter will introduce the basics of the C++ language. It does expect you to already be familiar with another programming language such as Java.
 
@@ -34,6 +19,7 @@ C++ supports several primitive datatypes as shown in the following table.
 ![C++ primitive data types](img/cpp_data_types.png)
 
 Primitive data types are basic types implemented directly by the language that represent the basic storage units supported natively by most systems. They can mainly be classified into:
+
 * **Character types**: These can represent a single character, such as `'A'` or `'$'`. The most basic type is `char`, representing a single character. Other types are also provided for wider characters.
 * **Numerical integer types**: They can store a whole number value, such as `7` or `1024`. They exist in a variety of sizes, and can either be `signed` or `unsigned`, depending on whether they support negative values or not.
 * **Floating-point types**: These types represent real values, such as `3.14` or `0.01`, with different levels of precision, depending on which of the three floating-point types is used.
@@ -65,13 +51,13 @@ Value of d: 1
 Value of e: 1
 ```
 
-> #### Alert::Datatype sizes
+> **WARNING** - **Datatype sizes**
 >
 > Note that the C++ standard does not specify a concrete size for each type. This means that the size of the data types actually dependent on the system you are compiling for. In certain situations you will need to keep this in mind.
 
 Within each of the groups above, the difference between types is only their size (i.e., how much space they occupy in memory): the first type in each group is the smallest, and the last is the largest, with each type being at least as large as the one preceding it in the same group. Other than that, the types in a group have the same properties.
 
-> #### Info::The fundamental storage unit in C++
+> **INFO** - **The fundamental storage unit in C++**
 >
 > From the draft version of the C++ 17 Standard $4.4/1
 > The fundamental storage unit in the C++ memory model is the byte. A byte is at least large enough to contain any member of the basic execution character set (5.3) and the eight-bit code units of the Unicode UTF-8 encoding form and is composed of a contiguous sequence of bits, the number of which is implementation defined.
@@ -84,7 +70,7 @@ Type sizes above are expressed in bits; the more bits a type has, the more disti
 
 **C++ is a strongly-typed language**, and requires every variable to be declared with its type **before** its first use. This informs the compiler the size to reserve in memory for the variable and how to interpret its value. The syntax to define a new variable in C++ is straightforward: simply write the type followed by the variable name (also known as its identifier).
 
-> #### Warning::Declaration versus definition
+> **WARNING** - **Declaration versus definition**
 >
 > Note that defining a variable is not the same as declaring it. Declaring a variable is stating that it exists somewhere, while defining a variable is actually creating it. Declaring a variable is done using the `extern` keyword. While less important for variables, the distinction will be more clear in the context of functions, methods and classes.
 
@@ -558,17 +544,21 @@ Some important points about the switch statement:
 
 * The expression provided in the switch should result in a constant value otherwise it would not be valid.
  * Valid expressions for switch:
-```c++
-// Constant expressions allowed
-switch(1+2+23)
-switch(1*2+3%4)
-```
+
+  ```c++
+  // Constant expressions allowed
+  switch(1+2+23)
+  switch(1*2+3%4)
+  ```
+
  * Invalid switch expressions for switch:
-```c++
-// Variable expression not allowed
-switch(ab+cd)
-switch(a+b+c)
-```
+
+  ```c++
+  // Variable expression not allowed
+  switch(ab+cd)
+  switch(a+b+c)
+  ```
+
 * Duplicate case values are not allowed.
 * The default statement is optional. Even if the switch case statement did not have a default statement, it would run without any problem.
 * The break statement is optional. If omitted, execution will continue on into the next case. The flow of control will fall through to subsequent cases until a break is reached.
@@ -665,6 +655,7 @@ But how does one know how to call a certain function? Simple: by reading the onl
 ### Creating Custom Functions
 
 To create custom functions two components are required:
+
 * A function declaration (also called the prototype), which tells the compiler about a function's name, return type, and its parameters;
 * A function definition, which provides the actual body (implementation) of the function.
 
@@ -674,7 +665,7 @@ The general form of a C++ function definition looks like the template below
 
 ```text
 <return_type> function_name( <comma_separated_parameter_list> ) {
-   // Statements (body / implemenation)
+   // Statements (body / implementation)
    return <value>;  // In case of a non-void function
 }
 ```
@@ -688,7 +679,7 @@ A C++ function definition consists of a function header (same as the prototype) 
 
 The function name and the parameter list together constitute the **function signature**. Note that the return type is not part of the function signature. As the standard says in a footnote, "Function signatures do not include return type, because that does not participate in overload resolution".
 
-> #### Info::Overload resolution
+> **INFO** - **Overload resolution**
 >
 > A function signature is the parts of the function declaration that the compiler uses to perform overload resolution. Since multiple functions might have the same name (ie., they're overloaded), the compiler needs a way to determine which of several possible functions with a particular name a function call should resolve to. The signature is what the compiler considers in that overload resolution.
 
@@ -703,6 +694,7 @@ int sum(int a, int b) {
 ```
 
 Some things to note:
+
 * The name of the function is `sum`
 * The return value of the function is `int` so it needs to have a return statement that returns an integer value
 * It takes two parameters, namely `a` of type `int` and `b` also of type `int`. Each parameter needs an explicit type specification.
@@ -731,12 +723,13 @@ int sum(int, int);
 ```
 
 A separate function declaration is required when you
+
 * define a function below the point were you call the function (for example using a custom function in `main()` that is defined below main)
 * define a function in one source file and you call that function in another file. In such case, you should declare the function at the top of the file calling the function.
 
 #### Putting it all together
 
-Below is an example of the `sum()` function being called from the` main()` function. Note that no declaration (prototype) is required as the `sum()` function is defined before main.
+Below is an example of the `sum()` function being called from the `main()` function. Note that no declaration (prototype) is required as the `sum()` function is defined before main.
 
 ```c++
 #include <iostream>
@@ -811,6 +804,7 @@ Default parameter values can be placed in the declaration and in the definition 
 A **function** is a piece of code that is called by name. It can be passed data to operate on (i.e., the parameters) and can optionally return data (the return value). All data that is passed to a function is passed explicitly.
 
 A **method** is a piece of code that is called by name that is **associated with an object**. In most respects it is identical to a function except for two key differences.
+
 * It is implicitly passed a reference to the object for which it was called.
 * It is able to operate on data that is contained within the class (remembering that an object is an instance of a class - the class is the definition, the object is an instance of that class).
 
@@ -820,7 +814,7 @@ While calling a function, there are three ways that arguments can be passed to a
 
 * **Pass by value**: This copies the actual value of an argument into the formal parameter of the function. In this case, changes made to the parameter inside the function have no effect on the argument
 * **Pass by pointer**: This copies the address of an argument into the formal parameter. Inside the function, the address is used to access the actual argument used in the call. This means that changes made to the parameter affect the argument.
-* **Pass by reference**: 	This copies the reference of an argument into the formal parameter. Inside the function, the reference is used to access the actual argument used in the call. This means that changes made to the parameter affect the argument.
+* **Pass by reference**: This copies the reference of an argument into the formal parameter. Inside the function, the reference is used to access the actual argument used in the call. This means that changes made to the parameter affect the argument.
 
 By default, C++ uses pass by value to pass arguments. In general, this means that code within a function cannot alter the arguments used to call the function.
 
