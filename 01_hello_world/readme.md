@@ -70,7 +70,7 @@ Lines beginning with a hash sign `#` are called **pre-processor directives**. Th
 
 As in most programming languages, whitespace such as newlines, tabs and spaces have no effect on the code itself as long as they are not placed within variable names or C++ keywords. C++ is also a programming language that is **case sensitive**, meaning that `this` is not the same as `This` or `THIS`.
 
-If you have seen C++ code before, you may have seen cout being used instead of `std::cout`. Both name the same object: the first one uses its unqualified name `cout`, while the second qualifies it directly within the namespace `std` as `std::cout`. `cout` is part of the standard library, and all the elements in the standard C++ library are declared within what is called a namespace. In this case the namespace is called `std` which is short for standard.
+If you have seen C++ code before, you may have seen `cout` being used instead of `std::cout`. Both name the same object: the first one uses its unqualified name `cout`, while the second qualifies it directly within the namespace `std` as `std::cout`. `cout` is part of the standard library, and all the elements in the standard C++ library are declared within what is called a namespace. In this case the namespace is called `std` which is short for standard.
 
 In order to refer to the elements in the `std` namespace a program must either qualify each and every use of elements of the library (by prefixing the elements with `std::`), or introduce visibility of its components. The most typical way to introduce visibility of these components is by means of using declarations: `using namespace std;`
 
