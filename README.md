@@ -14,13 +14,11 @@ Please note that this GitBook is still under development and did not even reach 
 
 ## Prerequisites
 
-This course does expect you to already have a basic knowledge of programming and object oriented concepts. If you don't please take the course "Object Oriented Programming with Java" which can be found at [https://bioboost.gitbooks.io/object-oriented-programming-using-java/content/](https://bioboost.gitbooks.io/object-oriented-programming-using-java/content/).
+This course does expect you to already have a basic knowledge of programming and object oriented concepts. If you don't please take the course "Object Oriented Programming with Java" which can be found at [https://vives.gitbook.io/oop-with-java/](https://vives.gitbook.io/oop-with-java/).
 
 ## Requirements
 
 To follow along you will need at least a C++ compiler for the operating system you are using. Best option is to use a GCC compiler. If you are a total beginner for C++ a good option can be Microsoft Visual Code, a free IDE that supports many programming languages.
-
-The exercises for mBed can be developed online at [https://developer.mbed.org/compiler/](https://developer.mbed.org/compiler/) or using the offline toolchain [https://docs.mbed.com/docs/mbed-os-handbook/en/latest/dev_tools/cli/](https://docs.mbed.com/docs/mbed-os-handbook/en/latest/dev_tools/cli/).
 
 ## About this course
 
@@ -50,6 +48,7 @@ For the exact details on the LABs, exams and tests you should take a look at the
 Below is a quick overview of the objectives of this course. By the end of the semester you should be able to check each of these of and consider them to be part of your programming skillset.
 
 At the end of this course, students will be able to
+
 * create basic OO applications in C++
 * understand and make use of dynamic allocation
 * develop custom classes following good practices
@@ -69,4 +68,6 @@ Note that the objectives are not ordered based on their importance but more in o
 
 Some of the above objectives rely on topics covered in the course "Software Engineering" taught at VIVES University College. It is expected that you can apply them for this course. Some examples are the use of Doxygen, UML diagrams and some well-known design patterns. All code solutions are expected to adhere to the good practices of developing software (DRY, SOLID, ...) and should be free of the well-known code smells.
 
-<!-- Trigger rebuild -->
+### License
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
