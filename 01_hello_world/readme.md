@@ -41,6 +41,8 @@ The result should be the text "Hello World!" printed to the terminal as shown be
 
 If you need more information on how to setup your development environment than please take a look at [https://vives.gitbook.io/software-installation-guide](https://vives.gitbook.io/software-installation-guide) at the section "Visual Studio Code".
 
+A usable `tasks.json` file for VSCode can be found as a Gist on my GitHub account at [https://gist.github.com/BioBoost/967ee0311237e4efe1bb06a988fb290d](https://gist.github.com/BioBoost/967ee0311237e4efe1bb06a988fb290d). This tasks allows you to build and run the code as a single command inside VSCode.
+
 As a compiler you can make use of MinGW which stands for "Minimalist GNU for Windows", which is a native Windows port of the GNU Compiler Collection (GCC).
 
 > **INFO** - **GNU**
