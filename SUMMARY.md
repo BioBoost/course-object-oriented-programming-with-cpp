@@ -16,6 +16,10 @@
 
 * [Object Oriented Thinking](https://vives.gitbook.io/oot/)
 
+### Basics of Classes
+
+* [Basics of Classes](04_basics_of_classes/readme.md)
+
 ----
 
 ### Sources
