@@ -12,6 +12,14 @@
 * [Introduction to C++](02_introduction_to_cpp/readme.md)
 * [Challenges](02_introduction_to_cpp/challenges.md)
 
+### Object Oriented Thinking
+
+* [Object Oriented Thinking](https://vives.gitbook.io/oot/)
+
+### Basics of Classes
+
+* [Basics of Classes](04_basics_of_classes/readme.md)
+
 ----
 
 ### Sources
