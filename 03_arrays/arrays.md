@@ -1,4 +1,8 @@
-## Arrays
+---
+description: This chapter will introduce the basics arrays in C++
+---
+
+# Chapter 03 - Arrays
 
 An array data structure, or simply an array, is **a data structure consisting of a collection of elements**, each identified by at least one **array index** or key. An array is stored so that the position of each element can be computed from its index by a mathematical formula. The simplest type of data structure is a linear array, also called one-dimensional array.
 
@@ -12,7 +16,7 @@ Arrays are among the oldest and most important data structures, and are used by 
 
 Arrays are useful mostly because the element indices can be computed at run time. Among other things, this feature allows a single iterative statement to process arbitrarily many elements of an array. For that reason, the elements of an array data structure are required to have the same size and should use the same data representation.
 
-### One Dimensional Arrays
+## One Dimensional Arrays
 
 An array is a **container object** that holds a **fixed number of values** of a **single type**. The length of an array is established when the array is created. After creation, its length is fixed.
 
@@ -56,7 +60,7 @@ int main()
 
 From the code above it can be seen that the array elements can be accessed by using `[]` with the index specified between them.
 
-### Quick Initialization
+## Quick Initialization
 
 It is perfectly possible to initialize all array elements using a for-loop construct as shown below.
 
@@ -100,7 +104,7 @@ If you provide enough initialization values you can also omit the array size. Th
 int myArray[] = { 1, 2, 3, 4, 5 };      // Will automatically create an array of 5 elements
 ```
 
-### Multi-Dimensional Arrays
+## Multi-Dimensional Arrays
 
 C++ allows the declaration of multi-dimensional arrays. Multidimensional arrays can be described as **"arrays of arrays"**. Below is the general declaration template of such a structure:
 
