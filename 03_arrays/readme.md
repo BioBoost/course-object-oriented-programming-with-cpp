@@ -89,11 +89,13 @@ int someOtherArray[10] = { 0 };   // initialize all elements to 0
 ```
 
 Initializing elements to a certain value is also possible.
+
 ```c++
 int myArray[10] = { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 };
 ```
 
 Elements with missing values will be initialized to 0:
+
 ```c++
 int myArray[10] = { 1, 2 };   // initialize to 1, 2, 0, 0, 0 ...
 ```
@@ -134,6 +136,7 @@ Of course if you wish to access the elements you will need to provide as much in
 Take a look at the three-dimensional array initialization example shown below.
 
 <!-- TODO: A bit of a stupid example. Think of something more useful. -->
+
 ```c++
 #include <iostream>
 using namespace std;
