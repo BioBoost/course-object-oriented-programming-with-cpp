@@ -1,0 +1,29 @@
+#include <iostream>
+
+using namespace std;
+
+void test(int a) {
+  cout << "Called test(int a)" << endl;
+}
+
+void test(int a, int b) {
+  cout << "Called test(int a, int b)" << endl;
+}
+
+// void test(int b, int a) {
+//   cout << "Called test(int b, int a)" << endl;
+// }
+
+void test(char a) {
+  cout << "Called test(char a)" << endl;
+}
+
+int main() {
+
+  cout << "Hello World from C++" << endl;
+  test(10);
+  test(10, 20);
+  test((char)10);
+
+  return 0;
+}

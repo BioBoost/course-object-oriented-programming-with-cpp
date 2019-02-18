@@ -1,0 +1,25 @@
+https://stackoverflow.com/questions/43176681/do-statically-linked-libraries-require-linking-with-their-dependencies
+
+I'm building an executable that depends on a static library A which in turn depends on a static library B. When I build my application, do I need to also link against B in my build script?
+
+To be more specific, do I need to do -la -lb, or, just linking with A via -la is enough?
+
+
+
+
+
+ANWER:
+
+If both A and B are static, then you have to link both, in order of A then B (-la -lb). See this reply for an explanation of the order.
+
+A statically linked program includes the libraries its linked against inside of the executable.
+
+Imagine your program calls foo() inside of A, and somewhere inside of A, bar() gets called. So if A becomes part of your program, you then have an undefined call to bar() in your program, which is why you need to link against B as well.
+
+
+
+Our Example:
+
+TLC example depends on TLC which depends on I2CEndPoint
+
+Makefile of example: LIBS=-li2cendpoint -ltlc59116
