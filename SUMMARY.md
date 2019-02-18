@@ -12,6 +12,10 @@
 * [Introduction to C++](02_introduction_to_cpp/readme.md)
 * [Challenges](02_introduction_to_cpp/challenges.md)
 
+### Arrays
+
+* [Arrays](03_arrays/readme.md)
+
 ### Object Oriented Thinking
 
 * [Object Oriented Thinking](https://vives.gitbook.io/oot/)
