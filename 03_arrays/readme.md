@@ -30,7 +30,7 @@ By placing square brackets after the name of the variable we declare the variabl
 
 A visualization of the array may look something like this:
 
-![An array of 10 integers](img/arrays_of_ten_integers.gif)
+![An array of 10 integers](img/arrays_of_ten_integers.png)
 
 Each item in an array is called **an element**, and each element is accessed by its numerical index. As shown in the preceding visualization, numbering begins with 0 (this is called **zero-indexed**). The 9th element, for example, would therefore be accessed at index 8.
 
