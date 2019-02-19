@@ -1,0 +1,4 @@
+https://www.youtube.com/watch?v=FQAQTXE_vt4		Code Libraries - Computerphile
+=> Soom good questions:
+  => Why are functions like printf not part of the programming language if they are almost needed by every program
+=> Also basic explanation of static and dynamic linking

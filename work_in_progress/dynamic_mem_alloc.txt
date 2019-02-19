@@ -1,0 +1,13 @@
+https://stackoverflow.com/questions/14987318/what-happens-if-i-dont-delete
+
+It all depends on what your program does, and how much memory it uses - at any given time and overall throughout its runtime.
+
+Say for example you write a mailserver, that allocates memory to hold each email it receives. But it doesn't actually need to store every email that goes through it. So after a few days of receiving and forwarding emails, the mailserver can't allocate any more memory, it has consumed every available byte of memory - but it's not actually doing anything useful with that memory, since the emails are no longer in use - they have been dealt with.
+
+On the other hand, if we write our mailserver program that allocates, say, 1MB of buffer to read in an email, process it, and when it's done with, the memory is reused for another email, then there's little point in freeing that memory, ever.
+
+And if we write a program that just reads a file, loadign the entire file into memory, and when it has counted all the letters for statistical purposes, prints the stats and exits, whether that allocates a lot of memory or not doesn't really matter.
+
+Of course, all this assumes that the call to new is SIMPLY to allocate memory. If the constructor of the object does something more complex, like open a file, acquire a lock or something else, then all sorts of bad things could happen pretty soon if the destructor isn't called.
+
+The OS will (for the commonly used OS's such as Linux, MacOS, iOS, other Unix-systems, Windows, DOS, OS/2, etc) free the memory used by your application.
