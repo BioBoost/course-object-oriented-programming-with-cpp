@@ -1,0 +1,75 @@
+<!-- TODO: This should probable be moved to another chapter (after composition and inheritance) -->
+## How Objects Sprout to Life
+
+Whenever an object of a class is instantiated, its constructor is called. This however is not all that happens:
+* the **parent constructor** is also called if the class inherits from another class
+* also all the constructors of all the composed objects are called
+
+Of course if the base class inherits from another class or the subobjects do, or contain other objects, this process repeats itself within those objects.
+
+Let's take a look at a more complex example of a `MotorCycle`. It inherits from a `MotorizedVehicle` class which in turn inherits from a `TransportationDevice`. A `MotorizedVehicle` contains a `Motor` and a `MotorCycle` is composed of a `Motor` (through inheritance), two `Wheel`s, a `GearBox` and a `Battery`.
+
+![A Motorcycle Model](https://www.lucidchart.com/publicSegments/view/1eea9455-686b-4691-b71c-e8ddbac4f66e/image.png)
+
+It is very important to know which constructors are called and at what time. Let's use the following implementation to illustrate which constructors are called when. Note that the implementation is shown below each class to make the code shorter.
+
+
+[include](code/motorcycle_default_constructors/include/motor.h)
+
+[include](code/motorcycle_default_constructors/src/motor.cpp)
+
+
+[include](code/motorcycle_default_constructors/include/wheel.h)
+
+[include](code/motorcycle_default_constructors/src/wheel.cpp)
+
+
+[include](code/motorcycle_default_constructors/include/gearbox.h)
+
+[include](code/motorcycle_default_constructors/src/gearbox.cpp)
+
+
+[include](code/motorcycle_default_constructors/include/battery.h)
+
+[include](code/motorcycle_default_constructors/src/battery.cpp)
+
+
+[include](code/motorcycle_default_constructors/include/transportation_device.h)
+
+[include](code/motorcycle_default_constructors/src/transportation_device.cpp)
+
+
+[include](code/motorcycle_default_constructors/include/motorized_vehicle.h)
+
+[include](code/motorcycle_default_constructors/src/motorized_vehicle.cpp)
+
+
+[include](code/motorcycle_default_constructors/include/motorcycle.h)
+
+[include](code/motorcycle_default_constructors/src/motorcycle.cpp)
+
+
+The main program could be as simple as:
+
+[include](code/motorcycle_default_constructors/main.cpp)
+
+This would output:
+
+```text
+Constructing TransportationDevice
+Constructing Motor
+Constructing MotorizedVehicle
+Constructing Wheel
+Constructing Wheel
+Constructing GearBox
+Constructing Battery
+Constructing Motorcycle
+```
+
+So basically, when constructing an object of a class the default constructor of its baseclass is called first. In turn if this class is also inheriting from another class, that baseclass default constructor is called first. Once the topclass is reached the constructors of the composed objects are called. Taking into account that also these can inherit from a baseclass. Once the object of the topclass is constructed, we traverse back toward the actual class object being constructed, under way constructing the composed objects of the baseclasses being traversed.
+
+Important to think about is:
+* **Why are the constructors of the composed objects invoked before the actual constructor of the composing object ?** Simple, because those objects should be ready and in a valid state for the composing object to use it when it is constructed. For example: the MotorCycle may want to change the battery voltage to a different level in its constructor.
+* **Why are the constructors of the parent class invoked before the constructor of the child class ? ** Because each class should initialize the things that belong to it, not things that belong to other classes. So a child class should hand off the work of constructing the portion of it that belongs to the parent class. Second, the child class may depend on these fields when initializing its own fields; therefore, the constructor needs to be called before the child class's constructor runs.
+
+![A Motorcycle Model - Constructors](https://www.lucidchart.com/publicSegments/view/8ea7fc2f-058f-41d3-82db-2ef5b9951153/image.png)
