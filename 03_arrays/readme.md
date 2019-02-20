@@ -84,8 +84,13 @@ However in some cases shorter options are available using an array initializatio
 Initializing all elements to zero can be achieved using the following constructs:
 
 ```c++
-int someArray[10] = {};           // initialize all elements to 0 (not allowed in C)
-int someOtherArray[10] = { 0 };   // initialize all elements to 0
+// initialize all elements to 0
+// (not allowed in C)
+int someArray[10] = {};
+
+// Initialize all elements to 0
+// (allowed in C)
+int someOtherArray[10] = { 0 };
 ```
 
 Initializing elements to a certain value is also possible.
