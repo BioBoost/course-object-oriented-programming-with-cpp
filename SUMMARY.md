@@ -15,6 +15,7 @@
 ### Arrays
 
 * [Arrays](03_arrays/readme.md)
+* [Challenges](03_arrays/challenges.md)
 
 ### Object Oriented Thinking
 
@@ -23,6 +24,7 @@
 ### Basics of Classes
 
 * [Basics of Classes](04_basics_of_classes/readme.md)
+* [Challenges](04_basics_of_classes/challenges.md)
 
 ### Composition
 
