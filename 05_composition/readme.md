@@ -16,8 +16,8 @@ Because inheritance is one of the main pillars of object oriented design, it is 
 
 While in most cases aggregation is synonym with composition, there is a subtle difference.
 
-* **Aggregation** is a specialized form of association where all object have their own lifecycle but there is ownership. In UML this is represented by a hollow diamond followed by a line.
-* **Composition** is a specialized form of aggregation. It is a strong type of aggregation. In this relationship child objects do not have their own lifecycle. If a parent object is destroyed, all its child objects will also be destroyed. In UML this is represented by a solid diamond followed by a line.
+* **Aggregation** is a specialized form of association where all object have their own life cycle but there is ownership. In UML this is represented by a hollow diamond followed by a line.
+* **Composition** is a specialized form of aggregation. It is a strong type of aggregation. In this relationship child objects do not have their own life cycle. If a parent object is destroyed, all its child objects will also be destroyed. In UML this is represented by a solid diamond followed by a line.
 
 For more information please consult the section "Reusing Implementation" of the GitBook Object Oriented Thinking at [https://vives.gitbook.io/oot/all-about-objects/reusing-implementation](https://vives.gitbook.io/oot/all-about-objects/reusing-implementation).
 
