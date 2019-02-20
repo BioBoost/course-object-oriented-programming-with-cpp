@@ -2,7 +2,7 @@
 description: Composition is the most useful technique for reusing implementation.
 ---
 
-# Composition / Aggregation
+# Chapter 04 - Composition
 
 One of the most used mechanisms to **reuse** code is by using composition and aggregation. By using composition we build **objects that consist of other objects**. Think of it as creating another type of object by packaging together other objects.
 
