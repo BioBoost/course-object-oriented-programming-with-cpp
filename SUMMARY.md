@@ -24,6 +24,10 @@
 
 * [Basics of Classes](04_basics_of_classes/readme.md)
 
+### Composition
+
+* [Composition](05_composition/readme.md)
+
 ----
 
 ### Sources
