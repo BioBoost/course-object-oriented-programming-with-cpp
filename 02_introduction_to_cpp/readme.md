@@ -830,8 +830,7 @@ void swap(int x, int y) {
     y = temp;
 }
 
-int main()
-{
+int main() {
     int a = 10;
     int b = 136;
 
