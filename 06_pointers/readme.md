@@ -14,13 +14,13 @@ As stated before, a **variable is a symbolic name for a certain location inside 
 #include <iostream>
 
 int main() {
-    int x = 15;
-    int y = 0;
+  int x = 15;
+  int y = 0;
 
-    std::cout << "x = " << x << " and has an address of " << &x << std::endl;
-    std::cout << "y = " << y << " and has an address of " << &y << std::endl;
+  std::cout << "x = " << x << " and has an address of " << &x << std::endl;
+  std::cout << "y = " << y << " and has an address of " << &y << std::endl;
 
-    return 0;
+  return 0;
 }
 ```
 
@@ -60,19 +60,25 @@ The actual data type of the value of all pointers themselves, whether integer, f
 
 ## Initializing a Pointer
 
-As with any other variable, a pointer needs to be initialized before it can be used. For this we need to assign the address of a variable to the pointer. As shown before, the address of a variable can be retrieved by placing an `&` before it. The resulting address can then be assigned to a pointer of the same type as the variable.
+As with any other variable, **a pointer needs to be initialized before it can be used**. To accomplish this, one needs to a**ssign the address of a variable to the pointer**. As shown before, the address of a variable can be retrieved by applying the address-of operator `&` to it. The resulting address can then be assigned to a pointer of the same type as the variable.
 
 ```c++
+// A pointer to a variable of type int
 int x = 15;
 int * pointerToX = &x;
 
+// A pointer to a variable of type double
 double z = 25.3;
 double * pointerToZ = &z;
+
+// A pointer to an object of type std::string
+std::string greeting = "Hello there";
+std::string * pointerToGreeting = &greeting;
 ```
 
 ## Using Pointers
 
-Pointers are mainly used to directly access the memory they are pointing to. So in other words we need to be able to access the actual data and not the address inside the pointer. This can be achieved by dereferencing the pointer using the dereference operator `*`. Once the pointer is dereferenced, it can be threated as a normal variable.
+Pointers are mainly used to directly access the memory they are pointing to. So in other words, one needs to be able to access the actual data and not the address inside the pointer. This can be achieved by **dereferencing** the pointer using the **dereference operator** `*`. Once the pointer is dereferenced, it can be threated as a normal variable.
 
 An example where a pointer to an integer variable is used to change the actual value of the integer variable:
 
@@ -80,14 +86,16 @@ An example where a pointer to an integer variable is used to change the actual v
 #include <iostream>
 
 int main() {
-    int x = 15;
-    int * pointerToX = &x;      // Make pointer point to memory location of x
+  int x = 15;
+  int * pointerToX = &x;      // Make pointer point to memory location of x
 
-    (*pointerToX) = 22;
+  // Dereferencing the pointer to access the actual data
+  (*pointerToX) = 22;
 
-    std::cout << "x = " << x << " or via pointer = " << (*pointerToX) << std::endl;
+  std::cout << "x = " << x;
+  std::cout << " or via pointer = " << (*pointerToX) << std::endl;
 
-    return 0;
+  return 0;
 }
 ```
 
@@ -95,30 +103,29 @@ While not strictly necessary to add parentheses around the dereferenced pointers
 
 ## Pointers and Arrays
 
-Pointers and arrays are strongly related. In fact, an array variable is nothing more than a **constant pointer pointing at the first element of the array**. Actually a pointer can be dereferenced using the indexing operator used on an array variable as shown in the example below:
+Pointers and arrays are strongly related. In fact, an array variable is nothing more than a **constant pointer pointing at the first element of the array**. Actually a pointer can be dereferenced using the **indexing operator** `[]` used on an array variable as shown in the example below:
 
 ```c++
 #include <iostream>
-using namespace std;
-int main()
-{
-    const int SIZE = 5;
-    int numbers[SIZE];
-    int * pNumbers = numbers;
 
-    for (unsigned int i = 0; i < SIZE; i++) {
-        pNumbers[i] = 3 * i;
-    }
+int main() {
+  const int SIZE = 5;
+  int numbers[SIZE];
+  int * pNumbers = numbers;
 
-    for (unsigned int i = 0; i < SIZE; i++) {
-        cout << pNumbers[i] << endl;
-    }
+  for (unsigned int i = 0; i < SIZE; i++) {
+    pNumbers[i] = 3 * i;
+  }
 
-    return 0;
+  for (unsigned int i = 0; i < SIZE; i++) {
+    std::cout << pNumbers[i] << std::endl;
+  }
+
+  return 0;
 }
 ```
 
-Also note that we do not need to request the address of the array to initialize the pointer. This because the array variable is already a pointer. Of course if you do wish to use the address-of operator you can use the following construct:
+Also note that one does not need to request the address of the array to initialize the pointer. This because the **array variable is already a pointer**. Of course if you do wish to use the address-of operator you can use the following construct:
 
 ```c++
 const int SIZE = 5;
@@ -140,19 +147,20 @@ Since an array variable is actually a pointer, it is perfectly valid to derefere
 const int SIZE = 5;
 int numbers[SIZE];
 
-(* numbers) = 15;      // Would change the first element to a value of 15
+(*numbers) = 15;      // Would change the first element to a value of 15
 ```
 
-However do keep in mind that an array variable is **constant pointer**. This means that the array variable itself cannot be made to point to something else than the first element of the actual array in memory.
+However do keep in mind that an array variable is a **constant pointer**. This means that the array variable itself cannot be made to point to something else than the first element of the actual array in memory.
 
 ```c++
 const int SIZE = 5;
 int numbers[SIZE];
+
 // Invalid !!!!!!
-numbers = &(numbers[3])
+numbers = &(numbers[3]);
 ```
 
-Since an array is a constant pointer, it is also possible to use the indexing operator `[]` on a pointer to use a pointer as an array. The example below shows a small example where a pointer is indexed:
+Since an array is a constant pointer, it is also possible to use the indexing operator `[]` on a pointer to **use a pointer as an array**. The example below shows a small example where a pointer is indexed:
 
 ```c++
 const int SIZE = 5;
@@ -161,7 +169,7 @@ int * pNumbers = numbers;
 
 // Indexing of normal pointer as with an array
 for (unsigned int i = 0; i < SIZE; i++) {
-    cout << i << ": " << pNumbers[i] << endl;
+  std::cout << i << ": " << pNumbers[i] << std::endl;
 }
 ```
 
@@ -171,10 +179,10 @@ Note that the indexing operator already dereferences the actual address.
 
 Since pointers hold addresses, it is perfectly legal to perform some arithmetic operations on the actual value held by the pointer. There are four arithmetic operators that can be performed on pointers:
 
-* Increment: ++
-* Decrement: --
-* Addition: +
-* Subtraction: -
+* Increment: `++`
+* Decrement: `--`
+* Addition: `+`
+* Subtraction: `-`
 
 To understand pointer arithmetic one needs to keep in mind that the size of the datatype to which the pointer refers to, is also put into account. This means that if you have a pointer that points to integer at memory address `5000` on a 32-bit computer and you add `1` you will end up at address `5004`, assuming that the integer is represented using 32 bits.
 
@@ -182,93 +190,56 @@ This can actually be used in combination with a pointer to an array. Take a clos
 
 ```c++
 #include <iostream>
-using namespace std;
-int main()
-{
-    const int SIZE = 5;
-    int numbers[SIZE];
-    int * pNumbers = numbers;
 
-    for (unsigned int i = 0; i < SIZE; i++) {
-        *(pNumbers++) = 3 * i;
-    }
+int main() {
+  const int SIZE = 5;
+  int numbers[SIZE];
+  int * pNumbers = numbers;
 
-    pNumbers = numbers;
-    for (unsigned int i = 0; i < SIZE; i++) {
-        cout << "numbers[" << i << "] @ " << pNumbers << " = " << *(pNumbers++) << endl;
-    }
+  for (unsigned int i = 0; i < SIZE; i++) {
+    *(pNumbers++) = 3 * i;
+  }
 
-    return 0;
+  pNumbers = numbers;
+  for (unsigned int i = 0; i < SIZE; i++) {
+    std::cout << "numbers[" << i << "] @ " << pNumbers << " = " << *(pNumbers++) << std::endl;
+  }
+
+  return 0;
 }
 ```
 
-Since an array is a constant pointer, it is also possible to use the indexing operator `[]` on a pointer to use a pointer as an array. The example below shows a full overview of some usage
+Since an array is a constant pointer, it is also possible to use the indexing operator `[]` on a pointer to use a pointer as an array. The example below shows both the usage of using the indexing opator `[]` on a pointer, as applying some pointer arithmetics.
 
 ```c++
 #include <iostream>
+
 using namespace std;
 
-int main()
-{
-    const int SIZE_OF_NUMBERS = 5;
-    int numbers[SIZE_OF_NUMBERS];
+int main() {
+  const int SIZE_OF_NUMBERS = 5;
+  int numbers[SIZE_OF_NUMBERS];
 
-    // Array is nothing but constant pointer so
-    int * pNumbers = numbers;
-    int * pNumbersIncrement = numbers;
+  // Array is nothing but constant pointer so
+  int * pNumbers = numbers;
+  int * pNumbersIncrement = numbers;
 
-    cout << "Address of numbers: " << numbers << endl;
-    cout << "Or via pointer: " << pNumbers << endl << endl;
+  cout << "Address of numbers: " << numbers << endl;
+  cout << "Or via pointer: " << pNumbers << endl << endl;
 
-    for (unsigned int i = 0; i < SIZE_OF_NUMBERS; i++) {
-        // We can increment pointer
-        cout << "@" << pNumbersIncrement << ": " << *(pNumbersIncrement) << endl;
-        pNumbersIncrement++;
+  for (unsigned int i = 0; i < SIZE_OF_NUMBERS; i++) {
+    // Incrementing a pointer (point to next memory value)
+    cout << "@" << pNumbersIncrement << ": " << *(pNumbersIncrement) << endl;
+    pNumbersIncrement++;
 
-        // If array is pointer
-        // then we can also use indexing on pointer
-        cout << "@" << &(pNumbers[i]) << ": " << pNumbers[i] << endl;
+    // One can also use indexing operator on pointer
+    cout << "@" << &(pNumbers[i]) << ": " << pNumbers[i] << endl;
 
-        // Simple addition
-        cout << "@" << (pNumbers+i) << ": " << *(pNumbers+i) << endl << endl;
-    }
+    // Simple addition
+    cout << "@" << (pNumbers+i) << ": " << *(pNumbers+i) << endl << endl;
+  }
 
-    return 0;
-}
-```
-
-How about an example with some pointer arithmetic's put together.
-
-```c++
-#include <iostream>
-using namespace std;
-
-int main()
-{
-    const int SIZE_OF_NUMBERS = 5;
-    int numbers[SIZE_OF_NUMBERS];
-
-    // Array is nothing but constant pointer so
-    int * pNumbers = numbers;
-    int * pNumbersIncrement = numbers;
-
-    cout << "Address of numbers: " << numbers << endl;
-    cout << "Or via pointer: " << pNumbers << endl << endl;
-
-    for (unsigned int i = 0; i < SIZE_OF_NUMBERS; i++) {
-        // We can increment pointer
-        cout << "@" << pNumbersIncrement << ": " << *(pNumbersIncrement) << endl;
-        pNumbersIncrement++;
-
-        // If array is pointer
-        // then we can also use indexing on pointer
-        cout << "@" << &(pNumbers[i]) << ": " << pNumbers[i] << endl;
-
-        // Simple addition
-        cout << "@" << (pNumbers+i) << ": " << *(pNumbers+i) << endl << endl;
-    }
-
-    return 0;
+  return 0;
 }
 ```
 
@@ -306,11 +277,11 @@ C++ allows you to pass a pointer as a parameter to a function. To do so, simply 
 Passing data to functions via pointers is often applied in the following situations:
 
 * to allow the function to alter the actual value of the passed arguments
-* to be able to return more than one value from a function (this is often used in C, less required in C++ as there we can use data objects)
+* to be able to return more than one value from a function (this is often used in C, less required in C++ as one can use data objects in this case)
 * performance wise it is often done to pass larger and more complex objects (less memory usage)
 * to pass an array to a function
 
-Remember the `swap()` example from the "Functions" chapter. To get this to work we can actually use pointers to integers:
+Remember the `swap()` function from the "Introduction to C++" chapter. To get this to work one can actually use pointers to integers:
 
 ```c++
 #include <iostream>
@@ -322,8 +293,7 @@ void swap(int * x, int * y) {
     *y = temp;
 }
 
-int main()
-{
+int main() {
     int a = 10;
     int b = 136;
 
@@ -341,7 +311,7 @@ int main()
 }
 ```
 
-While the parameters are still passed by value, this time the addresses to the actual memory are copied. However via that same address we have access to the original data.
+While the parameters are still passed by value, this time the addresses to the actual memory are copied. However via that same address one has access to the original data.
 
 ```text
 Before call to swap:
