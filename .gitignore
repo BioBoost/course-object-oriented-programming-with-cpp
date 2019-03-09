@@ -17,3 +17,6 @@ _book
 
 # Ignore playground dir with test code
 playground/
+
+# Ignore vscode project settings dir
+.vscode/
