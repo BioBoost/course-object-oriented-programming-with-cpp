@@ -202,7 +202,8 @@ int main() {
 
   pNumbers = numbers;
   for (unsigned int i = 0; i < SIZE; i++) {
-    std::cout << "numbers[" << i << "] @ " << pNumbers << " = " << *(pNumbers++) << std::endl;
+    std::cout << "numbers[" << i << "] @ "
+      << pNumbers << " = " << *(pNumbers++) << std::endl;
   }
 
   return 0;
