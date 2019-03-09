@@ -29,6 +29,7 @@
 ### Composition
 
 * [Composition](05_composition/readme.md)
+* [Challenges](05_composition/challenges.md)
 
 ### Pointers
 
