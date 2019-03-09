@@ -322,3 +322,78 @@ After call to swap:
 a: 136
 b: 10
 ```
+
+## Pointers to Objects
+
+Consider a small class `Student`:
+
+```c++
+// student.h
+#pragma once
+class Student {
+  public:
+    Student(std::string name);
+    std::string get_name(void);
+  
+  private:
+    std::string name;
+};
+```
+
+```c++
+// student.cpp
+#include "student.h"
+Student::Student(std::string name) {
+  this->name = name;
+}
+
+std::string Student::get_name(void) {
+  return name;
+}
+```
+
+To access member attributes or methods of an object via a pointer, one first needs to **dereference the pointer** before using the member-operator `.` on it. As with any pointer, dereferencing is done using the dereference operator `*`.
+
+```c++
+#include <iostream>
+#include "student.h"
+
+using namespace std;
+
+int main() {
+  Student mark("Mark Dekker");
+
+  // Pointer to an object
+  Student * pStudent = &mark;
+
+  // Accessing methods by dereferencing
+  cout << "Our student is named " << (*pStudent).get_name() << endl;
+
+  return 0;
+}
+```
+
+Note how the dereference operation is enclosed in round brackets.
+
+Since this is used so many times in C++, the language included a shorter and more clean operator that allows the programmer to dereference a pointer to an object and call a member of it, namely the **arrow operator** `->`. So the example above can be rewritten as:
+
+```c++
+#include <iostream>
+#include "student.h"
+
+using namespace std;
+
+int main() {
+  Student mark("Mark Dekker");
+
+  // Pointer to an object
+  Student * pStudent = &mark;
+
+  // Accessing methods by dereferencing
+  cout << "Our student is named " << pStudent->get_name() << endl;
+
+  return 0;
+}
+```
+
+This is the same notation as used inside a method when accessing the `this` reference of the instantiated object.
