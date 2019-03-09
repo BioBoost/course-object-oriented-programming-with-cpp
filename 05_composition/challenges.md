@@ -24,3 +24,26 @@ Menu:
 Notice the arrow that indicated the currently selected menu item in the list.
 
 You do not need to request actual user input, but you may do so as an extra.
+
+### A Breakout Paddle
+
+Remember the game Breakout where a ball is bounced around in a game area. The goal is to catch the ball with a paddle and bounce it around to destroy bricks.
+
+Create a class that represents the basic model of a `Paddle`. You can move it left, you can move it right.
+
+Display the paddle in the terminal using a textual representation.
+
+```text
+           <=======>
+```
+
+After moving 1 position to the left:
+
+```text
+          <=======>
+```
+
+Some requirements:
+
+* It starts in the middle
+* Its playing field is limited
