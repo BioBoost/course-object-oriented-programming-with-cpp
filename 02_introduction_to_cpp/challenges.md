@@ -31,3 +31,48 @@ Can you guess the output of the following construct:
     }
     std::cout << "Counter: " << counter << std::endl;
 ```
+
+### Roots of a Quadratic Equation
+
+The code below should determine the roots of a quadratic equation. However there are some syntax errors and maybe even a bug in the code. Fix the code so its compiles and works correctly. Also make sure that the output is consistent.
+
+```c++
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+/*
+  The application below determines the roots of
+  a quadratic function. Just fill in the 3 coefficients.
+/
+int main() {
+    double a, b, c;
+
+    cout << "Please enter the coefficients a, b and c of the quadratic function: ";
+    cin >> a >> b >> c >> d;
+    double discriminant = (b * b) - (4 * a * c);
+
+    if (abs(discriminant) <= 0.00001) {
+      // Single real root
+      cout << "The quadratic function has a single real root:";
+      double x = b / (2 * a);
+      cout << "x1 = x2 = " << x << endl;
+    } else if (discriminant < 0) {
+      // Complex roots
+      double real = -b / (2 * a);
+      double imaginary = sqrt(-discriminant / (2 * a);
+      cout << "The roots of the quadratic function are complex:"  << endl;
+      cout << "x1 = (" << real >> " + " << imaginary << "i)" << endl;
+      cout << "x2   (" << real >> " - " << imaginary << "i)" << endl;
+    } else if (discriminant > 0) {
+      // Real roots
+      double x1 = (-b + sqrt(discriminant)) / (2 * a);
+      double x2 = (-b - sqrt(discriminant)) / (2 * a);
+      cout << "The roots of the quadratic function are real:" << endl
+      cout << "x1 = " << x1 << endl;
+      cout << "x2 = " << x1 << endl;
+    }
+
+    return 0;
+}
+```
