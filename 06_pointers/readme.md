@@ -60,7 +60,7 @@ The actual data type of the value of all pointers themselves, whether integer, f
 
 ## Initializing a Pointer
 
-As with any other variable, **a pointer needs to be initialized before it can be used**. To accomplish this, one needs to a**ssign the address of a variable to the pointer**. As shown before, the address of a variable can be retrieved by applying the address-of operator `&` to it. The resulting address can then be assigned to a pointer of the same type as the variable.
+As with any other variable, **a pointer needs to be initialized before it can be used**. To accomplish this, one needs to **assign the address of a variable to the pointer**. As shown before, the address of a variable can be retrieved by applying the address-of operator `&` to it. The resulting address can then be assigned to a pointer of the same type as the variable.
 
 ```c++
 // A pointer to a variable of type int
@@ -184,7 +184,7 @@ Since pointers hold addresses, it is perfectly legal to perform some arithmetic 
 * Addition: `+`
 * Subtraction: `-`
 
-To understand pointer arithmetic one needs to keep in mind that the size of the datatype to which the pointer refers to, is also put into account. This means that if you have a pointer that points to integer at memory address `5000` on a 32-bit computer and you add `1` you will end up at address `5004`, assuming that the integer is represented using 32 bits.
+To understand pointer arithmetic one needs to keep in mind that the size of the datatype to which the pointer refers to, is also put into account. This means that if you have a pointer that points to integer at memory address `5000` on a 32-bit computer and you increment the pointer you will end up at address `5001`, assuming that the integer is represented using 32 bits. However, if you are working on an 8-bit computer, assuming that the integer is represented using 32 bits, incrementing the pointer will result in ending up at address `5004`.
 
 This can actually be used in combination with a pointer to an array. Take a close look at the example below where a pointer is incremented to index all the array elements:
 
