@@ -35,6 +35,10 @@
 
 * [Pointers](06_pointers/readme.md)
 
+### Dynamic Memory Allocation
+
+* [Dynamic Memory Allocation](07_dynamic_memory_allocation/readme.md)
+
 ----
 
 ### Sources
