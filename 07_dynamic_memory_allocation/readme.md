@@ -70,6 +70,8 @@ A `new` must **always** be accompanied by a `delete` somewhere in your applicati
 
 **Never access a pointer to an object after deleting it.** The resulting behavior is undefined, and if you are lucky the program just crashes.
 
+<!-- Delete of uninitialized pointer is undefined behaviour !!! nullptr should be ok to delete -->
+
 ### Destructors
 
 Now what if an object of a class that you created needs internal dynamic memory. In many cases this memory only needs to be freed when the object is actually destroyed.
