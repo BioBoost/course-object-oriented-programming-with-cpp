@@ -43,6 +43,7 @@
 ### File Streams
 
 * [File Streams](08_file_streams/readme.md)
+* [Challenges](08_file_streams/challenges.md)
 
 ----
 
