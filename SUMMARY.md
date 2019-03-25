@@ -40,6 +40,10 @@
 * [Dynamic Memory Allocation](07_dynamic_memory_allocation/readme.md)
 * [Challenges](07_dynamic_memory_allocation/challenges.md)
 
+### File Streams
+
+* [File Streams](08_file_streams/readme.md)
+
 ----
 
 ### Sources
