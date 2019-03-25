@@ -16,13 +16,10 @@ int * join_arrays(int * first, unsigned int lengthOfFirst,
 
 }
 
-
 int main() {
 
   int firstArray[] = {1, 2, 3, 4, 5};
   int secondArray[] = {-11, -22, -33, -44, -55, -66, -77};
-
-  cout << "Length = " <<  sizeof(firstArray) << endl;
 
   int * joined = join_arrays(firstArray, sizeof(firstArray)/sizeof(int),
     secondArray, sizeof(secondArray)/sizeof(int));
