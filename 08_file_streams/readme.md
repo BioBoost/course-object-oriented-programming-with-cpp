@@ -13,3 +13,43 @@ The `fstream` library defines three stream types which can be used:
 * `ofstream`: represents an **output file stream** which can be used to create files and write data to files.
 * `ifstream`: represent an **input file stream** which can be used to read data from files.
 * `fstream`: represent a general file stream, which can both be used to write and read data to and from files.
+
+These classes are derived directly or indirectly from the classes `istream` and `ostream`. We have already been using objects from these classes, namely `cout` (of type `ostream`) and `cin` (of type `istream`). In other words, the operators `<<` and `>>` of these classes will also be applicable for the file streams. The only difference is that they are associated with physical files.
+
+## Instantiating a File Stream
+
+Before starting, one needs to create a stream object of the appropriate type. For example to write to a file, a `ofstream` object needs to be instantiated:
+
+```c++
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main() {
+  // File stream object
+  ofstream output;
+
+  // ...
+
+  return 0;
+}
+```
+
+Or when reading a file, an `ifstream` object is required:
+
+```c++
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main() {
+  // File stream object
+  ifstream input;
+
+  // ...
+
+  return 0;
+}
+```
