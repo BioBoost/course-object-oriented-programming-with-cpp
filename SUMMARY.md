@@ -38,6 +38,7 @@
 ### Pointers
 
 * [Pointers](07_pointers/readme.md)
+* [Challenges](07_pointers/challenges.md)
 
 ### Dynamic Memory Allocation
 
