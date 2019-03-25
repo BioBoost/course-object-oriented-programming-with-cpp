@@ -167,3 +167,91 @@ int main() {
   return 0;
 }
 ```
+
+## Reading from a file
+
+Reading from `cin` is accomplished using the **stream extraction operator** `>>`. Since `ifstream` is a derived class of `istream`, the same operator can be used to read data from files. Conversions of integral data types to `string` types are also handled automatically, same as with `cin`.
+
+```c++
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main() {
+  // File stream object
+  ifstream input;
+  input.open("values.txt");    // Default mode is ios::in
+
+  if (!input) {
+    cerr << "Could not open the file in reading mode" << endl;
+  }
+
+  // Read a single integers from the file
+  int value;
+  input >> value;
+  cout << "Read from the file: " << value << endl;
+
+  // Close the file
+  input.close();
+
+  return 0;
+}
+```
+
+Just create a file and put a number inside of it.
+
+To read multiple values from a file, one can check the state of the file stream object and keep reading as long as all goes well or the end of the file has not been reached.
+
+```c++
+// Read some integers from the file
+int value;
+while (input >> value) {
+  cout << "Read from the file: " << value << endl;
+}
+```
+
+### Reading Lines
+
+To read full lines from a file, one can also make use of the `getline()` function. Instead of passing the `cin` object, all one needs to do is pass the input file stream object.
+
+```c++
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main() {
+  // File stream object
+  ifstream input;
+  input.open("lines.txt");    // Default mode is ios::in
+
+  if (!input) {
+    cerr << "Could not open the file in reading mode" << endl;
+  }
+
+  // Read some integers from the file
+  std::string line;
+  while (getline(input, line)) {
+    cout << "Read from the file: " << line << endl;
+  }
+
+  // Close the file
+  input.close();
+
+  return 0;
+}
+```
+
+## State Flags
+
+Things can go wrong when reading data from files. The end of the file can be reached, the format of the data is not as expected, there is not enough space left to write to the data, ...
+
+To check the current state of the file stream object, the following methods are provided (they all return a `bool`):
+
+* `bad()`: Returns `true` if an operation fails. For example, in the case that we try to write to a file that is not open for writing or if the device where we try to write has no space left.
+* `fail()`: Returns `true` in the same cases as `bad()`, but also in the case that a **format error** happens, like when an alphabetical character is extracted when we are trying to read an integer number.
+* `eof()`: Returns `true` if a file open for reading has reached the end.
+* `good()`: It is the most generic state flag: it returns `false` in the same cases in which calling any of the previous functions would return `true`. Note that good and bad are not exact opposites (good checks more state flags at once).
+
+The `clear()` method can be used to reset the state flags.
