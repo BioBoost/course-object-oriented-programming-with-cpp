@@ -255,3 +255,7 @@ To check the current state of the file stream object, the following methods are 
 * `good()`: It is the most generic state flag: it returns `false` in the same cases in which calling any of the previous functions would return `true`. Note that good and bad are not exact opposites (good checks more state flags at once).
 
 The `clear()` method can be used to reset the state flags.
+
+<!-- ## Binary Mode -->
+
+<!-- TODO -->
