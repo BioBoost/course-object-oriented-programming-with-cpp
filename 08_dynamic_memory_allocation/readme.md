@@ -2,7 +2,7 @@
 description: Dynamic memory allocation allows our application to request memory on the fly.
 ---
 
-# Chapter 07 - Dynamic Memory Allocation
+# Chapter 08 - Dynamic Memory Allocation
 
 C++ will store objects in different places based on how they were created. The programmer is given the choice based on efficiency and necessity. For maximum runtime speed, the storage and lifetime can be determined by the programmer while the program is being written.
 

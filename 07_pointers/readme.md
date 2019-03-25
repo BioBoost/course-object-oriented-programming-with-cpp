@@ -2,7 +2,7 @@
 description: Pointers allow direct memory access, a much used feature in C and C++.
 ---
 
-# Chapter 06 - Pointers
+# Chapter 07 - Pointers
 
 A pointer is **a variable which holds the address to a location in memory**. C++ gives you the power to manipulate data in the computer's memory directly via a pointer. C++ pointers may seem complex at first, but when used correctly they can be very powerfull. In certain areas they cannot be avoided, such as for example when handling **dynamic memory allocation**.
 

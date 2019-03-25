@@ -1,4 +1,4 @@
-## Chapter 07 - Dynamic Memory Allocation - Challenges
+## Chapter 08 - Dynamic Memory Allocation - Challenges
 
 ### Joining Arrays
 

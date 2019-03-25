@@ -31,19 +31,23 @@
 * [Composition](05_composition/readme.md)
 * [Challenges](05_composition/challenges.md)
 
+### Enums
+
+* [Enums](06_enums/readme.md)
+
 ### Pointers
 
-* [Pointers](06_pointers/readme.md)
+* [Pointers](07_pointers/readme.md)
 
 ### Dynamic Memory Allocation
 
-* [Dynamic Memory Allocation](07_dynamic_memory_allocation/readme.md)
-* [Challenges](07_dynamic_memory_allocation/challenges.md)
+* [Dynamic Memory Allocation](08_dynamic_memory_allocation/readme.md)
+* [Challenges](08_dynamic_memory_allocation/challenges.md)
 
 ### File Streams
 
-* [File Streams](08_file_streams/readme.md)
-* [Challenges](08_file_streams/challenges.md)
+* [File Streams](09_file_streams/readme.md)
+* [Challenges](09_file_streams/challenges.md)
 
 ----
 
