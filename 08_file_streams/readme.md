@@ -108,7 +108,7 @@ if (!input) {
 }
 ```
 
-### Closing
+### Closing a file
 
 Once done with the file stream always make sure to close it. This will make sure that the file handle is released and the stream buffers are flushed.
 
@@ -127,4 +127,43 @@ if (!input) {
 
 // Close the file when finished
 input.close();
+```
+
+## Writing to a file
+
+Writing to `cout` is accomplished using the **stream insertion operator** `<<`. Since `ofstream` is a derived class of `ostream`, the same operator can be used to write data to files. Conversions of integral data types to `string` types are also handled automatically, same as with `cout`.
+
+Take the following example, which request the user's name and age and writes the corresponding data to a file:
+
+```c++
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main() {
+  // File stream object
+  ofstream output;
+  output.open("user.txt");    // Default mode is ios::out
+
+  if (!output) {
+    cerr << "Could not open the file in write mode" << endl;
+  }
+
+  std::string name;
+  cout << "Please enter your name: ";
+  getline(cin, name);
+
+  int age;
+  cout << "Please enter your age: ";
+  cin >> age;
+
+  // Writing the data to a file
+  output << name << " is " << age << " years of age." << endl;
+
+  // Close the file
+  output.close();
+  
+  return 0;
+}
 ```
