@@ -2,6 +2,8 @@
 
 ### Joining Arrays
 
+**Difficulty:** Medium
+
 Complete the implementation so the `join_arrays` method returns a new array where the `first` and `second` array are joined together in a single array.
 
 ```c++
