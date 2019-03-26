@@ -1,4 +1,4 @@
-## Chapter 02 - Introduction to C++
+## Chapter 02 - Introduction to C++ - Challenges
 
 ### Displaying variable value
 
