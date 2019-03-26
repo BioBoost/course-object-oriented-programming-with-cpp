@@ -43,6 +43,8 @@
 ### Dynamic Memory Allocation
 
 * [Dynamic Memory Allocation](08_dynamic_memory_allocation/readme.md)
+* [Exercises](08_dynamic_memory_allocation/exercises.md)
+* [Exercise Solutions](https://github.com/oop-solutions-and-demos/cpp_solutions_to_exercises/tree/master/08_dynamic_memory_allocation)
 * [Challenges](08_dynamic_memory_allocation/challenges.md)
 
 ### File Streams
