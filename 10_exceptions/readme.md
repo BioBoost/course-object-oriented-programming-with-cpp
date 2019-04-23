@@ -71,3 +71,52 @@ An exception can occur on many different occasions. Some common reasons are:
 * A number is being divided by zero.
 
 Some of these exceptions are caused by user error, others by programmer error, and others by physical resources that have failed in some manner.
+
+## Throwing an Exceptions
+
+Throwing an exception is like giving the system a signal something abnormal has happened. This is also called **raising an exception**.
+
+Achieved using the `throw` statement in C++.
+
+In C++ almost anything can be thrown:
+
+* an integer value (similar to the previous return codes).
+* an enum value (internally also integral value but leads to more understandable code)
+* a C-style character string
+* an object of any class, often custom exception classes
+
+Preferable the exception that was thrown should provide more info on the situation that has occurred.
+
+Some examples:
+
+```c++
+throw -1;
+throw "Cannot create new file";
+throw std::string("Failed to open connection");
+throw FileNotFoundException(filename);
+```
+
+## Catching and Handling Exceptions
+
+When executing code that may throw an exception, it will need to be put inside a `try` block.
+
+A try-block acts as an observer for the code inside of it and will look for exceptions being thrown.
+
+To specify what to do in case of certain exceptions, a try-block is followed by one or multiple catch-blocks.
+
+Example:
+
+```c++
+try {
+  throw std::string("This will crash");
+  // Comment out the above line
+  // and uncomment the one below
+  // throw -3;
+} catch (const std::string &message) {
+  std::cout << "Something went wrong" << std::endl;
+} catch (int errorcode) {
+  std::cout << "Failed with error code " << errorcode << std::endl;
+}
+```
+
+The try-block will route the exception to the correct catch block, based on the type of the value that was thrown.
