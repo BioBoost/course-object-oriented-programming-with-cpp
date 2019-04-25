@@ -21,6 +21,15 @@ int index_of_first_char(std::string text, char c) {
 
 Same strategy as the return code of the applications itself (status code returned to operating system).
 
+```c++
+int main() {
+  // Logic
+
+  // All went well
+  return 0;
+}
+```
+
 Advantages of this approach:
 
 * Simple and low overhead
@@ -38,23 +47,18 @@ Disadvantages of this approach:
 Example in pseudocode:
 
 ```text
-int read_file(filename, lines) {
-  if (file_does_not_exist) {
-    return -1;
-  } elseif (could_not_readfile) {
-    return -2;
-  } elseif (file_empty) {
-    return -3;
-  } elseif (not_ascii_text) {
-    return -4;
-  } elseif (files_to_large) {
-    return -5;
-  } else {
-    read into lines
-    return number_of_lines
-  }
+read_file(filename, lines):
+  file_does_not_exist?  => return -1;
+  could_not_readfile?   => return -2;
+  file_empty?           => return -3;
+  not_ascii_text?       => return -4;
+  files_to_large?       => return -5;
+
+  all_ok?
+    | => read into lines
+    | => return number_of_lines
+
   return -255;  // Unknown error occurred
-}
 ```
 
 Exceptions provide a mechanism to decouple error code from normal control flow of your application. They also provide a way to handle the errors when most appropriate (cfr. call stack).
@@ -72,7 +76,7 @@ An exception can occur on many different occasions. Some common reasons are:
 
 Some of these exceptions are caused by user error, others by programmer error, and others by physical resources that have failed in some manner.
 
-## Throwing an Exceptions
+## Throwing an Exception
 
 Throwing an exception is like giving the system a signal something abnormal has happened. This is also called **raising an exception**.
 
@@ -100,11 +104,22 @@ throw FileNotFoundException(filename);
 
 When executing code that may throw an exception, it will need to be put inside a `try` block.
 
-A try-block acts as an observer for the code inside of it and will look for exceptions being thrown.
-
-To specify what to do in case of certain exceptions, a try-block is followed by one or multiple catch-blocks.
+To specify what to do in case of a certain exception, a try-block is followed by at least one catch block.
 
 Example:
+
+```c++
+try {
+  throw std::string("This will crash");
+  std::cout << "This is never outputted !!!" << std::endl;
+} catch (const std::string &message) {
+  std::cout << "Something went wrong" << std::endl;
+}
+```
+
+A try-block acts as an observer for the code inside of it and will look for exceptions being thrown.
+
+Multiple catch blocks are possible.
 
 ```c++
 try {
@@ -120,3 +135,88 @@ try {
 ```
 
 The try-block will route the exception to the correct catch block, based on the type of the value that was thrown.
+
+## Full example
+
+```c++
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+
+  int number;
+  cout << "Please enter integral number to determine square(): ";
+  cin >> number;
+
+  try {
+    if (number < 0) {
+      throw string("Complex Root Exception");
+    }
+
+    cout << "Square of " << number << " is " << sqrt(number) << endl;
+  } catch (const string &message) {
+    cout << "You entered a negative number";
+  }
+
+  cout << endl << "Thank you for using our awesome app" << endl;
+  return 0;
+}
+```
+
+## More Realistic Example
+
+
+```c++
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+// Function can throw exception
+int square(int value) {
+  if (value < 0) {
+    throw string("Complex Root Exception");
+  }
+
+  return sqrt(value);
+}
+
+int main() {
+  int number;
+  cout << "Please enter integral number to determine square(): ";
+  cin >> number;
+
+  try {
+    double result = square(number);
+    cout << "Square of " << number << " is " << result << endl;
+  } catch (const string &message) {
+    cout << "You entered a negative number";
+  }
+
+  cout << endl << "Thank you for using our awesome app" << endl;
+  return 0;
+}
+```
+
+### Call Stack Example
+
+```c++
+try
+{
+  try {
+    throw -3;
+  } catch (const std::string &message) {
+    std::cout << "Something went wrong" << std::endl;
+  }
+} catch (int errorcode) {
+  std::cout << "Failed with error code " << errorcode << std::endl;
+}
+std::cout << "Code continues here" << std::endl;
+```
+
+
+Make sure to add later, important:
+https://www.learncpp.com/cpp-tutorial/145-exceptions-classes-and-inheritance/
+https://www.learncpp.com/cpp-tutorial/14-6-rethrowing-exceptions/
