@@ -52,9 +52,9 @@
 * [File Streams](09_file_streams/readme.md)
 * [Challenges](09_file_streams/challenges.md)
 
-<!-- ### Exceptions -->
+### Exceptions
 
-<!-- * [Exceptions](10_exceptions/readme.md) -->
+* [Challenges](10_exceptions/challenges.md)
 
 ----
 
