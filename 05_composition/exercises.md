@@ -2,7 +2,7 @@
 
 ### Die Throwing (continued)
 
-Take the "Die Throwing" application from the challenges of chapter 4.
+Take the "Die Throwing" application from the exercises of chapter 4.
 
 Create a class `DieThrower` that takes a `Die` object and throws it the requested number of times. Track the throws as you did before with the frequency table. Output the results via the `to_string()` method.
 
