@@ -15,6 +15,8 @@
 ### Arrays
 
 * [Arrays](03_arrays/readme.md)
+* [Exercises](03_arrays/exercises.md)
+* [Exercise Solutions](https://github.com/oop-solutions-and-demos/cpp_solutions_to_exercises/tree/master/03_arrays)
 * [Challenges](03_arrays/challenges.md)
 
 ### Object Oriented Thinking
