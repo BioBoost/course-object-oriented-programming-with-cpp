@@ -24,11 +24,14 @@
 ### Basics of Classes
 
 * [Basics of Classes](04_basics_of_classes/readme.md)
+* [Exercises](04_basics_of_classes/exercises.md)
 * [Challenges](04_basics_of_classes/challenges.md)
 
 ### Composition
 
 * [Composition](05_composition/readme.md)
+* [Exercises](05_composition/exercises.md)
+* [Exercise Solutions](https://github.com/oop-solutions-and-demos/cpp_solutions_to_exercises/tree/master/05_composition)
 * [Challenges](05_composition/challenges.md)
 
 ### Enums
