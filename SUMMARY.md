@@ -25,6 +25,7 @@
 
 * [Basics of Classes](04_basics_of_classes/readme.md)
 * [Exercises](04_basics_of_classes/exercises.md)
+* [Exercise Solutions](https://github.com/oop-solutions-and-demos/cpp_solutions_to_exercises/tree/master/04_basics_of_classes)
 * [Challenges](04_basics_of_classes/challenges.md)
 
 ### Composition
