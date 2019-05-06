@@ -62,6 +62,10 @@
 
 * [Challenges](10_exceptions/challenges.md)
 
+### Inheritance
+
+* [Inheritance](11_inheritance/readme.md)
+
 ----
 
 ### Sources
