@@ -133,3 +133,17 @@ However it would of been illogical to make *Bus* inherit from *Car* or vice vers
 * a Car is a Bus
 
 A `ChoppingCart` should not inherit from `Vehicle` because it has wheels.
+
+## Inheritance in C++
+
+To implement inheritance in C++ all you need is a baseclass and a subclass. The subclass needs to *extend* the baseclass and this can be accomplished by using the syntax shown below:
+
+```c++
+class <subclass> : public <baseclass>
+  // Implementation
+}
+```
+
+Note that **extending** the baseclass is exactly what we are doing when implementing inheritance. We take a general class and add something to it: data, behavior or both.
+
+Depending on the context and strategy, inheritance can also be though of as **generalization**, where functionality of subclasses is extracted and placed inside a more generalized super class.
