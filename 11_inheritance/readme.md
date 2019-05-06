@@ -54,7 +54,7 @@ It is also possible to change the implementation of certain methods in the base 
 
 > **WARNING** - **Method overloading vs. method overriding**
 >
-> Do not confuse method overloading with method overriding. Method overriding replaces the implementation of a method of the base class. Method overloading allows a class to have more than one method having the same name, if their argument lists are different. It is similar to constructor overloading in for example Java, that allows a class to have more than one constructor having different argument lists.
+> Do not confuse method overloading with method overriding. Method overloading is a feature that allows a class to have two or more methods having same name, if their argument lists are different. Constructor overloading allows a class to have more than one constructors having different argument lists. Overloaded methods are differentiated by the number and the type of the arguments passed into the method. Method overriding replaces the implementation of a method of the base class.
 
 A super-class can have any number of subclasses. While in Java, a subclass can have only one superclass, in C++ it is possible to inherit from multiple base classes, known as **multiple inheritance** (however not always a good idea or good practice).
 
