@@ -188,8 +188,43 @@ Tank::Tank(std::string description, long id)
 
 Note how the name of the baseclass is used to call a baseclass constructor.
 
+<!-- Here we should place the example with the call hierarchy when also applying composition. -->
+
 Quick simurization
 
 * C++ provides a default constructor if you provide no constructor(s).
 * With inheritance each constructor is called from bottom to top but actually executed from top to bottom.
 * If no default constructor exists for the baseclass you will need to add one or call another constructor explicitly using the constructor initialization list and provide the required arguments.
+
+## Method overriding
+
+Method overriding, in object oriented programming, is a language feature that allows a subclass or child class to provide a specific implementation of a method that is already provided by one of its superclasses or parent classes. The implementation in the subclass overrides (replaces) the implementation in the superclass by providing a method that has the same name and the same parameters, and same return type as the method in the parent class. These three parts are all together called the **signature of a method**. An overriding method can also return a subtype of the type returned by the overridden method. This subtype is called a covariant return type.
+
+The version of a method that is executed will be determined by the object that is used to invoke it. If an object of a parent class is used to invoke the method, then the version in the parent class will be executed, but if an object of the subclass is used to invoke the method, then the version in the child class will be executed.
+
+The ability of a subclass to override a method allows a class to inherit from a superclass whose behavior is "close enough" and then to modify behavior as needed.
+
+![Method Overriding](img/shapes_method_overriding.png)
+
+The UML diagram above shows a couple of examples of method overriding. First of all there is the `draw()` method that is defined for the `Shape` class and its descendants. It takes no arguments and has no return value. Next there are the `getArea()` and `getCircumference()` methods which do return a `double`. Last is the `doesContain()` method which checks if the `Shape` contains a `Point`. It takes an argument and returns a value. Important to note is that the **signature** of all these methods are the same!
+
+The rules for method overriding can be summarized as follows:
+
+* The argument list should be exactly the same as that of the overridden method.
+* The return type should be the same or a subtype of the return type declared in the original overridden method in the super class.
+* The access level cannot be more restrictive than the overridden method’s access level. For example: if the super class method is declared public then the overriding method in the sub class cannot be either private or protected.
+* A subclass can only override methods declared public or protected.
+* Constructors cannot be overridden.
+
+You can call methods of the base class by using the name of the baseclass followed by **scope resolution operator** `::` followed by the name of the method you wish to call. This can be useful if you do not want to replace the implementation of the baseclass but rather want to extend it.
+
+For example the `to_string()` implementations of `Cat` can make use of the already existing implementation of the `to_string()` method of `Pet` as follows:
+
+```c++
+std::string Cat::to_string(void) {
+  std::stringstream ss;
+  ss << Pet::to_string();
+  ss << " | He/she purrs when happy and loves to eat fish and meat.;
+  return ss.str();
+}
+```
