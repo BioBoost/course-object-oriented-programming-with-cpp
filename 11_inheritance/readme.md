@@ -147,3 +147,49 @@ class <subclass> : public <baseclass>
 Note that **extending** the baseclass is exactly what we are doing when implementing inheritance. We take a general class and add something to it: data, behavior or both.
 
 Depending on the context and strategy, inheritance can also be though of as **generalization**, where functionality of subclasses is extracted and placed inside a more generalized super class.
+
+### A Cat and Dog Example
+
+Cfr. example in the class.
+
+## Constructors and inheritance
+
+When creating objects, C++ will not only call the constructor of the type you are creating but it will implicitly call a constructor of each baseclass. Take a look at the inheritance hierarchy shown below.
+
+![Inheritance hierarchy of computer hardware](img/computer_hardware_inheritance)
+
+When for example creating an object of type `QuadCore`, the constructor of `QuadCore` will implicitly call the constructor of `Processor` which will call the constructor of `ComputerHardware` which will call the constructor of `Product`. These calls are provided by default by C++ and are done before anything else. That means that the rest of you constructor code will be executed after the contructor call to the baseclass.
+
+This basically means that if you create an instance of a `QuadCore`, the `Product` portion will be constructed first, next the `ComputerHardware` portion, after which the `Processor` portion and last the `QuadCore` portion. This is a bit logical as you can only initialize the specific data of `ComputerHardware` after the data of `Product` has been initialized.
+
+There is however a catch to this whole constructing system.
+
+Remember that if you do not define a constructor in C++, it will provide you with a **default constructor** (a constructor without arguments) for a class. However once you create a constructor yourself C++ will not provide this default constructor anymore. That means if you create a single constructor that takes arguments, your class will not have a default constructor anymore. Since C++ will add an implicit call to the default constructor of the baseclass for each subclass, it will not find one and the compiler will turn up a compiler error. In other words if no default constructor exists for the baseclass your program will fail.
+
+This can be fixed using two approaches:
+
+* add a default constructor to the baseclass. This is however not always possible or even advisable as you may not have access to the implementation of the baseclass or it might not make sense to add a default constructor.
+* explicitly call another constructor of the baseclass. This can be achieved by using the **constructor initialization list** to call a specific constructor of the baseclass.
+
+The second approach mostly takes the preference.
+
+An example of this for the both constructors of the `Tank` class would be:
+
+```c++
+Tank::Tank(std::string description)
+  : Vehicle(description) {
+    // ....
+  }
+Tank::Tank(std::string description, long id)
+  : Vehicle(description, id) {
+    // ....
+  }
+```
+
+Note how the name of the baseclass is used to call a baseclass constructor.
+
+Quick simurization
+
+* C++ provides a default constructor if you provide no constructor(s).
+* With inheritance each constructor is called from bottom to top but actually executed from top to bottom.
+* If no default constructor exists for the baseclass you will need to add one or call another constructor explicitly using the constructor initialization list and provide the required arguments.
