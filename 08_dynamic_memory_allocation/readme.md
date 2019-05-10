@@ -6,9 +6,11 @@ description: Dynamic memory allocation allows our application to request memory 
 
 C++ will store objects in different places based on how they were created. The programmer is given the choice based on efficiency and necessity. For maximum runtime speed, the storage and lifetime can be determined by the programmer while the program is being written.
 
-## Static allocation on the Stack
+## Allocation on the Stack
 
-All the variables, arguments and objects shown in the code below are placed on the stack, it is said they are placed in *static storage*:
+<!-- Static allocation -->
+
+All the variables, arguments and objects shown in the code below are placed on the stack:
 
 ```c++
 void foo(int x) {
