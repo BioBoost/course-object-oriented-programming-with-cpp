@@ -154,9 +154,11 @@ Cfr. example in the class.
 
 ## Constructors and inheritance
 
+<!-- Constructors are not inherited in C++. Should make this very clear somewhere -->
+
 When creating objects, C++ will not only call the constructor of the type you are creating but it will implicitly call a constructor of each baseclass. Take a look at the inheritance hierarchy shown below.
 
-![Inheritance hierarchy of computer hardware](img/computer_hardware_inheritance)
+![Inheritance hierarchy of computer hardware](img/computer_hardware_inheritance.png)
 
 When for example creating an object of type `QuadCore`, the constructor of `QuadCore` will implicitly call the constructor of `Processor` which will call the constructor of `ComputerHardware` which will call the constructor of `Product`. These calls are provided by default by C++ and are done before anything else. That means that the rest of you constructor code will be executed after the contructor call to the baseclass.
 
