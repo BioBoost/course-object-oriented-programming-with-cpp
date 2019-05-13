@@ -2,7 +2,7 @@
 description: Compiling C++ applications using Makefiles.
 ---
 
-# Chapter 20 - Makefiles
+# Chapter 30 - Makefiles
 
 Writing programs can be a fun thing to do. By expressing ourselves in a high-level language we can actually tell a computer or embedded system, which only understands low-level binary, what to do. This high-level language needs to be translated to binary processor instructions specific for the architecture the application will be running on. This is a job for compilers and interpreters.
 
