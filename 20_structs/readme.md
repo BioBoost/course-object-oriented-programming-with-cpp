@@ -4,7 +4,7 @@ description: Structs are a common used data structuring type in C++, inherited f
 
 # Chapter 20 - Structs
 
-Basically a struct in C++ is the same as a class. The only difference between them is that the members of a class are `private` by default, while the members of a struct are `public` by default.
+Basically a `struct` in C++ is the same as a class. The only difference between them is that the members of a `class` are `private` by default, while the members of a `struct` are `public` by default.
 
 The only reason a struct is available in C++ is because of backward compatibility with C. The C programming language is not object oriented and does not have a keyword `class`, only structs. In C, structs can therefore not house member functions (methods), while this is perfectly possible in C++.
 
