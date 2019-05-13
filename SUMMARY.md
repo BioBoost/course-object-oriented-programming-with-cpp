@@ -66,6 +66,14 @@
 
 * [Inheritance](11_inheritance/readme.md)
 
+----
+
+### Structs
+
+* [Structs](20_structs/readme.md)
+
+----
+
 ### Makefiles
 
 * [Makefiles](30_makefiles/readme.md)
