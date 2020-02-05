@@ -1,0 +1,9 @@
+{
+  "name": "course-object-oriented-programming-with-cpp",
+  "version": "1.0.0",
+  "description": "C++ Programming Course for VIVES University of Applied Sciences (Bachelor Degree)",
+  "main": "index.js",
+  "repository": "git@github.com:BioBoost/course-object-oriented-programming-with-cpp.git",
+  "author": "Nico De Witte <nico.dewitte@outlook.com>",
+  "license": "SEE LICENSE IN README.md"
+}
