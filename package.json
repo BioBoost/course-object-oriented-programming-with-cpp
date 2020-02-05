@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "C++ Programming Course for VIVES University of Applied Sciences (Bachelor Degree)",
   "main": "index.js",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
   "repository": "git@github.com:BioBoost/course-object-oriented-programming-with-cpp.git",
   "author": "Nico De Witte <nico.dewitte@outlook.com>",
   "license": "SEE LICENSE IN README.md",
