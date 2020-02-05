@@ -5,10 +5,11 @@ title: 02 - Basics of C++ in a Nutshell
 
 # Chapter 02 - Basics of C++ in a Nutshell
 
-This chapter will introduce the basics of the C++ language. It does expect you to already be familiar with another programming language such as Java.
+This chapter will introduce the basics of the C++ language. It does expect you to already be familiar with another programming language such as C# or Java.
 
 <!-- TODO: Casting of double to int and also explain narrowing conversion -->
-<!-- Explain variable scope -->
+<!-- TODO: Explain variable scope -->
+<!-- TODO: Better intro - explain C++ and where it serves its purpose -->
 
 ## Variables
 
@@ -18,7 +19,7 @@ While programming in any programming language, you need to reserve memory when y
 
 C++ supports several primitive datatypes as shown in the following table.
 
-![C++ primitive data types](img/cpp_data_types.png)
+![C++ primitive data types](./img/cpp_data_types.png)
 
 Primitive data types are basic types implemented directly by the language that represent the basic storage units supported natively by most systems. They can mainly be classified into:
 
@@ -29,7 +30,7 @@ Primitive data types are basic types implemented directly by the language that r
 
 While the `bool` type does represent a `true` or `false` value, in the background it is actually an integer value. `false` is represented with the value of `0` and `true` is represented with anything different from `0`.
 
-```c++
+```cpp
 bool a = true;
 bool b = false;
 bool c = 0;
@@ -43,40 +44,40 @@ std::cout << "Value of d: " << d << std::endl;
 std::cout << "Value of e: " << e << std::endl;
 ```
 
-Results in
-
-```text
+::: codeoutput
+<pre>
 Value of a: 1
 Value of b: 0
 Value of c: 0
 Value of d: 1
 Value of e: 1
-```
+</pre>
+:::
 
-> **WARNING** - **Datatype sizes**
->
-> Note that the C++ standard does not specify a concrete size for each type. This means that the size of the data types actually dependent on the system you are compiling for. In certain situations you will need to keep this in mind.
+::: warning Datatype sizes
+Note that the C++ standard does not specify a concrete size for each type. This means that the size of the data types actually dependent on the system you are compiling for. In certain situations you will need to keep this in mind.
+:::
 
 Within each of the groups above, the difference between types is only their size (i.e., how much space they occupy in memory): the first type in each group is the smallest, and the last is the largest, with each type being at least as large as the one preceding it in the same group. Other than that, the types in a group have the same properties.
 
-> **INFO** - **The fundamental storage unit in C++**
->
-> From the draft version of the C++ 17 Standard $4.4/1
-> The fundamental storage unit in the C++ memory model is the byte. A byte is at least large enough to contain any member of the basic execution character set (5.3) and the eight-bit code units of the Unicode UTF-8 encoding form and is composed of a contiguous sequence of bits, the number of which is implementation defined.
+::: tip The fundamental storage unit in C++
+*From the draft version of the C++ 17 Standard $4.4/1*
+The fundamental storage unit in the C++ memory model is the byte. A byte is at least large enough to contain any member of the basic execution character set (5.3) and the eight-bit code units of the Unicode UTF-8 encoding form and is composed of a contiguous sequence of bits, the number of which is implementation defined.
+:::
 
 Type sizes above are expressed in bits; the more bits a type has, the more distinct values it can represent. On the other hand, the larger the size, the more memory a datatype consumes.
 
-![C++ data type sizes](img/data_type_sizes.png)
+![C++ data type sizes](./img/data_type_sizes.png)
 
 ### Declaring variables
 
 **C++ is a strongly-typed language**, and requires every variable to be declared with its type **before** its first use. This informs the compiler the size to reserve in memory for the variable and how to interpret its value. The syntax to define a new variable in C++ is straightforward: simply write the type followed by the variable name (also known as its identifier).
 
-> **WARNING** - **Declaration versus definition**
->
-> Note that defining a variable is not the same as declaring it. Declaring a variable is stating that it exists somewhere, while defining a variable is actually creating it. Declaring a variable is done using the `extern` keyword. While less important for variables, the distinction will be more clear in the context of functions, methods and classes.
+::: warning Declaration versus definition
+Note that defining a variable is not the same as declaring it. Declaring a variable is stating that it exists somewhere, while defining a variable is actually creating it. Declaring a variable is done using the `extern` keyword. While less important for variables, the distinction will be more clear in the context of functions, methods and classes.
+:::
 
-```c++
+```cpp
 int radius;                 // Definition
 double area;                // Definition
 char firstLetter = 'a';     // Definition + initialization
@@ -93,20 +94,20 @@ The name of a variable can be composed of letters, digits, and the underscore ch
 
 The most used operator is the assignment operator `=`. It assigns a value to a variable. For example:
 
-```c++
+```cpp
 int x = 5;
 int y = x;      // Assign value of x to y
 ```
 
-The last statement assigns the value of the variable `x` to the variable `y`. Consider also that we are only assigning the value of `x` to `y` at the moment of the assignment operation. Therefore, if `x` changes at a later moment, it will not affect the value held by `y`.
+The last statement assigns the value of the variable `x` to the variable `y`. Consider also that we are only assigning the value of `x` to `y` at the moment of the assignment operation. Therefore, if `x` changes at a later moment, it will not affect the value held by `y`. In other words a copy is made of the value held by `x` and then stored in `y`.
 
 ### Variable initialization
 
-While a variable does not need to be initialized, it should not be used before a meaningful value is assigned to it. Uninitialized variables in C++ actually cause garbage data and may cause unpredictable results if their value is used before they are assigned a decent value.
+While a variable does not need to be initialized immediately, it should not be used before a meaningful value is assigned to it. Uninitialized variables in C++ actually cause garbage data and may cause unpredictable results if their value is used before they are assigned a decent value.
 
 Try the following code example
 
-```c++
+```cpp
 #include <iostream>
 
 using namespace std;
@@ -122,13 +123,15 @@ int main() {
 }
 ```
 
-The output is **undefined**. Example:
+The output is actually **undefined**.
 
-```text
+::: codeoutput
+<pre>
 a = 32765
 b = 0
 c = 0
-```
+</pre>
+:::
 
 Both C and C++ define the values as undefined. Undefined means it may be **anything**, including being initialized to 0, taking previous value of the memory, being initialized to `0xDEADBEEF` or consecutive bytes of string `"blarg! blarg! blarg!"`, or anything else. In modern operating systems memory is usually zeroed at start and hence short-lived programs will typically have 0s everywhere. Basically you're getting a random value, which happens to sometimes be 0. But it's not guaranteed to be 0.
 
@@ -143,7 +146,7 @@ In C++ there are two ways to define constant values:
 
 Constants can be defined using a preprocessor directive using the following template.
 
-```c++
+```cpp
 #define IDENTIFIER <value>
 ```
 
@@ -151,7 +154,7 @@ Notice that no assignment operator or statement terminator is required.
 
 An example:
 
-```c++
+```cpp
 #define MAX_NUMBER_OF_STUDENTS 25
 ```
 
@@ -159,13 +162,13 @@ When the application is compiled the preprocessor actually replaces all the occu
 
 You can also use `const` prefix to declare constants with a specific type as follows:
 
-```c++
+```cpp
 const <datatype> VARIABLE_NAME = <value>;
 ```
 
 For example:
 
-```c++
+```cpp
 const int NUMBER_OF_TEACHERS = 85;
 ```
 
@@ -179,24 +182,26 @@ Typically constants are defined using an all CAPITALS name and underscores betwe
 
 The most basic operators are the mathematical operators. They are easy to understand because they have the same functionality as in math. The following operators are available to do basic math operations:
 
-* `+` Additive operator (also used for String concatenation)
-* `-` Subtraction operator
-* `*` Multiplication operator
-* `/` Division operator
-* `%` Remainder operator
+| Operator | Description |
+| --- | --- |
+| `+` | Additive operator (also used for String concatenation) |
+| `-` | Subtraction operator |
+| `*` | Multiplication operator |
+| `/` | Division operator |
+| `%` | Remainder operator |
 
-These operators are part of the **binary operators** because they take **two operands**, namely a left and a right operator. For example in the summation below `L` is the left operand and `R` is the right operand. The result of the operation is stored in the variable `sum`.
+These operators are part of the **binary operators** because they take **two operands**, namely a left and a right operator. For example in the summation below `left` is the left operand and `right` is the right operand. The result of the operation is stored in the variable `sum`.
 
-```c++
-int R = 14;
-int L = 12;
+```cpp
+int right = 14;
+int left = 12;
 
-int result = L + R;     // Result is now 26
+int result = left + rights;     // Result is now 26
 ```
 
 The `+`, `-` and `*` operators function the same as in math. Their use can be seen in the code below.
 
-```c++
+```cpp
 int a = 2 + 3;      // a = 5
 int b = a + 5;      // b = 10
 
@@ -208,7 +213,7 @@ The division and remainder operators deserve some special attention. The divisio
 
 If your operands are of integral type and you wish to perform a real division, you can always multiply one of the operands with `1.0` to explicitly convert it to a floating point number without having to change its actual data type. Let us take a look at some examples.
 
-```c++
+```cpp
 int x = 5;
 int y = 2;
 
@@ -222,11 +227,11 @@ double b = 2;       // 2 will actually be converted to 2.0
 double k = a / b;   // k = 1.5 (real division)
 ```
 
-Notice that even `double w = x / y;` results in `2.0`. The reason behind this is that `x / y` equals to `2` as it is a whole division since both operand are of integral type. The result is then implicitly converted to a double, and stored in `w`.
+Notice that even `double w = x / y;` results in `2.0`. The reason behind this is that `x / y` equals to `2` as it is a whole division since both operand are of integral type. The result is then implicitly converted to a `double`, and stored in `w`.
 
 While the **precedence** (order) in which mathematical operations are performed is defined in C++, most programmers do not know all of them by heart. It is much more clear and simpler to use round brackets `()` to enforce the precedence of the calculations. Take a look at the following piece of code:
 
-```c++
+```cpp
 int a = 5;
 int b = 6;
 int c = 10;
@@ -239,7 +244,7 @@ std::cout << "The result is " << result << std::endl;
 
 The result of the code above is `35`. Would you have known? By using round brackets this becomes much clearer and the chance of making a mistake is a lot smaller.
 
-```c++
+```cpp
 int a = 5;
 int b = 6;
 int c = 10;
@@ -256,7 +261,7 @@ Operators that have the same precedence are bound to their arguments in the dire
 
 Programmers are very lazy creatures that are always looking for ways to make their life's easier. That is why the compound operators were invented. They are a way to write shorter mathematical operations on the same variable as the result should be store in.
 
-```c++
+```cpp
 int x = 5;
 
 x += 4;   // Same as writing x = x + 4;
@@ -272,7 +277,7 @@ Incrementing (+1) and decrementing (-1) a variable is done very often in a progr
 
 Because of this a shorter way has been introduced using an increment `++` or decrement `--` operator as shown below.
 
-```c++
+```cpp
 int i = 5;
 
 i++;    // Same as writing i = i + 1;
@@ -283,40 +288,40 @@ There is however a caveat to keep in mind. Both operators come in a **suffix** (
 
 Let us take a look at two examples. First we take a look at the prefix version. In this case the value of `i` will be incremented to 6 before its value assigned to the variable `b`. Meaning at the end of this code both `i` and `b` will have a value of 6.
 
-```c++
+```cpp
 int i = 5;
-int b = ++i;
+int b = ++i;    // b = 6, i = 6
 ```
 
 Next we take a look at the suffix version. In this case the value of `i` will first be assigned to `b` before it is incremented. This results in a `b` having a value of 5 and `i` having a value of 6 at the end of the example.
 
-```c++
+```cpp
 int i = 5;
-int b = i++;
+int b = i++;  // b = 5, i = 6
 ```
 
 While this may not seem all that important at the moment we will require to know this once we start to work with arrays.
 
 ## Comparison Operators
 
-Comparison (aka relational) operators are used for **comparison of two values**.
+Comparison (aka relational) operators are used to **compare two values** with each other.
 
 The table below shows the available comparison operators that can be used in C++ to build a condition.
 
 | Operator | Description |
 |---|---|
-| == | equal to |
-| != | not equal to |
-| > | greater than |
-| >= | greater than or equal to |
-| < | less than |
-| <= | less than or equal to |
+| `==` | equal to |
+| `!=` | not equal to |
+| `>` | greater than |
+| `>=` | greater than or equal to |
+| `<` | less than |
+| `<=` | less than or equal to |
 
 Since a conditional statement actually produces a single `true` or `false` result, this result can actually be assigned to a variable of type `bool`.
 
 Let's take a look at some examples of comparison operators:
 
-```c++
+```cpp
 int a = 4;
 int b = 8;
 bool result;
@@ -340,19 +345,19 @@ The table below gives an overview of the available conditional operators in C++.
 
 | Operator | Description |
 |---|---|
-| && | AND |
-| &#124;&#124; | OR |
-| ! | NOT |
+| `&&` | AND |
+| `||` | OR |
+| `!` | NOT |
 
 These work as you know them from the Boolean algebra. The `||` (OR) operator will return `true` if either of the operands evaluate to `true`. The `&&` (AND) operator will return `true` if both operands evaluate to `true`. A logical expression can be negated by placing the `!` (NOT) operator in front of it.
 
 The code example below checks if a person is a child, an adult or an adolescent based on his/her `age`.
 
-```c++
+```cpp
 int age = 16;
 bool isAChild = (age >= 0 && age <= 14);        // false
-bool isAnAdult = (age >= 18 && age <= 75);      // false
 bool isAnAdolescent = (age > 14 && age < 18);   // true
+bool isAnAdult = (age >= 18 && age <= 75);      // false
 ```
 
 ### Lazy Evaluation
@@ -363,47 +368,47 @@ This can lead to confusing C++ constructions which should be avoided when possib
 
 An example where the second operand of the condition is not checked:
 
-```c++
+```cpp
 int counter = 0;
 bool result = (false && counter++);
 std::cout << "Counter: " << counter << std::endl;
 std::cout << "Result: " << result << std::endl;
 ```
 
-with an output of
-
-```text
+::: codeoutput
+<pre>
 Counter: 0
 Result: 0
-```
+</pre>
+:::
 
-And an example where the second operand of the condition is evaluated:
+And an example where the second operand of the condition is always evaluated:
 
-```c++
+```cpp
 int counter = 0;
 bool result = (true && counter++);
 std::cout << "Counter: " << counter << std::endl;
 std::cout << "Result: " << result << std::endl;
 ```
 
-with an output of
-
-```text
+::: codeoutput
+<pre>
 Counter: 1
 Result: 0
-```
+</pre>
+:::
 
 Do note that in the last example the postfix operator is used and not the prefix operator. Meaning that the value of `counter` is evaluated before it is incremented. As its initial value was `0` it is evaluated to `false`, meaning that `result` is assigned `false`.
 
 ## The if statement
 
-The statements inside your source files are generally executed from top to bottom (in the order that they appear). Control flow statements, however, break up the flow of execution by employing decision making, enabling your program to conditionally execute particular blocks of code. This section describes the if and if-else statements that allow code to be executed based on a given condition.
+The statements inside your source files are generally executed from top to bottom (in the order that they appear). Control flow statements, however, break up the flow of execution by employing decision making, enabling your program to conditionally execute particular blocks of code. This section describes the `if` and `if-else` statements that allow code to be executed based on a given condition.
 
 The `if` statement is the most basic of all the control flow statements. It allows an application to execute a certain section of code only if a particular condition evaluates to `true`.
 
 Examine the following example where the user is requested to enter a temperature. Next the given value is evaluated and if it is above (or equal to) a certain threshold value (`85` in this case) a warning message is outputted to the terminal.
 
-```c++
+```cpp
 int temperature = 0;
 
 std::cout << "Please enter temperature: ";
@@ -414,13 +419,15 @@ if (temperature >= 85) {
 }
 ```
 
+<!-- TODO: Explain cin a bit earlier? -->
+
 If this test evaluates to `false` (meaning that the temperature is below `85`), control jumps to the end of the if statement.
 
 ## The if-else Statement
 
-The if-else statement provides a secondary path of execution when an "if" clause evaluates to `false`. Taking the previous example you could output a "all is good" message when the temperature is below the threshold value.
+The if-else statement provides a secondary path of execution when an "if" clause evaluates to `false`. Taking the previous example you could output an "all is good" message when the temperature is below the threshold value.
 
-```c++
+```cpp
 int temperature = 0;
 
 std::cout << "Please enter temperature: ";
@@ -437,7 +444,7 @@ The if-else statement can be extended with **even more if-else statements**. Eac
 
 Let us extend the temperature example with a number of ranges.
 
-```c++
+```cpp
 int temperature = 0;
 
 std::cout << "Please enter temperature: ";
@@ -454,13 +461,13 @@ if (temperature < 85) {
 }
 ```
 
-You may have noticed that the value of `temperature` can satisfy more than one expression in the combined statements. However the conditions are checked sequentially and once a condition is satisfied, the appropriate statements are executed and the remaining conditions are not evaluated anymore.
+<!-- You may have noticed that the value of `temperature` can satisfy more than one expression in the combined statements. However the conditions are checked sequentially and once a condition is satisfied, the appropriate statements are executed and the remaining conditions are not evaluated anymore. -->
 
 ## The Switch Statement
 
 Let us take a look at some code that will allow the user to enter the number of the day of the week. The program will than determine the name of the day and output it to the user.
 
-```c++
+```cpp
   int dayOfTheWeek = 0;
 
   std::cout << "What day of the week is it today [1-7]? ";
@@ -545,26 +552,20 @@ No general rule exists for when to use which construct. Some programmers don't l
 Some important points about the switch statement:
 
 * The expression provided in the switch should result in a constant value otherwise it would not be valid.
- * Valid expressions for switch:
+  * Valid expressions for switch:
+    * `switch(1+2+23)`
+    * `switch(1*2+3%4)`
 
-  ```c++
-  // Constant expressions allowed
-  switch(1+2+23)
-  switch(1*2+3%4)
-  ```
-
- * Invalid switch expressions for switch:
-
-  ```c++
-  // Variable expression not allowed
-  switch(ab+cd)
-  switch(a+b+c)
-  ```
+  * Invalid switch expressions for switch:
+    * `switch(ab+cd)`
+    * `switch(a+b+c)`
 
 * Duplicate case values are not allowed.
-* The default statement is optional. Even if the switch case statement did not have a default statement, it would run without any problem.
-* The break statement is optional. If omitted, execution will continue on into the next case. The flow of control will fall through to subsequent cases until a break is reached.
+* The `default` statement is optional. Even if the switch case statement did not have a default statement, it would run without any problem.
+* The `break` statement is optional. If omitted, execution will continue on into the next case. The flow of control will fall through to subsequent cases until a `break` is reached.
 * Nesting of switch statements are allowed, which means you can have switch statements inside another switch. However nested switch statements should be avoided as it makes code more complex and less readable.
+
+<!-- TODO: Add warning here about scope of local variables inside of cases. Need `{}` to limit scope. Also see remark on paper -->
 
 ## The for loop
 
@@ -572,9 +573,9 @@ Basically a for loop is most often used when the number of iterations is pre-det
 
 The syntax of a for loop in C++ is:
 
-```c++
+```cpp
 for ( <initialization>; <condition>; <increment> ) {
-   // statements
+  // statements
 }
 ```
 
@@ -587,7 +588,7 @@ Each of these components are optional. However the semicolon used to distinguish
 
 An example of a simple for-loop that iterates between 0 and 9 and outputs each value of `i`.
 
-```c++
+```cpp
 for (int i = 0; i < 10; i++) {
   cout << "i = " << i << endl;
 }
@@ -595,7 +596,7 @@ for (int i = 0; i < 10; i++) {
 
 Note that `i` actually has block scope here and will not be available outside of the for-loop. If you want to keep the last iteration value after the for-loop you need to define the iterator before the for-loop.
 
-```c++
+```cpp
 int i = 0;
 for (; i < 10; i++) {
   cout << "i = " << i << endl;
@@ -605,7 +606,7 @@ cout << "After the for-loop i = " << i << endl;
 
 An endless loop would look like this.
 
-```c++
+```cpp
 for (;;;) {
   // Do something forever
 }
@@ -613,7 +614,7 @@ for (;;;) {
 
 ## Functions
 
-A function **groups together a block of statements that inherently belong together**. A functions performs a **single well defined task**. Every C++ program has at least one function, namely `main()`. By grouping together statements as a function we also **allow the reuse of functionality** inside our applications, which contributes to the DRYness of our code.
+A function **groups together a block of statements that inherently belong together**. A function performs a **single well defined task**. Every C++ program has at least one function, namely `main()`. By grouping together statements as a function we also **allow the reuse of functionality** inside our applications, which contributes to the DRYness of our code.
 
 The C++ standard library provides numerous built-in functions that your program can call. Take a look at the reference of the standard C++ library at [http://www.cplusplus.com/reference/](http://www.cplusplus.com/reference/).
 
@@ -627,28 +628,31 @@ To call a function, you need to pass the required parameters along with the func
 
 For example the `max()` function in the standard `algorithm` library compares the two arguments and returns the greatest of the two:
 
-```c++
+```cpp
 #include <iostream>
 #include <algorithm>
 
 int main() {
-    double biggest = std::max(3.14, 15.12);
-    std::cout << "max(3.14, 15.12) => " << biggest << std::endl;
-    return 0;
+  double biggest = std::max(3.14, 15.12);
+  std::cout << "max(3.14, 15.12) => " << biggest << std::endl;
+  return 0;
 }
 ```
 
 The `max()` function takes two arguments and returns the result. While the above code example shows an example with two literal values, it is also perfectly possible to pass variables. It is also possible to directly use the return value (without using the `biggest` variable in this case).
 
-```c++
+```cpp
 #include <iostream>
 #include <algorithm>
 
 int main() {
-    double pi = 3.14;
-    double someNumber = 15.12;
-    std::cout << "max(" << pi << ", " << someNumber << ") => " << std::max(pi, someNumber) << std::endl;
-    return 0;
+  double pi = 3.14;
+  double someNumber = 15.12;
+
+  std::cout << "max(" << pi << ", " << someNumber
+    << ") => " << std::max(pi, someNumber) << std::endl;
+
+  return 0;
 }
 ```
 
@@ -667,8 +671,8 @@ The general form of a C++ function definition looks like the template below
 
 ```text
 <return_type> function_name( <comma_separated_parameter_list> ) {
-   // Statements (body / implementation)
-   return <value>;  // In case of a non-void function
+  // Statements (body / implementation)
+  return <value>;  // In case of a non-void function
 }
 ```
 
@@ -681,15 +685,15 @@ A C++ function definition consists of a function header (same as the prototype) 
 
 The function name and the parameter list together constitute the **function signature**. Note that the return type is not part of the function signature. As the standard says in a footnote, "Function signatures do not include return type, because that does not participate in overload resolution".
 
-> **INFO** - **Overload resolution**
->
-> A function signature is the parts of the function declaration that the compiler uses to perform overload resolution. Since multiple functions might have the same name (ie., they're overloaded), the compiler needs a way to determine which of several possible functions with a particular name a function call should resolve to. The signature is what the compiler considers in that overload resolution.
+::: tip Overload resolution
+A function signature is the parts of the function declaration that the compiler uses to perform overload resolution. Since multiple functions might have the same name (ie., they're overloaded), the compiler needs a way to determine which of several possible functions with a particular name a function call should resolve to. The signature is what the compiler considers in that overload resolution.
+:::
 
 If a function is to use arguments, it must declare variables that accept the values of the arguments. These variables are called the **formal parameters** of the function. The formal parameters behave like other local variables inside the function and are created upon entry into the function and destroyed upon exit.
 
 Consider the function `sum()` shown below that determines the sum of two integral values.
 
-```c++
+```cpp
 int sum(int a, int b) {
   return a + b;
 }
@@ -715,52 +719,53 @@ In other words the function declaration is exactly the same as the function head
 
 For the previous defined function `sum()`, the function declaration would be:
 
-```c++
+```cpp
 int sum(int a, int b);
 ```
 
-Parameter names are not important in function declaration only their type is required, so following is also a valid declaration:
-```c++
+Parameter names are not important in function declaration only their type is required, so the following is also a valid declaration:
+
+```cpp
 int sum(int, int);
 ```
 
 A separate function declaration is required when you
 
-* define a function below the point were you call the function (for example using a custom function in `main()` that is defined below main)
+* define a function below the point where you call the function (for example using a custom function in `main()` that is defined below main)
 * define a function in one source file and you call that function in another file. In such case, you should declare the function at the top of the file calling the function.
 
 #### Putting it all together
 
 Below is an example of the `sum()` function being called from the `main()` function. Note that no declaration (prototype) is required as the `sum()` function is defined before main.
 
-```c++
+```cpp
 #include <iostream>
 
 int sum(int a, int b) {
-    return a + b;
+  return a + b;
 }
 
 int main() {
-    std::cout << "sum of 12 and 15 = " << sum(12, 15) << std::endl;
-    return 0;
+  std::cout << "sum of 12 and 15 = " << sum(12, 15) << std::endl;
+  return 0;
 }
 ```
 
 Now if one were to place the `sum()` function below main, the compiler would generate the error: `error: 'sum' was not declared in this scope`. This can be fixed by adding a declaration of the `sum()` function before `main()`.
 
-```c++
+```cpp
 #include <iostream>
 
 // Function declaration, comment out to see the compiler error
 int sum(int a, int b);
 
 int main() {
-    std::cout << "sum of 12 and 15 = " << sum(12, 15) << std::endl;
-    return 0;
+  std::cout << "sum of 12 and 15 = " << sum(12, 15) << std::endl;
+  return 0;
 }
 
 int sum(int a, int b) {
-    return a + b;
+  return a + b;
 }
 ```
 
@@ -770,32 +775,32 @@ When you define a function, you can specify a default value for each of the **la
 
 This is done by using the assignment operator and assigning values for the arguments in the function definition. If a value for that parameter is not passed when the function is called, the default value is used, but if a value is specified, this default value is ignored and the passed value is used instead.
 
-Let us consider a function print_terminal() that prints out the terminal sign of a console (for example `>` in powershell).
+Let us consider a function `print_terminal()` that prints out the terminal sign of a console (for example `>` in powershell).
 
-```c++
+```cpp
 void print_terminal(char sign = '>') {
-    std::cout << sign;
+  std::cout << sign;
 }
 ```
 
 If no argument is passed, the default `>` is printed. In the other case the passed symbol is outputted.
 
-```c++
+```cpp
 #include <iostream>
 
 void print_terminal(char sign = '>') {
-    std::cout << sign;
+  std::cout << sign;
 }
 
 int main() {
-    // Using the default symbol
-    print_terminal();
-    std::cout << std::endl;
+  // Using the default symbol
+  print_terminal();
+  std::cout << std::endl;
 
-    // Passing another symbol
-    print_terminal('$');
-    std::cout << std::endl;
-    return 0;
+  // Passing another symbol
+  print_terminal('$');
+  std::cout << std::endl;
+  return 0;
 }
 ```
 
@@ -820,41 +825,42 @@ While calling a function, there are three ways that arguments can be passed to a
 
 By default, C++ uses pass by value to pass arguments. In general, this means that code within a function cannot alter the arguments used to call the function.
 
+<!-- Maybe note for later: Even return statements pass-by-value. That is why the linux kernel almost never returns values. Its all using global variable. -->
+
 Take for example the code below where a `swap()` function tries to swap the values of two variables.
 
-```c++
+```cpp
 #include <iostream>
 using namespace std;
 
 void swap(int x, int y) {
-    int temp = x;
-    x = y;
-    y = temp;
+  int temp = x;
+  x = y;
+  y = temp;
 }
 
 int main() {
-    int a = 10;
-    int b = 136;
+  int a = 10;
+  int b = 136;
 
-    cout << "Before call to swap:" << endl;
-    cout << "a: " << a << endl;
-    cout << "b: " << b << endl;
+  cout << "Before call to swap:" << endl;
+  cout << "a: " << a << endl;
+  cout << "b: " << b << endl;
 
-    swap(a, b);
+  swap(a, b);
 
-    cout << "\nAfter call to swap:" << endl;
-    cout << "a: " << a << endl;
-    cout << "b: " << b << endl;
+  cout << "\nAfter call to swap:" << endl;
+  cout << "a: " << a << endl;
+  cout << "b: " << b << endl;
 
-    return 0;
+  return 0;
 }
 ```
 
 As C++ passes arguments by value, a copy of `a` and `b` is created and placed inside the local parameter variables `x` and `y`. Because of this changes to `x` and `y` are local to the scope of the function itself. Luckily enough because otherwise every function would be able to alter the original variables which would lead to a lot of bugs and hard to solve problems.
 
-The output being:
-
-```text
+::: codeoutput
+<pre>
 Before call to swap:
 a: 10
 b: 136
@@ -862,7 +868,8 @@ b: 136
 After call to swap:
 a: 10
 b: 136
-```
+</pre>
+:::
 
 But what if we wanted this to work. Well then you need to pass the data using pointers or references. More on this later.
 
