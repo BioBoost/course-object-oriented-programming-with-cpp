@@ -1,12 +1,14 @@
 ---
 description: This chapter will introduce the basics of the C++ language.
+title: 02 - Basics of C++ in a Nutshell
 ---
 
-# Chapter 02 - Introduction to C++
+# Chapter 02 - Basics of C++ in a Nutshell
 
 This chapter will introduce the basics of the C++ language. It does expect you to already be familiar with another programming language such as Java.
 
 <!-- TODO: Casting of double to int and also explain narrowing conversion -->
+<!-- Explain variable scope -->
 
 ## Variables
 

@@ -6,6 +6,7 @@ module.exports = {
     ],
     sidebar: [
         '01-hello-world/',
+        '02-basics-of-cpp-in-a-nutshell/'
     ],
     sidebarDepth: 1,
     repo: 'BioBoost/course-object-oriented-programming-with-cpp',
