@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "git@github.com:BioBoost/course-object-oriented-programming-with-cpp.git",
   "author": "Nico De Witte <nico.dewitte@outlook.com>",
-  "license": "SEE LICENSE IN README.md"
+  "license": "SEE LICENSE IN README.md",
+  "devDependencies": {
+    "vuepress": "^1.3.0"
+  }
 }
