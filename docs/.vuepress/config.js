@@ -5,7 +5,7 @@ module.exports = {
     nav: [
     ],
     sidebar: [
-        '01_hello_world/',
+        '01-hello-world/',
     ],
     sidebarDepth: 1,
     repo: 'BioBoost/course-object-oriented-programming-with-cpp',

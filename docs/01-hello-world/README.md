@@ -1,5 +1,6 @@
 ---
 description: This chapter introduces the hello world example in C++.
+title: 01 - Hello World
 ---
 
 # Chapter 01 - Hello World
