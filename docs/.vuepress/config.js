@@ -16,6 +16,7 @@ module.exports = {
             '/03-object-oriented-thinking/all_about_objects/',
           ]
         },
+        '04-basics-of-classes/',
     ],
     sidebarDepth: 1,
     repo: 'BioBoost/course-object-oriented-programming-with-cpp',
