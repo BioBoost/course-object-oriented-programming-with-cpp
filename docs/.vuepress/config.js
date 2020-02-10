@@ -9,11 +9,11 @@ module.exports = {
         '02-basics-of-cpp-in-a-nutshell/',
         {
           title: '03 - Object Oriented Thinking',   // required
-          path: '/course-module-object-oriented-thinking/',      // optional, which should be a absolute path.
+          path: '/03-object-oriented-thinking/',      // optional, which should be a absolute path.
           children: [
-            '/course-module-object-oriented-thinking/',
-            '/course-module-object-oriented-thinking/abstraction/',
-            '/course-module-object-oriented-thinking/all_about_objects/',
+            '/03-object-oriented-thinking/',
+            '/03-object-oriented-thinking/abstraction/',
+            '/03-object-oriented-thinking/all_about_objects/',
           ]
         },
     ],
