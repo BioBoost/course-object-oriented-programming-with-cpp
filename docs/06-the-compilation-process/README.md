@@ -15,7 +15,7 @@ While makefiles can be as complex as the projects they build, they are often gen
 
 Compiling a C++ source code file into an executable program is a four-step process. To compile for example a single `main.cpp` file containing a basic hello world application, one could use the `g++` command to compile it into an executable binary:
 
-```shell
+```bash
 g++ -Wall -o Hello main.cpp -save-temps
 ```
 
@@ -25,7 +25,7 @@ g++ -Wall -o Hello main.cpp -save-temps
 
 In the example above the compilation process looks like this:
 
-![The Compilation Process of a C++ Program](img/the_compilation_process.png)
+![The Compilation Process of a C++ Program](./img/the_compilation_process.png)
 
 1. The C++ **preprocessor** copies the contents of the included header files into the source code file, generates macro code, and replaces symbolic constants defined using `#define` with their values. The output of this step is a "pure" C++ file without any pre-processor directives (which start with a `#`). It also adds special markers that tell the compiler where each line came from so that these can be used to produce sensible error messages. The "pure" source code files can be really huge. Even a simple hello world program is transformed into a file with about 11'000 lines of code.
 
@@ -39,24 +39,24 @@ In the example above the compilation process looks like this:
 
 Both `gcc` and `g++` are compiler-drivers of the 'GNU Compiler Collection' (which was once upon a time just the 'GNU C Compiler', but it eventually changed when more languages were added.).
 
-> **HINT** - **GNU**
->
-> GNU is an operating system and an extensive collection of computer software. GNU is composed wholly of free software, most of which is licensed under GNU's own GPL (General Purpose License).
-> GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code. The GNU project includes an operating system kernel, GNU HURD, which was the original focus of the Free Software Foundation (FSF). However, non-GNU kernels, most famously Linux, can also be used with GNU software; and since the kernel is the least mature part of GNU, this is how it is usually used. The combination of GNU software and the Linux kernel is commonly known as Linux (or less frequently GNU/Linux).
+::: tip GNU
+GNU is an operating system and an extensive collection of computer software. GNU is composed wholly of free software, most of which is licensed under GNU's own GPL (General Purpose License).
+GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code. The GNU project includes an operating system kernel, GNU HURD, which was the original focus of the Free Software Foundation (FSF). However, non-GNU kernels, most famously Linux, can also be used with GNU software; and since the kernel is the least mature part of GNU, this is how it is usually used. The combination of GNU software and the Linux kernel is commonly known as Linux (or less frequently GNU/Linux).
+:::
 
-The programs `gcc` and `g`++ are not compilers, but really drivers that call other programs depending on what arguments you provide to them. These other programs include macro pre-processors (such as `cpp`), compilers (such as `cc1`), linkers (such as `ld`) and assemblers (such as `as`), as well as others, most of which are part of the GNU Compiler Collection (some are assumed to be on your system).
+The programs `gcc` and `g++` are not compilers, but really drivers that call other programs depending on what arguments you provide to them. These other programs include macro pre-processors (such as `cpp`), compilers (such as `cc1`), linkers (such as `ld`) and assemblers (such as `as`), as well as others, most of which are part of the GNU Compiler Collection (some are assumed to be on your system).
 
-The actual compiler is `cc1` for C and `cc1plus` for C++.
+The actual compilers are `cc1` for C and `cc1plus` for C++.
 
 Even though they automatically determine which compiler to call depending on the file-type, unless overridden with `-x` language flag, there are some important differences.
 
 The main differences between `gcc` and `g++` are:
 
-* gcc will compile: .c/.cpp files as C and C++ respectively.
-* g++ will compile: .c/.cpp files but they will all be treated as C++ files.
-* Also if you use g++ to link the object files it automatically links in the std C++ libraries (gcc does not do this).
-* gcc compiling C files has less predefined macros.
-* gcc compiling .cpp and g++ compiling .c/.cpp files has a few extra macros.
+* `gcc` will compile: `.c/.cpp` files as C and C++ respectively.
+* `g++` will compile: `.c/.cpp` files but they will all be treated as C++ files.
+* Also if you use `g++` to link the object files, it automatically links in the std C++ libraries (`gcc` does not do this).
+* `gcc` compiling C files has less predefined macros.
+* `gcc` compiling .cpp and `g++` compiling `.c/.cpp` files has a few extra macros.
 
 So basically, the most important difference is which libraries they link against by default.
 
@@ -79,24 +79,26 @@ int main(void) {
 
 Compiling this with `g++` results a fine working program:
 
-```shell
+```bash
 g++ main.cpp -o hello
 ```
 
 Running the `hello` binary results in
 
-```text
+::: codeoutput
+<pre>
 Hello world from C++
-```
+</pre>
+:::
 
 Trying to do the same with `gcc` results in linking errors:
 
-```shell
+```bash
 gcc main.cpp -o hello
 /tmp/ccg5ztrG.o:main.cpp:(.text+0x21): undefined reference to `std::cout'
-/tmp/ccg5ztrG.o:main.cpp:(.text+0x26): undefined reference to `std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)'
-/tmp/ccg5ztrG.o:main.cpp:(.text+0x2d): undefined reference to `std::basic_ostream<char, std::char_traits<char> >& std::endl<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&)'
-/tmp/ccg5ztrG.o:main.cpp:(.text+0x34): undefined reference to `std::ostream::operator<<(std::ostream& (*)(std::ostream&))'
+/tmp/ccg5ztrG.o:main.cpp:(.text+0x26): undefined reference to `std::basic_ostream&lt;char, std::char_traits&lt;char&gt; &gt;&amp; std::operator&lt;&lt; &lt;std::char_traits&lt;char&gt; &gt;(std::basic_ostream&lt;char, std::char_traits&lt;char&gt; &gt;&amp;, char const*)'
+/tmp/ccg5ztrG.o:main.cpp:(.text+0x2d): undefined reference to `std::basic_ostream&lt;char, std::char_traits&lt;char&gt; &gt;&amp; std::endl&lt;char, std::char_traits&lt;char&gt; &gt;(std::basic_ostream&lt;char, std::char_traits&lt;char&gt; &gt;&amp;)'
+/tmp/ccg5ztrG.o:main.cpp:(.text+0x34): undefined reference to `std::ostream::operator&lt;&lt;(std::ostream&amp; (*)(std::ostream&amp;))'
 /tmp/ccg5ztrG.o:main.cpp:(.text+0x54): undefined reference to `std::ios_base::Init::~Init()'
 /tmp/ccg5ztrG.o:main.cpp:(.text+0x75): undefined reference to `std::ios_base::Init::Init()'
 collect2.exe: error: ld returned 1 exit status
@@ -104,25 +106,25 @@ collect2.exe: error: ld returned 1 exit status
 
 However if we repeat the command but inform the linker to link in the standard C++ libraries all is well:
 
-```shell
+```bash
 gcc main.cpp -lstdc++ -o hello
 ```
 
-Conclusion: don't make your life more complex than needed and use g++ to compile your C++ and C programs.
+Conclusion: don't make your life more complex than needed and use `g++` to compile your C++ and C programs.
 
 ## Makefiles
 
-Compiling your source code files can be tedious, specially when you want to include several source files and have to type the compiling command everytime you want to do it. Well, I have news for you ... Your days of command line compiling are (mostly) over, because you will learn how to write basic Makefiles.
+Compiling your source code files can be tedious, especially when you want to include several source files and have to type the compiling command everytime you want to do it. Well, I have news for you ... Your days of command line compiling are (mostly) over, because you will learn how to write basic Makefiles.
 
-Makefiles are human readable special format files that together with the make utility will help you to automagically build and manage your projects.
+Makefiles are human readable special format files that together with the `make` utility will help you to automagically build and manage your projects.
 
-The makefile directs the `make` tool on how to compile and link a program. Some common action that need to be taken when using C/C++ as an example:
+The `Makefile` directs the `make` tool on how to compile and link a program. Some common action that need to be taken when using C/C++ as an example:
 
 * When a C/C++ source file is changed, it must be recompiled.
-* If a header file has changed, each C/C++ source file that includes the header file must be recompiled to be safe. 
+* If a header file has changed, each C/C++ source file that includes the header file must be recompiled to be safe.
 * Each compilation produces an object file corresponding to the source file. Finally, if any source file has been recompiled, all the object files, whether newly made or saved from previous compilations, must be linked together to produce the new executable program.
 
-These instructions with their dependencies are specified in a makefile. If none of the files that are prerequisites have been changed since the last time the program was compiled, no actions take place. For large software projects, using Makefiles can substantially reduce build times if only a few source files have changed.
+These instructions with their dependencies are specified in a `Makefile`. If none of the files that are prerequisites have been changed since the last time the program was compiled, no actions take place. For large software projects, using Makefiles can substantially reduce build times if only a few source files have changed.
 
 ### Separate Compilation
 
@@ -136,12 +138,12 @@ A `.cpp` usually consists of:
 
 The corresponding `.h` file contains:
 
-* class declarations,
+* class definition,
 * function prototypes,
 * and extern variables (again, for global variables).
 * The purpose of the .h files is to export "services" to other .cpp files.
 
-For example, suppose you wrote a `Vector` class. You would have an `.h` file which included the class declaration. Suppose you needed a `Vector` in an `ArrayList` class. Then, you would write `#include "vector.h"`.
+For example, suppose you wrote a `Vector` class. You would have an `.h` file which included the class definition. Suppose you needed a `Vector` in an `ArrayList` class. Then, you would write `#include "vector.h"`.
 
 Why all the talk about how `.cpp` files get compiled in C++? Because of the way C++ compiles files, makefiles can take advantage of the fact that when you have many `.cpp` files, it's not necessary to recompile all the files when you make changes. You only need to recompile a small subset of the files. Back in the old days, a makefile was even more convenient as compiling was very slow. Therefore, having to avoid recompiling every single file meant saving a lot of time.
 
@@ -164,9 +166,9 @@ student.o: student.cpp
 
 `-Wall` has already been explained but `-c` has not. It tells the compiler to compile the code into an object file and stop there. This allows us to compile all `.cpp` files into object files and later link them all together into a single executable file.
 
-> **WARNING** - **TABS**
->
-> Please note that make depends heavily on indentation (a bit like python). This means that the commands of a target need to be prefixed with a single tab character, no more, no less. The tabs should also be tab characters and no spaces.
+::: warning TABS
+Please note that make depends heavily on indentation (a bit like python). This means that the commands of a target need to be prefixed with a single tab character, no more, no less. The tabs should also be tab characters and no spaces.
+:::
 
 The basic syntax of an entry looks like:
 
@@ -202,7 +204,7 @@ Notice how the compilation of the `main.cpp` file and the eventual linking of al
 
 Now to start the make process all you need to do is traverse to the directory with the `Makefile` in it and execute the `make` command with a target specified:
 
-```shell
+```bash
 make hello
 g++ -c -Wall main.cpp
 g++ main.o -o hello
@@ -210,13 +212,13 @@ g++ main.o -o hello
 
 This should result in the following files:
 
-```shell
+```bash
 hello  main.cpp  main.o  Makefile
 ```
 
-> **HINT** - **Make for Windows**
->
-> Make is automatically installed on Linux when you installed the `build-essential` package. For Windows, make can be downloaded at [http://gnuwin32.sourceforge.net/packages/make.htm](http://gnuwin32.sourceforge.net/packages/make.htm). Make sure to add make to the PATH of your user, typically `C:\Program Files (x86)\GnuWin32\bin`.
+::: tip Make for Windows
+Make is automatically installed on Linux when you installed the `build-essential` package. For Windows, make can be downloaded at [http://gnuwin32.sourceforge.net/packages/make.htm](http://gnuwin32.sourceforge.net/packages/make.htm). Make sure to add make to the PATH of your user, typically `C:\Program Files (x86)\GnuWin32\bin`.
+:::
 
 Most makefiles will also include an 'all' target. This allows the compilation of the full project. The 'all' target is usually the first in the makefile, since if you just write `make` in command line, without specifying the target, it will build the first target. And you expect it to be 'all'.
 
