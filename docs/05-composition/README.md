@@ -1,5 +1,6 @@
 ---
 description: Composition is the most useful technique for reusing implementation.
+title: 05 - Composition
 ---
 
 <!-- Refactor this to make use of the Color class from the previous chapter. Maybe we make RgbLed now ? -->
