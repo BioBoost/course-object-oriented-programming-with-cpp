@@ -1,5 +1,6 @@
 ---
 description: Pointers allow direct memory access, a much used feature in C and C++.
+title: 07 - Pointers
 ---
 
 # Chapter 07 - Pointers
@@ -10,7 +11,7 @@ A pointer is **a variable which holds the address to a location in memory**. C++
 
 As stated before, a **variable is a symbolic name for a certain location inside your computer memory**. This location is **actually an address**. Using the **reference operator** `&` one can determine the address of the variable. Consider the following example which will print the address of the variables `x` and `y`:
 
-```c++
+```cpp
 #include <iostream>
 
 int main() {
@@ -26,20 +27,22 @@ int main() {
 
 which would output something similar to:
 
-```text
+::: codeoutput
+<pre>
 x = 15 and has an address of 0x6afefc
 y = 0 and has an address of 0x6afef8
-```
+</pre>
+:::
 
-> **INFO** - **Logical, not physical addresses**
->
-> Basically, any pointers in a program are **logical** (also called virtual) addresses, never physical (unless you are not running under an operating system - for example on a microcontroller). User space applications have no way of accessing the memory using physical addresses - that's one of the abstractions the OS gives each process. The MMU (Memory management unit) does the translation for every memory access, and it's up to the OS to set up the correct mapping for your process. To do all this in a way that goes completely unnoticed by processes, it has to create a layer of memory mappings that map the pointers that a process has to their actual physical location. But, certainly, the pointers that a program holds are indeed virtual addresses, the proof is simple: they don't change even as the process memory is relocated. Another indication of that is also the fact that if you try to access memory that isn't allocated to the current process, you get a "segmentation fault" or "access violation" error from the OS.
+::: tip Logical, not physical addresses
+Basically, any pointers in a program are **logical** (also called virtual) addresses, never physical (unless you are not running under an operating system - for example on a microcontroller). User space applications have no way of accessing the memory using physical addresses - that's one of the abstractions the OS gives each process. The MMU (Memory management unit) does the translation for every memory access, and it's up to the OS to set up the correct mapping for your process. To do all this in a way that goes completely unnoticed by processes, it has to create a layer of memory mappings that map the pointers that a process has to their actual physical location. But, certainly, the pointers that a program holds are indeed virtual addresses, the proof is simple: they don't change even as the process memory is relocated. Another indication of that is also the fact that if you try to access memory that isn't allocated to the current process, you get a "segmentation fault" or "access violation" error from the OS.
+:::
 
 ## Declaring a Pointer Variable
 
 Like any variable or constant, you must declare a pointer before you can work with it. As C++ is a statically typed language, the **type is required to declare a pointer** - this is the **type of the data** that will live at the memory address the pointer points to. The general form of a pointer variable declaration is:
 
-```c++
+```cpp
 <type> * variable_name;
 ```
 
@@ -47,7 +50,7 @@ Basically this can be translated to `variable_name` is a pointer which can hold 
 
 Take a look at the following examples:
 
-```c++
+```cpp
 int * pointerToInt;             // Pointer to an integer
 double * pointerToDouble;       // Pointer to a double
 float * pointerToFloat;         // Pointer to a float
@@ -62,7 +65,7 @@ The actual data type of the value of all pointers themselves, whether integer, f
 
 As with any other variable, **a pointer needs to be initialized before it can be used**. To accomplish this, one needs to **assign the address of a variable to the pointer**. As shown before, the address of a variable can be retrieved by applying the address-of operator `&` to it. The resulting address can then be assigned to a pointer of the same type as the variable.
 
-```c++
+```cpp
 // A pointer to a variable of type int
 int x = 15;
 int * pointerToX = &x;
@@ -82,7 +85,7 @@ Pointers are mainly used to directly access the memory they are pointing to. So 
 
 An example where a pointer to an integer variable is used to change the actual value of the integer variable:
 
-```c++
+```cpp
 #include <iostream>
 
 int main() {
@@ -105,7 +108,7 @@ While not strictly necessary to add parentheses around the dereferenced pointers
 
 Pointers and arrays are strongly related. In fact, an array variable is nothing more than a **constant pointer pointing at the first element of the array**. Actually a pointer can be dereferenced using the **indexing operator** `[]` used on an array variable as shown in the example below:
 
-```c++
+```cpp
 #include <iostream>
 
 int main() {
@@ -127,7 +130,7 @@ int main() {
 
 Also note that one does not need to request the address of the array to initialize the pointer. This because the **array variable is already a pointer**. Of course if you do wish to use the address-of operator you can use the following construct:
 
-```c++
+```cpp
 const int SIZE = 5;
 int numbers[SIZE];
 int * pNumbers = &(numbers[0]);
@@ -135,7 +138,7 @@ int * pNumbers = &(numbers[0]);
 
 This would allow you to create a pointer to an element somewhere inside the boundaries of the array. For example for the second element:
 
-```c++
+```cpp
 const int SIZE = 5;
 int numbers[SIZE];
 int * pToElement = &(numbers[2]);
@@ -143,7 +146,7 @@ int * pToElement = &(numbers[2]);
 
 Since an array variable is actually a pointer, it is perfectly valid to dereference it using the dereference operator `*`.
 
-```c++
+```cpp
 const int SIZE = 5;
 int numbers[SIZE];
 
@@ -152,7 +155,7 @@ int numbers[SIZE];
 
 However do keep in mind that an array variable is a **constant pointer**. This means that the array variable itself cannot be made to point to something else than the first element of the actual array in memory.
 
-```c++
+```cpp
 const int SIZE = 5;
 int numbers[SIZE];
 
@@ -162,7 +165,7 @@ numbers = &(numbers[3]);
 
 Since an array is a constant pointer, it is also possible to use the indexing operator `[]` on a pointer to **use a pointer as an array**. The example below shows a small example where a pointer is indexed:
 
-```c++
+```cpp
 const int SIZE = 5;
 int numbers[SIZE];
 int * pNumbers = numbers;
@@ -188,7 +191,7 @@ To understand pointer arithmetic one needs to keep in mind that the size of the 
 
 This can actually be used in combination with a pointer to an array. Take a close look at the example below where a pointer is incremented to index all the array elements:
 
-```c++
+```cpp
 #include <iostream>
 
 int main() {
@@ -212,7 +215,7 @@ int main() {
 
 Since an array is a constant pointer, it is also possible to use the indexing operator `[]` on a pointer to use a pointer as an array. The example below shows both the usage of using the indexing opator `[]` on a pointer, as applying some pointer arithmetics.
 
-```c++
+```cpp
 #include <iostream>
 
 using namespace std;
@@ -284,7 +287,7 @@ Passing data to functions via pointers is often applied in the following situati
 
 Remember the `swap()` function from the "Introduction to C++" chapter. To get this to work one can actually use pointers to integers:
 
-```c++
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -328,7 +331,7 @@ b: 10
 
 Consider a small class `Student`:
 
-```c++
+```cpp
 // student.h
 #pragma once
 class Student {
@@ -341,7 +344,7 @@ class Student {
 };
 ```
 
-```c++
+```cpp
 // student.cpp
 #include "student.h"
 Student::Student(std::string name) {
@@ -355,7 +358,7 @@ std::string Student::get_name(void) {
 
 To access member attributes or methods of an object via a pointer, one first needs to **dereference the pointer** before using the member-operator `.` on it. As with any pointer, dereferencing is done using the dereference operator `*`.
 
-```c++
+```cpp
 #include <iostream>
 #include "student.h"
 
@@ -378,7 +381,7 @@ Note how the dereference operation is enclosed in round brackets.
 
 Since this is used so many times in C++, the language included a shorter and more clean operator that allows the programmer to dereference a pointer to an object and call a member of it, namely the **arrow operator** `->`. So the example above can be rewritten as:
 
-```c++
+```cpp
 #include <iostream>
 #include "student.h"
 

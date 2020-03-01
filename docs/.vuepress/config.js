@@ -19,6 +19,7 @@ module.exports = {
         '04-basics-of-classes/',
         '05-composition/',
         '06-the-compilation-process/',
+        '07-pointers/',
     ],
     sidebarDepth: 1,
     repo: 'BioBoost/course-object-oriented-programming-with-cpp',
