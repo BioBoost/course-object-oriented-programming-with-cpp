@@ -44,6 +44,13 @@ int main() {
     cout << std::hex << ((someNumber >> 8*i) & 0xFF) << endl;
   }
 
+  // Same
+  cout << endl << "Or another approach:" << endl;
+  char * bytesOfSomeNumber = (char*)&someNumber;
+  for (int i = 0; i < sizeof(int); i++) {
+    cout << std::hex << (bytesOfSomeNumber[i] & 0xFF) << endl;
+  }
+
   return 0;
 }
 
