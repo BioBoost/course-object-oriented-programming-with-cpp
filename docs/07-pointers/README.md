@@ -253,7 +253,8 @@ int main() {
 
 which would result in a similar output:
 
-```text
+::: codeoutput
+<pre>
 Address of numbers: 0x61fef0
 Or via pointer: 0x61fef0
 
@@ -276,7 +277,8 @@ Or via pointer: 0x61fef0
 @0x61ff00: 1996867696
 @0x61ff00: 1996867696
 @0x61ff00: 1996867696
-```
+</pre>
+:::
 
 ## Passing Pointers as Function Parameters
 
@@ -321,7 +323,8 @@ int main() {
 
 While the parameters are still passed by value, this time the addresses to the actual memory are copied. However via that same address one has access to the original data.
 
-```text
+::: codeoutput
+<pre>
 Before call to swap:
 a: 10
 b: 136
@@ -329,7 +332,8 @@ b: 136
 After call to swap:
 a: 136
 b: 10
-```
+</pre>
+:::
 
 ## Pointers to Objects
 
