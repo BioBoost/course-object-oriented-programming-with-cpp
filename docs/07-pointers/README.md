@@ -9,6 +9,8 @@ A pointer is **a variable which holds the address to a location in memory**. C++
 
 ![Pointer Representation](./img/pointer_representation.png)
 
+## Getting the Address of a Variable
+
 As stated before, a **variable is a symbolic name for a certain location inside your computer memory**. This location is **actually an address**. Using the **reference operator** `&` one can determine the address of the variable. Consider the following example which will print the address of the variables `x` and `y`:
 
 ```cpp
@@ -41,6 +43,8 @@ Basically, any pointers in a program are **logical** (also called virtual) addre
 ## Declaring a Pointer Variable
 
 Like any variable or constant, you must declare a pointer before you can work with it. As C++ is a statically typed language, the **type is required to declare a pointer** - this is the **type of the data** that will live at the memory address the pointer points to. The general form of a pointer variable declaration is:
+
+<!-- TODO: Why does a pointer require a type? Because when dereferencing the pointer it needs to know. -->
 
 ```cpp
 <type> * variable_name;
@@ -180,7 +184,7 @@ Note that the indexing operator already dereferences the actual address.
 
 ### Pointer Arithmetic
 
-Since pointers hold addresses, it is perfectly legal to perform some arithmetic operations on the actual value held by the pointer. There are four arithmetic operators that can be performed on pointers:
+Since pointers hold addresses, it is perfectly legal to perform **some arithmetic** operations on the actual address value held by the pointer. There are four arithmetic operators that can be performed on pointers:
 
 * Increment: `++`
 * Decrement: `--`
@@ -379,7 +383,7 @@ int main() {
 
 Note how the dereference operation is enclosed in round brackets.
 
-Since this is used so many times in C++, the language included a shorter and more clean operator that allows the programmer to dereference a pointer to an object and call a member of it, namely the **arrow operator** `->`. So the example above can be rewritten as:
+Since this is used so many times in C++, the language included a **shorter and more clean operator** that allows the programmer to dereference a pointer to an object and call a member of it, namely the **arrow operator** `->`. So the example above can be rewritten as:
 
 ```cpp
 #include <iostream>
