@@ -35,6 +35,15 @@ int main() {
     // Need to cast to void pointer. << operator is overloaded for c-string
   }
 
+  // Try with 32-bit: g++ main.cpp  -m32 -o pointers && ./pointers
+  cout << endl << "Size of pointers is " << sizeof(int*) * 8 << " bits" << endl;
+
+  int someNumber = 0xAABBCCDD;
+
+  for (int i = 0; i < sizeof(int); i++) {
+    cout << std::hex << ((someNumber >> 8*i) & 0xFF) << endl;
+  }
+
   return 0;
 }
 
