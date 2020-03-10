@@ -50,6 +50,10 @@ module.exports = {
     ['container', {
       type: 'codeoutput',
       defaultTitle: 'Output',
+    }],
+    ['container', {
+      type: 'codeurl',
+      defaultTitle: '💰 Full Code can be found at',
     }]
   ],
 }
