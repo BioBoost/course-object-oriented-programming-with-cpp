@@ -1,5 +1,6 @@
 ---
 description: Dynamic memory allocation allows our application to request memory on the fly.
+title: 08 - Dynamic Memory Allocation
 ---
 
 # Chapter 08 - Dynamic Memory Allocation
@@ -10,14 +11,16 @@ C++ will store objects in different places based on how they were created. The p
 
 <!-- Static allocation -->
 
-All the variables, arguments and objects shown in the code below are placed on the stack:
+All the variables, arguments and objects shown in the code below are placed on the stack. Even the return value of a function/method is passed via the stack.
 
-```c++
-void foo(int x) {
+```cpp
+double foo(int x) {
   SomeClass object;
   int numbers[100];
+  double sum = 0;
 
   // ....
+  return sum;
 }
 ```
 
@@ -25,15 +28,15 @@ The stack is an area in memory that is used directly by the processor to store d
 
 The stack memory is a fixed size memory region that is allocated before the program is used. Allocating static storage is much more speed-optimized, which can be important in certain situations.
 
-It does however require you to know the exact quantity, lifetime and type of the objects when you are writing the program. More complex program will be able to be satisfied with this. Besides that the stack is also limited in size. This means that you can overflow the stack, especially on smaller embedded systems.
+It does however require you to know the exact quantity, lifetime and type of the objects when you are writing the program. Besides that the stack is also limited in size. This means that you can overflow the stack, especially on smaller embedded systems.
 
-> **WARNING** - **Stack Overflow**
->
-> A stack overflow occurs if the call stack pointer exceeds the stack bound. The call stack may consist of a limited amount of address space, often determined at the start of the program. The size of the call stack depends on many factors, including the programming language, machine architecture, multi-threading, and amount of available memory. When a program attempts to use more space than is available on the call stack (that is, when it attempts to access memory beyond the call stack's bounds, which is essentially a buffer overflow), the stack is said to overflow, typically resulting in a program crash.
+::: warning Stack Overflow
+A stack overflow occurs if the call stack pointer exceeds the stack bound. The call stack may consist of a limited amount of address space, often determined at the start of the program. The size of the call stack depends on many factors, including the programming language, machine architecture, multi-threading, and amount of available memory. When a program attempts to use more space than is available on the call stack (that is, when it attempts to access memory beyond the call stack's bounds, which is essentially a buffer overflow), the stack is said to overflow, typically resulting in a program crash.
+:::
 
 ## Dynamic allocation on the Heap
 
-If you don't know until runtime how many objects you will need, what their lifetime is or what their exact type is, you will need to allocate your objects on the heap.
+If you don't know how many objects you will need until runtime, what their lifetime is or what their exact type is, you will need to allocate your objects on the heap.
 
 The heap is memory set aside for dynamic allocation. Unlike the stack, there's no enforced pattern to the **allocation** and **deallocation** of blocks from the heap; you can allocate a block at any time and free it at any time. This makes it much more complex to keep track of which parts of the heap are allocated or free at any given time.
 
@@ -42,20 +45,21 @@ The size of the heap is set on application startup, but can grow as space is nee
 Another important difference between dynamic and static allocation is the fact that the compiler can automatically destroy objects that were created on the stack. This because the exact lifetime of those objects is known. This is not the case for objects that are created on the heap; the compiler has no knowledge of their lifetime. In C++ this is the responsibility of the programmer. If done incorrectly or not at all, the application will contain memory leaks.
 
 <!-- note on valgrind? -->
+<!-- Difference heap and stack on embedded system? Shared heap and own stack for example for threads on mbed -->
 
 ### Creating and Destroying Objects on the Heap
 
-To create objects on the heap, memory must be requested by using the `new` keyword as shown in the example code below:
+To create objects on the heap, memory must be requested by using the `new` keyword as shown in the next code snippet:
 
-```c++
+```cpp
 Foo * myObject = new Foo();
 ```
 
-Note how the actual variable is now a pointer to an object of type *Foo*. This is necessary because the `new` operator returns a pointer to a memory region, on the heap, occupying a Foo object.
+Note how the actual variable is now a pointer to an object of type `Foo`. This is necessary because the `new` operator returns a pointer to a memory region, on the heap, occupying a `Foo` object.
 
 As mentioned before, the compiler cannot automatically destroy the memory that is reserved on the heap as it does not know the lifetime of the objects. This is a responsibility of the programmer. This can be accomplished by freeing the memory once the application has no more use for it. For this the `delete` operator can be used.
 
-```c++
+```cpp
 Foo * myObject = new Foo();
 
 // .... use the object
@@ -66,9 +70,9 @@ delete myObject;
 
 A `new` must **always** be accompanied by a `delete` somewhere in your application. If not, your application creates memory leaks.
 
-> **WARNING** - **Memory Leak**
->
-> A memory leak is created when memory is allocated but not released causing an application to consume memory reducing the available memory for other applications and eventually causing the system to page virtual memory to the hard drive slowing the application or crashing the application when than the computer memory resource limits are reached. The system may stop working as these limits are approached.
+::: warning Memory Leak
+A memory leak is created when memory is allocated but not released causing an application to consume memory reducing the available memory for other applications and eventually causing the system to page virtual memory to the hard drive slowing the application or crashing the application when than the computer memory resource limits are reached. The system may stop working as these limits are approached.
+:::
 
 **Never access a pointer to an object after deleting it.** The resulting behavior is undefined, and if you are lucky the program just crashes.
 
@@ -89,7 +93,7 @@ A destructor has the following properties:
 
 For example:
 
-```c++
+```cpp
 Foo::~Foo(void) {
   // Do destruction stuff such as freeing memory
 }
@@ -97,11 +101,13 @@ Foo::~Foo(void) {
 
 ## An RGB Led Class
 
+<!-- We need to refactor this in accordance to the previous chapters -->
+
 Let's take a look at a more complete example where all these things come together.
 
-The following implementation models an RgbLed class that holds the three color components that make up a colored led.
+The following implementation models an `RgbLed` class that contains (is composed of) a `Color` object, modeling the three color components that make up a colored led.
 
-```c++
+```cpp
 #pragma once
 
 namespace Rgb {
@@ -138,7 +144,7 @@ Note that the `RgbLed` class has two constructors (constructor overloading):
 
 The implementation that belongs to the previous header file is shown below.
 
-```c++
+```cpp
 #include "rgbled.h"
 
 namespace Rgb {
@@ -174,7 +180,7 @@ namespace Rgb {
 
 While most of the code is self-explanatory, the default constructor does need some explanation.
 
-```c++
+```cpp
 RgbLed::RgbLed(void)
     : RgbLed(0, 0, 0) {
 }
@@ -186,7 +192,7 @@ In other words, the default constructor here first calls the other constructor w
 
 Let's take a look at a usage example where we create an object on the stack.
 
-```c++
+```cpp
 #include <iostream>
 #include "rgbled.h"
 
@@ -217,7 +223,7 @@ A led bar is a bar with a certain number of leds. A typical led bar consists of 
 
 So let's model an RGB led bar.
 
-```c++
+```cpp
 #pragma once
 
 #include "rgbled.h"
@@ -251,7 +257,7 @@ The number of LED's is not implemented as magic number. We however created a con
 
 Most of this code is quite basic. Note that the LedBar contains an attribute `bar` which is actually an array of pointers to objects of type `RgbLed`. As this is a simple array, its size is predetermined. So once we state that a LED bar contains 8 LED's it cannot be changed unless we change the code and recompile it. The constructor will create RgbLed objects on the heap and the destructor will destroy them again as shown in the implementation below:
 
-```c++
+```cpp
 #include "ledbar.h"
 
 #include <cstddef>
@@ -287,7 +293,7 @@ Do note that it is mandatory for the `get_led()` method to return a pointer in e
 
 Let's take a look at another usage example where we create an object on the stack.
 
-```c++
+```cpp
 #include <iostream>
 #include "ledbar.h"
 
@@ -330,7 +336,7 @@ More information on the vector class can be found at [http://en.cppreference.com
 
 The `LedString` class looks like this:
 
-```c++
+```cpp
 #pragma once
 
 #include <vector>
@@ -364,13 +370,13 @@ This is very similar to LedBar, except for the fact that the led pointers are st
 
 A special note on that is required. When the vector attribute is declared we must provide the type that it will house. In this case it will need to store pointers to RgbLed objects. Note the special syntax; this is called a **template**. It allows a programmer to create classes that will make use of objects of unknown types at the moment he/she is creating an implementation for the class. This is however material for a chapter on its own, so more on this later.
 
-```c++
+```cpp
 std::vector<RgbLed *> leds;
 ```
 
 The implementation of the LedString class is shown below.
 
-```c++
+```cpp
 #include "ledstring.h"
 
 namespace Rgb {
@@ -403,7 +409,7 @@ Again very similar to the LedBar class. Except that the RgbLed object pointer ar
 
 Let's take a look at another usage example where we create an object on the stack. In this case we ask the user how many LED's he/she would like in his/her string of leds. This can be done using `cin` which works similar to `cout` but for input.
 
-```c++
+```cpp
 #include <iostream>
 #include "ledstring.h"
 
@@ -476,7 +482,7 @@ Creating led string of 14 leds
 * You would use the heap if you don't know exactly how much data you will need at run time or if you need to allocate a lot of data.
 * Responsible for memory leaks
 
-```c++
+```cpp
 int foo() {
   char *pBuffer; // nothing allocated yet (excluding the pointer itself, which is allocated on the stack).
   bool b = true; // Allocated on the stack.
