@@ -20,6 +20,7 @@ module.exports = {
         '05-composition/',
         '06-the-compilation-process/',
         '07-pointers/',
+        '08-dynamic-memory-allocation/',
     ],
     sidebarDepth: 1,
     repo: 'BioBoost/course-object-oriented-programming-with-cpp',
