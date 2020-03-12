@@ -37,4 +37,4 @@ clean :
 	rm -f $(OBJS)
 
 makebuildir:
-	mkdir -p $(BUILDDIR)
+	mkdir $(BUILDDIR)
