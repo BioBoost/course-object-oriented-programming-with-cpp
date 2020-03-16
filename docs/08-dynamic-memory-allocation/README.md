@@ -17,4 +17,143 @@ The memory that is a assigned to an application when it is being run is typicall
 * The **bss segment**, hosts zero-initialized global and static variables.
 * The **data segment**, hosts initialized global and static variables.
 * The **heap** is used to provide memory at runtime when the application requests dynamically allocated memory.
-* The stack, tracks function arguments, local variables and other function-related information.
+* The **stack**, tracks function arguments, local variables and other function-related information.
+
+![Memory Regions](./img/memory-regions.png)
+
+For the moment the two most important regions for this course are the **stack** and **heap** segments.
+
+## The Stack
+
+The stack, often called the *call stack*, is a memory region  implemented as a stack structure (hence the name). It has quitte a big role to play when executing an application on a system. It keeps track of
+
+* all functions that have been called but have not yet terminated since the execution start of the application to the current point of execution.
+* the **return address** to where to jump after a function has terminated
+* all **function parameters** that are required upon calling the function
+* all **local variables** of the functions
+
+### Calling a Function
+
+<!-- Maybe place diagram here later on? -->
+
+Let us take a closer look at the inner workings of the stack when the program encounters a function call.
+
+1. First a stack frame is constructed and placed on the stack by the means of a push action. A stack frame contains the return address to which the CPU must jump after the function has terminated, the function arguments, memory for the local variables declared inside the function and last but not least some CPU register values that need to be restored after the function finishes.
+2. Once the stack frame is pushed, the CPU jumps to the first instruction in the function to be executed by the processor.
+3. The CPU continues executing instructions until the function is finished or control jumps to another function in which case the whole process repeats for the new function call.
+
+At a certain point in time the function should terminate, which again consists of a number of steps.
+
+1. First register values are restored to the state before the function was called.
+2. Next the stack from is removed from the stack (it is popped from the stack). This frees up all the previously allocated variables in the function (function parameters and local variables).
+3. Next the return value is handled. Depending on the computer's architecture, the function's return value is placed inside a processor register or placed on the stack. If the value of the function isn’t assigned to anything, no assignment takes place, and the value is lost.
+4. Last the return address of the next instruction to execute is popped off the stack, and the CPU resumes execution at that instruction.
+
+### Variables on the Stack
+
+All the variables, arguments and objects shown in the next code sample are placed on the stack.
+
+```cpp
+#include <vector>
+#include <string>
+
+double foo(int x) {
+  std::vector<std::string> listOfStrings;
+  int numbers[100];
+  double sum = 0;
+
+  // ....
+  return sum;
+}
+
+int main(void) {
+  int value = 55;
+
+  // Calling a function uses the stack
+  double result = foo(value);
+
+  return 0;
+}
+```
+
+The stack is an area in memory that is used directly by the processor to store data during program execution. Variables on the stack are also called **automatic** or **scoped variables**. This because the memory is automatically freed once the variables go out of scope.
+
+The stack memory is a fixed size memory region that is allocated before the program is used. **Allocating static storage is much more speed-optimized**, which can be important in certain situations.
+
+It does however require you to know the exact quantity, lifetime and type of the objects when you are writing the program. Besides that the **stack is also limited in size**. This means that you **can overflow** the stack, especially on smaller embedded systems this can be a limiting factor.
+
+### Stack Overflow
+
+The stack and heap sizes are determined by the operating system on which the application is being run. The stack and heap memory are not included in the binary stored on disk. When a process is loaded in memory then the stack and heap segments are allocated for that process.
+
+A stack overflow occurs if the call stack pointer exceeds the stack bound. In other words, the application is using more stack memory than there was allocated. When a program attempts to use more space than is available on the call stack (that is, when it attempts to access memory beyond the call stack's bounds, which is essentially a buffer overflow), the stack is said to overflow, typically resulting in a program crash.
+
+On Windows, the default stack size is `1MB`. On some unix machines, it can be as large as `8MB`.
+
+Stack overflow is generally the result of allocating too many variables on the stack, and/or making too many nested function calls (where function A calls function B calls function C calls function D etc) On modern operating systems, overflowing the stack will generally cause your OS to issue an access violation and terminate the program.
+
+The following program tries to reserve 10 million doubles on the stack. Of course this results in a stack overflow.
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main(void) {
+  // This will create a stack overflow
+  double loadsOfNumbers[10000000];
+
+  cout << "You won't see this as the app will crash" << endl;
+
+  return 0;
+}
+```
+
+The next application has a recursive function that calls itself. It keeps doing this until the application crashes. While the number of iterations is quite high when running this application, you should try to add some local variables to the function. This will greatly decrease the number of iterations.
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+int count(int iNesting) {
+  iNesting++;
+  cout << "Current iteration: " << iNesting << endl;
+  return count(iNesting);
+}
+
+int main(void) {
+  // Call some recursive function that never stops.
+  // This will generate a stack overflow
+  count(0);
+
+  return 0;
+}
+```
+
+::: codeoutput
+<pre>
+...
+Current iteration: 261794
+Current iteration: 261795
+Current iteration: 261796
+Current iteration: 261797
+Current iteration: 261798
+[1]    9582 segmentation fault (core dumped)  ./stack
+</pre>
+:::
+
+## The Heap
+
+<!-- TODO -->
+
+## Stack versus Heap
+
+Declaring variables on the stack has both advantages and disadvantages:
+
+* ✔️ Allocating stack memory is faster than allocating heap memory
+* ✔️ Variables are automatically de-allocated when the function terminates. It is said that the variables go out of scope.
+* ✔️ Variables allocated on the stack have a known data type at compile theme. This means that the allocated memory can be accessed directly trough the variables.
+* ❌ The stack is relatively small, which means it's not a good idea to create large local variables on the stack (complex objects, large arrays and such). Also nesting function calls to deep has a serious impact on stack usage.
