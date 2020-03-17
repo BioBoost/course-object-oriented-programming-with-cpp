@@ -159,6 +159,33 @@ Important to know is that dynamically allocated memory is not freed automaticall
 
 Looking back at heap memory it seems that it only has disadvantages. However the biggest advantage is the fact that the programmer does not need to know how much memory is required at compile-time. This memory does not come from the program’s limited stack memory -- instead, it is allocated from a much larger pool of memory managed by the operating system called the heap. On modern machines, the heap can be gigabytes in size.
 
+If you don't know how many objects you will need until runtime, what their lifetime is or what their exact type is, you will need to allocate your objects on the heap.
+
+### When to use the heap
+
+If we have to declare the size of everything at compile time, the best we can do is try to make a guess the maximum size of variables we’ll need and hope that’s enough:
+
+```cpp
+char email[50];             // Hopefully the email is shorter than 50 characters
+Record record[500];         // Let us hope there are less than 500 records!
+Polygon rendering[30000];   // 3D rendering can only handle 30k polygons
+```
+
+There are some reasons why this is not the best solution:
+
+1. It leads to wasted memory if the variables aren’t actually used. For example, consider the rendering array above: if a rendering only uses 10k polygons, we have 20k Polygons worth of memory not being used.
+
+2. Using the stack can lead to artificial limitations and/or array overflows. What happens when the user tries to read in 600 records from disk, but we’ve only allocated memory for a maximum of 500 records? Either we have to give the user an error, only read the 500 records, or (in the worst case where we don’t handle this case at all) overflow the record array and watch something bad happen.
+
+3. The amount of stack memory for a program is generally quite small. If the data structure is complex or big, it is also better to create it on the heap. If you exceed the stick size limit, a stack overflow will occur, and the operating system will close down the application. The size of the heap is set on application startup, but **can grow as space is needed** (the allocator requests more memory from the operating system), so as long as the operating system is willing to provide memory, the heap can grow.
+
+On top of this, it is also inefficient to pass large and complex objects declared on the stack to functions. They will be passed by value and therefore be copied into a new variable on the stack, taking space everytime they are passed to a function.
+
+```cpp
+// TODO: Example on passing complex objects via stack
+// Can valgrind profile this?
+```
+
 ## Stack versus Heap
 
 Declaring variables on the stack has both advantages and disadvantages:
@@ -174,3 +201,10 @@ Also requesting memory from the heap has some advantages and disadvatages:
 * ❌ Allocated heap memory is not automatically deallocated. This can create memory leaks while the application is running. Most operating systems these days will free the memory after the application is terminated. However some applications such as background services may not terminate for many months/years.
 * ❌ Dynamically allocated memory is handled via pointers. Dereferencing pointers is a relative slower process compared to using variables on the stack.
 * ✔️ The heap is a big memory pool that allows us to allocate large blocks of memory for more complex objects, large arrays and such.
+
+## Dynamically Allocating Memory in C++
+
+
+
+<!-- TODO: VLA's: Variable Length Arrays - Not part of C++ standard? Or is it? While not a good idea to use for larger arrays, it can be useful for smaller arrays. -->
+<!-- TODO: Can we profile an app that passes larger data object via value and then via pointer and see the difference in execution time? -->
