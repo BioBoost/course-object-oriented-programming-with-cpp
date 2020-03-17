@@ -145,15 +145,32 @@ Current iteration: 261798
 </pre>
 :::
 
+While this is not a realistic example, it does show that their is a limit to how deep functions can be nested. This limit only decreases as functions take more stack space. This can become problematic quite fast on embedded systems with limited memory.
+
 ## The Heap
 
-<!-- TODO -->
+The heap segment - also knows as the "free store" - is a memory region used for allocating dynamic memory at runtime. Dynamic memory allocation is a way for application to request memory from the operating system at runtime.
+
+Dynamic memory is requested in C++ using the `new` operator or the `malloc` function. Both these operations return a pointer to the requested memory block. If the system runs out of memory (especially important on smaller embedded systems) this operation can fail. In that case a null-pointer is returned.
+
+The process of allocating memory from the heap is also slower as it must pass via the operating system. On top of that dereferencing pointers is also a slower process that accessing memory via variables on the stack.
+
+Important to know is that dynamically allocated memory is not freed automatically, as is the case with local variables on the stack. It is the programmers responsibility to free the memory when it is no langer needed. Failing to do so can create memory leaks and can eventually cause the program to crash.
+
+Looking back at heap memory it seems that it only has disadvantages. However the biggest advantage is the fact that the programmer does not need to know how much memory is required at compile-time. This memory does not come from the program’s limited stack memory -- instead, it is allocated from a much larger pool of memory managed by the operating system called the heap. On modern machines, the heap can be gigabytes in size.
 
 ## Stack versus Heap
 
 Declaring variables on the stack has both advantages and disadvantages:
 
 * ✔️ Allocating stack memory is faster than allocating heap memory
-* ✔️ Variables are automatically de-allocated when the function terminates. It is said that the variables go out of scope.
+* ✔️ Variables are automatically deallocated when the function terminates. It is said that the variables go out of scope.
 * ✔️ Variables allocated on the stack have a known data type at compile theme. This means that the allocated memory can be accessed directly trough the variables.
 * ❌ The stack is relatively small, which means it's not a good idea to create large local variables on the stack (complex objects, large arrays and such). Also nesting function calls to deep has a serious impact on stack usage.
+
+Also requesting memory from the heap has some advantages and disadvatages:
+
+* ❌ Allocating memory on the heap is slow compared to on the stack
+* ❌ Allocated heap memory is not automatically deallocated. This can create memory leaks while the application is running. Most operating systems these days will free the memory after the application is terminated. However some applications such as background services may not terminate for many months/years.
+* ❌ Dynamically allocated memory is handled via pointers. Dereferencing pointers is a relative slower process compared to using variables on the stack.
+* ✔️ The heap is a big memory pool that allows us to allocate large blocks of memory for more complex objects, large arrays and such.
