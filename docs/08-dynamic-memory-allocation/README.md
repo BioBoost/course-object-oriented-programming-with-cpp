@@ -597,6 +597,7 @@ Note that when the main function terminates (closing curly brace is reached), th
 A good tool to check for memory leaks and many other bugs is `valgrind`. While this is a pure Linux tool, it can be used on the `Windows Subsystem for Linux`.
 
 Just start valgrind and point it to your binary by executing the command as follows: `valgrind -s <binary>`.
+(On the Windows Subsystem for Linux use: `valgrind --leak-check=yes <binary>`)
 
 ::: codeoutput
 <pre>
