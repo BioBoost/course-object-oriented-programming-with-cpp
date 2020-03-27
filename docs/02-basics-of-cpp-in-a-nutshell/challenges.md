@@ -10,16 +10,6 @@ Create an application that determines the 21% VAT (BTW) of a given number (float
 
 Can you change the application so the number is requested from the user. Checkout [http://www.cplusplus.com/doc/tutorial/basic_io/](http://www.cplusplus.com/doc/tutorial/basic_io/) for more info on input and input to STDOUT and from STDIN.
 
-### Generating random numbers
-
-Checkout the following code: [http://www.dreamincode.net/forums/topic/14057-producing-random-numbers/](http://www.dreamincode.net/forums/topic/14057-producing-random-numbers/)
-
-Is uses some functions and libraries to generate random numbers.
-
-Now change the code to print out 10 random numbers while calculating the sum and average of the randomly generated numbers.
-
-Use a for-loop construct for this (see chapter C++ Language Constructs).
-
 ### Side effects
 
 Can you guess the output of the following construct:
@@ -76,33 +66,3 @@ int main() {
     return 0;
 }
 ```
-
-
-### Sum of all integers
-
-Implement the necessary code in the function `make_sum()` so it returns the sum of all the elements inside `list`.
-
-```c++
-#include <iostream>
-
-using namespace std;
-
-int make_sum(int values[], unsigned int length) {
-  // Return sum of all values
-
-}
-
-int main(int argc, char * argv[]) {
-
-  int values[] = {4, 54, 23, 33, 0, 11, -123};
-  cout << "Sum of all values = " << make_sum(values, sizeof(values)) << endl;
-
-  return 0;
-}
-```
-
-### Die Throwing
-
-Create an application that throws a 6 sided die 100'000 times. Keep count of how many times each side is thrown using a frequency table. Generate the thrown values using the `rand()` function.
-
-Does each value have an equal chance? If so, the random generator is distributed uniformly.
