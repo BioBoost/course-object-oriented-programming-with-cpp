@@ -1,5 +1,6 @@
 ---
 description: Reading and writing data from and too files is a common practice in any application.
+title: 09 - File Streams
 ---
 
 # Chapter 09 - File Streams
@@ -20,7 +21,7 @@ These classes are derived directly or indirectly from the classes `istream` and 
 
 Before starting, one needs to create a stream object of the appropriate type. For example to write to a file, a `ofstream` object needs to be instantiated:
 
-```c++
+```cpp
 #include <iostream>
 #include <fstream>
 
@@ -38,7 +39,7 @@ int main() {
 
 Or when reading a file, an `ifstream` object is required:
 
-```c++
+```cpp
 #include <iostream>
 #include <fstream>
 
@@ -62,30 +63,31 @@ To open a file, the standard `void open(const char *filename, ios::openmode mode
 
 | Mode Flag | Description |
 | --- | --- |
-| ios::out| Open file for writing. |
-| ios::in | Open file for reading. |
-| ios::app | Open file in append mode. All data is added to the end of the current content of the file.
-| ios::binary | Open file in binary mode. |
-| ios::ate | Set the start position of the read/write iterator at the end of the file (default is the beginning).
-| ios::trunc | When opening the file in output mode and the file exists, its current content is removed and replaced by the new content. |
+| `ios::out`| Open file for writing. |
+| `ios::in` | Open file for reading. |
+| `ios::app` | Open file in append mode. All data is added to the end of the current content of the file.
+| `ios::binary` | Open file in binary mode. |
+| `ios::ate` | Set the start position of the read/write iterator at the end of the file (default is the beginning).
+| `ios::trunc` | When opening the file in output mode and the file exists, its current content is removed and replaced by the new content. |
 
 The before mentioned flags can be combined using the bitwise OR operator `|`. Each of the `open()` methods of the classes `ofstream`, `ifstream` and `fstream` have a default mode that is used if the file is opened without a mode argument:
 
 | File Stream | Default Mode |
+| --- | --- |
 | `ofstream` | `ios::out` |
 | `ifstream` | `ios::in` |
 | `fstream` | `ios::in | ios::out` |
 
 For example to open a file for writing and appending content to the end:
 
-```c++
+```cpp
 ofstream output;
 output.open("hello.txt", ios::out | ios::app);
 ```
 
 Or to open a file for both reading and writing:
 
-```c++
+```cpp
 fstream iofile;
 iofile.open("hello.txt", ios::out | ios::in);
 ```
@@ -98,7 +100,7 @@ Always check if the files was opened successfully. For example, the open fails i
 
 To check if the open operation one can check the state of the object using an `if` construct as shown below:
 
-```c++
+```cpp
 // File stream object
 ifstream input;
 input.open("hello.txt");    // Default mode is ios::in
@@ -114,7 +116,7 @@ Once done with the file stream always make sure to close it. This will make sure
 
 To close a file, just call the `close()` method on the stream object.
 
-```c++
+```cpp
 // File stream object
 ifstream input;
 input.open("hello.txt");    // Default mode is ios::in
@@ -135,7 +137,7 @@ Writing to `cout` is accomplished using the **stream insertion operator** `<<`. 
 
 Take the following example, which request the user's name and age and writes the corresponding data to a file:
 
-```c++
+```cpp
 #include <iostream>
 #include <fstream>
 
@@ -172,7 +174,7 @@ int main() {
 
 Reading from `cin` is accomplished using the **stream extraction operator** `>>`. Since `ifstream` is a derived class of `istream`, the same operator can be used to read data from files. Conversions of integral data types to `string` types are also handled automatically, same as with `cin`.
 
-```c++
+```cpp
 #include <iostream>
 #include <fstream>
 
@@ -203,7 +205,7 @@ Just create a file and put a number inside of it.
 
 To read multiple values from a file, one can check the state of the file stream object and keep reading as long as all goes well or the end of the file has not been reached.
 
-```c++
+```cpp
 // Read some integers from the file
 int value;
 while (input >> value) {
@@ -215,7 +217,7 @@ while (input >> value) {
 
 To read full lines from a file, one can also make use of the `getline()` function. Instead of passing the `cin` object, all one needs to do is pass the input file stream object.
 
-```c++
+```cpp
 #include <iostream>
 #include <fstream>
 
