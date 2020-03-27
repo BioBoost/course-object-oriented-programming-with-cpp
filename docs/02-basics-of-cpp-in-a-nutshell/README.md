@@ -10,6 +10,8 @@ This chapter will introduce the basics of the C++ language. It does expect you t
 <!-- TODO: Casting of double to int and also explain narrowing conversion -->
 <!-- TODO: Explain variable scope -->
 <!-- TODO: Better intro - explain C++ and where it serves its purpose -->
+<!-- TODO: Add enums -->
+<!-- TODO: cin, getline, cout, cerr ; streams in general ?-->
 
 ## Variables
 
