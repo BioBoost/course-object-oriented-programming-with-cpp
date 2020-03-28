@@ -177,7 +177,7 @@ There are some reasons why this is not the best solution:
 
 2. Using the stack can lead to artificial limitations and/or array overflows. What happens when the user tries to read in 600 records from disk, but we’ve only allocated memory for a maximum of 500 records? Either we have to give the user an error, only read the 500 records, or (in the worst case where we don’t handle this case at all) overflow the record array and watch something bad happen.
 
-3. The amount of stack memory for a program is generally quite small. If the data structure is complex or big, it is also better to create it on the heap. If you exceed the stick size limit, a stack overflow will occur, and the operating system will close down the application. The size of the heap is set on application startup, but **can grow as space is needed** (the allocator requests more memory from the operating system), so as long as the operating system is willing to provide memory, the heap can grow.
+3. The amount of stack memory for a program is generally quite small. If the data structure is complex or big, it is also better to create it on the heap. If you exceed the stack size limit, a stack overflow will occur, and the operating system will close down the application. The size of the heap is set on application startup, but **can grow as space is needed** (the allocator requests more memory from the operating system), so as long as the operating system is willing to provide memory, the heap can grow.
 
 On top of this, it is also inefficient to pass large and complex objects declared on the stack to functions. They will be passed by value and therefore be copied into a new variable on the stack, taking space everytime they are passed to a function.
 
