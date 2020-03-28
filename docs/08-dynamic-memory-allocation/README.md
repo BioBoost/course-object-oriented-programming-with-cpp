@@ -45,7 +45,7 @@ Let us take a closer look at the inner workings of the stack when the program en
 At a certain point in time the function should terminate, which again consists of a number of steps.
 
 1. First register values are restored to the state before the function was called.
-2. Next the stack from is removed from the stack (it is popped from the stack). This frees up all the previously allocated variables in the function (function parameters and local variables).
+2. Next the stack frame is removed from the stack (it is popped from the stack). This frees up all the previously allocated variables in the function (function parameters and local variables).
 3. Next the return value is handled. Depending on the computer's architecture, the function's return value is placed inside a processor register or placed on the stack. If the value of the function isn’t assigned to anything, no assignment takes place, and the value is lost.
 4. Last the return address of the next instruction to execute is popped off the stack, and the CPU resumes execution at that instruction.
 
