@@ -72,6 +72,14 @@ module.exports = {
           '09-file-streams/',
         ]
       },
+      {
+        title: 'Guides',
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          ['/guide-linked-lists/', 'Linked List'],
+        ]
+      },
     ],
     sidebarDepth: 1,
     repo: 'BioBoost/course-object-oriented-programming-with-cpp',
