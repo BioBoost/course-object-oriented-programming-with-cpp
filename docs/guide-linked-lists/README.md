@@ -13,9 +13,30 @@ Like arrays, linked lists allow the **storage of data elements** of any data typ
 A **linked list** is a dynamically allocated **linear data structure** that chains together **nodes** by **linking** from one node to another using pointers.
 :::
 
+The datatype of the elements of both arrays and linked lists is not important since essentially the same structure works to store elements of any type.
+
 ## Why Linked Lists are so Important
 
 The concept of a linked list is important to learn for two reasons:
 
 * First, linked lists are data structures that are used in real life applications. Understanding the strengths and weaknesses of such data structures is really important. These insights will give you an appreciation and deeper understanding of processing performance, memory consumption and other code issues.
 * Secondly, linked lists are probable the best way to learn about pointers. In fact, you may never implement a linked list yourself in a real application, but you are sure to use pointers. Linked list problems are a good combination of algorithms and pointer manipulations. Traditionally, linked lists have been the domain where beginning programmers get the practice to really understand pointers.
+
+## Linked Lists vs Arrays
+
+Arrays are by far the most common data structure used to store collections, available in practically any programming language. They are **easy to create** and offer an easy to use **indexing mechanism** using square brackets `[]` allowing **direct access to any element**. The **elements are stored sequentially** in a contiguous block of memory.
+
+Arrays are however not all sunshine and rainbows. They also have some disadvantages:
+
+* The **size of an array is fixed** and most often specified at compilation time. Of course there are ways to use dynamic memory to create larger arrays on the fly, but these operations are very expensive in terms of processing time and memory consumption.
+* The fact that arrays are fixed in size, leads to programmers making arrays "large enough". This often leads to a **lot of wasted memory space**. On top of that, if ever the need arrises for the array to be just a little larger, than the program crashes if this was not foreseen by the programmer. A surprising amount of
+commercial code has this sort of naive array allocation which wastes space most of the time and crashes for special occasions.
+* Inserting elements towards the front of an array is expensive in terms of processing time. This is an operation that is required when for example adding a value to an array where the elements are ordered. All the elements after the newly inserted element have to be moved 1 place towards the end of the array. Removing elements from an array has a similar disadvantage as elements have to be moved to close the gap.
+
+Arrays and linked lists have a lot in common as they are both linear data structures, that allow storage of elements of any given data type. Linked lists have their own strengths and weaknesses, but they happen to be strong where arrays are weak. While arrays store elements in a sequential manner in a contiguous block of memory, linked lists use an entirely different strategy. Linked lists allocate memory for an element when requested and free the allocated memory when the element is removed. This means that they can grow dynamically and elements can almost be added indefinitely.
+
+Linked lists however also have some drawbacks:
+
+* Random access is not possible. Elements have to accessed sequentially starting from the first node.
+* While an array only stores the actual data in memory, a linked list adds the overhead of a pointer to the next element for each node.
+* Arrays have better cache locality that can make a pretty big difference in performance.
