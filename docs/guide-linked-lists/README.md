@@ -139,7 +139,7 @@ Most of this code is pretty straight-forward. Maybe a small note is require on t
 
 If you hover over one of the string literals, VSCode will tell you what the type is:
 
-![C-Style Null-Terminated Character Arrays](./c-style-strings.png)
+![C-Style Null-Terminated Character Arrays](./img/c-style-strings.png)
 
 Notice that the array is 1 element bigger than the actual number of characters. That is because the string is terminated using a null-termination character `\0`. This occupies an extra space at the end of the array. This element allows C and C++ to detect the end of the string.
 
