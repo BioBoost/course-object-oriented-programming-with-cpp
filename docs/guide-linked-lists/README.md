@@ -48,3 +48,16 @@ Linked lists however also have some drawbacks:
 * Random access is not possible. Elements have to accessed sequentially starting from the first node.
 * While an array only stores the actual data in memory, a linked list adds the overhead of a pointer to the next element for each node.
 * Arrays have better cache locality that can make a pretty big difference in performance.
+
+## Big O Comparison of Arrays versus Linked Lists
+
+<!-- TODO: Add description -->
+
+| Operation | Dynamic Array | Linked List |
+| --- | --- | --- |
+| Indexing | Θ(1) | Θ(n) |
+| Insert/Delete at beginning | Θ(n) | Θ(1) |
+| Insert/Delete at end | Θ(1) | Θ(1) if tail is tracked<br>Θ(n) if tail is not tracked |
+| Insert/Delete at middle | Θ(n) | search time + Θ(1) |
+
+<!-- Source: https://en.wikipedia.org/wiki/Linked_list#Linked_lists_vs._dynamic_arrays -->
