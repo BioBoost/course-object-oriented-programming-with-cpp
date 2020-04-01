@@ -49,6 +49,128 @@ Linked lists however also have some drawbacks:
 * While an array only stores the actual data in memory, a linked list adds the overhead of a pointer to the next element for each node.
 * Arrays have better cache locality that can make a pretty big difference in performance.
 
+## Implementation in C++
+
+A linked list is represented by a pointer to the first node of the linked list. The first node is called the head. If the linked list is empty, then the value of the head is `null`.
+
+Each node in a list consists of at least two parts:
+
+1. the actual data
+2. a pointer to the next node
+
+Let us create a basic implementation of a linked list where we store characters as data. Later on we'll switch to storing objects and kick the pointer-usage in overdrive.
+
+## The Node class
+
+Allowing a `Node` object to store data of type `char` and point to the `next` element will require the basic interface shown in the next UML diagram. A getter and setter method are provided for the `next` node. This will allow the nodes to be reorganized in the actual list as will be required for adding or removing elements in the actual linked list.
+
+![UML Diagram of Basic Node Class](./img/uml-basic-node.png)
+
+This leads to the following header file in C++:
+
+```cpp
+// node.h
+#pragma once
+#include <string>
+
+namespace LinkedListWithChars {
+  class Node {
+
+    // Constructors
+    public:
+      Node(char data);
+
+    // Methods
+    public:
+      void set_next(Node * next);
+
+    public:
+      char get_data(void);
+      Node * get_next(void);
+
+    public:
+      std::string to_string(void);
+
+    // Attributes
+    private:
+      char data;
+      Node * next = nullptr;
+  };
+};
+```
+
+Important to note is that the `next` pointer should always point to a valid `Node` or to `nullptr` (nothing), indicating the end of the linked list.
+
+Also no setter is provided for the data. This because the data is taken in via the constructor of the `Node` class. Changing the actual data will require that the `Node` be replaced.
+
+Time to add the actual implementation of the methods.
+
+```cpp
+// node.cpp
+#include "node.h"
+
+namespace LinkedListWithChars {
+
+  Node::Node(char data) {
+    this->data = data;
+  }
+
+  void Node::set_next(Node * next) {
+    this->next = next;
+  }
+
+  char Node::get_data(void) {
+    return data;
+  }
+
+  Node * Node::get_next(void) {
+    return next;
+  }
+
+  std::string Node::to_string(void) {
+    return std::string("[ data: '") + data + "', next: "
+      + (next ? "Node" : "null") + "]";
+  }
+
+};
+```
+
+Most of this code is pretty straight-forward. Maybe a small note is require on the implementation of the `to_string()` method. Notice the explicit creation of an `std::string` object using `std::string("[ data: '")`. This is require because otherwise C++ treats all the strings as `null-terminated character arrays` (C-style strings) and doesn't want to concatenate the different parts together. This can be circumvented by explicitly turning one of the C-style strings into an `std::string` object.
+
+If you hover over one of the string literals, VSCode will tell you what the type is:
+
+![C-Style Null-Terminated Character Arrays](./c-style-strings.png)
+
+Notice that the array is 1 element bigger than the actual number of characters. That is because the string is terminated using a null-termination character `\0`. This occupies an extra space at the end of the array. This element allows C and C++ to detect the end of the string.
+
+Let us test it using a simple main:
+
+```cpp
+#include <iostream>
+#include "lib/node.h"
+
+using namespace std;
+
+int main() {
+  cout << "Welcome to Linked List with chars ..." << endl;
+
+  LinkedListWithChars::Node head('a');
+
+  cout << "Node: " << head.to_string() << endl;
+
+  return 0;
+}
+```
+
+::: codeoutput
+<pre>
+Welcome to Linked List with chars ...
+Node: [ data: 'a', next: null]
+</pre>
+:::
+
+This implementation is just a start and by not considered finished. It may be extended or adopted as this example progresses.
+
 ## Big O Comparison of Arrays versus Linked Lists
 
 <!-- TODO: Add description -->
