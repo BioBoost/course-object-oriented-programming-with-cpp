@@ -1,8 +1,11 @@
 ---
 description: Enums are user defined types which assign names to integral values.
+title: 10 - Enums
 ---
 
-# Chapter 06 - Enums
+<!-- Maybe this should be moved to other chapter later on -->
+
+# Chapter 10 - Enums
 
 An enumeration is a distinct type whose value is restricted to a specific range or list of values, which may include several explicitly named constants. The values of the constants are values of an integral type known as the underlying type of the enumeration.
 
