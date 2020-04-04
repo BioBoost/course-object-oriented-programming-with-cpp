@@ -135,7 +135,7 @@ namespace LinkedListWithChars {
 };
 ```
 
-Most of this code is pretty straight-forward. Maybe a small note is require on the implementation of the `to_string()` method. Notice the explicit creation of an `std::string` object using `std::string("[ data: '")`. This is require because otherwise C++ treats all the strings as `null-terminated character arrays` (C-style strings) and doesn't want to concatenate the different parts together. This can be circumvented by explicitly turning one of the C-style strings into an `std::string` object.
+Most of this code is pretty straight-forward. Maybe a small note is required on the implementation of the `to_string()` method. Notice the explicit creation of an `std::string` object using `std::string("[ data: '")`. This is require because otherwise C++ treats all the strings as `null-terminated character arrays` (C-style strings) and doesn't want to concatenate the different parts together. This can be circumvented by explicitly turning one of the C-style strings into an `std::string` object.
 
 If you hover over one of the string literals, VSCode will tell you what the type is:
 
@@ -169,7 +169,24 @@ Node: [ data: 'a', next: null]
 </pre>
 :::
 
-This implementation is just a start and by not considered finished. It may be extended or adopted as this example progresses.
+This implementation of the `Node` class is just a start and not considered finished. It may be extended or adopted as this example progresses.
+
+## The Linked List
+
+The objects of the class `Node` represent the nodes in the linked list. However, to make a linked list useful, certain operations need to be provided by it. Some examples are:
+
+* adding an element to the beginning of the list
+* requesting an element at a certain position
+* removing an element from the beginning or end of the list
+
+To provide this functionality, a second class is required which will be called `LinkedList`. An object of this class will provide some basic operations and also keep track of the head of the list (aka the first node).
+
+Some functionality will not be documented here but will be left as an exercise in the C++ challenges that come with this course.
+
+### A Basic Implementation
+
+
+
 
 ## Big O Comparison of Arrays versus Linked Lists
 
