@@ -1,0 +1,1 @@
+Maybe we should extend the Linked List Guide here ?
