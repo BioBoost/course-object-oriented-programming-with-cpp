@@ -12,7 +12,7 @@ module.exports = {
       {
         title: 'About this Course',   // required
         // path: '/foo/',      // optional, which should be a absolute path.
-        collapsable: true, // optional, defaults to true
+        collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
           ''
