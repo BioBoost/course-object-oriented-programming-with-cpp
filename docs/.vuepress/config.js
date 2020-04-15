@@ -14,72 +14,72 @@ module.exports = {
           ''
         ]
       },
-      {
-        title: 'Introduction to C++',   // required
-        // path: '/foo/',      // optional, which should be a absolute path.
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
-        children: [
-          '01-hello-world/',
-          '02-basics-of-cpp-in-a-nutshell/',
-        ]
-      },
-      {
-        title: 'Object Oriented Thinking',   // required
-        path: '/03-object-oriented-thinking/',      // optional, which should be a absolute path.
-        collapsable: false, // optional, defaults to true
-        children: [
-          '/03-object-oriented-thinking/',
-          '/03-object-oriented-thinking/abstraction/',
-          '/03-object-oriented-thinking/all_about_objects/',
-        ]
-      },
-      {
-        title: 'Basic OOP',   // required
-        // path: '/foo/',      // optional, which should be a absolute path.
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
-        children: [
-          '04-basics-of-classes/',
-          '05-composition/',
-        ]
-      },
-      {
-        title: 'Compilation',   // required
-        // path: '/foo/',      // optional, which should be a absolute path.
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
-        children: [
-          '06-the-compilation-process/',
-        ]
-      },
-      {
-        title: 'Memory',   // required
-        // path: '/foo/',      // optional, which should be a absolute path.
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
-        children: [
-          '07-pointers/',
-          '08-dynamic-memory-allocation/',
-        ]
-      },
-      {
-        title: 'Working with Files',   // required
-        // path: '/foo/',      // optional, which should be a absolute path.
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
-        children: [
-          '09-file-streams/',
-        ]
-      },
-      {
-        title: 'Guides',
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
-        children: [
-          ['/guide-linked-lists/', 'Linked List'],
-        ]
-      },
+      // {
+      //   title: 'Introduction to C++',   // required
+      //   // path: '/foo/',      // optional, which should be a absolute path.
+      //   collapsable: false, // optional, defaults to true
+      //   sidebarDepth: 1,    // optional, defaults to 1
+      //   children: [
+      //     '01-hello-world/',
+      //     '02-basics-of-cpp-in-a-nutshell/',
+      //   ]
+      // },
+      // {
+      //   title: 'Object Oriented Thinking',   // required
+      //   path: '/03-object-oriented-thinking/',      // optional, which should be a absolute path.
+      //   collapsable: false, // optional, defaults to true
+      //   children: [
+      //     '/03-object-oriented-thinking/',
+      //     '/03-object-oriented-thinking/abstraction/',
+      //     '/03-object-oriented-thinking/all_about_objects/',
+      //   ]
+      // },
+      // {
+      //   title: 'Basic OOP',   // required
+      //   // path: '/foo/',      // optional, which should be a absolute path.
+      //   collapsable: false, // optional, defaults to true
+      //   sidebarDepth: 1,    // optional, defaults to 1
+      //   children: [
+      //     '04-basics-of-classes/',
+      //     '05-composition/',
+      //   ]
+      // },
+      // {
+      //   title: 'Compilation',   // required
+      //   // path: '/foo/',      // optional, which should be a absolute path.
+      //   collapsable: false, // optional, defaults to true
+      //   sidebarDepth: 1,    // optional, defaults to 1
+      //   children: [
+      //     '06-the-compilation-process/',
+      //   ]
+      // },
+      // {
+      //   title: 'Memory',   // required
+      //   // path: '/foo/',      // optional, which should be a absolute path.
+      //   collapsable: false, // optional, defaults to true
+      //   sidebarDepth: 1,    // optional, defaults to 1
+      //   children: [
+      //     '07-pointers/',
+      //     '08-dynamic-memory-allocation/',
+      //   ]
+      // },
+      // {
+      //   title: 'Working with Files',   // required
+      //   // path: '/foo/',      // optional, which should be a absolute path.
+      //   collapsable: false, // optional, defaults to true
+      //   sidebarDepth: 1,    // optional, defaults to 1
+      //   children: [
+      //     '09-file-streams/',
+      //   ]
+      // },
+      // {
+      //   title: 'Guides',
+      //   collapsable: false, // optional, defaults to true
+      //   sidebarDepth: 1,    // optional, defaults to 1
+      //   children: [
+      //     ['/guide-linked-lists/', 'Linked List'],
+      //   ]
+      // },
     ],
     sidebarDepth: 1,
     repo: 'BioBoost/course-object-oriented-programming-with-cpp',
