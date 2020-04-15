@@ -1,4 +1,4 @@
-.codeoutput
+.output
   padding .1rem 1.5rem
   border-radius 0.4rem
   background-color #f0f4f8
@@ -16,13 +16,19 @@
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
 
-.codeurl
+.definition
     padding .1rem 1.5rem
-    border-left-width .5rem
-    border-left-style solid
     margin 1rem 0
     background-color #e3f2fc
     border-color #009dff
+    .custom-block-title
+      color darken(#009dff, 50%)
+
+.danger, .tip, .warning, .definition
+    border-left-width .7rem !important
+    border-left-style solid
+    border-right-width .7rem
+    border-right-style solid
 
 h1
   color $accentColor

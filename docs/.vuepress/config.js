@@ -106,12 +106,12 @@ module.exports = {
       },
     }],
     ['container', {
-      type: 'codeoutput',
+      type: 'output',
       defaultTitle: 'Output',
     }],
     ['container', {
-      type: 'codeurl',
-      defaultTitle: '💰 Full Code can be found at',
+      type: 'definition',
+      defaultTitle: 'Definition',
     }]
   ],
 }
