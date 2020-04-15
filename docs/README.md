@@ -62,7 +62,10 @@ A code kata is an exercise in programming which helps programmers hone their ski
 
 This can actually easily be accomplished using the `details` container, allowing the solution to be hidden.
 
-:::::: tip Hello World
+:::::: kata Hello World
+
+Create a small C++ application that outputs `Hello World from C++` to the terminal.
+
 ::: details Solution
 
 ```cpp

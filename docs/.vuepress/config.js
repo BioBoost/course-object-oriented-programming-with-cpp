@@ -112,6 +112,10 @@ module.exports = {
     ['container', {
       type: 'definition',
       defaultTitle: 'Definition',
-    }]
+    }],
+    ['container', {
+      type: 'kata',
+      defaultTitle: 'Code Kata',
+    }],
   ],
 }
