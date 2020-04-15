@@ -86,44 +86,11 @@ module.exports = {
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
           '20-pointers/',
-          '21-exceptions/'
+          '21-exceptions/',
+          '22-file-streams/',
+          '23-dynamic-memory-allocation/'
         ]
       },
-
-
-      
-
-
-
-
-      // {
-      //   title: 'Compilation',   // required
-      //   // path: '/foo/',      // optional, which should be a absolute path.
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     '06-the-compilation-process/',
-      //   ]
-      // },
-      // {
-      //   title: 'Memory',   // required
-      //   // path: '/foo/',      // optional, which should be a absolute path.
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     '07-pointers/',
-      //     '08-dynamic-memory-allocation/',
-      //   ]
-      // },
-      // {
-      //   title: 'Working with Files',   // required
-      //   // path: '/foo/',      // optional, which should be a absolute path.
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     '09-file-streams/',
-      //   ]
-      // },
       // {
       //   title: 'Guides',
       //   collapsable: false, // optional, defaults to true
