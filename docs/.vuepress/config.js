@@ -3,6 +3,10 @@ module.exports = {
   description: 'C++ Programming Course for VIVES University of Applied Sciences (Bachelor Degree)',
   themeConfig: {
     nav: [
+      {text: 'Toledo', link: 'https://toledo.kuleuven.be/portal'},
+      {text: 'DevBit Courses', link: 'https://www.devbit.courses/'},
+      {text: 'Report Issue', link: 'https://github.com/BioBoost/course-object-oriented-programming-with-cpp/issues'},
+      {text: 'Challenges', link: 'https://github.com/BioBoost/challenges-cpp'}
     ],
     sidebar: [
       {
@@ -84,7 +88,9 @@ module.exports = {
     sidebarDepth: 1,
     repo: 'BioBoost/course-object-oriented-programming-with-cpp',
     docsDir: 'docs',
-    docsBranch: 'master'
+    docsBranch: 'master',
+    lastUpdated: 'Last Updated', // string | boolean
+    smoothScroll: true
   },
   markdown: {
     lineNumbers: true,
