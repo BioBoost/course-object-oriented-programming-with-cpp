@@ -18,16 +18,32 @@ module.exports = {
           ''
         ]
       },
-      // {
-      //   title: 'Introduction to C++',   // required
-      //   // path: '/foo/',      // optional, which should be a absolute path.
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     '01-hello-world/',
-      //     '02-basics-of-cpp-in-a-nutshell/',
-      //   ]
-      // },
+      {
+        title: 'Introductory',   // required
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '01-what-is-cpp/',
+          '02-hello-world/',
+        ]
+      },
+      {
+        title: 'Fundamentals',   // required
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '03-variables-and-datatypes/',
+          '04-operators/',
+          '05-input-output/',
+          '06-branching/',
+          '07-loops/',
+          '08-arrays/',
+          '09-enums/',
+          '10-functions/',
+        ]
+      },
       // {
       //   title: 'Object Oriented Thinking',   // required
       //   path: '/03-object-oriented-thinking/',      // optional, which should be a absolute path.
@@ -38,16 +54,48 @@ module.exports = {
       //     '/03-object-oriented-thinking/all_about_objects/',
       //   ]
       // },
-      // {
-      //   title: 'Basic OOP',   // required
-      //   // path: '/foo/',      // optional, which should be a absolute path.
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     '04-basics-of-classes/',
-      //     '05-composition/',
-      //   ]
-      // },
+      {
+        title: 'Object Oriented Programming',   // required
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '11-using-objects/',
+          '12-creating-classes/',
+          '13-structs/',
+          '14-composition/',
+          '15-constructors/',
+          '16-destructors/',
+        ]
+      },
+      {
+        title: 'Compiling and Linking',   // required
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '17-the-compilation-process/',
+          '18-makefiles/',
+          '19-libraries/'
+        ]
+      },
+      {
+        title: 'More Advanced C++',   // required
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '20-pointers/',
+          '21-exceptions/'
+        ]
+      },
+
+
+      
+
+
+
+
       // {
       //   title: 'Compilation',   // required
       //   // path: '/foo/',      // optional, which should be a absolute path.
