@@ -42,8 +42,10 @@ h1
   color $accentColor
 
 .sidebar-heading
-  background-color lighten(#3eaf7c, 80%)
+  background-color lighten($accentColor, 80%)
 
 .sidebar-group-items
   .active
-    background-color lighten($accentColor, 80%)
+    border-color $accentColor
+    border-left-width .25rem
+    border-left-style solid
