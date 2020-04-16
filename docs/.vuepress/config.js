@@ -24,8 +24,8 @@ module.exports = {
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '01-what-is-cpp/',
-          '02-hello-world/',
+          '/a-introductory/01-what-is-cpp/',
+          '/a-introductory/02-hello-world/',
         ]
       },
       {
@@ -34,14 +34,14 @@ module.exports = {
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '03-variables-and-datatypes/',
-          '04-operators/',
-          '05-input-output/',
-          '06-branching/',
-          '07-loops/',
-          '08-arrays/',
-          '09-enums/',
-          '10-functions/',
+          '/b-fundamentals/01-variables-and-datatypes/',
+          '/b-fundamentals/02-operators/',
+          '/b-fundamentals/03-input-output/',
+          '/b-fundamentals/04-branching/',
+          '/b-fundamentals/05-loops/',
+          '/b-fundamentals/06-arrays/',
+          '/b-fundamentals/07-enums/',
+          '/b-fundamentals/08-functions/',
         ]
       },
       // {
@@ -60,12 +60,12 @@ module.exports = {
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '11-using-objects/',
-          '12-creating-classes/',
-          '13-structs/',
-          '14-composition/',
-          '15-constructors/',
-          '16-destructors/',
+          '/d-object-oriented-programming/01-using-objects/',
+          '/d-object-oriented-programming/02-creating-classes/',
+          '/d-object-oriented-programming/03-structs/',
+          '/d-object-oriented-programming/04-composition/',
+          '/d-object-oriented-programming/05-constructors/',
+          '/d-object-oriented-programming/06-destructors/',
         ]
       },
       {
@@ -74,9 +74,9 @@ module.exports = {
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '17-the-compilation-process/',
-          '18-makefiles/',
-          '19-libraries/'
+          '/e-compiling-and-linking/01-the-compilation-process/',
+          '/e-compiling-and-linking/02-makefiles/',
+          '/e-compiling-and-linking/03-libraries/'
         ]
       },
       {
@@ -85,20 +85,46 @@ module.exports = {
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '20-pointers/',
-          '21-exceptions/',
-          '22-file-streams/',
-          '23-dynamic-memory-allocation/'
+          '/f-more-advanced-cpp/01-pointers/',
+          '/f-more-advanced-cpp/02-exceptions/',
+          '/f-more-advanced-cpp/03-file-streams/',
+          '/f-more-advanced-cpp/04-dynamic-memory-allocation/',
+          '/f-more-advanced-cpp/05-standard-templating-libraries/'
         ]
       },
-      // {
-      //   title: 'Guides',
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     ['/guide-linked-lists/', 'Linked List'],
-      //   ]
-      // },
+      {
+        title: 'Inheritance',   // required
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/g-inheritance/01-basic-inheritance/',
+          '/g-inheritance/02-interfaces/',
+          '/g-inheritance/03-polymorphism/',
+          '/g-inheritance/04-multiple-inheritance/'
+        ]
+      },
+      {
+        title: 'Mental Topics',   // required
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/h-mental-topics/01-threads/',
+          '/h-mental-topics/02-operator-overloading/',
+          '/h-mental-topics/03-templating/'
+        ]
+      },
+      {
+        title: 'Guides',
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          ['/x-guides/linked-lists/', 'Linked Lists'],
+          ['/x-guides/json/', 'JSON'],
+        ]
+      },
     ],
     sidebarDepth: 1,
     repo: 'BioBoost/course-object-oriented-programming-with-cpp',
