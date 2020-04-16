@@ -1,3 +1,3 @@
 [submodule "docs/course-module-object-oriented-thinking"]
-	path = old-docs/03-object-oriented-thinking
+	path = docs/c-object-oriented-thinking
 	url = https://github.com/BioBoost/course-module-object-oriented-thinking.git
