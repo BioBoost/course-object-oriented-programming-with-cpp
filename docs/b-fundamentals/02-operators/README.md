@@ -6,6 +6,8 @@ description: needs to be done
 
 Shift operators!
 
+Don't forget ternary operator
+
 ## Heading 1
 
 ## Heading 2
