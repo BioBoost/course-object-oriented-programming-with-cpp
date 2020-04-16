@@ -187,7 +187,7 @@ int main() {
 In order to refer to the elements in the `std` namespace a program must either qualify each and every use of elements of the library (by prefixing the elements with `std::`), or introduce visibility of the namespace components. The most typical way to introduce visibility of these components is by means of using a declaration such as `using namespace std;`
 
 :::::: kata Namespace std
-Alter the hello world application by removing the statement `using namespace std;`. Fix that statements that fail by prefixing the required components with `std::`. Try to get the application to compile and run.
+Alter the hello world application by removing the statement `using namespace std;`. Fix the statements that fail by prefixing the required components with `std::`. Try to get the application to compile and run.
 
 ::: details Solution
 
