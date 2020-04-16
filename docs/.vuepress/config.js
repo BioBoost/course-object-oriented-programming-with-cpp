@@ -132,8 +132,9 @@ module.exports = {
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          ['/x-guides/linked-lists/', 'Linked Lists'],
-          ['/x-guides/json/', 'JSON'],
+          '/x-guides/linked-lists/',
+          '/x-guides/json/',
+          '/x-guides/generating-documentation/',
         ]
       },
     ],
