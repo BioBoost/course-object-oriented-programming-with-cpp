@@ -117,15 +117,17 @@ module.exports = {
         ]
       },
       {
-        title: 'References',
+        title: 'Common Design Patterns',
         // path: '/foo/',      // optional, which should be a absolute path.
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '/y-reference/keyword-overview/',
-          '/y-reference/std-overview/',
+          '/w-common-design-patterns/factory-pattern/',
+          '/w-common-design-patterns/singleton-pattern/',
+          '/w-common-design-patterns/observer-pattern/',
         ]
       },
+      // Not sure about how to call this chapter. Or maybe should be split up.
       {
         title: 'Guides',
         // path: '/foo/',      // optional, which should be a absolute path.
@@ -134,7 +136,18 @@ module.exports = {
         children: [
           '/x-guides/linked-lists/',
           '/x-guides/json/',
+          '/x-guides/mqtt/',
           '/x-guides/generating-documentation/',
+        ]
+      },
+      {
+        title: 'References',
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/y-reference/keyword-overview/',
+          '/y-reference/std-overview/',
         ]
       },
     ],
