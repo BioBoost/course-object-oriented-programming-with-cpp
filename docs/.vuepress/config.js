@@ -117,6 +117,16 @@ module.exports = {
         ]
       },
       {
+        title: 'References',
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/y-reference/keyword-overview/',
+          '/y-reference/std-overview/',
+        ]
+      },
+      {
         title: 'Guides',
         // path: '/foo/',      // optional, which should be a absolute path.
         collapsable: false, // optional, defaults to true
