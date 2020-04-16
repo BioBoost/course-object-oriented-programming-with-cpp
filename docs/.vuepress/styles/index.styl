@@ -1,14 +1,14 @@
 .output
   padding .1rem 1.5rem
   border-radius 0.4rem
-  background-color #f0f4f8
+  background-color $output_container
   font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
   .title
     font-weight bold
   pre
     margin 0
     padding 1rem
-    background-color #f0f4f8
+    background-color $output_container
     font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
     white-space: pre-wrap;       /* css-3 */
     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
@@ -19,18 +19,20 @@
 .definition
     padding .1rem 1.5rem
     margin 1rem 0
-    background-color #e3f2fc
-    border-color #009dff
+    background-color lighten($definition_container, 80%)
+    border-color $definition_container
     .custom-block-title
-      color darken(#009dff, 50%)
+      color darken($definition_container, 70%)
 
 .kata
     padding .1rem 1.5rem
     margin 1rem 0
-    background-color #eee8d5
-    border-color darken(#eee8d5, 70%)
+    background-color lighten($kata_container, 80%)
+    border-color $kata_container
     .custom-block-title
-      color darken(#eee8d5, 50%)
+      color darken($kata_container, 70%)
+    .details
+      background-color lighten($kata_container_solution, 80%)
 
 .danger, .tip, .warning, .definition, .kata
     border-left-width .7rem !important
@@ -41,11 +43,18 @@
 h1
   color $accentColor
 
+.warning
+    background-color lighten($warning_container, 80%) !important
+    border-color $warning_container !important
+    .custom-block-title
+      color darken($warning_container, 80%)
+
 .sidebar-heading
-  background-color lighten($accentColor, 80%)
+  background-color $solarized_brblack
+  color $solarized_brwhite !important
 
 .sidebar-group-items
   .active
-    border-color $accentColor
+    border-color $solarized_red
     border-left-width .25rem
     border-left-style solid
