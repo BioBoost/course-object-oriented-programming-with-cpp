@@ -84,7 +84,7 @@ int main() {
 
 ## Ideas
 
-Todo
+- Compiler optimizations?
 
 ## License
 

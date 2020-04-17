@@ -138,6 +138,8 @@ module.exports = {
           '/x-guides/json/',
           '/x-guides/mqtt/',
           '/x-guides/generating-documentation/',
+          '/x-guides/cross-compiling-for-rpi/',
+          '/x-guides/remote-debugging/',
         ]
       },
       {
