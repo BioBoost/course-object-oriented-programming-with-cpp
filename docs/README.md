@@ -85,6 +85,13 @@ int main() {
 ## Ideas
 
 - Compiler optimizations?
+- Debugging using VSCode
+
+## Problems that many students have
+
+- Don't see how data flows via arguments to attributes or to other methods
+- Don't always understand what keep as a local var and what to make an attribute
+- Single Responsibility
 
 ## License
 
