@@ -185,5 +185,9 @@ module.exports = {
       type: 'kata',
       defaultTitle: 'Code Kata',
     }],
+    ['container', {
+      type: 'insight',
+      defaultTitle: 'Key Insight',
+    }],
   ],
 }

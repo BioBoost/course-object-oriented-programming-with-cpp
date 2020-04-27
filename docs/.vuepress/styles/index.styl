@@ -35,7 +35,18 @@
       background-color $kata_container
       color $solarized_brwhite !important
 
-.danger, .tip, .warning, .definition, .kata
+.insight
+    padding .1rem 1.5rem
+    margin 1rem 0
+    background-color lighten($insight_container, 80%)
+    border-color $insight_container
+    .custom-block-title
+      color darken($insight_container, 70%)
+    .details
+      background-color $insight_container
+      color $solarized_brwhite !important
+
+.danger, .tip, .warning, .definition, .kata, .insight
     border-left-width .7rem !important
     border-left-style solid
     border-right-width .7rem
