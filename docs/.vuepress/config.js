@@ -20,7 +20,7 @@ module.exports = {
       },
       {
         title: 'Introductory',   // required
-        // path: '/foo/',      // optional, which should be a absolute path.
+        path: '/a-introductory/',      // optional, which should be a absolute path.
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
@@ -30,7 +30,7 @@ module.exports = {
       },
       {
         title: 'Fundamentals',   // required
-        // path: '/foo/',      // optional, which should be a absolute path.
+        path: '/b-fundamentals/',      // optional, which should be a absolute path.
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
