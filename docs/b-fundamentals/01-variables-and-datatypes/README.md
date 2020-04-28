@@ -120,7 +120,7 @@ int numberOfStudents;
 numberOfStudents = 14;
 ```
 
-When a value like `14` or `-123` is used inside code, it is called a **literal value**.
+When a value like `14`, `-123` or even a string like `"Hello World"` is used inside code, it is called a **literal value** or even shorter a **literal**.
 
 :::::: kata Code Kata - Variable Initialization
 Shorten the code so it uses variable initialization.
@@ -210,7 +210,7 @@ C++ supports several primitive datatypes as shown in the following table.
 | `unsigned long long` | Same size as `long long`. | `5000000LL`, `123'456'789LL` | TODO |
 | --- | --- | --- | --- |
 | `float` | Single precision floating point numbers. | `123.456f` | TODO |
-| `double` | Double precision floating point numbers. Precision not less than `float`. | `3.14` | TODO |
+| `double` | Double precision floating point numbers. Precision not less than `float`. | `3.14`, `6.02e12` | TODO |
 | `long double` | Extended double precision floating point numbers. Precision not less than `double`. | `123.456L` | TODO |
 | --- | --- | --- | --- |
 | `bool` | | `true`, `false` | TODO |
@@ -231,6 +231,14 @@ Type sizes above are expressed in bits. The more bits a type has, the more disti
 | 16-bit | 2^16 = 65'536 | 0 to 65'535 | -32'768 to 32'767 |
 | 32-bit | 2^32 = 4'294'967'296 | 0 to 4'294'967'295 | -2'147'483'648 to 2'147'483'647 |
 | 64-bit | 2^32 = 18'446'744'073'709'551'616 | 0 to 18'446'744'073'709'551'615 | -9'223'372'036'854'775'808 to 9'223'372'036'854'775'807 |
+
+::: tip Tip - Octal, Hexadecimal and Binary
+C++ also supports integer literal written in a different base notation, for example:
+
+* Hexadecimal format by prefixing the literal with `0x`, for example `0xFF` for `255`.
+* Octal format by prefixing the literal with `0`, for example `0377` for `255`.
+* Binary format by prefixing the literal with `0b`, for example `0b11111111` for `255`. You can also use single quotes `'` as a nibble separator: `0b1111'1111`.
+:::
 
 ### Character Types
 
