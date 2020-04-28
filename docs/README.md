@@ -6,7 +6,7 @@ This is an early stage draft of a C++ course.
 
 A definition of a concept can be placed in a definition container. Code is allowed inside of these containers.
 
-::: definition Variable
+::: definition Definition - Variable
 A **variable** is a symbolic name for a memory location that can store data.
 
 ```cpp
@@ -38,19 +38,19 @@ Welcome to the exciting world of C++ programming.
 
 There are also `warning` containers:
 
-::: warning Do try this at home
+::: warning Warning - Do try this at home
 Lorep Ipsum
 :::
 
 `danger` containers:
 
-::: danger Do try this at home
+::: danger Danger - Do try this at home
 Lorep Ipsum
 :::
 
 `tip` containers:
 
-::: tip Make sure to practice
+::: tip Tip - Make sure to practice
 lorem ipsum
 :::
 
@@ -58,7 +58,7 @@ Really small inline exercises should be placed throughout the chapters (kinda li
 
 A code kata is an exercise in programming which helps programmers hone their skills through practice and repetition. This can actually easily be accomplished using the `details` container, allowing the solution to be hidden.
 
-:::::: kata Hello World
+:::::: kata Code Kata - Hello World
 
 Create a small C++ application that outputs `Hello World from C++` to the terminal.
 
