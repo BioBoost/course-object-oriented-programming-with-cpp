@@ -56,11 +56,7 @@ lorem ipsum
 
 Really small inline exercises should be placed throughout the chapters (kinda like a code kata).
 
-::: definition Code Kata
-A code kata is an exercise in programming which helps programmers hone their skills through practice and repetition.
-:::
-
-This can actually easily be accomplished using the `details` container, allowing the solution to be hidden.
+A code kata is an exercise in programming which helps programmers hone their skills through practice and repetition. This can actually easily be accomplished using the `details` container, allowing the solution to be hidden.
 
 :::::: kata Hello World
 
@@ -81,6 +77,10 @@ int main() {
 
 :::
 ::::::
+
+::: insight Key Insight - How code is executed
+Code is processed/executed the same way it is written, from top to bottom.
+:::
 
 ## Ideas
 
