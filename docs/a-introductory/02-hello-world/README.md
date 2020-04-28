@@ -28,7 +28,7 @@ Before diving head first in the coding game, install the VSCode `C/C++ Extension
 
 ![VSCode C/C++ Extension](./img/vscode_cpp_extension.png)
 
-::: tip Other Useful Extensions
+::: tip Tip - Other Useful Extensions
 Some other useful extensions for Visual Studio Code include:
 
 * [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker): a spell checker that works well with code
@@ -39,7 +39,7 @@ Some other useful extensions for Visual Studio Code include:
 
 As a compiler you can make use of **MinGW** which stands for "Minimalist GNU for Windows", which is a native Windows port of the GNU Compiler Collection (GCC).
 
-::: tip GNU
+::: definition Definition - GNU
 GNU is an operating system and an extensive collection of computer software. **GNU is composed wholly of free software**, most of which is licensed under GNU's own GPL (General Purpose License). GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code. The GNU project includes an operating system kernel, GNU HURD, which was the original focus of the Free Software Foundation (FSF). However, non-GNU kernels, most famously Linux, can also be used with GNU software; and since the kernel is the least mature part of GNU, this is how it is usually used. The combination of GNU software and the Linux kernel is commonly known as GNU/Linux.
 :::
 
@@ -86,7 +86,7 @@ int main() {
 }
 ```
 
-::: tip How code is executed
+::: insight Key Insight - How code is executed
 Code is processed/executed the same way it is written, from top to bottom.
 :::
 
@@ -125,7 +125,7 @@ int main() {
 }
 ```
 
-::: tip ⌨️ Type, Don't Copy
+::: tip ⌨️ Tip - Type, Don't Copy
 The best tip for the moment is to type over the hello world application into VSCode. Don't copy the code. This will get you familiarized with the syntax of C++. **Want to challenge yourself?** Then try to memorize the hello world example. Type it in and compile it. Does it fail, then fix it. Now do it all over again until you get it right from the first time.
 :::
 
@@ -186,7 +186,7 @@ int main() {
 
 In order to refer to the elements in the `std` namespace a program must either qualify each and every use of elements of the library (by prefixing the elements with `std::`), or introduce visibility of the namespace components. The most typical way to introduce visibility of these components is by means of using a declaration such as `using namespace std;`
 
-:::::: kata Namespace std
+:::::: kata Code Kata - Namespace std
 Alter the hello world application by removing the statement `using namespace std;`. Fix the statements that fail by prefixing the required components with `std::`. Try to get the application to compile and run.
 
 ::: details Solution
@@ -226,7 +226,7 @@ Essentially, **a function is a block of statements that are grouped by a name**,
 
 ![Status Code of an Application](./img/status_code.png)
 
-:::::: kata Status Code
+:::::: kata Code Kata - Status Code
 Create a small C++ application that returns a value other than `0`. Typically a negative number is returned to indicate that something went wrong.
 
 ::: details Solution
@@ -290,7 +290,7 @@ This statement has three parts:
 * The insertion operator `<<`, which indicates that what follows is inserted into `cout`.
 * A text sentence within quotes `"Hello world!"`, being the content inserted into the standard output. In this case **a string** (denoted by the double quotes).
 
-:::::: kata Personalized Output
+:::::: kata Code Kata - Personalized Output
 Alter the hello world application to output a personalized message. Try to output a text stating who made the application. Also state where you are currently following this course.
 
 ::: details Solution
@@ -314,6 +314,6 @@ int main() {
 
 Notice that the **statement ends with a semicolon** `;`. This character marks the end of the statement (that is why it is called the **statement terminator**). All C++ statements must end with a semicolon character. One of the most common syntax errors in C++ is forgetting to end a statement with a semicolon.
 
-::: definition Statement
+::: definition Definition - Statement
 A statement is an expression that expresses some action to be carried out. This will not always be visual output. The statements specify the actual behavior of the application. Statements are executed in the same order that they appear. In C++ all statements must end with a `;`, the statement terminator.
 :::
