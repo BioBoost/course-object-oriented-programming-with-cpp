@@ -8,7 +8,7 @@ The main task of almost any application is processing and transforming data. To 
 
 This data is read, stored, manipulated and outputted throughout the application. The **data itself is stored inside the memory of the computer** or system the program is running on. Inside the application one does not need to access the memory directly, for this the developer can make use of variables.
 
-::: insight Processing Data
+::: insight Key Insight - Processing Data
 Applications are collections of instructions that manipulate and process data to produce a required result.
 :::
 
@@ -31,6 +31,10 @@ Defining a variable informs the compiler of
 * how to **interpret** its value
 * what **operations** can be applied to the variable
 
+::: definition Definition - A Variable
+A variable is a symbolic label for a location in memory where data is stored. A variable has a name (identifier) and a data type. The data type of the variables determines which operations can be performed on the data and how the value in memory has to be interpreted.
+:::
+
 The syntax to define a new variable in C++ is straightforward. Simply write the datatype followed by the variable name (also known as its identifier).
 
 ```cpp
@@ -45,7 +49,7 @@ int numberOfStudents;
 
 When the application is run (at runtime), this variable will be **instantiated** (created) and actual **memory space will be reserved** to store the data.
 
-::: definition Declaration versus definition
+::: definition Definition - Declaration versus definition
 Note that defining a variable is not the same as declaring it. Declaring a variable is stating that it exists somewhere, while defining a variable is actually creating it. Declaring a variable is done using the `extern` keyword. While less important for variables, the distinction will be more clear in the context of functions, methods and classes.
 :::
 
@@ -55,8 +59,8 @@ While consider bad practice, multiple variables of the same type can also be def
 int x, y, z;
 ```
 
-::: warning
-Define each variable using its own statement. Using a single statement to declare multiple variables is bad practice and can introduce hard-to-track bugs when using pointers as will be seen later in this course.
+::: warning Warning - Defining Multiple Variables
+Define each variable using its own statement. Using a single statement to define multiple variables is bad practice and can introduce hard-to-track bugs when using pointers as will be seen later in this course.
 :::
 
 ## Naming Variables
@@ -77,16 +81,18 @@ Some good examples are:
 
 ## The Assignment Operator
 
-The most used operator is the assignment operator `=`. It assigns a value to a variable. For example:
+The assignment operator is probable one of the most used operators in C++. It allows one to assign a value to a variable. The assignment operator takes two operands. The left side, called the left operand, which refers to the variable being assigned and the right hand side representing the value that is assigned to the left operand.
+
+For example:
 
 ```cpp{2}
 int x;    // Definition
 x = 5;    // Assign the value 5 to x
 ```
 
-In the previous example, `5` is the value that is assigned to the variable `x`. The left-hand side of the assignment is sometimes also called the `lvalue` and the right-hand side the `rvalue`.
+In the previous example, `5` is the value that is assigned to the variable `x`. So in this example `x` is the left operand and `5` is the right operand.
 
-One can also assign the value of one variable to another. In this case the data of the rvalue is copied into the memory location of the lvalue, therefore overwriting the original content of the lvalue.
+One can also assign the value of one variable to another. In this case the data of the right operand is copied into the memory location of the left operand, therefore overwriting the original content of the left operand.
 
 ```cpp{5}
 int x;    // Definition
@@ -115,6 +121,55 @@ numberOfStudents = 14;
 ```
 
 When a value like `14` or `-123` is used inside code, it is called a **literal value**.
+
+:::::: kata Code Kata - Variable Initialization
+Shorten the code so it uses variable initialization.
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int daysInAYear;
+  int weeksInAYear;
+
+  weeksInAYear = 52;
+  daysInAYear = 365;
+
+  cout << "There are " << weeksInAYear;
+  cout << " weeks in a year." << endl;
+
+  cout << "There are " << daysInAYear;
+  cout << " days in a year." << endl;
+
+  return 0;
+}
+```
+
+::: details Solution
+
+```cpp{6-7}
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int daysInAYear = 365;
+  int weeksInAYear = 52;
+
+  cout << "There are " << weeksInAYear;
+  cout << " weeks in a year." << endl;
+
+  cout << "There are " << daysInAYear;
+  cout << " days in a year." << endl;
+
+  return 0;
+}
+```
+
+:::
+::::::
 
 ## Accessing the Variable
 
@@ -162,7 +217,7 @@ C++ supports several primitive datatypes as shown in the following table.
 
 More info can be found at [https://en.cppreference.com/w/cpp/language/types](https://en.cppreference.com/w/cpp/language/types).
 
-::: warning Datatype sizes
+::: warning Warning - Datatype sizes
 Note that the C++ standard does not specify a concrete size for each type. This means that the size of the data types actually dependent on the system you are compiling for. In certain situations you will need to keep this in mind.
 :::
 
@@ -370,3 +425,25 @@ c = 0
 Both C and C++ define the values as undefined. Undefined means it may be **anything**, including being initialized to 0, taking previous value of the memory, being initialized to `0xDEADBEEF` or consecutive bytes of string `"blarg! blarg! blarg!"`, or anything else. In modern operating systems memory is usually zeroed at start and hence short-lived programs will typically have 0s everywhere. Basically you're getting a random value, which happens to sometimes be 0. But it's not guaranteed to be 0.
 
 So important lesson: **Make sure to assign a meaningful value to variables before using them as they may lead to hard-to-track bugs inside your application.**
+
+## Questions
+
+:::::: kata Question - Data
+What is the difference between data and information?
+
+::: details Solution
+
+Data is the raw representation of information. Information is the interpretation of that data. Take for example the number `19` and the text `Donny Marko` which are both data. It does not mean anything without context. Together it can be stated that they represent the name and age of a person. This is information, the personal details of a person.
+
+:::
+::::::
+
+:::::: kata Question - Initialization
+Why do we need to initialize variables?
+
+::: details Solution
+
+Because C++ does no do this automatically for you, at least not in all cases. Uninitialized variables contain undefined values and are considered to contain garbage data. These uninitialized variables will create trouble when using them on the right side of an assignment operation.
+
+:::
+::::::
