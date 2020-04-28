@@ -86,6 +86,7 @@ Code is processed/executed the same way it is written, from top to bottom.
 
 - Compiler optimizations?
 - Debugging using VSCode
+- Would love to have a hero image with nice description for each chapter. Maybe we can fix this using Vue-component.
 
 ## Problems that many students have
 
