@@ -122,55 +122,6 @@ numberOfStudents = 14;
 
 When a value like `14`, `-123` or even a string like `"Hello World"` is used inside code, it is called a **literal value** or even shorter a **literal**.
 
-:::::: kata Code Kata - Variable Initialization
-Shorten the code so it uses variable initialization.
-
-```cpp
-#include <iostream>
-
-using namespace std;
-
-int main() {
-  int daysInAYear;
-  int weeksInAYear;
-
-  weeksInAYear = 52;
-  daysInAYear = 365;
-
-  cout << "There are " << weeksInAYear;
-  cout << " weeks in a year." << endl;
-
-  cout << "There are " << daysInAYear;
-  cout << " days in a year." << endl;
-
-  return 0;
-}
-```
-
-::: details Solution
-
-```cpp{6-7}
-#include <iostream>
-
-using namespace std;
-
-int main() {
-  int daysInAYear = 365;
-  int weeksInAYear = 52;
-
-  cout << "There are " << weeksInAYear;
-  cout << " weeks in a year." << endl;
-
-  cout << "There are " << daysInAYear;
-  cout << " days in a year." << endl;
-
-  return 0;
-}
-```
-
-:::
-::::::
-
 ## Accessing the Variable
 
 Accessing or using a variable is as simple as stating its name where it's value is expected to be used.
