@@ -317,3 +317,13 @@ Notice that the **statement ends with a semicolon** `;`. This character marks th
 ::: definition Definition - Statement
 A statement is an expression that expresses some action to be carried out. This will not always be visual output. The statements specify the actual behavior of the application. Statements are executed in the same order that they appear. In C++ all statements must end with a `;`, the statement terminator.
 :::
+
+## Questions
+
+:::::: kata Question - endl
+What does `std::endl` do? It is often found after outputting some information to the terminal.
+
+::: details Solution
+`std::endl` inserts a newline character `'\n'` and flushes the stream buffer making sure that the content of the buffer is streamed (written) to the actual output (terminal, file, ...).
+:::
+::::::
