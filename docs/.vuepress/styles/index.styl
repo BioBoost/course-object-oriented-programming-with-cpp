@@ -46,7 +46,18 @@
       background-color $insight_container
       color $solarized_brwhite !important
 
-.danger, .tip, .warning, .definition, .kata, .insight
+.question
+    padding .1rem 1.5rem
+    margin 1rem 0
+    background-color lighten($question_container, 80%)
+    border-color $question_container
+    .custom-block-title
+      color darken($question_container, 70%)
+    .details
+      background-color $question_container
+      color $solarized_brwhite !important
+
+.danger, .tip, .warning, .definition, .kata, .insight, .question
     border-left-width .7rem !important
     border-left-style solid
     border-right-width .7rem
@@ -55,7 +66,7 @@
 h1
   color $accentColor
 
-.kata
+.kata, .question
   .details
     code
       color: white
