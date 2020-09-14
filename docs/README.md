@@ -82,6 +82,19 @@ int main() {
 Code is processed/executed the same way it is written, from top to bottom.
 :::
 
+:::::: question Question - Hello World
+
+What are the main purposes of a Hello World application?
+
+::: details Solution
+
+* Compiler test
+* Arbitrary code execution
+* Basic demo for new language
+
+:::
+::::::
+
 ## Ideas
 
 - Compiler optimizations?
