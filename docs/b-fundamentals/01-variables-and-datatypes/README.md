@@ -53,6 +53,18 @@ When the application is run (at runtime), this variable will be **instantiated**
 Note that defining a variable is not the same as declaring it. Declaring a variable is stating that it exists somewhere, while defining a variable is actually creating it. Declaring a variable is done using the `extern` keyword. While less important for variables, the distinction will be more clear in the context of functions, methods and classes.
 :::
 
+:::::: kata Code Kata - Define a variable for age
+How would you define a variable to store the age a person in? Make sure to give it an appropriate name.
+
+::: details Solution
+
+```cpp{5}
+int age;
+```
+
+:::
+::::::
+
 While consider bad practice, multiple variables of the same type can also be defined using a single statement. Do note that the data type only needs to be stated once.
 
 ```cpp
@@ -62,6 +74,24 @@ int x, y, z;
 ::: warning Warning - Defining Multiple Variables
 Define each variable using its own statement. Using a single statement to define multiple variables is bad practice and can introduce hard-to-track bugs when using pointers as will be seen later in this course.
 :::
+
+:::::: kata Code Kata - Multiple Variable Definitions
+Rewrite the following code so each variable is defined separately.
+
+```cpp
+int daysInAWeek, weeksInAYear, monthsInAYear;
+```
+
+::: details Solution
+
+```cpp
+int daysInAWeek;
+int weeksInAYear;
+int monthsInAYear;
+```
+
+:::
+::::::
 
 ## Naming Variables
 
@@ -104,6 +134,30 @@ y = x;    // Copy value of x to y
 
 The last statement assigns the value of the variable `x` to the variable `y`. Consider also that we are only assigning **the value** of `x` to `y` at the moment of the assignment operation. Therefore, if `x` changes at a later moment, it will not affect the value held by `y`. In other words a copy is made of the value held by `x` and then stored in `y`.
 
+:::::: kata Code Kata - Assigning a value
+How would you assign the correct value to each of the variables in the following code snippet.
+
+```cpp
+int daysInAWeek;
+int weeksInAYear;
+int monthsInAYear;
+```
+
+::: details Solution
+
+```cpp{5-7}
+int daysInAWeek;
+int weeksInAYear;
+int monthsInAYear;
+
+daysInAWeek = 7;
+weeksInAYear = 52;
+monthsInAYear = 12;
+```
+
+:::
+::::::
+
 ## Variable Initialization
 
 When defining a variable, one can immediately assign a value to it. This process is called **initializing the variable**.
@@ -122,6 +176,26 @@ numberOfStudents = 14;
 
 When a value like `14`, `-123` or even a string like `"Hello World"` is used inside code, it is called a **literal value** or even shorter a **literal**.
 
+:::::: kata Code Kata - Integral Initialization
+Refactor the code snippet below so the variables are initialized to the values `7`, `52` and `12`respectively.
+
+```cpp
+int daysInAWeek;
+int weeksInAYear;
+int monthsInAYear;
+```
+
+::: details Solution
+
+```cpp
+int daysInAWeek = 7;
+int weeksInAYear = 52;
+int monthsInAYear = 12;
+```
+
+:::
+::::::
+
 ## Accessing the Variable
 
 Accessing or using a variable is as simple as stating its name where it's value is expected to be used.
@@ -134,37 +208,83 @@ int numberOfStudents = 35;
 cout << numberOfStudents << endl;
 ```
 
+:::::: kata Code Kata - Printing Variables
+Consider the code snippet below.
+
+```cpp
+int daysInAWeek = 7;
+int weeksInAYear = 52;
+int monthsInAYear = 12;
+```
+
+Output each variable's value to the terminal. Also print the meaning of the value.
+
+For example:
+
+```text
+Days in a week: 7
+```
+
+::: details Solution
+
+```cpp
+cout << "Days in a week: " << daysInAWeek << endl;
+cout << "Weeks in a year: " << weeksInAYear << endl;
+cout << "Months in a year: " << monthsInAYear << endl;
+```
+
+:::
+::::::
+
 ## Primitive Data Types
 
 **Primitive types** are the **most basic data types available** within a programming language. These types serve as the building blocks of data manipulation. Such types serve only one purpose - containing pure, simple values of a certain type.
 
 Because these data types are defined into the type system by default, they come with a number of predefined operations (`+`, `-`, `*`, `/`, `%`, ...) that can be used on them to manipulate their content.
 
-C++ supports several primitive datatypes as shown in the following table.
+C++ supports several primitive datatypes as shown in the following tables.
 
-| Type | Size / precision | Literal Example(s) | Note(s) |
-| :---: | --- | --- | --- |
-| `char` | At least 8 bits. | `'a'`, `'4'`, `'\n'` | TODO |
-| `char16_t` | At least 16 bits. Not smaller dan `char`. | TODO | TODO |
-| `char32_t` | At least 32 bits. Not smaller dan `char16_t`. | TODO | TODO |
-| `wchar_t` | Can represent the largest supported character set. | TODO | TODO |
-| --- | --- | --- | --- |
-| `short`, `short int` | At least 16 bits. Not smaller than `char`. | `123`, `-666` | TODO |
-| `int` | At least 16 bits. Not smaller than `short`. | `-22`, `42` | TODO |
-| `long`, `long int` | At least 32 bits. Not smaller than `int`. | `-32L` | TODO |
-| `long long`, `long int int` | At least 64 bits. Not smaller than `long`. | `5000000LL`, `-3'120'432LL` | TODO |
-| --- | --- | --- | --- |
-| `unsigned char` | Same size as `char`. | `55` | TODO |
-| `unsigned short` | Same size as `short`. | `12`, `43` | TODO |
-| `unsigned int` | Same size as `int`. | `123`, `0` | TODO |
-| `unsigned long` | Same size as `long`. | `55L` | TODO |
-| `unsigned long long` | Same size as `long long`. | `5000000LL`, `123'456'789LL` | TODO |
-| --- | --- | --- | --- |
-| `float` | Single precision floating point numbers. | `123.456f` | TODO |
-| `double` | Double precision floating point numbers. Precision not less than `float`. | `3.14`, `6.02e12` | TODO |
-| `long double` | Extended double precision floating point numbers. Precision not less than `double`. | `123.456L` | TODO |
-| --- | --- | --- | --- |
-| `bool` | | `true`, `false` | TODO |
+**Character types**
+
+| Type | Size / precision | Literal Example(s) |
+| :---: | --- | --- |
+| `char` | At least 8 bits. | `'a'`, `'4'`, `'\n'` |
+| `char16_t` | At least 16 bits. Not smaller dan `char`. | TODO |
+| `char32_t` | At least 32 bits. Not smaller dan `char16_t`. | TODO |
+| `wchar_t` | Can represent the largest supported character set. | TODO |
+
+**Signed types**
+
+| Type | Size / precision | Literal Example(s) |
+| :---: | --- | --- |
+| `short`, `short int` | At least 16 bits. Not smaller than `char`. | `123`, `-666` |
+| `int` | At least 16 bits. Not smaller than `short`. | `-22`, `42` |
+| `long`, `long int` | At least 32 bits. Not smaller than `int`. | `-32L` |
+| `long long`, `long int int` | At least 64 bits. Not smaller than `long`. | `5000000LL`, `-3'120'432LL` |
+
+**Unsigned types**
+
+| Type | Size / precision | Literal Example(s) |
+| :---: | --- | --- |
+| `unsigned char` | Same size as `char`. | `55` |
+| `unsigned short` | Same size as `short`. | `12`, `43` |
+| `unsigned int` | Same size as `int`. | `123`, `0` |
+| `unsigned long` | Same size as `long`. | `55L` |
+| `unsigned long long` | Same size as `long long`. | `5000000LL`, `123'456'789LL` |
+
+**Floating Point types**
+
+| Type | Size / precision | Literal Example(s) |
+| :---: | --- | --- |
+| `float` | Single precision floating point numbers. | `123.456f` |
+| `double` | Double precision floating point numbers. Precision not less than `float`. | `3.14`, `6.02e12` |
+| `long double` | Extended double precision floating point numbers. Precision not less than `double`. | `123.456L` |
+
+**Boolean types**
+
+| Type | Size / precision | Literal Example(s) |
+| :---: | --- | --- |
+| `bool` | | `true`, `false` |
 
 More info can be found at [https://en.cppreference.com/w/cpp/language/types](https://en.cppreference.com/w/cpp/language/types).
 
@@ -437,16 +557,62 @@ const int MAX_STUDENTS_PER_CLASS = 54;
 Typically constants are defined using an all CAPITALS name and underscores `_` between the different words. This is generally accepted among programmers of many languages.
 :::
 
-Constants should be used in place of magic numbers. A magic number is a numeric literal (for example, `54`, `128`) that is used in the middle of a block of code without explanation. It is considered good practice to avoid magic numbers by assigning the numbers to named constants and using the named constants instead. The reasons for this are twofold:
+Constants should be used in place of magic numbers. A **magic number** is a numeric literal (for example, `54`, `128`) that is used in the middle of a block of code without explanation. It is considered good practice to avoid magic numbers by assigning the numbers to named constants and using the named constants instead. The reasons for this are twofold:
 
 * A number in isolation can be inexplicable to later programmers, whereas a named constant (such as `MAX_STUDENTS_PER_CLASS`) is more readily understood.
 * Using the same named constant in many places, makes the code much easier to update if the requirements change (for example, more students are permitted per class).
 
+:::::: kata Code Kata - Magic Numbers have no Meaning
+Checkout the following code snippet. It calculates the total invoice amount that has to be paid. The calculation of the total amount contains a magic number. Can you fix it?
+
+```cpp
+double invoiceAmount = 2342.12;   // Just a random value
+
+double totalInvoice = 0.21 * invoiceAmount;   // 0.21 ?
+```
+
+::: details Solution
+
+`0.21` is actually the VAT (tax) percentage that has to be taken into account. Now defining a constant variable for this value, makes the code a lot more clear and understandable.
+
+```cpp
+const double TAX_PERCENTAGE = 0.21;
+
+double totalInvoice = TAX_PERCENTAGE * invoiceAmount;
+```
+
+:::
+::::::
+
 A named constant defines an actual variable in the language, which you can use like a real variable: take its address, pass it around, use it, cast it, convert it, etc. Perhaps one might think that avoiding the definition of a variable saves time and space, but with any sensible compiler optimization levels there will be no difference, as constant values are already substituted and folded at compile time. But you gain the huge advantage of type checking and making your code known to the debugger, so there's really no reason not to use named constants.
+
+:::::: kata Code Kata - Refactoring Defines
+Refactor the code snippet below that makes use of a `define` statement where a constant could have been used. Don't mind the arithmetics for now.
+
+```cpp
+#define PI 3.1415
+
+double radius = 12.5;
+
+double circleArea = PI * radius * radius;
+```
+
+::: details Solution
+
+```cpp{1}
+const double PI = 3.1415;
+
+double radius = 12.5;
+
+double circleArea = PI * radius * radius;
+```
+
+:::
+::::::
 
 ## Questions
 
-:::::: kata Question - Data
+:::::: question Question - Data
 What is the difference between data and information?
 
 ::: details Solution
@@ -456,12 +622,12 @@ Data is the raw representation of information. Information is the interpretation
 :::
 ::::::
 
-:::::: kata Question - Initialization
+:::::: question Question - Initialization
 Why do we need to initialize variables?
 
 ::: details Solution
 
-Because C++ does no do this automatically for you, at least not in all cases. Uninitialized variables contain undefined values and are considered to contain garbage data. These uninitialized variables will create trouble when using them on the right side of an assignment operation.
+Because C++ does not do this automatically for you, at least not in all cases. Uninitialized variables contain undefined values and are considered to contain garbage data. These uninitialized variables will create trouble when using them on the right side of an assignment operation.
 
 :::
 ::::::
