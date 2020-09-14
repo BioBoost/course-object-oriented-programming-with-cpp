@@ -535,6 +535,12 @@ int main() {
 }
 ```
 
+::: output
+<pre>
+There are a maximum of 24 students allowed in the classroom
+</pre>
+:::
+
 C++ inherited these preprocessor define directives from C. They are however discouraged to be used in modern code because they can introduce hard-to-track bugs and are actually handled by the preprocessor instead of the compiler.
 
 ## Constants
