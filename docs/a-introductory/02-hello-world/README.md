@@ -320,7 +320,7 @@ A statement is an expression that expresses some action to be carried out. This 
 
 ## Questions
 
-:::::: kata Question - endl
+:::::: question Question - endl
 What does `std::endl` do? It is often found after outputting some information to the terminal.
 
 ::: details Solution
