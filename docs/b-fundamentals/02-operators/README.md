@@ -448,6 +448,8 @@ Operators can also be categorized depending on the number of operands they take.
 
 ## List of C++ Operators
 
-While not all operators are discussed in this chapter, here is a list of the most common C++ operators, their precedence and associativity. By the end of this course all these operators should be clear to you.
+While not all operators are discussed in this chapter, here is a list of the most common C++ operators, their precedence and associativity. Operators with the highest precedence appear at the top of the table, those with the lowest appear at the bottom. Within an expression, higher precedence operators will be evaluated first.
 
-![List of C++ Operators - Source: http://www.cplusplus.com/doc/tutorial/operators/](./img/list_of_operators.png)
+![List of C++ Operators - Source: https://www.tutorialspoint.com/cplusplus/cpp_operators.htm](./img/list_of_operators.png)
+
+By the end of this course all these operators should be clear to you.
