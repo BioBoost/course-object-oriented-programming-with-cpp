@@ -22,9 +22,9 @@ A statement is a chunk of code that performs an action and is terminated by a se
 So basically `x = y + 3;` is a statement that consists of the three expressions `y`, `y + 3` and `x = y + 3`.
 :::
 
-## Mathematical Operators
+## Arithmetic Operators
 
-The most basic operators are the mathematical operators. They are easy to understand because they have the same functionality as in math. The following operators are available to do basic math operations:
+The most basic operators are the Arithmetic operators. They are easy to understand because they have the same functionality as in math. The following operators are available to do basic math operations:
 
 | Operator | Description |
 | --- | --- |
@@ -126,44 +126,6 @@ Operators that have the same precedence are bound to their arguments in the dire
 [https://www.youtube.com/watch?v=THiWb_5N73g](https://www.youtube.com/watch?v=THiWb_5N73g)
 :::
 
-### Compound Operators
-
-Programmers are very lazy creatures that are always looking for ways to make their life's easier. That is why the compound operators were invented. They are a way to write shorter mathematical operations on the same variable as the result should be stored in.
-
-```cpp
-int x = 5;
-
-x += 4;   // Same as writing x = x + 4;
-x -= 4;   // Same as writing x = x - 4;
-x *= 4;   // Same as writing x = x * 4;
-x /= 4;   // Same as writing x = x / 4;
-x %= 4;   // Same as writing x = x % 4;
-```
-
-:::::: kata Code Kata - 24 hours
-
-Consider the following example, a code snippet from a student, programming a clock which can display the time in `24h` format. The student however has a small problem where the hours sometimes become bigger than `23`. Can you think of a single operator statement to limit the hours to a value between `0` and `23`?
-
-```cpp
-int hours = 25;
-
-// How can we limit hours here so it wraps around to 1?
-```
-
-::: details Solution
-
-This is a typical use case of the modulo operator. The second operator can be used to limit the range of the first operator (at least if it's a value between `0` and the right operand).
-
-```cpp
-int hours = 25;
-
-// hours is limited to [0, 23]
-hours %= 24;
-```
-
-:::
-::::::
-
 ### Increment and Decrement Operators
 
 Incrementing (+1) and decrementing (-1) a variable is done very often in a programming language. It is one of the most used operations on integral values. It is most common used in loop-constructs as will become clear in the next chapters.
@@ -256,11 +218,11 @@ Note how two equality signs `==` are required to test if two values are equal, w
 
 While the comparison operators will not often be used in a situation as shown in the previous code, they will often be used to make decisions in code.
 
-## Conditional Operators
+## Logical Operators
 
-More complex conditional expressions can be created by combining multiple conditional expressions. This can be achieved by using the conditional operators.
+More complex conditional expressions can be created by combining multiple conditional expressions. This can be achieved by using the logical operators.
 
-The table below gives an overview of the available conditional operators in C++.
+The table below gives an overview of the available logical operators in C++.
 
 | Operator | Description |
 |---|---|
@@ -281,7 +243,7 @@ bool isAnAdult = (age >= 18 && age <= 75);      // false
 
 ### Lazy Evaluation
 
-The conditional operators exhibit **"short-circuiting"** behavior, which means that the second operand is evaluated only if needed. This is also called **lazy evaluation**. So for example in an OR statement, if the first operand evaluates to `true` the outcome must also be `true`. For this reason the second operand is not checked anymore.
+The logical operators exhibit **"short-circuiting"** behavior, which means that the second operand is evaluated only if needed. This is also called **lazy evaluation**. So for example in an OR statement, if the first operand evaluates to `true` the outcome must also be `true`. For this reason the second operand is not checked anymore.
 
 This can lead to confusing C++ constructions which should be avoided when possible. However as a future professional C++ programmer you may encounter them and need to understand their behavior.
 
@@ -319,7 +281,65 @@ Result: 0
 
 Do note that in the last example the postfix operator is used and not the prefix operator. Meaning that the value of `counter` is evaluated before it is incremented. As its initial value was `0` it is evaluated to `false`, meaning that `result` is assigned `false`.
 
+## The Conditional Operator
+
+The conditional operator returns one of two values depending on the result of an expression. The returned value can then be used in another expression or assigned to a variable for later use.
+
+![The Conditional Operator](./img/conditional-operator.png)
+
+Its syntax is as follows:
+
+```cpp
+(expression1) ? expression2 : expression3
+```
+
+The parentheses around the first expression are optional but most programmers will place them as often the first expression is a conditional expression.
+
+An example will greatly clarify things:
+
+```cpp
+int someValue = -13;
+int absoluteValue = (someValue > 0) ? someValue : -someValue;
+```
+
+Basically the previous code snippet converts a signed integral value to its absolute value (value without a sign).
+
+The conditional operator is the only operator in C++ that takes **three operands**. That's why it is also often called **the ternary** operator.
+
+While it is possible to nest the ternary operator, it is strongly discouraged as it will lead to unreadable constructions.
+
+::: tip Tip - Video on the Conditional Operator
+[https://www.youtube.com/watch?v=ezqsL-st8qg](https://www.youtube.com/watch?v=ezqsL-st8qg)
+:::
+
 ## BitWise Operators
+
+Bitwise operators **work on bits** and perform bit-by-bit operations.
+
+### Boolean Operators
+
+The next table shows an overview of the boolean operators supported by C++.
+
+| Operator | Description |
+|---|---|
+| `&` | Boolean *AND* operator |
+| `|` | Boolean *OR* operator |
+| `~` | Boolean *NOT* operator |
+| `^` | Boolean *XOR* operator |
+
+Note that the *NOT* operator is the only boolean unary operator as it only takes a single argument. The other operators are all binary operators.
+
+Study the example below. The results are shown in comments:
+
+```cpp
+unsigned char a = 0b1010'1010;
+unsigned char b = 0b0000'1111;
+
+unsigned char x = a & b;    // 0b0000'1010
+unsigned char y = a | b;    // 0b1010'1111
+unsigned char z = a ^ b;    // 0b1010'0101
+unsigned char w = ~b;       // 0b1111'0000
+```
 
 ### Shift Operators
 
@@ -327,8 +347,8 @@ The shift operators bitwise shift the value off their left operand by the number
 
 | Operator | Description |
 |---|---|
-| `<<` | left shift|
-| `>>` | right shift|
+| `<<` | left shift |
+| `>>` | right shift |
 
 Both operators take two operands. On the left side the value to shift and on the right side the number of places to shift.
 Left shifting an integer `a` with an integer `b` (`a << b`) is equivalent to multiplying `a` with `2^b` (2 raised to the power `b`) while right shifting an integer `a` with an integer `b` (`a >> b`) is equivalent to diving `a` with `2^b`.
@@ -359,3 +379,75 @@ Care should be taken when the values of either operand might be negative because
 If the number is shifted more than the size of integer, the behavior is also undefined. For example, `1 << 33` is undefined if integers are stored using 32 bits.
 
 <!-- Apparently shift operators are a mess for for negative numbers (https://en.cppreference.com/w/cpp/language/operator_arithmetic#Bitwise_shift_operators) -->
+
+### Assignment Operators
+
+Next to the basic assignment operator `=`, C++ also supports a whole collection of **compound** assignment operators.
+
+Programmers are very lazy creatures that are always looking for ways to make their life's easier. That is why the compound operators were invented. They are a way to **write shorter mathematical operations** on the same variable as the result should be stored in.
+
+| Operator | Description |
+|---|---|
+| `=` | Assign value from right operand to left operand. |
+| `+=` | Add left operand to right operand and assign result to left operand |
+| `-=` | Subtract left operand from right operand and assign result to left operand  |
+| `*=` | Multiply left operand by right operand and assign result to left operand |
+| `/=` | Divide left operand by right operand and assign result to left operand |
+| `%=` | Divide left operand by right operand and assign remainder to left operand |
+| `<<=` | Left shift left operand by right operand and assign result to left operand |
+| `>>=` | Right shift left operand by right operand and assign result to left operand |
+| `&=` | Bitwise AND left operand with right operand and assign result to left operand |
+| `|=` | Bitwise OR left operand with right operand and assign result to left operand |
+| `^=` | Bitwise XOR left operand with right operand and assign result to left operand |
+
+Note that there are no compound operators available for the logical operators.
+
+```cpp
+int x = 5;
+
+x += 4;   // Same as writing x = x + 4;
+x -= 4;   // Same as writing x = x - 4;
+x *= 4;   // Same as writing x = x * 4;
+x /= 4;   // Same as writing x = x / 4;
+x %= 4;   // Same as writing x = x % 4;
+```
+
+:::::: kata Code Kata - 24 hours
+
+Consider the following example, a code snippet from a student, programming a clock which can display the time in `24h` format. The student however has a small problem where the hours sometimes become bigger than `23`. Can you think of a single operator statement to limit the hours to a value between `0` and `23`?
+
+```cpp
+int hours = 25;
+
+// How can we limit hours here so it wraps around to 1?
+```
+
+::: details Solution
+
+This is a typical use case of the modulo operator. The second operator can be used to limit the range of the first operator (at least if it's a value between `0` and the right operand).
+
+```cpp
+int hours = 25;
+
+// hours is limited to [0, 23]
+hours %= 24;
+```
+
+:::
+::::::
+
+## Number of Operands
+
+Operators can also be categorized depending on the number of operands they take.
+
+* **Unary Operators**: Unary operators only require a single operand. The most common example is the minus-operators, which changes the sign of the value provided as the operand. For example: `-3`.
+
+* **Binary Operators**: Binary operators require two operands to perform their operation. The arithmetic operators are the most familiar examples of binary operators. For example: `health + 15`, where the operator is `+`, and `health` and `15` are the operands.
+
+* **Ternary Operator**: The C++ language has only a single ternary operator, namely the conditional operator `?:`, often also called THE ternary operator. Ex. `(age > 18 ? "Adult" : "Non-Adult"). The result of this ternary operator can then be assigned to a variable or used somewhere else in code.
+
+## List of C++ Operators
+
+While not all operators are discussed in this chapter, here is a list of the most common C++ operators, their precedence and associativity. By the end of this course all these operators should be clear to you.
+
+![List of C++ Operators - Source: http://www.cplusplus.com/doc/tutorial/operators/](./img/list_of_operators.png)
