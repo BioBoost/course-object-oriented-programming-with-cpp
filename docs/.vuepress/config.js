@@ -150,6 +150,7 @@ module.exports = {
         children: [
           '/y-reference/keyword-overview/',
           '/y-reference/std-overview/',
+          ['https://www.stroustrup.com/bs_faq2.html', 'Bjarne Stroustrups C++ Style and Technique FAQ']
         ]
       },
     ],
