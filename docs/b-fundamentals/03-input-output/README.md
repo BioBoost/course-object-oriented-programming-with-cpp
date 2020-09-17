@@ -212,6 +212,7 @@ cerr << "This is an error" << endl;
 This is normal output
 This is an error
 </pre>
+:::
 
 Running the previous code does not allow us to differentiate between the output.
 
