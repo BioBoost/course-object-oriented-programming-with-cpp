@@ -6,7 +6,7 @@ module.exports = {
       {text: 'Toledo', link: 'https://toledo.kuleuven.be/portal'},
       {text: 'DevBit Courses', link: 'https://www.devbit.courses/'},
       {text: 'Report Issue', link: 'https://github.com/BioBoost/course-object-oriented-programming-with-cpp/issues'},
-      {text: 'Challenges', link: 'https://github.com/BioBoost/challenges-cpp'}
+      // {text: 'Challenges', link: 'https://github.com/BioBoost/challenges-cpp'}
     ],
     sidebar: [
       {
@@ -44,112 +44,112 @@ module.exports = {
           '/b-fundamentals/08-functions/',
         ]
       },
-      {
-        title: 'Object Oriented Thinking',   // required
-        // path: '/foo/',      // optional, which should be a absolute path.
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
-        children: [
-          '/c-object-oriented-thinking/',
-          '/c-object-oriented-thinking/abstraction/',
-          '/c-object-oriented-thinking/all_about_objects/',
-        ]
-      },
-      {
-        title: 'Object Oriented Programming',   // required
-        // path: '/foo/',      // optional, which should be a absolute path.
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
-        children: [
-          '/d-object-oriented-programming/01-using-objects/',
-          '/d-object-oriented-programming/02-creating-classes/',
-          '/d-object-oriented-programming/03-structs/',
-          '/d-object-oriented-programming/04-composition/',
-          '/d-object-oriented-programming/05-constructors/',
-          '/d-object-oriented-programming/06-destructors/',
-        ]
-      },
-      {
-        title: 'Compiling and Linking',   // required
-        // path: '/foo/',      // optional, which should be a absolute path.
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
-        children: [
-          '/e-compiling-and-linking/01-the-compilation-process/',
-          '/e-compiling-and-linking/02-makefiles/',
-          '/e-compiling-and-linking/03-libraries/'
-        ]
-      },
-      {
-        title: 'More Advanced C++',   // required
-        // path: '/foo/',      // optional, which should be a absolute path.
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
-        children: [
-          '/f-more-advanced-cpp/01-pointers/',
-          '/f-more-advanced-cpp/02-exceptions/',
-          '/f-more-advanced-cpp/03-file-streams/',
-          '/f-more-advanced-cpp/04-dynamic-memory-allocation/',
-          '/f-more-advanced-cpp/05-standard-templating-libraries/',
-          '/f-more-advanced-cpp/06-smart-pointers/',
-        ]
-      },
-      {
-        title: 'Inheritance',   // required
-        // path: '/foo/',      // optional, which should be a absolute path.
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
-        children: [
-          '/g-inheritance/01-basic-inheritance/',
-          '/g-inheritance/02-interfaces/',
-          '/g-inheritance/03-polymorphism/',
-          '/g-inheritance/04-multiple-inheritance/'
-        ]
-      },
-      {
-        title: 'Mental Topics',   // required
-        // path: '/foo/',      // optional, which should be a absolute path.
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
-        children: [
-          '/h-mental-topics/01-threads/',
-          '/h-mental-topics/02-operator-overloading/',
-          '/h-mental-topics/03-templating/'
-        ]
-      },
-      {
-        title: 'Common Design Patterns',
-        // path: '/foo/',      // optional, which should be a absolute path.
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
-        children: [
-          '/w-common-design-patterns/factory-pattern/',
-          '/w-common-design-patterns/singleton-pattern/',
-          '/w-common-design-patterns/observer-pattern/',
-        ]
-      },
+      // {
+      //   title: 'Object Oriented Thinking',   // required
+      //   // path: '/foo/',      // optional, which should be a absolute path.
+      //   collapsable: false, // optional, defaults to true
+      //   sidebarDepth: 1,    // optional, defaults to 1
+      //   children: [
+      //     '/c-object-oriented-thinking/',
+      //     '/c-object-oriented-thinking/abstraction/',
+      //     '/c-object-oriented-thinking/all_about_objects/',
+      //   ]
+      // },
+      // {
+      //   title: 'Object Oriented Programming',   // required
+      //   // path: '/foo/',      // optional, which should be a absolute path.
+      //   collapsable: false, // optional, defaults to true
+      //   sidebarDepth: 1,    // optional, defaults to 1
+      //   children: [
+      //     '/d-object-oriented-programming/01-using-objects/',
+      //     '/d-object-oriented-programming/02-creating-classes/',
+      //     '/d-object-oriented-programming/03-structs/',
+      //     '/d-object-oriented-programming/04-composition/',
+      //     '/d-object-oriented-programming/05-constructors/',
+      //     '/d-object-oriented-programming/06-destructors/',
+      //   ]
+      // },
+      // {
+      //   title: 'Compiling and Linking',   // required
+      //   // path: '/foo/',      // optional, which should be a absolute path.
+      //   collapsable: false, // optional, defaults to true
+      //   sidebarDepth: 1,    // optional, defaults to 1
+      //   children: [
+      //     '/e-compiling-and-linking/01-the-compilation-process/',
+      //     '/e-compiling-and-linking/02-makefiles/',
+      //     '/e-compiling-and-linking/03-libraries/'
+      //   ]
+      // },
+      // {
+      //   title: 'More Advanced C++',   // required
+      //   // path: '/foo/',      // optional, which should be a absolute path.
+      //   collapsable: false, // optional, defaults to true
+      //   sidebarDepth: 1,    // optional, defaults to 1
+      //   children: [
+      //     '/f-more-advanced-cpp/01-pointers/',
+      //     '/f-more-advanced-cpp/02-exceptions/',
+      //     '/f-more-advanced-cpp/03-file-streams/',
+      //     '/f-more-advanced-cpp/04-dynamic-memory-allocation/',
+      //     '/f-more-advanced-cpp/05-standard-templating-libraries/',
+      //     '/f-more-advanced-cpp/06-smart-pointers/',
+      //   ]
+      // },
+      // {
+      //   title: 'Inheritance',   // required
+      //   // path: '/foo/',      // optional, which should be a absolute path.
+      //   collapsable: false, // optional, defaults to true
+      //   sidebarDepth: 1,    // optional, defaults to 1
+      //   children: [
+      //     '/g-inheritance/01-basic-inheritance/',
+      //     '/g-inheritance/02-interfaces/',
+      //     '/g-inheritance/03-polymorphism/',
+      //     '/g-inheritance/04-multiple-inheritance/'
+      //   ]
+      // },
+      // {
+      //   title: 'Mental Topics',   // required
+      //   // path: '/foo/',      // optional, which should be a absolute path.
+      //   collapsable: false, // optional, defaults to true
+      //   sidebarDepth: 1,    // optional, defaults to 1
+      //   children: [
+      //     '/h-mental-topics/01-threads/',
+      //     '/h-mental-topics/02-operator-overloading/',
+      //     '/h-mental-topics/03-templating/'
+      //   ]
+      // },
+      // {
+      //   title: 'Common Design Patterns',
+      //   // path: '/foo/',      // optional, which should be a absolute path.
+      //   collapsable: false, // optional, defaults to true
+      //   sidebarDepth: 1,    // optional, defaults to 1
+      //   children: [
+      //     '/w-common-design-patterns/factory-pattern/',
+      //     '/w-common-design-patterns/singleton-pattern/',
+      //     '/w-common-design-patterns/observer-pattern/',
+      //   ]
+      // },
       // Not sure about how to call this chapter. Or maybe should be split up.
-      {
-        title: 'Guides',
-        // path: '/foo/',      // optional, which should be a absolute path.
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
-        children: [
-          '/x-guides/linked-lists/',
-          '/x-guides/json/',
-          '/x-guides/mqtt/',
-          '/x-guides/generating-documentation/',
-          '/x-guides/cross-compiling-for-rpi/',
-          '/x-guides/remote-debugging/',
-        ]
-      },
+      // {
+      //   title: 'Guides',
+      //   // path: '/foo/',      // optional, which should be a absolute path.
+      //   collapsable: false, // optional, defaults to true
+      //   sidebarDepth: 1,    // optional, defaults to 1
+      //   children: [
+      //     '/x-guides/linked-lists/',
+      //     '/x-guides/json/',
+      //     '/x-guides/mqtt/',
+      //     '/x-guides/generating-documentation/',
+      //     '/x-guides/cross-compiling-for-rpi/',
+      //     '/x-guides/remote-debugging/',
+      //   ]
+      // },
       {
         title: 'References',
         // path: '/foo/',      // optional, which should be a absolute path.
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '/y-reference/keyword-overview/',
+          // '/y-reference/keyword-overview/',
           '/y-reference/std-overview/',
           ['https://www.stroustrup.com/bs_faq2.html', 'Bjarne Stroustrups C++ Style and Technique FAQ']
         ]
