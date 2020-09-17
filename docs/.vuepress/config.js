@@ -90,7 +90,8 @@ module.exports = {
           '/f-more-advanced-cpp/02-exceptions/',
           '/f-more-advanced-cpp/03-file-streams/',
           '/f-more-advanced-cpp/04-dynamic-memory-allocation/',
-          '/f-more-advanced-cpp/05-standard-templating-libraries/'
+          '/f-more-advanced-cpp/05-standard-templating-libraries/',
+          '/f-more-advanced-cpp/06-smart-pointers/',
         ]
       },
       {
