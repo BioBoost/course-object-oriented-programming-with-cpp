@@ -25,7 +25,7 @@ All output streams (`cout`, `cerr` and `clog`) work exactly the same way. Only t
 
 ## Standard Output Stream
 
-In C++, output to the display console is done via "cout" and the stream insertion operator `<<`. The `<<` operator inserts the data that follows it into the stream that precedes it.
+In C++, output to the display console is done via `cout` and the stream insertion operator `<<`. The `<<` operator inserts the data that follows it into the stream that precedes it.
 
 ```cpp
 cout << "Hello World" << endl;
@@ -117,11 +117,110 @@ The table below lists the most used escape sequences.
 
 ## Standard Input Stream
 
-TODO
+The `cin` object in C++ is an object of class `istream`. It is used to accept the input from the standard input device. In most program environments, the standard input is by default the keyboard.
+
+The `cin` object is used together with the extraction operator `>>`. This operator is then followed by the variable where the extracted data is to be stored.
+
+Take a look at a small example that requests the age of the user:
+
+```cpp
+cout << "Please enter your age: ";
+
+unsigned int userAge;
+cin >> userAge;
+
+cout << "Great. I am also "
+  << userAge << " years of age." << endl;
+```
+
+::: output
+<pre>
+Please enter your age: 19
+Great. I am also 19 years of age.
+</pre>
+:::
+
+:::::: question Question - Wrong Input
+
+What happens when the user inputs something different than a number. For example a character `b` or a string `Hello`? Can you explain what happens? How can we detect this?
+
+```cpp
+cout << "Please enter a number: ";
+
+int number;
+cin >> number;
+```
+
+::: details Solution
+
+Basically everything that the user inputs is read as a string of characters. This string is then converted to the desired type depending on the variable type to which the data is extracted (second operand of `>>`).
+
+If the user inputs something different from an unsigned number here, `cin` will indicate an error by setting the `fail` flag. The state of this can be retrieved using `cin.fail()` which returns `true` or `false`. Do note that the application does not crash (some programming languages will generate an exception in this case).
+
+This can be demonstrated using the following code snippet:
+
+```cpp
+cout << "Please enter a number: ";
+
+int number;
+cin >> number;
+
+cout << "Failed? " << cin.fail() << endl;
+```
+
+:::
+::::::
+
+The extraction operator can actually be used more than once to accept multiple inputs as shown in the next example.
+
+```cpp
+cout << "Please enter two numbers: ";
+
+int numberA;
+int numberB;
+
+cin >> numberA >> numberB;
+
+cout << "Sum: " << (numberA + numberB) << endl;
+```
+
+### For Future Reference
+
+The `cin` object can also be used with other methods. Some of the commonly used methods are:
+
+* `cin.get()`: Read a single input character
+* `cin.getline()`: Reads a stream of characters into the string buffer, It stops when the buffer is filled or when an end-of-line is detected.
+* `cin.read()`: Read a number of bytes or until an end-of-line is detected from the stream into a buffer.
+* `cin.ignore()`: Ignores a number of characters from the input stream.
+* `cin.eof()`: Returns a nonzero value if the end-of-file (eof) is reached.
+
+More info about these methods can be found at [http://www.cplusplus.com/reference/istream/istream/](http://www.cplusplus.com/reference/istream/istream/).
 
 ## Standard Error Stream
 
-TODO
+The standard error stream `cerr` is the default destination for error messages and other diagnostic warnings. Like `cout``, it is usually also directed by default to the text console (generally, on the screen).
+
+Although in many cases both `cout` and `cerr` are associated with the same output device (like the console), applications may differentiate between what is sent to `cout` and what to `cerr` for the case that one of them is redirected. For example, regular output may be shown in the terminal, while error messages are logged to a file.
+
+```cpp
+cout << "This is normal output" << endl;
+cerr << "This is an error" << endl;
+```
+
+::: output
+<pre>
+This is normal output
+This is an error
+</pre>
+
+Running the previous code does not allow us to differentiate between the output.
+
+However if we run the binary as follows in (works both with PowerShell and bash), the error output can be redirected to a file:
+
+```bash
+./app 2>error.log
+This is normal output
+```
 
 ## Changing the Number System
 
