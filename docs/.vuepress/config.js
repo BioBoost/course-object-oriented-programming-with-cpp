@@ -6,7 +6,7 @@ module.exports = {
       {text: 'Toledo', link: 'https://toledo.kuleuven.be/portal'},
       {text: 'DevBit Courses', link: 'https://www.devbit.courses/'},
       {text: 'Report Issue', link: 'https://github.com/BioBoost/course-object-oriented-programming-with-cpp/issues'},
-      // {text: 'Challenges', link: 'https://github.com/BioBoost/challenges-cpp'}
+      {text: 'Organization', link: 'https://github.com/vives-oop2-2020'}
     ],
     sidebar: [
       {
@@ -34,7 +34,7 @@ module.exports = {
           '/b-fundamentals/01-variables-and-datatypes/',
           '/b-fundamentals/02-operators/',
           '/b-fundamentals/03-input-output/',
-          '/b-fundamentals/04-branching/',
+          '/b-fundamentals/04-conditional-constructs/',
           '/b-fundamentals/05-loops/',
           '/b-fundamentals/06-arrays/',
           '/b-fundamentals/07-enums/',
