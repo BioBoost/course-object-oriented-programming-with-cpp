@@ -59,7 +59,7 @@ To create custom functions two components are required:
 
 The general form of a C++ function definition looks like the template below
 
-```text
+```cpp
 <return_type> function_name( <comma_separated_parameter_list> ) {
   // Statements (body / implementation)
   return <value>;  // In case of a non-void function
@@ -101,7 +101,7 @@ A function declaration tells the compiler about a functions name and how to call
 
 A function declaration has the following parts:
 
-```text
+```cpp
 <return_type> function_name( <comma_separated_parameter_list> );
 ```
 
