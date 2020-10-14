@@ -52,20 +52,20 @@ module.exports = {
       //     '/c-object-oriented-thinking/all_about_objects/',
       //   ]
       // },
-      // {
-      //   title: 'Object Oriented Programming',   // required
-      //   // path: '/foo/',      // optional, which should be a absolute path.
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     '/d-object-oriented-programming/01-using-objects/',
-      //     '/d-object-oriented-programming/02-creating-classes/',
-      //     '/d-object-oriented-programming/03-structs/',
-      //     '/d-object-oriented-programming/04-composition/',
-      //     '/d-object-oriented-programming/05-constructors/',
-      //     '/d-object-oriented-programming/06-destructors/',
-      //   ]
-      // },
+      {
+        title: 'Object Oriented Programming',   // required
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          // '/d-object-oriented-programming/01-using-objects/',
+          '/d-object-oriented-programming/02-creating-classes/',
+          // '/d-object-oriented-programming/03-constructors/',
+          // '/d-object-oriented-programming/04-composition/',
+          // '/d-object-oriented-programming/05-destructors/',
+          // '/d-object-oriented-programming/06-structs/',
+        ]
+      },
       // {
       //   title: 'Compiling and Linking',   // required
       //   // path: '/foo/',      // optional, which should be a absolute path.
