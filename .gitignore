@@ -21,7 +21,5 @@ playground/
 # Ignore vscode project settings dir
 .vscode/
 
-# Ignore solution dirs
-cpp_solutions_to_challenges/
-cpp_solutions_to_exercises/
-cpp_practical/
+# Ignore playground directory with demo code
+playground/
