@@ -289,3 +289,5 @@ Constructing Television
 ```
 
 In practice most classes will have default constructors and if you need to change anything to the state of the internal objects you can often do this by calling the appropriate setters. However, if other constructors are available which initialize the sub-object to the wanted state, it is a good idea to use them as it keeps the code cleaner.
+
+<!-- Maybe we should add another section where we apply all this to the `Point` class from the previous section. -->
