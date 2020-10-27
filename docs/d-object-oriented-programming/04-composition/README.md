@@ -290,4 +290,121 @@ Constructing Television
 
 In practice most classes will have default constructors and if you need to change anything to the state of the internal objects you can often do this by calling the appropriate setters. However, if other constructors are available which initialize the sub-object to the wanted state, it is a good idea to use them as it keeps the code cleaner.
 
-<!-- Maybe we should add another section where we apply all this to the `Point` class from the previous section. -->
+## LineSegment Example
+
+Let's apply all this knowledge on a class `LineSegment` that models a line from a start point to an end point. In the previous section (constructors) we've build a `Point` class that is perfect for this.
+
+The `LineSegment` can be composed of a start `Point` and an end `Point` as shown in the class definition:
+
+```cpp
+// line_segment.h
+#pragma once
+#include "point.h"
+
+namespace Geometry {
+
+  class LineSegment {
+  public:
+    LineSegment(void);
+    LineSegment(double x1, double y1, double x2, double y2);
+    LineSegment(Point start, Point end);
+
+  public:
+    void set_start(Point start);
+    void set_end(Point end);
+
+  public:
+    double length(void);
+
+  private:
+    Point start;
+    Point end;
+  };
+
+};
+```
+
+By adding multiple constructors, an object of `LineSegment` can be instantiated using a both coordinates as well as `Point` instances for `start` and `end`.
+
+A possible implementation for the `LineSegment` class could then be:
+
+```cpp
+// line_segment.cpp
+#include "line_segment.h"
+#include <cmath>    // for sqrt
+
+namespace Geometry {
+
+  LineSegment::LineSegment(void) {
+    // No need to do anything. Point's default constructors
+    // will automatically be called
+  }
+
+  LineSegment::LineSegment(double x1, double y1, double x2, double y2)
+    : start(x1, y1), end(x2, y2) {
+      // Call specific constructors of the points.
+
+      // We also could of called the move method here but
+      // code is cleaner like this
+  }
+
+  LineSegment::LineSegment(Point start, Point end) {
+    // Calling setters is cleanest here
+    set_start(start);
+    set_end(end);
+  }
+
+  void LineSegment::set_start(Point start) {
+    this->start = start;
+  }
+
+  void LineSegment::set_end(Point end) {
+    this->end = end;
+  }
+
+  double LineSegment::length(void) {
+    return sqrt(
+      (start.get_x() - end.get_x()) * (start.get_x() - end.get_x())
+      +
+      (start.get_y() - end.get_y()) * (start.get_y() - end.get_y())
+    );
+  }
+
+};
+```
+
+with a small demo app being:
+
+```cpp
+#include <iostream>
+#include "line_segment.h"
+
+using namespace std;
+
+int main() {
+  cout << "Line Segment demo" << endl;
+
+  Geometry::Point start(7, 11);
+  Geometry::Point end(-1, 5);
+
+  Geometry::LineSegment line0;
+  cout << "Line 0 has a length of " << line0.length() << endl;
+
+  Geometry::LineSegment line1(start, end);
+  cout << "Line 1 has a length of " << line1.length() << endl;
+
+  Geometry::LineSegment line2(1, 3, -2, 9);
+  cout << "Line 2 has a length of " << line2.length() << endl;
+
+  return 0;
+}
+```
+
+::: output
+<pre>
+Line Segment demo
+Line 0 has a length of 0
+Line 1 has a length of 10
+Line 2 has a length of 6.7082
+</pre>
+:::
