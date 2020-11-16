@@ -564,23 +564,18 @@ int main() {
 
 This is the same notation as used inside a method when accessing the `this` reference of the instantiated object.
 
-<!-- So Why pointers?
-Arrays are pointers
-Allow functions/methods to manipulate incoming data
-Dynamic Memory
-Casting to other types?
-Performance and Memory Usage (instead of copying large complex data) -->
-<!-- Sharing data/memory between objects -->
-<!-- File handlind (read, write, ...) -->
-<!-- this = pointer to current instance -->
+## So Why Pointers?
 
-<!-- Uses of pointers:
+*TODO - Explain more in detail*
 
-To pass arguments by reference
-For accessing array elements
-To return multiple values
-Dynamic memory allocation
-To implement data structures
-To do system level programming where memory addresses are useful -->
-
-<!-- Need to explain pass by reference -->
+* Arrays are pointers
+* Allow functions/methods to manipulate incoming data
+* Dynamic Memory will require pointer usage (later)
+* Performance and Memory Usage (instead of copying large complex data)
+* Sharing data/memory/objects between objects
+* File handling (read, write, ...)
+* `this` = pointer to current instance
+* To return multiple values
+* Implementing data structures (linked list, trees, maps, ...)
+* Pointers to functions/methods, allowing callbacks and dynamic behavior
+* System level programming where memory addresses are a necessity
