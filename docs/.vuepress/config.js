@@ -66,17 +66,17 @@ module.exports = {
           // '/d-object-oriented-programming/06-structs/',
         ]
       },
-      // {
-      //   title: 'Compiling and Linking',   // required
-      //   // path: '/foo/',      // optional, which should be a absolute path.
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     '/e-compiling-and-linking/01-the-compilation-process/',
-      //     '/e-compiling-and-linking/02-makefiles/',
-      //     '/e-compiling-and-linking/03-libraries/'
-      //   ]
-      // },
+      {
+        title: 'Compiling and Linking',   // required
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/e-compiling-and-linking/01-the-compilation-process/',
+          // '/e-compiling-and-linking/02-makefiles/',
+          // '/e-compiling-and-linking/03-libraries/'
+        ]
+      },
       // {
       //   title: 'More Advanced C++',   // required
       //   // path: '/foo/',      // optional, which should be a absolute path.
