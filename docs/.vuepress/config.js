@@ -73,7 +73,7 @@ module.exports = {
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
           '/e-compiling-and-linking/01-the-compilation-process/',
-          // '/e-compiling-and-linking/02-makefiles/',
+          '/e-compiling-and-linking/02-makefiles/',
           // '/e-compiling-and-linking/03-libraries/'
         ]
       },
