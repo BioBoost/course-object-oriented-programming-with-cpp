@@ -83,7 +83,7 @@ module.exports = {
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          // '/f-more-advanced-cpp/01-refences/',
+          // '/f-more-advanced-cpp/01-references/',
           '/f-more-advanced-cpp/01-pointers/',
           // '/f-more-advanced-cpp/02-exceptions/',
           // '/f-more-advanced-cpp/03-file-streams/',
