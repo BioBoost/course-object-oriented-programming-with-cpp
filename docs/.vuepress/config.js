@@ -74,7 +74,7 @@ module.exports = {
         children: [
           '/e-compiling-and-linking/01-the-compilation-process/',
           '/e-compiling-and-linking/02-makefiles/',
-          // '/e-compiling-and-linking/03-libraries/'
+          '/e-compiling-and-linking/03-libraries/'
         ]
       },
       {
