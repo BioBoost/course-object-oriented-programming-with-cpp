@@ -77,20 +77,21 @@ module.exports = {
           // '/e-compiling-and-linking/03-libraries/'
         ]
       },
-      // {
-      //   title: 'More Advanced C++',   // required
-      //   // path: '/foo/',      // optional, which should be a absolute path.
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     '/f-more-advanced-cpp/01-pointers/',
-      //     '/f-more-advanced-cpp/02-exceptions/',
-      //     '/f-more-advanced-cpp/03-file-streams/',
-      //     '/f-more-advanced-cpp/04-dynamic-memory-allocation/',
-      //     '/f-more-advanced-cpp/05-standard-templating-libraries/',
-      //     '/f-more-advanced-cpp/06-smart-pointers/',
-      //   ]
-      // },
+      {
+        title: 'More Advanced C++',   // required
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          // '/f-more-advanced-cpp/01-refences/',
+          '/f-more-advanced-cpp/01-pointers/',
+          // '/f-more-advanced-cpp/02-exceptions/',
+          // '/f-more-advanced-cpp/03-file-streams/',
+          // '/f-more-advanced-cpp/04-dynamic-memory-allocation/',
+          // '/f-more-advanced-cpp/05-standard-templating-libraries/',
+          // '/f-more-advanced-cpp/06-smart-pointers/',
+        ]
+      },
       // {
       //   title: 'Inheritance',   // required
       //   // path: '/foo/',      // optional, which should be a absolute path.
