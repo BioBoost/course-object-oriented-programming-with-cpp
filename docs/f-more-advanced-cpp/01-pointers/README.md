@@ -373,7 +373,6 @@ b: 10
 </pre>
 :::
 
-
 ### Passing Arrays
 
 Since arrays are nothing more than constant pointers to the first element in the array, passing arrays is quite straight-forward. One thing to keep in mind is that there is no way to determine the number of elements inside the array when leaving the scope of the where the array was declared. On other words, you will always need to pass the length of the array to the function/method.
@@ -450,7 +449,6 @@ void print_numbers(int values[], unsigned int length) {
   cout << endl;
 }
 
-
 int main() {
   int numbers[] = { 123, 21, 33 };
   
@@ -474,3 +472,115 @@ int main() {
 :::
 
 While not mandatory we can also declare the pointer to be const. Meaning it cannot be assigned to point to another memory location. Not the same as `const int * values` which would mean that we could not change the values of the array.
+
+### Passing Objects
+
+Consider a small class `Student`:
+
+```cpp
+// student.h
+#pragma once
+class Student {
+  public:
+    Student(std::string name);
+    std::string get_name(void);
+  
+  private:
+    std::string name;
+};
+```
+
+```cpp
+// student.cpp
+#include "student.h"
+Student::Student(std::string name) {
+  this->name = name;
+}
+
+std::string Student::get_name(void) {
+  return name;
+}
+```
+
+Assume a small function in main that prints out the name of a student to the terminal. To pass a pointer to a student to the function one just needs to declare a pointer as parameter:
+
+```cpp
+void print_student(Student * student) {
+  // ...
+}
+```
+
+To access member attributes or methods of an object via a pointer, one first needs to **dereference the pointer** before using the member-operator `.` on it. As with any pointer, dereferencing is done using the dereference operator `*`.
+
+```cpp
+#include <iostream>
+#include "student.h"
+
+using namespace std;
+
+void print_student(Student * student) {
+  cout << "Our student is named " << (*student).get_name() << endl;
+}
+
+using namespace std;
+
+int main() {
+  Student mark("Mark Dekker");
+
+  print_student(&mark);
+
+  return 0;
+}
+```
+
+::: output
+Our student is named Mark Dekker
+:::
+
+Note how the dereference operation is enclosed in round brackets.
+
+Since this is used so many times in C++, the language included a **shorter and more clean operator** that allows the programmer to dereference a pointer to an object and call a member of it, namely the **arrow operator** `->`. So the example above can be rewritten as:
+
+```cpp{7}
+#include <iostream>
+#include "student.h"
+
+using namespace std;
+
+void print_student(Student * student) {
+  cout << "Our student is named " << student->get_name() << endl;
+}
+
+using namespace std;
+
+int main() {
+  Student mark("Mark Dekker");
+
+  print_student(&mark);
+
+  return 0;
+}
+```
+
+This is the same notation as used inside a method when accessing the `this` reference of the instantiated object.
+
+<!-- So Why pointers?
+Arrays are pointers
+Allow functions/methods to manipulate incoming data
+Dynamic Memory
+Casting to other types?
+Performance and Memory Usage (instead of copying large complex data) -->
+<!-- Sharing data/memory between objects -->
+<!-- File handlind (read, write, ...) -->
+<!-- this = pointer to current instance -->
+
+<!-- Uses of pointers:
+
+To pass arguments by reference
+For accessing array elements
+To return multiple values
+Dynamic memory allocation
+To implement data structures
+To do system level programming where memory addresses are useful -->
+
+<!-- Need to explain pass by reference -->
