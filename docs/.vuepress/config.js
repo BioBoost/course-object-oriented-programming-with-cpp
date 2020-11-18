@@ -127,20 +127,20 @@ module.exports = {
       //   ]
       // },
       // Not sure about how to call this chapter. Or maybe should be split up.
-      // {
-      //   title: 'Guides',
-      //   // path: '/foo/',      // optional, which should be a absolute path.
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     '/x-guides/linked-lists/',
-      //     '/x-guides/json/',
-      //     '/x-guides/mqtt/',
-      //     '/x-guides/generating-documentation/',
-      //     '/x-guides/cross-compiling-for-rpi/',
-      //     '/x-guides/remote-debugging/',
-      //   ]
-      // },
+      {
+        title: 'Guides',
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          // '/x-guides/linked-lists/',
+          // '/x-guides/json/',
+          '/x-guides/mqtt/',
+          // '/x-guides/generating-documentation/',
+          // '/x-guides/cross-compiling-for-rpi/',
+          // '/x-guides/remote-debugging/',
+        ]
+      },
       {
         title: 'References',
         // path: '/foo/',      // optional, which should be a absolute path.
