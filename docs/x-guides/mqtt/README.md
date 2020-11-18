@@ -187,3 +187,11 @@ The `-l` flags tells the linker to include the `paho-mqtt3a` and `paho-mqttpp3` 
 ## Linux
 
 Well basically you just need to follow the [WSL guide](#windows-subsystem-for-linux-2) without the need for installing Windows and WSL :).
+
+## Simple MQTT Library
+
+If you wish you can make use of my Simple MQTT Library which hides a lot of the complexity of the C++ MQTT library.
+
+Feel free to use it inside your projects. There is even a nice example included.
+
+You can find it at [https://github.com/BioBoost/simple_mqtt_client](https://github.com/BioBoost/simple_mqtt_client).
