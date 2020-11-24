@@ -85,7 +85,7 @@ module.exports = {
         children: [
           // '/f-more-advanced-cpp/01-references/',
           '/f-more-advanced-cpp/01-pointers/',
-          // '/f-more-advanced-cpp/02-exceptions/',
+          '/f-more-advanced-cpp/02-exceptions/',
           '/f-more-advanced-cpp/03-file-streams/',
           '/f-more-advanced-cpp/04-dynamic-memory-allocation/',
           // '/f-more-advanced-cpp/05-standard-templating-libraries/',
