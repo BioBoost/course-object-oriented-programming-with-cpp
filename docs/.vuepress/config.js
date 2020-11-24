@@ -63,7 +63,7 @@ module.exports = {
           '/d-object-oriented-programming/03-constructors/',
           '/d-object-oriented-programming/04-composition/',
           // '/d-object-oriented-programming/05-destructors/',
-          // '/d-object-oriented-programming/06-structs/',
+          '/d-object-oriented-programming/06-structs/',
         ]
       },
       {
