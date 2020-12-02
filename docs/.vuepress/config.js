@@ -92,18 +92,18 @@ module.exports = {
           // '/f-more-advanced-cpp/06-smart-pointers/',
         ]
       },
-      // {
-      //   title: 'Inheritance',   // required
-      //   // path: '/foo/',      // optional, which should be a absolute path.
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     '/g-inheritance/01-basic-inheritance/',
-      //     '/g-inheritance/02-interfaces/',
-      //     '/g-inheritance/03-polymorphism/',
-      //     '/g-inheritance/04-multiple-inheritance/'
-      //   ]
-      // },
+      {
+        title: 'Inheritance',   // required
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/g-inheritance/01-basic-inheritance/',
+          // '/g-inheritance/02-interfaces/',
+          '/g-inheritance/03-polymorphism/',
+          // '/g-inheritance/04-multiple-inheritance/'
+        ]
+      },
       // {
       //   title: 'Mental Topics',   // required
       //   // path: '/foo/',      // optional, which should be a absolute path.
