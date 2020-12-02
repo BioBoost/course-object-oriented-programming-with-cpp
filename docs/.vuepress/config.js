@@ -142,6 +142,15 @@ module.exports = {
         ]
       },
       {
+        title: 'Example Apps',
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          ['https://github.com/BioBoost/word-blaster-solution', 'Word Blaster'],
+        ]
+      },
+      {
         title: 'References',
         // path: '/foo/',      // optional, which should be a absolute path.
         collapsable: false, // optional, defaults to true
