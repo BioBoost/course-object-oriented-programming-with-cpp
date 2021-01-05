@@ -2,9 +2,7 @@
 description: needs to be done
 ---
 
-# Standard Library Overview
-
-## Vector class
+# Vector class
 
 Vectors are sequence containers representing arrays that can change in size.
 
@@ -12,7 +10,7 @@ Vectors are sequence containers representing arrays that can change in size.
 | --- | --- |
 | `std::vector` | `#include <vector>` |
 
-### Common Methods
+## Common Methods
 
 | Common Methods | Description |
 | --- | --- |
@@ -21,7 +19,7 @@ Vectors are sequence containers representing arrays that can change in size.
 | `.clear()` | remove all elements |
 | `operator[]` | access specified element |
 
-### Usage Example
+## Usage Example
 
 ```cpp
 #include <iostream>

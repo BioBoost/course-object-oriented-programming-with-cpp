@@ -151,13 +151,21 @@ module.exports = {
         ]
       },
       {
+        title: 'Standard Library',
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/y-standard-library/std-vector/'
+        ]
+      },
+      {
         title: 'References',
         // path: '/foo/',      // optional, which should be a absolute path.
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          // '/y-reference/keyword-overview/',
-          '/y-reference/std-overview/',
+          // '/z-reference/keyword-overview/',
           ['https://www.stroustrup.com/bs_faq2.html', 'Bjarne Stroustrups C++ Style and Technique FAQ']
         ]
       },
