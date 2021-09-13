@@ -21,7 +21,7 @@ module.exports = {
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          // TODO - Refactor !! '/a-introductory/01-what-is-cpp/',
+          '/a-introductory/01-what-is-cpp/',
           '/a-introductory/02-hello-world/',
         ]
       },
