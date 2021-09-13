@@ -6,13 +6,13 @@ description: needs to be done
 
 Operators are elemental programming building block which are found at the heart of every C++ statement. Operators are a symbolic representation of a single, simple task that needs to be performed by the computer. Most are based on familiar concepts and are therefore easily understood. Others are associated with more complex concepts and are therefore covered in future chapters.
 
-::: definition Definition - Operator
+::: insight Key Insight - Operator
 Operators are a symbolic representation of a single, simple task that needs to be performed by the computer.
 :::
 
 Operators perform their action on or with **operands**, be it expressions or values.
 
-::: definition Definition - Expression and Statement
+::: insight Key Insight - Expression and Statement
 An expression is "a sequence of operators and operands that specifies a computation" (that's the definition given in the C++ standard). Examples are `x`, `x + 5`, and `round(12.44)`. Even an assignment `x = 5` is an expression in C++. That's why the following is valid in C++: `x = y = b + 3`
 
 The rule is that an expression must result into a single value.
@@ -52,27 +52,6 @@ int b = a + 5;      // b = 10
 int c = 6 * b;      // c = 60
 int d = c - 120;    // d = -60
 ```
-
-:::::: kata Code Kata - Squaring a number
-
-How would you square the value in `x` and store it in `squared`? Use only the basic math operators.
-
-```cpp
-int x = 12;
-
-int squared;
-```
-
-::: details Solution
-
-```cpp
-int x = 12;
-
-int squared = x * x;
-```
-
-:::
-::::::
 
 The division and remainder operators deserve some special attention. The division operator has a different result based on the types of its left and right operand. If both are of an integral type (`short`, `int`, `byte`) then a whole division will be performed. Meaning that `3 / 2` will result in `1`. If either operand is a floating point operand (`float` or `double`) than the division operator will perform a real division: `3.0 / 2` will result in `1.5`.
 
@@ -122,9 +101,7 @@ std::cout << "The result is " << result << std::endl;
 
 Operators that have the same precedence are bound to their arguments in the direction of their associativity. For example, the expression `a = b = c` is parsed as `a = (b = c)` because of right-to-left associativity of the assignment. The expression `a + b - c` is parsed `(a + b) - c` because of left-to-right associativity of addition and subtraction.
 
-::: tip Tip - Video on Opators, precedence and associativity
-[https://www.youtube.com/watch?v=THiWb_5N73g](https://www.youtube.com/watch?v=THiWb_5N73g)
-:::
+<YoutubeVideo videoId="THiWb_5N73g" />
 
 ### Increment and Decrement Operators
 
@@ -156,32 +133,6 @@ int b = i++;  // b = 5, i = 6
 ```
 
 While this may not seem all that important at the moment, it will be when arrays and loop-constructs are introduced.
-
-:::::: question Question - Incrementing an Expression
-Knowing what you know now, could you answer the question if it would be possible to use the increment operator on an expression as demonstrated in the following code snippet.
-
-```cpp
-int x = 12;
-int y = 34;
-
-int z = (x + y)++;
-```
-
-::: details Solution
-
-The code snippit is invalid code. An expression can not be placed on the left-hand side of assignment operator. So the code would be equivalent to:
-
-```cpp
-int x = 12;
-int y = 34;
-
-int z = (x + y) = (x + y)+1;
-```
-
-It is impossible to assign `(x + y)+1` to `(x + y)`.
-
-:::
-::::::
 
 ## Comparison Operators
 
@@ -308,9 +259,7 @@ The conditional operator is the only operator in C++ that takes **three operands
 
 While it is possible to nest the ternary operator, it is strongly discouraged as it will lead to unreadable constructions.
 
-::: tip Tip - Video on the Conditional Operator
-[https://www.youtube.com/watch?v=ezqsL-st8qg](https://www.youtube.com/watch?v=ezqsL-st8qg)
-:::
+<YoutubeVideo videoId="ezqsL-st8qg" />
 
 ## BitWise Operators
 
@@ -412,30 +361,6 @@ x /= 4;   // Same as writing x = x / 4;
 x %= 4;   // Same as writing x = x % 4;
 ```
 
-:::::: kata Code Kata - 24 hours
-
-Consider the following example, a code snippet from a student, programming a clock which can display the time in `24h` format. The student however has a small problem where the hours sometimes become bigger than `23`. Can you think of a single operator statement to limit the hours to a value between `0` and `23`?
-
-```cpp
-int hours = 25;
-
-// How can we limit hours here so it wraps around to 1?
-```
-
-::: details Solution
-
-This is a typical use case of the modulo operator. The second operator can be used to limit the range of the first operator (at least if it's a value between `0` and the right operand).
-
-```cpp
-int hours = 25;
-
-// hours is limited to [0, 23]
-hours %= 24;
-```
-
-:::
-::::::
-
 ## Number of Operands
 
 Operators can also be categorized depending on the number of operands they take.
@@ -453,3 +378,40 @@ While not all operators are discussed in this chapter, here is a list of the mos
 ![List of C++ Operators - Source: https://www.tutorialspoint.com/cplusplus/cpp_operators.htm](./img/list_of_operators.png)
 
 By the end of this course all these operators should be clear to you.
+
+## Exercises
+
+Try to solve the exercises yourself. Don't go copy pasting other people's solutions.
+
+Mark the exercises using a ✅ once they are finished.
+
+### ❌ Squaring a number
+
+*How would you square the value in `x` and store it in `squared`? Use only the basic math operators.*
+
+```cpp
+int x = 12;
+
+int squared;
+```
+
+### ❌ 24 hours
+
+*Consider the following example, a code snippet from a student, programming a clock which can display the time in `24h` format. The student however has a small problem where the hours sometimes become bigger than `23`. Can you think of a single operator statement to limit the hours to a value between `0` and `23`?*
+
+```cpp
+int hours = 25;
+
+// How can we limit hours here so it wraps around to 1?
+```
+
+### ❌ Incrementing an Expression
+
+*Knowing what you know now, could you answer the question if it would be possible to use the increment operator on an expression as demonstrated in the following code snippet?*
+
+```cpp
+int x = 12;
+int y = 34;
+
+int z = (x + y)++;
+```
