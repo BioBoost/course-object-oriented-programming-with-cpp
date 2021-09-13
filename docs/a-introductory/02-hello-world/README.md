@@ -39,7 +39,7 @@ Some other useful extensions for Visual Studio Code include:
 
 As a compiler you can make use of **MinGW** which stands for "Minimalist GNU for Windows", which is a native Windows port of the GNU Compiler Collection (GCC).
 
-::: definition Definition - GNU
+::: insight Key Insight - GNU
 GNU is an operating system and an extensive collection of computer software. **GNU is composed wholly of free software**, most of which is licensed under GNU's own GPL (General Purpose License). GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code. The GNU project includes an operating system kernel, GNU HURD, which was the original focus of the Free Software Foundation (FSF). However, non-GNU kernels, most famously Linux, can also be used with GNU software; and since the kernel is the least mature part of GNU, this is how it is usually used. The combination of GNU software and the Linux kernel is commonly known as GNU/Linux.
 :::
 
@@ -186,25 +186,6 @@ int main() {
 
 In order to refer to the elements in the `std` namespace a program must either qualify each and every use of elements of the library (by prefixing the elements with `std::`), or introduce visibility of the namespace components. The most typical way to introduce visibility of these components is by means of using a declaration such as `using namespace std;`
 
-:::::: kata Code Kata - Namespace std
-Alter the hello world application by removing the statement `using namespace std;`. Fix the statements that fail by prefixing the required components with `std::`. Try to get the application to compile and run.
-
-::: details Solution
-
-```cpp{5}
-#include <iostream>
-
-int main() {
-  // Display Hello World! in the terminal
-  std::cout << "Hello World!" << std::endl;
-
-  return 0;
-}
-```
-
-:::
-::::::
-
 ### The main Function
 
 `int main()` declares a function called `main`. The main function of a C++ application is also called the **entry point** of the application. The execution of all C++ programs begins with the main function, regardless of where the function is actually located within the code.
@@ -225,26 +206,6 @@ int main() {
 Essentially, **a function is a block of statements that are grouped by a name**, in this case `main`. The return type of the `main` function is `int`, short for `integer`, stating that the function **returns an integral value upon completion**. This also explains the `return 0` statement at the end of the function block. Applications are always terminated with an integral value that represents the state with which the application was terminated. A value different from `0` indicates that something has gone wrong. If you execute your application via a terminal such as `bash` or `PowerShell` you can display the status code (the value returned by the `main` function in this case) by executing the command `echo $?`.
 
 ![Status Code of an Application](./img/status_code.png)
-
-:::::: kata Code Kata - Status Code
-Create a small C++ application that returns a value other than `0`. Typically a negative number is returned to indicate that something went wrong.
-
-::: details Solution
-
-```cpp{6,8}
-#include <iostream>
-
-using namespace std;
-
-int main() {
-  cout << "This application fails" << endl;
-
-  return -5;
-}
-```
-
-:::
-::::::
 
 Optionally the `main` function can be declared to take arguments from the command line (declared between the parentheses `()`). This will however be discussed later on in this course.
 
@@ -290,40 +251,56 @@ This statement has three parts:
 * The insertion operator `<<`, which indicates that what follows is inserted into `cout`.
 * A text sentence within quotes `"Hello world!"`, being the content inserted into the standard output. In this case **a string** (denoted by the double quotes).
 
-:::::: kata Code Kata - Personalized Output
-Alter the hello world application to output a personalized message. Try to output a text stating who made the application. Also state where you are currently following this course.
+Notice that the **statement ends with a semicolon** `;`. This character marks the end of the statement (that is why it is called the **statement terminator**). All C++ statements must end with a semicolon character. One of the most common syntax errors in C++ is forgetting to end a statement with a semicolon.
 
-::: details Solution
+::: insight Key Insight - Statement
+A statement is an expression that expresses some action to be carried out. This will not always be visual output. The statements specify the actual behavior of the application. Statements are executed in the same order that they appear. In C++ all statements must end with a `;`, the statement terminator.
+:::
 
-```cpp{6-8}
+## Exercises
+
+Try to solve the exercises yourself. Don't go copy pasting other people's solutions.
+
+Mark the exercises using a ✅ once they are finished.
+
+### ❌ endl
+
+*What does `std::endl` do? It is often found after outputting some information to the terminal. What is the difference with `"\n"`?*
+
+### ❌ Namespace std
+
+*Alter the hello world application by removing the statement `using namespace std;`. Fix the statements that fail by prefixing the required components with `std::`. Try to get the application to compile and run.*
+
+```cpp
 #include <iostream>
 
 using namespace std;
 
 int main() {
+  // Display Hello World! in the terminal
   cout << "Hello World!" << endl;
-  cout << "This C++ app was created by Nico De Witte" << endl;
-  cout << "I am a teacher at VIVES University College" << endl;
 
   return 0;
 }
 ```
 
-:::
-::::::
+### ❌ Status Code
 
-Notice that the **statement ends with a semicolon** `;`. This character marks the end of the statement (that is why it is called the **statement terminator**). All C++ statements must end with a semicolon character. One of the most common syntax errors in C++ is forgetting to end a statement with a semicolon.
+*Create a small C++ application that returns a value other than `0`. Typically a negative number is returned to indicate that something went wrong. Run that application using a terminal and show the status code.*
 
-::: definition Definition - Statement
-A statement is an expression that expresses some action to be carried out. This will not always be visual output. The statements specify the actual behavior of the application. Statements are executed in the same order that they appear. In C++ all statements must end with a `;`, the statement terminator.
-:::
+### ❌ Personalized Output
 
-## Questions
+*Alter the hello world application to output a personalized message. Try to output a text stating who made the application. Also state where you are currently following this course.*
 
-:::::: question Question - endl
-What does `std::endl` do? It is often found after outputting some information to the terminal.
+```cpp
+#include <iostream>
 
-::: details Solution
-`std::endl` inserts a newline character `'\n'` and flushes the stream buffer making sure that the content of the buffer is streamed (written) to the actual output (terminal, file, ...).
-:::
-::::::
+using namespace std;
+
+int main() {
+  // Display Hello World! in the terminal
+  cout << "Hello World!" << endl;
+
+  return 0;
+}
+```

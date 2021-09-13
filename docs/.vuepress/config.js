@@ -22,7 +22,7 @@ module.exports = {
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
           // TODO - Refactor !! '/a-introductory/01-what-is-cpp/',
-          // TODO - Refactor !! '/a-introductory/02-hello-world/',
+          '/a-introductory/02-hello-world/',
         ]
       },
       {
