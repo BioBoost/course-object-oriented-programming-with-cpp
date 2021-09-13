@@ -10,4 +10,4 @@
   publish = "docs/.vuepress/dist"
 
   # Default build command.
-  command = "yarn run docs:build"
+  command = "npm run docs:build"
