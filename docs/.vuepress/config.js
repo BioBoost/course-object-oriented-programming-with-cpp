@@ -1,90 +1,181 @@
 module.exports = {
-  title: 'Object Oriented Programming with C++',
+  title: 'Evolved C++',
   description: 'C++ Programming Course for VIVES University of Applied Sciences (Bachelor Degree)',
   themeConfig: {
     nav: [
+      {text: 'Toledo', link: 'https://toledo.kuleuven.be/portal'},
+      {text: 'DevBit Courses', link: 'https://www.devbit.courses/'},
+      {text: 'Report Issue', link: 'https://github.com/BioBoost/course-object-oriented-programming-with-cpp/issues'},
+      {text: 'Organization', link: 'https://github.com/vives-oop2-2020'}
     ],
     sidebar: [
       {
         title: 'About this Course',   // required
-        // path: '/foo/',      // optional, which should be a absolute path.
-        collapsable: true, // optional, defaults to true
+        path: '/about-this-course/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
-        children: [
-          ''
-        ]
       },
       {
-        title: 'Introduction to C++',   // required
-        // path: '/foo/',      // optional, which should be a absolute path.
+        title: 'Introductory',   // required
+        path: '/a-introductory/',      // optional, which should be a absolute path.
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '01-hello-world/',
-          '02-basics-of-cpp-in-a-nutshell/',
+          '/a-introductory/01-what-is-cpp/',
+          '/a-introductory/02-hello-world/',
         ]
       },
       {
-        title: 'Object Oriented Thinking',   // required
-        path: '/03-object-oriented-thinking/',      // optional, which should be a absolute path.
-        collapsable: false, // optional, defaults to true
-        children: [
-          '/03-object-oriented-thinking/',
-          '/03-object-oriented-thinking/abstraction/',
-          '/03-object-oriented-thinking/all_about_objects/',
-        ]
-      },
-      {
-        title: 'Basic OOP',   // required
-        // path: '/foo/',      // optional, which should be a absolute path.
+        title: 'Fundamentals',   // required
+        path: '/b-fundamentals/',      // optional, which should be a absolute path.
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '04-basics-of-classes/',
-          '05-composition/',
+          '/b-fundamentals/01-variables-and-datatypes/',
+          '/b-fundamentals/02-operators/',
+          '/b-fundamentals/03-input-output/',
+          '/b-fundamentals/04-conditional-constructs/',
+          '/b-fundamentals/05-loops/',
+          '/b-fundamentals/06-arrays/',
+          '/b-fundamentals/07-enums/',
+          '/b-fundamentals/08-functions/',
         ]
       },
+      // {
+      //   title: 'Object Oriented Thinking',   // required
+      //   // path: '/foo/',      // optional, which should be a absolute path.
+      //   collapsable: false, // optional, defaults to true
+      //   sidebarDepth: 1,    // optional, defaults to 1
+      //   children: [
+      //     '/c-object-oriented-thinking/',
+      //     '/c-object-oriented-thinking/abstraction/',
+      //     '/c-object-oriented-thinking/all_about_objects/',
+      //   ]
+      // },
       {
-        title: 'Compilation',   // required
-        // path: '/foo/',      // optional, which should be a absolute path.
-        collapsable: false, // optional, defaults to true
-        sidebarDepth: 1,    // optional, defaults to 1
-        children: [
-          '06-the-compilation-process/',
-        ]
-      },
-      {
-        title: 'Memory',   // required
+        title: 'Object Oriented Programming',   // required
         // path: '/foo/',      // optional, which should be a absolute path.
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '07-pointers/',
-          '08-dynamic-memory-allocation/',
+          // '/d-object-oriented-programming/01-using-objects/',
+          '/d-object-oriented-programming/02-creating-classes/',
+          '/d-object-oriented-programming/03-constructors/',
+          '/d-object-oriented-programming/04-composition/',
+          // '/d-object-oriented-programming/05-destructors/',
+          '/d-object-oriented-programming/06-structs/',
         ]
       },
       {
-        title: 'Working with Files',   // required
+        title: 'Compiling and Linking',   // required
         // path: '/foo/',      // optional, which should be a absolute path.
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '09-file-streams/',
+          '/e-compiling-and-linking/01-the-compilation-process/',
+          '/e-compiling-and-linking/02-makefiles/',
+          '/e-compiling-and-linking/03-libraries/'
         ]
       },
+      {
+        title: 'More Advanced C++',   // required
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          // '/f-more-advanced-cpp/01-references/',
+          '/f-more-advanced-cpp/01-pointers/',
+          '/f-more-advanced-cpp/02-exceptions/',
+          '/f-more-advanced-cpp/03-file-streams/',
+          '/f-more-advanced-cpp/04-dynamic-memory-allocation/',
+          // '/f-more-advanced-cpp/05-standard-templating-libraries/',
+          // '/f-more-advanced-cpp/06-smart-pointers/',
+        ]
+      },
+      {
+        title: 'Inheritance',   // required
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/g-inheritance/01-basic-inheritance/',
+          // '/g-inheritance/02-interfaces/',
+          '/g-inheritance/03-polymorphism/',
+          // '/g-inheritance/04-multiple-inheritance/'
+        ]
+      },
+      // {
+      //   title: 'Mental Topics',   // required
+      //   // path: '/foo/',      // optional, which should be a absolute path.
+      //   collapsable: false, // optional, defaults to true
+      //   sidebarDepth: 1,    // optional, defaults to 1
+      //   children: [
+      //     '/h-mental-topics/01-threads/',
+      //     '/h-mental-topics/02-operator-overloading/',
+      //     '/h-mental-topics/03-templating/'
+      //   ]
+      // },
+      // {
+      //   title: 'Common Design Patterns',
+      //   // path: '/foo/',      // optional, which should be a absolute path.
+      //   collapsable: false, // optional, defaults to true
+      //   sidebarDepth: 1,    // optional, defaults to 1
+      //   children: [
+      //     '/w-common-design-patterns/factory-pattern/',
+      //     '/w-common-design-patterns/singleton-pattern/',
+      //     '/w-common-design-patterns/observer-pattern/',
+      //   ]
+      // },
+      // Not sure about how to call this chapter. Or maybe should be split up.
       {
         title: 'Guides',
+        // path: '/foo/',      // optional, which should be a absolute path.
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          ['/guide-linked-lists/', 'Linked List'],
+          // '/x-guides/linked-lists/',
+          // '/x-guides/json/',
+          '/x-guides/mqtt/',
+          // '/x-guides/generating-documentation/',
+          // '/x-guides/cross-compiling-for-rpi/',
+          // '/x-guides/remote-debugging/',
+        ]
+      },
+      {
+        title: 'Example Apps',
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          ['https://github.com/BioBoost/word-blaster-solution', 'Word Blaster'],
+        ]
+      },
+      {
+        title: 'Standard Library',
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/y-standard-library/std-vector/'
+        ]
+      },
+      {
+        title: 'References',
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          // '/z-reference/keyword-overview/',
+          ['https://www.stroustrup.com/bs_faq2.html', 'Bjarne Stroustrups C++ Style and Technique FAQ']
         ]
       },
     ],
     sidebarDepth: 1,
     repo: 'BioBoost/course-object-oriented-programming-with-cpp',
     docsDir: 'docs',
-    docsBranch: 'master'
+    docsBranch: 'master',
+    lastUpdated: 'Last Updated', // string | boolean
+    smoothScroll: true
   },
   markdown: {
     lineNumbers: true,
@@ -93,27 +184,31 @@ module.exports = {
   plugins: [
     ['vuepress-plugin-zooming', {
       // selector for images that you want to be zoomable
-      // default: '.content img'
-      selector: 'img',
-
-      // make images zoomable with delay after entering a page
-      // default: 500
-      // delay: 1000,
-
-      // options of zooming
-      // default: {}
+      selector: 'img',      // default: '.content img'
       options: {
         bgColor: 'black',
         zIndex: 10000,
       },
     }],
     ['container', {
-      type: 'codeoutput',
+      type: 'output',
       defaultTitle: 'Output',
     }],
     ['container', {
-      type: 'codeurl',
-      defaultTitle: '💰 Full Code can be found at',
-    }]
+      type: 'definition',
+      defaultTitle: 'Definition',
+    }],
+    ['container', {
+      type: 'kata',
+      defaultTitle: 'Code Kata',
+    }],
+    ['container', {
+      type: 'question',
+      defaultTitle: 'Question',
+    }],
+    ['container', {
+      type: 'insight',
+      defaultTitle: 'Key Insight',
+    }],
   ],
 }

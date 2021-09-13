@@ -1,14 +1,14 @@
-.codeoutput
+.output
   padding .1rem 1.5rem
   border-radius 0.4rem
-  background-color #f0f4f8
+  background-color $output_container
   font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
   .title
     font-weight bold
   pre
     margin 0
     padding 1rem
-    background-color #f0f4f8
+    background-color $output_container
     font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
     white-space: pre-wrap;       /* css-3 */
     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
@@ -16,10 +16,73 @@
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
 
-.codeurl
+.definition
     padding .1rem 1.5rem
-    border-left-width .5rem
-    border-left-style solid
     margin 1rem 0
-    background-color #e3f2fc
-    border-color #009dff
+    background-color lighten($definition_container, 80%)
+    border-color $definition_container
+    .custom-block-title
+      color darken($definition_container, 70%)
+
+.kata
+    padding .1rem 1.5rem
+    margin 1rem 0
+    background-color lighten($kata_container, 80%)
+    border-color $kata_container
+    .custom-block-title
+      color darken($kata_container, 70%)
+    .details
+      background-color $kata_container
+      color $solarized_brwhite !important
+
+.insight
+    padding .1rem 1.5rem
+    margin 1rem 0
+    background-color lighten($insight_container, 80%)
+    border-color $insight_container
+    .custom-block-title
+      color darken($insight_container, 70%)
+    .details
+      background-color $insight_container
+      color $solarized_brwhite !important
+
+.question
+    padding .1rem 1.5rem
+    margin 1rem 0
+    background-color lighten($question_container, 80%)
+    border-color $question_container
+    .custom-block-title
+      color darken($question_container, 70%)
+    .details
+      background-color $question_container
+      color $solarized_brwhite !important
+
+.danger, .tip, .warning, .definition, .kata, .insight, .question
+    border-left-width .7rem !important
+    border-left-style solid
+    border-right-width .7rem
+    border-right-style solid
+
+h1
+  color $accentColor
+
+.kata, .question
+  .details
+    code
+      color: white
+
+.warning
+    background-color lighten($warning_container, 80%) !important
+    border-color $warning_container !important
+    .custom-block-title
+      color darken($warning_container, 80%)
+
+.sidebar-heading
+  background-color $solarized_brblack
+  color $solarized_brwhite !important
+
+.sidebar-group-items
+  .active
+    border-color $solarized_red
+    border-left-width .25rem
+    border-left-style solid
