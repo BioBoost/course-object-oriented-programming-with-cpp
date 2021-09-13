@@ -33,7 +33,7 @@ module.exports = {
         children: [
           '/b-fundamentals/01-variables-and-datatypes/',
           '/b-fundamentals/02-operators/',
-          // TODO - Refactor !! '/b-fundamentals/03-input-output/',
+          '/b-fundamentals/03-input-output/',
           // TODO - Refactor !! '/b-fundamentals/04-conditional-constructs/',
           // TODO - Refactor !! '/b-fundamentals/05-loops/',
           // TODO - Refactor !! '/b-fundamentals/06-arrays/',

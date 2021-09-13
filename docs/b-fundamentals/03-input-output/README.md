@@ -140,37 +140,6 @@ Great. I am also 19 years of age.
 </pre>
 :::
 
-:::::: question Question - Wrong Input
-
-What happens when the user inputs something different than a number. For example a character `b` or a string `Hello`? Can you explain what happens? How can we detect this?
-
-```cpp
-cout << "Please enter a number: ";
-
-int number;
-cin >> number;
-```
-
-::: details Solution
-
-Basically everything that the user inputs is read as a string of characters. This string is then converted to the desired type depending on the variable type to which the data is extracted (second operand of `>>`).
-
-If the user inputs something different from an unsigned number here, `cin` will indicate an error by setting the `fail` flag. The state of this can be retrieved using `cin.fail()` which returns `true` or `false`. Do note that the application does not crash (some programming languages will generate an exception in this case).
-
-This can be demonstrated using the following code snippet:
-
-```cpp
-cout << "Please enter a number: ";
-
-int number;
-cin >> number;
-
-cout << "Failed? " << cin.fail() << endl;
-```
-
-:::
-::::::
-
 The extraction operator can actually be used more than once to accept multiple inputs as shown in the next example.
 
 ```cpp
@@ -259,55 +228,6 @@ Using `setfill` and `setw`, one can for example prefix the number with leading z
 
 By default the number format prefix is not shown when outputting values. This can be altered with the `showbase` and `noshowbase` manipulators. The `showbase` manipulator can however give conflicts with other manipulators (such as `setfill` and `setw`) so it is often a better option to output this yourself.
 
-:::::: kata Code Kata - Output Hexadecimal Value
-
-Can you alter the next code snippet so the number is outputted in hexadecimal format, with a leading `0x` and a width of 4 hexadecimal digits? Note that this will require the `iomanip` library to be included (already done for you).
-
-```cpp
-#include <iostream>
-#include <iomanip>
-
-using namespace std;
-
-int main() {
-  int number = 23;
-  cout << "Number in hex format: " << number << endl;
-
-  return 0;
-}
-```
-
-The expected output is:
-
-::: output
-<pre>
-Number in hex format: 0x0017
-</pre>
-:::
-
-::: details Solution
-
-```cpp
-#include <iostream>
-#include <iomanip>
-
-using namespace std;
-
-int main() {
-  int number = 23;
-
-  cout << "Number in hex format: "
-    << hex << "0x"
-    << setfill('0') << setw(4) << number
-    << endl;
-
-  return 0;
-}
-```
-
-:::
-::::::
-
 ### Applied to Standard Input
 
 The number format manipulators can also be applied the standard input stream `cin`. It will even allow the user to type the number with and without the base prefix.
@@ -334,5 +254,48 @@ int main() {
 <pre>
 Please enter a HEX value: 0xAB
 The value in DEC format: 171
+</pre>
+:::
+
+## Exercises
+
+Try to solve the exercises yourself. Don't go copy pasting other people's solutions.
+
+Mark the exercises using a ✅ once they are finished.
+
+### ❌ Wrong Input
+
+*What happens when the user inputs something different than a number. For example a character `b` or a string `Hello`? Can you explain what happens? How can we detect this?*
+
+```cpp
+cout << "Please enter a number: ";
+
+int number;
+cin >> number;
+```
+
+### ❌ Output Hexadecimal Value
+
+*Can you alter the next code snippet so the number is outputted in hexadecimal format, with a leading `0x` and a width of 4 hexadecimal digits? Note that this will require the `iomanip` library to be included (already done for you).*
+
+```cpp
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+  int number = 23;
+  cout << "Number in hex format: " << number << endl;
+
+  return 0;
+}
+```
+
+The expected output is:
+
+::: output
+<pre>
+Number in hex format: 0x0017
 </pre>
 :::
