@@ -6,6 +6,20 @@ Welcome to the draft version of this Programming Course for VIVES University of 
 
 Comments and additions are more than welcome.
 
+## Starting
+
+Install npm modules
+
+```bash
+npm install
+```
+
+Load git submodules
+
+```bash
+git submodule update --init
+```
+
 ## Development
 
 Setup local dev server
