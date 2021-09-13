@@ -17,28 +17,28 @@ module.exports = {
       },
       {
         title: 'Introductory',   // required
-        path: '/a-introductory/',      // optional, which should be a absolute path.
+        // path: '/a-introductory/',      // optional, which should be a absolute path.
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '/a-introductory/01-what-is-cpp/',
-          '/a-introductory/02-hello-world/',
+          // TODO - Refactor !! '/a-introductory/01-what-is-cpp/',
+          // TODO - Refactor !! '/a-introductory/02-hello-world/',
         ]
       },
       {
         title: 'Fundamentals',   // required
-        path: '/b-fundamentals/',      // optional, which should be a absolute path.
+        // path: '/b-fundamentals/',      // optional, which should be a absolute path.
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '/b-fundamentals/01-variables-and-datatypes/',
-          '/b-fundamentals/02-operators/',
-          '/b-fundamentals/03-input-output/',
-          '/b-fundamentals/04-conditional-constructs/',
-          '/b-fundamentals/05-loops/',
-          '/b-fundamentals/06-arrays/',
-          '/b-fundamentals/07-enums/',
-          '/b-fundamentals/08-functions/',
+          // TODO - Refactor !! '/b-fundamentals/01-variables-and-datatypes/',
+          // TODO - Refactor !! '/b-fundamentals/02-operators/',
+          // TODO - Refactor !! '/b-fundamentals/03-input-output/',
+          // TODO - Refactor !! '/b-fundamentals/04-conditional-constructs/',
+          // TODO - Refactor !! '/b-fundamentals/05-loops/',
+          // TODO - Refactor !! '/b-fundamentals/06-arrays/',
+          // TODO - Refactor !! '/b-fundamentals/07-enums/',
+          // TODO - Refactor !! '/b-fundamentals/08-functions/',
         ]
       },
       // {
@@ -59,11 +59,11 @@ module.exports = {
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
           // '/d-object-oriented-programming/01-using-objects/',
-          '/d-object-oriented-programming/02-creating-classes/',
-          '/d-object-oriented-programming/03-constructors/',
-          '/d-object-oriented-programming/04-composition/',
+          // TODO - Refactor !! '/d-object-oriented-programming/02-creating-classes/',
+          // TODO - Refactor !! '/d-object-oriented-programming/03-constructors/',
+          // TODO - Refactor !! '/d-object-oriented-programming/04-composition/',
           // '/d-object-oriented-programming/05-destructors/',
-          '/d-object-oriented-programming/06-structs/',
+          // TODO - Refactor !! '/d-object-oriented-programming/06-structs/',
         ]
       },
       {
@@ -72,9 +72,9 @@ module.exports = {
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '/e-compiling-and-linking/01-the-compilation-process/',
-          '/e-compiling-and-linking/02-makefiles/',
-          '/e-compiling-and-linking/03-libraries/'
+          // TODO - Refactor !! '/e-compiling-and-linking/01-the-compilation-process/',
+          // TODO - Refactor !! '/e-compiling-and-linking/02-makefiles/',
+          // TODO - Refactor !! '/e-compiling-and-linking/03-libraries/'
         ]
       },
       {
@@ -84,10 +84,10 @@ module.exports = {
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
           // '/f-more-advanced-cpp/01-references/',
-          '/f-more-advanced-cpp/01-pointers/',
-          '/f-more-advanced-cpp/02-exceptions/',
-          '/f-more-advanced-cpp/03-file-streams/',
-          '/f-more-advanced-cpp/04-dynamic-memory-allocation/',
+          // TODO - Refactor !! '/f-more-advanced-cpp/01-pointers/',
+          // TODO - Refactor !! '/f-more-advanced-cpp/02-exceptions/',
+          // TODO - Refactor !! '/f-more-advanced-cpp/03-file-streams/',
+          // TODO - Refactor !! '/f-more-advanced-cpp/04-dynamic-memory-allocation/',
           // '/f-more-advanced-cpp/05-standard-templating-libraries/',
           // '/f-more-advanced-cpp/06-smart-pointers/',
         ]
@@ -98,9 +98,9 @@ module.exports = {
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '/g-inheritance/01-basic-inheritance/',
+          // TODO - Refactor !! '/g-inheritance/01-basic-inheritance/',
           // '/g-inheritance/02-interfaces/',
-          '/g-inheritance/03-polymorphism/',
+          // TODO - Refactor !! '/g-inheritance/03-polymorphism/',
           // '/g-inheritance/04-multiple-inheritance/'
         ]
       },
@@ -135,7 +135,7 @@ module.exports = {
         children: [
           // '/x-guides/linked-lists/',
           // '/x-guides/json/',
-          '/x-guides/mqtt/',
+          // TODO - Refactor !! '/x-guides/mqtt/',
           // '/x-guides/generating-documentation/',
           // '/x-guides/cross-compiling-for-rpi/',
           // '/x-guides/remote-debugging/',
@@ -156,7 +156,7 @@ module.exports = {
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          '/y-standard-library/std-vector/'
+          // TODO - Refactor !! '/y-standard-library/std-vector/'
         ]
       },
       {
