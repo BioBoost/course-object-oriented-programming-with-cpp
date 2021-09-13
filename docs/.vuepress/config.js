@@ -31,7 +31,7 @@ module.exports = {
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          // TODO - Refactor !! '/b-fundamentals/01-variables-and-datatypes/',
+          '/b-fundamentals/01-variables-and-datatypes/',
           // TODO - Refactor !! '/b-fundamentals/02-operators/',
           // TODO - Refactor !! '/b-fundamentals/03-input-output/',
           // TODO - Refactor !! '/b-fundamentals/04-conditional-constructs/',
