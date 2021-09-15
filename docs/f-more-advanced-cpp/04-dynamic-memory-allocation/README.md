@@ -191,8 +191,8 @@ Declaring variables on the stack has both advantages and disadvantages:
 
 * ✔️ Allocating stack memory is faster than allocating heap memory
 * ✔️ Variables are automatically deallocated when the function terminates. It is said that the variables go out of scope.
-* ✔️ Variables allocated on the stack have a known data type at compile theme. This means that the allocated memory can be accessed directly trough the variables.
-* ❌ The stack is relatively small, which means it's not a good idea to create large local variables on the stack (complex objects, large arrays and such). Also nesting function calls to deep has a serious impact on stack usage.
+* ✔️ Variables allocated on the stack have a known data type at compile time. This means that the allocated memory can be accessed directly through the variables.
+* ❌ The stack is relatively small, which means it's not a good idea to create large local variables on the stack (complex objects, large arrays and such). Also nesting function calls too deep has a serious impact on stack usage.
 
 Also requesting memory from the heap has some advantages and disadvatages:
 
@@ -209,8 +209,8 @@ Allocating memory on the heap in C++ is accomplished using the `new` operator wh
 
 As mentioned before, it is critical that the memory be freed when it is not needed anymore. This can be achieved using the `delete` operator, called on the pointer. Every `new` should have a matching `delete` in your code. Failing to do so creates memory leaks in your application which can lead to program crashes.
 
-::: warning Memory Leak
-A memory leak is created when memory is allocated but not released causing an application to consume memory reducing the available memory for other applications and eventually causing the system to page virtual memory to the hard drive slowing the application or crashing the application when than the computer memory resource limits are reached. The system may stop working as these limits are approached.
+::: danger Memory Leak
+A memory leak is created when memory is allocated but not released causing an application to consume memory reducing the available memory for other applications and eventually causing the system to page virtual memory to the hard drive slowing the application or crashing the application when the computer memory resource limits are reached. The system may stop working as these limits are approached.
 :::
 
 ### Allocating Primitive Data Types
