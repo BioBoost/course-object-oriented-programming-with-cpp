@@ -115,6 +115,9 @@ This is also the reason why a pointer needs a dataype. Because the compiler need
 
 ## Pointers and Arrays
 
+<!-- We should checkout discussion: [arrays are same as pointers](https://stackoverflow.com/questions/1641957/is-an-array-name-a-pointer)
+An array is an array and a pointer is a pointer, but in most cases array names are converted to pointers. A term often used is that they decay to pointers. -->
+
 Pointers and arrays are strongly related. In fact, an array variable is nothing more than a **constant pointer pointing at the first element of the array**. Actually a pointer can be dereferenced using the **indexing operator** `[]` used on an array variable as shown in the example below:
 
 ```cpp
