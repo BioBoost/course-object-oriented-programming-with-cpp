@@ -4,9 +4,8 @@ module.exports = {
   themeConfig: {
     nav: [
       {text: 'Toledo', link: 'https://toledo.kuleuven.be/portal'},
-      {text: 'DevBit Courses', link: 'https://www.devbit.courses/'},
       {text: 'Report Issue', link: 'https://github.com/BioBoost/course-object-oriented-programming-with-cpp/issues'},
-      {text: 'Organization', link: 'https://github.com/vives-oop2-2020'}
+      {text: 'Organization', link: 'https://github.com/vives-oop2-2021'}
     ],
     sidebar: [
       {
@@ -36,7 +35,7 @@ module.exports = {
           '/b-fundamentals/03-input-output/',
           '/b-fundamentals/04-conditional-constructs/',
           '/b-fundamentals/05-loops/',
-          // TODO - Refactor !! '/b-fundamentals/06-arrays/',
+          '/b-fundamentals/06-arrays/',
           // TODO - Refactor !! '/b-fundamentals/07-enums/',
           // TODO - Refactor !! '/b-fundamentals/08-functions/',
         ]
