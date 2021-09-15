@@ -88,9 +88,9 @@ Time to run!
 
 You may have noticed that the value of `temperature` can satisfy more than one expression in the combined statements. However the conditions are checked sequentially and once a condition is satisfied, the appropriate statements are executed and the remaining conditions are not evaluated anymore. Control then jumps to the end of the if-else statements.
 
-## The Switch Statement
+## The `switch` Statement
 
-A switch statement allows a variable to be tested for equality against a list of known values. Each value is called a case, and the variable being switched on is checked for each case.
+A `switch` statement allows a variable to be tested for equality against a list of known values. Each value is called a case, and the variable being switched on is checked for each case.
 
 Take a look at some code that will allow the user to enter the number of the day of the week. The program will than determine the name of the day and output it to the user.
 
@@ -128,7 +128,7 @@ Than it's Tuesday today
 
 When **checking a single variable for equality** using multiple if-else statements, it can be replaced with another structure called a switch structure. The template of the switch structure is shown below. Each case needs a **literal integral value** to compare the variable against. If it matches (equals), than the code between the colon `:` and the `break;` statement is executed. The `break` is required for the switch to be stopped when a match is found. If no `break` is placed, the execution falls through to the next case.
 
-```java
+```cpp
 switch (<variable>) {
   case <integral_literal_1>:
     // Code to be executed
@@ -207,7 +207,7 @@ Some important points about the switch statement:
 
 ### Scope in Switch
 
-One final warning with switch statements requires a bit more explanation. Care must be taken when one defined variables inside the case's, for example for holding a temporary math result.
+One final warning with switch statements requires a bit more explanation. Care must be taken when one defines variables inside the case's, for example for holding a temporary math result.
 
 Consider the following example that requests two numbers from the user and than let's the user choose what action to perform on them:
 
@@ -294,3 +294,11 @@ Choice: 1
 a + b = 7
 </pre>
 :::
+
+## Exercises
+
+Try to solve the exercises yourself. Don't go copy pasting other people's solutions.
+
+Mark the exercises using a ✅ once they are finished.
+
+<!-- ### ❌ TITLE_GOES_HERE -->

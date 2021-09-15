@@ -407,7 +407,7 @@ int hours = 25;
 
 ### ❌ Incrementing an Expression
 
-*Knowing what you know now, could you answer the question if it would be possible to use the increment operator on an expression as demonstrated in the following code snippet?*
+*Knowing what you know now, could you answer the following question? Would it be possible to use the increment operator on an expression as demonstrated in the following code snippet?*
 
 ```cpp
 int x = 12;
