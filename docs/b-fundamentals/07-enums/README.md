@@ -28,9 +28,9 @@ The enumerator labels are automatically assigned an integral value starting from
 
 To declare a variabel of the `enum` type, use the defined type as any other data type:
 
-```c++
+```cpp
 DayOfTheWeek today = WEDNESDAY;
-std::cout << "Today we are the " << today << "th day of the week." << std::endl;
+cout << "Today we are the " << today << "th day of the week." << endl;
 ```
 
 ::: output
@@ -128,3 +128,11 @@ Style is bold
 Style is underlined
 </pre>
 :::
+
+## Exercises
+
+Try to solve the exercises yourself. Don't go copy pasting other people's solutions.
+
+Mark the exercises using a ✅ once they are finished.
+
+<!-- ### ❌ TITLE_GOES_HERE -->

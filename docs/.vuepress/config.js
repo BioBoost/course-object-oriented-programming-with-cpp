@@ -36,7 +36,7 @@ module.exports = {
           '/b-fundamentals/04-conditional-constructs/',
           '/b-fundamentals/05-loops/',
           '/b-fundamentals/06-arrays/',
-          // TODO - Refactor !! '/b-fundamentals/07-enums/',
+          '/b-fundamentals/07-enums/',
           // TODO - Refactor !! '/b-fundamentals/08-functions/',
         ]
       },
