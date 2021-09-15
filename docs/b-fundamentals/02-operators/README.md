@@ -361,6 +361,38 @@ x /= 4;   // Same as writing x = x / 4;
 x %= 4;   // Same as writing x = x % 4;
 ```
 
+## The `sizeof` Operator
+
+`sizeof` is a **compile-time operator** (not run-time) that determines the size, in bytes, of a variable or data type. Basically it tells you how much memory is required to store a a value of the given datatype. It can be used to get the size of classes, structures, unions, arrays and any other user defined data type.
+
+The syntax of using sizeof is as follows:
+
+```cpp
+sizeof(datatype/variable)
+```
+
+```cpp
+cout << "Size of a char: " << sizeof(char) << " bytes." << endl;
+cout << "Size of a short: " << sizeof(short) << " bytes." << endl;
+cout << "Size of an integer: " << sizeof(int) << " bytes." << endl;
+cout << "Size of a long: " << sizeof(long) << " bytes." << endl;
+cout << "Size of a long long: " << sizeof(long long) << " bytes." << endl;
+```
+
+::: output
+<pre>
+Size of a char: 1 bytes.
+Size of a short: 2 bytes.
+Size of an integer: 4 bytes.
+Size of a long: 8 bytes.
+Size of a long long: 8 bytes.
+</pre>
+:::
+
+::: warning Datatypes
+Remember that the size of the datatypes can differ on your system as C++ does not enforce an exact size for each datatype.
+:::
+
 ## Number of Operands
 
 Operators can also be categorized depending on the number of operands they take.
