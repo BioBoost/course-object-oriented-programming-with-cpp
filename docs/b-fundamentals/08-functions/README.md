@@ -4,6 +4,8 @@ description: needs to be done
 
 # Functions
 
+<!-- TODO: Explain local variables, returning a local variable (actually copy of its value) -->
+
 A function **groups together a block of statements that inherently belong together**. A function performs a **single well defined task**. Every C++ program has at least one function, namely `main()`. By grouping together statements as a function we also **allow the reuse of functionality** inside our applications, which contributes to the DRYness of our code.
 
 The C++ standard library provides numerous built-in functions that your program can call. Take a look at the reference of the standard C++ library at [http://www.cplusplus.com/reference/](http://www.cplusplus.com/reference/).
@@ -213,9 +215,7 @@ While calling a function, there are three ways that arguments can be passed to a
 * **Pass by pointer**: This copies the address of an argument into the formal parameter. Inside the function, the address is used to access the actual argument used in the call. This means that changes made to the parameter affect the argument.
 * **Pass by reference**: This copies the reference of an argument into the formal parameter. Inside the function, the reference is used to access the actual argument used in the call. This means that changes made to the parameter affect the argument.
 
-By default, C++ uses pass by value to pass arguments. In general, this means that code within a function cannot alter the arguments used to call the function.
-
-<!-- Maybe note for later: Even return statements pass-by-value. That is why the linux kernel almost never returns values. Its all using global variable. -->
+By default, C++ uses pass by value to pass arguments. In general, this means that code within a function cannot alter the arguments used to call the function as it gets a copy of the value.
 
 Take for example the code below where a `swap()` function tries to swap the values of two variables.
 
@@ -262,3 +262,198 @@ b: 136
 :::
 
 But what if we wanted this to work. Well then you need to pass the data using pointers or references. More on this later.
+
+::: insight Key Insight - Return by Value
+When returning a local variable from a function/method, the same applies. A copy of the local variable is returned (via the stack as we will see later on) after which the actual local variable goes out of scope and ceases to exist.
+:::
+
+## Passing an Array to a Function
+
+In C++, just as any other datatypes, arrays can also be passed to functions.
+
+However, when you pass an array to a function, the array will decay (it will be implicitly converted to a pointer that points to the first element of the array). This means that using the `sizeof` operator on an array passed to a function will result in the size of the pointer, which is usually 4 or 8 bytes (depending on the architecture of your machine). More on this later.
+
+Basically this means if we pass an array to a function, we will only know where the first element lies in memory but we will not be able to tell how many elements there are from the array variable alone. That is why, when passing an array to a function, one will always need to pass the length as well.
+
+Study the following code example which calculates the sum of all values in an array and returns the result.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int sum(int values[], size_t size) {
+  int result = 0;
+  for(unsigned int i = 0; i < size; i++) {
+    result += values[i];
+  }
+  return result;
+}
+
+int main() {
+
+  int numbers[] = { 2, 8, 15 };
+
+  cout << "Sum of numbers: "
+    << sum(numbers, sizeof(numbers)/sizeof(numbers[0])) << endl;
+
+  return 0;
+}
+```
+
+::: output
+<pre>
+Sum of numbers: 25
+</pre>
+:::
+
+Note how the `sizeof` operator can be used in the `main` function because that is where the array was declared. `size_t` is datatype that is often used for array size, the result of `sizeof`, indexing, ...
+
+::: tip Use std::vector where Possible
+Modern C++ beste practices include using an `std::vector` instead of an array where possible. This because `std::vector` is a class which allows for dynamically adding elements. It also tracks the number of elements currently residing in the vector. More on this later.
+:::
+
+### Passing a Multidimensional Array to a Function
+
+For passing a multidimensional array to a function in C++ one will need to specify all dimensions except the first when declaring the parameter. This is quitte an inconvenience:
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+void print_matrix(int matrix[][4], size_t rows, size_t cols) {
+  cout << "Matrix: " << endl;
+  for (int r = 0; r < rows; r++) {
+    for (int c = 0; c < cols; c++) {
+      cout << "[" << matrix[r][c] << "] ";
+    }
+    cout << endl;
+  }
+}
+
+int main() {
+
+  int matrix[2][4] = {  
+    {0, 1, 2, 3},
+    {4, 5, 6, 7}
+  };
+
+  print_matrix(matrix, 2, 4);
+
+  return 0;
+}
+```
+
+Passing a multidimensional array in C++ is not pretty. There are a lot of caveats and things to consider. Later on in this course we will see some more advanced techniques using pointers and templates. Or by God, just use a wrapper class around the array.
+
+<!-- Later on: https://stackoverflow.com/questions/8767166/passing-a-2d-array-to-a-c-function/17569578#17569578 -->
+
+## Exercises
+
+Try to solve the exercises yourself. Don't go copy pasting other people's solutions.
+
+Mark the exercises using a ✅ once they are finished.
+
+### ❌ Fail and Ignore
+
+*The code snippet belows reads a number from the user between `1` and `10`. However if the user provides an unparsable value, such as a string, the application becomes unusable. Fix this by using the `cin` functions `fail()`, `clear()` and `ignore()`.*
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+  int number = 0;
+  do {
+    cout << "Please enter a number between 1 and 10: ";
+    cin >> number;
+  } while (number < 1 || number > 10);
+
+  return 0;
+}
+```
+
+### ❌ Foreach
+
+*What is wrong with the code below?*
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int sum(int values[]) {
+  int result = 0;
+  for(auto value : values) {
+    result += value;
+  }
+  return result;
+}
+
+int main() {
+
+  int numbers[] = { 2, 8, 15 };
+
+  cout << "Sum of numbers: "
+    << sum(numbers) << endl;
+
+  return 0;
+}
+```
+
+### ❌ Sizeof Array
+
+*What is happening here? Why is the output of this code snippet wrong?*
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int sum(int values[]) {
+  int result = 0;
+  for(unsigned int i = 0; i < sizeof(values); i++) {
+    result += values[i];
+  }
+  return result;
+}
+
+int main() {
+
+  int numbers[] = { 2, 8, 15 };
+
+  cout << "Sum of numbers: "
+    << sum(numbers) << endl;
+
+  return 0;
+}
+```
+
+### ❌ Changing Array Values
+
+*What is going on here? Why can the `mess_it_up` function change the values of the passed array?*
+
+```cpp
+#include <iostream>
+using namespace std;
+
+void mess_it_up(int numbers[], size_t size) {
+  for (unsigned int i = 0; i < size; i++) {
+    numbers[i] = numbers[i] * 1337;
+  }
+}
+
+int main() {
+
+  int numbers[] = { 2, 8, 15 };
+
+  mess_it_up(numbers, sizeof(numbers)/sizeof(numbers[0]));
+
+  for (unsigned int i = 0; i < sizeof(numbers)/sizeof(numbers[0]); i++) {
+    cout << numbers[i] << " ";
+  }
+  cout << endl;
+
+  return 0;
+}
+```

@@ -37,7 +37,7 @@ module.exports = {
           '/b-fundamentals/05-loops/',
           '/b-fundamentals/06-arrays/',
           '/b-fundamentals/07-enums/',
-          // TODO - Refactor !! '/b-fundamentals/08-functions/',
+          '/b-fundamentals/08-functions/',
         ]
       },
       // {
