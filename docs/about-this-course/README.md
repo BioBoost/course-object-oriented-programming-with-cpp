@@ -36,9 +36,33 @@ Feel free to ask questions in the lessons, via email or via teams.
 
 The LABs are there to practice what you have learned in the theory lessons. You will get some assignments through the semester on which you will be graded.
 
-This course also contains extra challenges to practice your OOP skills in C++.
-
 There may be occasions for tests but these will mostly be announced.
+
+### Solving Exercises
+
+This course also contains extra exercises to practice your OOP skills in C++. The best approach to solve these exercises is to fork the original repository and clone your own copy on your computer. That way you can solve the exercises and still pull in changes to the original course.
+
+To fork the repository go to the original repo page at GitHub which can be found at [https://github.com/BioBoost/course-object-oriented-programming-with-cpp](https://github.com/BioBoost/course-object-oriented-programming-with-cpp) and click the **Fork** button in the upper right corner.
+
+Once the fork is ready, clone it locally using the SSH url.
+
+```bash
+git clone git@github.com:your_user_name/course-object-oriented-programming-with-cpp.git
+```
+
+Now you can solve the exercises locally and push changes to your own version of this course. If you wish you can even host the course on Netlify. Ask the teacher for more information on how to do this.
+
+To pull changes from the original repository, you will need to first add a remote called for example `teacher`:
+
+```bash
+git add remote teacher git@github.com:BioBoost/course-object-oriented-programming-with-cpp.git
+```
+
+Now you can pull the changes:
+
+```bash
+git pull teacher master
+```
 
 ### ECTS
 
