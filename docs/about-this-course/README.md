@@ -1,8 +1,6 @@
-# About this Course
+# About Evolved C++
 
-Welcome to the course Object Oriented Programming (OOP) with C++. In this course we will try to learn to become good or better OOP programmers. While the concepts can be extended to most other OOP languages, some examples may only be usable as is.
-
-The course will also contain some specifics for mBed platforms as they can be programmed in C++. This means that some exercises can only be made on the mBed platform (if there are hardware dependencies).
+Welcome to the course Evolved C++, an Object Oriented Programming (OOP) course with C++. In this course we will try to learn to become good or better OOP programmers. While the concepts can be extended to most other OOP languages, some examples may only be usable as is.
 
 Most of the material used in this course is created by Nico De Witte. However some paragraphs, definitions, examples, images, ... may be copied from other online sources. In that case a reference can be found in the Sources chapter or as a footnote.
 
@@ -10,7 +8,7 @@ Check out my github repos for the source of this course and for other courses, c
 
 ## Alpha version
 
-Please note that this GitBook is still under development and did not even reach a draft version yet. Make sure to check at least every week for changes made.
+Please note that this course is still under development and did not even reach a draft version yet. Make sure to check at least every week for changes made.
 
 ## Prerequisites
 
@@ -20,19 +18,19 @@ This course does expect you to already have a basic knowledge of programming and
 
 To follow along you will need at least a C++ compiler for the operating system you are using. Best option is to use a GCC compiler.
 
-You will also need a decent code editor. If you are a total beginner for C++, a good option can be Microsoft Visual Code, a free code editor that supports many programming languages.
+You will also need a decent code editor. If you are a total beginner for C++, a good option can be [Microsoft Visual Studio Code](https://code.visualstudio.com/), a free code editor that supports many programming languages.
 
 ## About this course
 
 This course is not about learning to use all sorts of tools or fancy integrated development environments (IDEs). It's also not about learning to manage projects or design methodologies.
 
-The main focus lies in learning to think in an object oriented way and in the meantime learn some object oriented languages. While learning all these great things about objects we are not responsible for the fact that you might learn a thing or two about tools and project management. A second focus is to learn to use an embedded system such as the mBed and learn some hardware programming skills.
+The main focus lies in learning to think in an object oriented way and in the meantime learn some object oriented languages. While learning all these great things about objects we are not responsible for the fact that you might learn a thing or two about tools and project management.
 
 ### Theory
 
 While all you need to know for the exam is in this course, not all you should know is in here. It is extremely preferable to take notes in the lessons. And of course you are also encouraged to search the Internet and books for extra knowledge.
 
-Feel free to ask questions in the lessons, via email or via slack.
+Feel free to ask questions in the lessons, via email or via teams.
 
 ### LABs, assignments and tests
 
@@ -68,7 +66,7 @@ At the end of this course, students will be able to
 
 Note that the objectives are not ordered based on their importance but more in order on which they are present in the course.
 
-Some of the above objectives rely on topics covered in the course "Software Engineering" taught at VIVES University College. It is expected that you can apply them for this course. Some examples are the use of Doxygen, UML diagrams and some well-known design patterns. All code solutions are expected to adhere to the good practices of developing software (DRY, SOLID, ...) and should be free of the well-known code smells.
+Some of the above objectives rely on topics covered in other courses taught at VIVES University College. It is expected that you can apply them for this course. All code solutions are expected to adhere to the good practices of developing software (DRY, SOLID, ...) and should be free of the well-known code smells.
 
 ### License
 
