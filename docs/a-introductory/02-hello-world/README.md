@@ -22,18 +22,7 @@ Writing C++ code does not require a fancy IDE. All one actually needs is a simpl
 
 Visual Studio Code is a source code editor developed by Microsoft for Windows, Linux and macOS. It includes support for debugging, embedded Git control, syntax highlighting, intelligent code completion, snippets, and code refactoring. It is also customizable, so users can change the editor's theme, keyboard shortcuts, and preferences. It is free and open-source, although the official download is under a proprietary license.
 
-Visual Studio Code can be downloaded at [https://code.visualstudio.com/](https://code.visualstudio.com/).
-
-Before diving head first in the coding game, install the VSCode `C/C++ Extension` which will provide some extra functionality.
-
-![VSCode C/C++ Extension](./img/vscode_cpp_extension.png)
-
-::: tip Tip - Other Useful Extensions
-Some other useful extensions for Visual Studio Code include:
-
-* [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker): a spell checker that works well with code
-* [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer): a customizable extension for colorizing matching brackets
-:::
+Checkout the [Software Installation Guide](https://software-installation-guide.netlify.app/) on how to install and setup Visual Studio Code.
 
 ## C++ Compiler for Windows
 
@@ -43,29 +32,11 @@ As a compiler you can make use of **MinGW** which stands for "Minimalist GNU for
 GNU is an operating system and an extensive collection of computer software. **GNU is composed wholly of free software**, most of which is licensed under GNU's own GPL (General Purpose License). GNU is a recursive acronym for "GNU's Not Unix!", chosen because GNU's design is Unix-like, but differs from Unix by being free software and containing no Unix code. The GNU project includes an operating system kernel, GNU HURD, which was the original focus of the Free Software Foundation (FSF). However, non-GNU kernels, most famously Linux, can also be used with GNU software; and since the kernel is the least mature part of GNU, this is how it is usually used. The combination of GNU software and the Linux kernel is commonly known as GNU/Linux.
 :::
 
-MinGW can be downloaded at [http://www.mingw.org/](http://www.mingw.org/). Navigate to `Downloads` and select the `mingw-get-setup.exe` download.
-
-After installing the manager you should get a window where you can select what packages to install. Make sure to select the following packages:
-
-* `mingw32-base-bin`
-* `mingw32-gcc-g++-bin`
-
-Next hit `Installation => Apply Changes` and wait for the packages to install. The end result should be the same as shown in the next screenshot.
-
-![MinGW Packages](./img/mingw_packages.png)
-
-Next you will need to add the `bin` directory of MinGW to your environment path on Windows by navigating to `Advanced System settings => Advanced => Environment Variables => User variables`. Select the `Path` variable and hit `Edit`. Now create a `New` entry and choose `Browse`. Select the `bin` directory where you installed MinGW, standard this should be `C:\MinGW\bin`.
-
-![Add MinGW bin dir to Path](./img/mingw_path.png)
+Checkout the [Software Installation Guide](https://software-installation-guide.netlify.app/) on how to install and setup MinGW on Windows.
 
 ## Compiling C++ on Linux
 
-Chances are quite high that you won't have to install anything on Linux. Most distributions have the build tools pre-installed. If not, all you need is a terminal and some Linux magic:
-
-```bash
-sudo apt update
-sudo apt install build-essential
-```
+Checkout the [Software Installation Guide](https://software-installation-guide.netlify.app/) on how to install and setup the C++ tools on Linux.
 
 ## Hello World in C++
 
