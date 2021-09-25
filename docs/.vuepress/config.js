@@ -59,7 +59,7 @@ module.exports = {
         children: [
           // '/d-object-oriented-programming/01-using-objects/',
           '/d-object-oriented-programming/02-creating-classes/',
-          // TODO - Refactor !! '/d-object-oriented-programming/03-constructors/',
+          '/d-object-oriented-programming/03-constructors/',
           // TODO - Refactor !! '/d-object-oriented-programming/04-composition/',
           // '/d-object-oriented-programming/05-destructors/',
           // TODO - Refactor !! '/d-object-oriented-programming/06-structs/',
