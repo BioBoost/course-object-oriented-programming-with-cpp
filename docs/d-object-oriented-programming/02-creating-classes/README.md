@@ -370,63 +370,6 @@ If we had used `x = x`, it would have resulted in the arguments being assigned t
 
 No access modifier needs to be specified here for the definition of the methods. This is only done inside the class definition.
 
-:::::: kata Code Kata - Move by delta
-
-Extend the `Point` class with a method `move_by(double deltaX, double deltaY)` that allows the user of a `Point` object to move the point using delta-coordinates.
-
-Basically the delta is added to the current coordinate making it move by delta.
-
-::: details Solution
-
-Class definition
-
-```cpp{11}
-// point.h
-#pragma once
-
-namespace Geometry {
-
-  class Point {
-
-    // Methods
-    public:
-      void move_to(double x, double y);
-      void move_by(double deltaX, double deltaY);
-
-    // Attributes (instance variables)
-    private:
-      double x = 0;
-      double y = 0;
-
-  };
-
-};
-```
-
-and implementation
-
-```cpp{11-14}
-// point.cpp
-#include "point.h"
-
-namespace Geometry {
-
-  void Point::move_to(double x, double y) {
-    this->x = x;
-    this->y = y;
-  }
-  
-  void Point::move_by(double deltaX, double deltaY) {
-    this->x += deltaX;
-    this->y += deltaY;
-  }
-
-};
-```
-
-:::
-::::::
-
 ### Adding Getters
 
 Let us expand this example with methods that return the values of the coordinates. Since these methods do not change the state of the object and just return a part of it's state to the outside world, they are called **getter methods**.
@@ -563,7 +506,55 @@ g++ main.cpp point.cpp -o points
 ./points
 ```
 
-:::::: kata Code Kata - Copying Objects
+## Exercises
+
+Try to solve the exercises yourself. Don't go copy pasting other people's solutions.
+
+Mark the exercises using a ✅ once they are finished.
+
+### ❌ Move by delta
+
+Extend the `Point` class with a method `move_by(double deltaX, double deltaY)` that allows the user of a `Point` object to move the point using delta-coordinates.
+
+```cpp
+// point.h
+#pragma once
+
+namespace Geometry {
+
+  class Point {
+
+    // Methods
+    public:
+      void move_to(double x, double y);
+
+    // Attributes (instance variables)
+    private:
+      double x = 0;
+      double y = 0;
+
+  };
+
+};
+```
+
+```cpp
+// point.cpp
+#include "point.h"
+
+namespace Geometry {
+
+  void Point::move_to(double x, double y) {
+    this->x = x;
+    this->y = y;
+  }
+
+};
+```
+
+Basically the delta is added to the current coordinate making it move by delta.
+
+### ❌ Copying Objects
 
 What would you expect to be the output of the following code? What happens when you create a second object and initialize it with the first?
 
@@ -600,20 +591,3 @@ int main() {
   return 0;
 }
 ```
-
-::: details Solution
-
-This was probable unexpected behavior when coming from a language such as Java or C#, where the variables contain references to object and copying variables like this results in multiple references to the same object.
-
-The object is actually copied (using a copy-constructor as we will see later on in this course). Basically as long as we are not using pointers, we are safe to do this. Once we start using pointers, inside the class that is, we will get objects that can reference shared data. However, more on this later.
-
-```text
-First is at [10, 20]
-Second is at [10, 20]
-Moving first point to 103, 1234
-First is at [103, 1234]
-Second is at [10, 20]
-```
-
-:::
-::::::
