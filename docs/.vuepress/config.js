@@ -57,7 +57,7 @@ module.exports = {
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          // '/d-object-oriented-programming/01-using-objects/',
+          '/d-object-oriented-programming/01-using-objects/',
           '/d-object-oriented-programming/02-creating-classes/',
           '/d-object-oriented-programming/03-constructors/',
           '/d-object-oriented-programming/04-composition/',
