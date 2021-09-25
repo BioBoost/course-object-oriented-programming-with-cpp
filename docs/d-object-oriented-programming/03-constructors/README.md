@@ -211,3 +211,11 @@ Don't place parenthes `()` after the object name when creating an instance using
 
 <!-- Should we introduce constructor initialization list here or how to call other constructors? -->
 <!-- Copy constructor -->
+
+## Exercises
+
+Try to solve the exercises yourself. Don't go copy pasting other people's solutions.
+
+Mark the exercises using a ✅ once they are finished.
+
+* ❌ [Die Throwing](./exercises/die_throwing/README.md)

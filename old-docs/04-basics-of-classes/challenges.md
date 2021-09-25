@@ -1,5 +1,7 @@
 ## Chapter 04 - Basics of Classes - Challenges
 
+
+This is a good exercise for static methods
 ### Prime Checker
 
 Below is some code that needs a serious refactor. Refactor the code to make use of a class `PrimeChecker`. Also refactor the code formatting.

@@ -552,7 +552,7 @@ namespace Geometry {
 };
 ```
 
-Basically the delta is added to the current coordinate making it move by delta.
+Basically the delta is added to the current coordinates making it move by delta.
 
 ### ❌ Copying Objects
 
