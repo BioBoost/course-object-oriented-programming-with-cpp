@@ -282,11 +282,13 @@ int main() {
 
 Which would result in the output:
 
-```text
+::: output
+<pre>
 Constructing PowerSupply: Input = 220 Output = 3.3
 Constructing PowerSupply: Input = 220 Output = 12
 Constructing Television
-```
+</pre>
+:::
 
 In practice most classes will have default constructors and if you need to change anything to the state of the internal objects you can often do this by calling the appropriate setters. However, if other constructors are available which initialize the sub-object to the wanted state, it is a good idea to use them as it keeps the code cleaner.
 
