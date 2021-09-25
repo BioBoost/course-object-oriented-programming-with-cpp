@@ -40,17 +40,17 @@ module.exports = {
           '/b-fundamentals/08-functions/',
         ]
       },
-      // {
-      //   title: 'Object Oriented Thinking',   // required
-      //   // path: '/foo/',      // optional, which should be a absolute path.
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     '/c-object-oriented-thinking/',
-      //     '/c-object-oriented-thinking/abstraction/',
-      //     '/c-object-oriented-thinking/all_about_objects/',
-      //   ]
-      // },
+      {
+        title: 'Object Oriented Thinking',   // required
+        // path: '/foo/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/c-object-oriented-thinking/',
+          '/c-object-oriented-thinking/abstraction/',
+          '/c-object-oriented-thinking/all_about_objects/',
+        ]
+      },
       {
         title: 'Object Oriented Programming',   // required
         // path: '/foo/',      // optional, which should be a absolute path.
