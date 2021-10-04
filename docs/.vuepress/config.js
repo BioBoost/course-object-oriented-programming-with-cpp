@@ -71,8 +71,8 @@ module.exports = {
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          // TODO - Refactor !! '/e-compiling-and-linking/01-the-compilation-process/',
-          // TODO - Refactor !! '/e-compiling-and-linking/02-makefiles/',
+          '/e-compiling-and-linking/01-the-compilation-process/',
+          '/e-compiling-and-linking/02-makefiles/',
           // TODO - Refactor !! '/e-compiling-and-linking/03-libraries/'
         ]
       },
