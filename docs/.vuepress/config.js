@@ -97,7 +97,7 @@ module.exports = {
         collapsable: false, // optional, defaults to true
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
-          // TODO - Refactor !! '/g-inheritance/01-basic-inheritance/',
+          '/g-inheritance/01-basic-inheritance/',
           // '/g-inheritance/02-interfaces/',
           // TODO - Refactor !! '/g-inheritance/03-polymorphism/',
           // '/g-inheritance/04-multiple-inheritance/'

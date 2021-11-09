@@ -4,6 +4,10 @@ description: needs to be done
 
 # Basic Inheritance
 
+::: warning Draft
+This chapter is an early draft of a previous C++ course. It is not yet refactored in line with the rest of this course.
+:::
+
 Code reuse is probable one of the most powerful features of an object oriented programming language. While most programming languages provide functions / procedures which provide a low-level construct for code reuse, object oriented programming languages take this an important step further. OOP languages allow us to define classes and create relations between these classes, facilitating not only code reuse but also better overall design.
 
 Inheritance is one of the main pillars of an object-oriented programming language and provides a clean way of reusing functionality. It allows a class to inherit both the attributes and methods of another class. Common data and functionality is structured inside a base class (also called superclass) from which the more specific classes inherit (called subclasses or derived classes) properties and behavior.
@@ -233,7 +237,7 @@ For example the `to_string()` implementations of `Cat` can make use of the alrea
 std::string Cat::to_string(void) {
   std::stringstream ss;
   ss << Pet::to_string();
-  ss << " | He/she purrs when happy and loves to eat fish and meat.;
+  ss << " | He/she purrs when happy and loves to eat fish and meat.";
   return ss.str();
 }
 ```
