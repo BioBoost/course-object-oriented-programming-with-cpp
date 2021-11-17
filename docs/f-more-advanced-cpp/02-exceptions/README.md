@@ -12,7 +12,7 @@ Exceptions are used to indicate exceptional situations that may fail the applica
 
 Returning negative values from a function/method is a common way of indicating an error has occurred.
 
-```c++
+```cpp
 int index_of_first_char(std::string text, char c) {
   for (unsigned int i = 0; i < text.length(); i++) {
     if (text[i] == c) {
@@ -25,7 +25,7 @@ int index_of_first_char(std::string text, char c) {
 
 Same strategy as the return code of the applications itself (status code returned to operating system).
 
-```c++
+```cpp
 int main() {
   // Logic
 
@@ -97,7 +97,7 @@ Preferable the exception that was thrown should provide more info on the situati
 
 Some examples:
 
-```c++
+```cpp
 throw -1;
 throw "Cannot create new file";
 throw std::string("Failed to open connection");
@@ -112,7 +112,7 @@ To specify what to do in case of a certain exception, a try-block is followed by
 
 Example:
 
-```c++
+```cpp
 try {
   throw std::string("This will crash");
   std::cout << "This is never outputted !!!" << std::endl;
@@ -125,7 +125,7 @@ A try-block acts as an observer for the code inside of it and will look for exce
 
 Multiple catch blocks are possible.
 
-```c++
+```cpp
 try {
   throw std::string("This will crash");
   // Comment out the above line
@@ -142,7 +142,7 @@ The try-block will route the exception to the correct catch block, based on the 
 
 ## Full example
 
-```c++
+```cpp
 #include <iostream>
 #include <cmath>
 
@@ -172,7 +172,7 @@ int main() {
 ## More Realistic Example
 
 
-```c++
+```cpp
 #include <iostream>
 #include <cmath>
 
@@ -206,7 +206,7 @@ int main() {
 
 ### Call Stack Example
 
-```c++
+```cpp
 try
 {
   try {
