@@ -83,10 +83,10 @@ module.exports = {
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
           // '/f-more-advanced-cpp/01-references/',
-          // TODO - Refactor !! '/f-more-advanced-cpp/01-pointers/',
+          '/f-more-advanced-cpp/01-pointers/',
           '/f-more-advanced-cpp/02-exceptions/',
           '/f-more-advanced-cpp/03-file-streams/',
-          // TODO - Refactor !! '/f-more-advanced-cpp/04-dynamic-memory-allocation/',
+          '/f-more-advanced-cpp/04-dynamic-memory-allocation/',
           // '/f-more-advanced-cpp/05-standard-templating-libraries/',
           // '/f-more-advanced-cpp/06-smart-pointers/',
         ]
@@ -99,7 +99,7 @@ module.exports = {
         children: [
           '/g-inheritance/01-basic-inheritance/',
           // '/g-inheritance/02-interfaces/',
-          // TODO - Refactor !! '/g-inheritance/03-polymorphism/',
+          '/g-inheritance/03-polymorphism/',
           // '/g-inheritance/04-multiple-inheritance/'
         ]
       },
