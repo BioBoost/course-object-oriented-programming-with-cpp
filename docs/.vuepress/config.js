@@ -209,5 +209,14 @@ module.exports = {
       type: 'insight',
       defaultTitle: 'Key Insight',
     }],
+    ['vuepress-plugin-code-copy', {
+      // selector: String,
+      align: 'bottom',
+      // color: '#DC322F',
+      // backgroundTransition: Boolean,
+      // backgroundColor: String,
+      // successText: String,
+      staticIcon: true,
+    }],
   ],
 }
