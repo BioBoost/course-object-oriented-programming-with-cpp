@@ -115,6 +115,21 @@ This is also the reason why a pointer needs a dataype. Because the compiler need
 
 ## Pointers and Arrays
 
+::: warning Not correct
+This sections contains some inaccurate information. In fact arrays are not constant pointers but it is said that in certain situation the array decays to a pointer. For example when passing the array to a function/method. Decaying means that the size information is lost of the array.
+
+> It's said that arrays "decay" into pointers. A C++ array declared as int numbers [5] cannot be re-pointed, i.e. you can't say numbers = 0x5a5aff23. More importantly the term decay signifies loss of type and dimension; numbers decay into int* by losing the dimension information (count 5) and the type is not int [5] any more. Look here for cases where the decay doesn't happen.
+> If you're passing an array by value, what you're really doing is copying a pointer - a pointer to the array's first element is copied to the parameter (whose type should also be a pointer the array element's type). This works due to array's decaying nature; once decayed, sizeof no longer gives the complete array's size, because it essentially becomes a pointer. This is why it's preferred (among other reasons) to pass by reference or pointer.
+
+```cpp
+void by_value(const T* array)   // const T array[] means the same
+void by_pointer(const T (*array)[U])
+void by_reference(const T (&array)[U])
+```
+
+The last two will give proper sizeof info, while the first one won't since the array argument has decayed to be assigned to the parameter. The big problem here is that the constant `U` should be known at compile-time.
+:::
+
 <!-- We should checkout discussion: [arrays are same as pointers](https://stackoverflow.com/questions/1641957/is-an-array-name-a-pointer)
 An array is an array and a pointer is a pointer, but in most cases array names are converted to pointers. A term often used is that they decay to pointers. -->
 
@@ -377,6 +392,10 @@ b: 10
 :::
 
 ### Passing Arrays
+
+::: warning Faulty Info
+Again this section contains some inaccurate information
+:::
 
 Since arrays are nothing more than constant pointers to the first element in the array, passing arrays is quite straight-forward. One thing to keep in mind is that there is no way to determine the number of elements inside the array when leaving the scope of the where the array was declared. On other words, you will always need to pass the length of the array to the function/method.
 
