@@ -220,6 +220,43 @@ try
 std::cout << "Code continues here" << std::endl;
 ```
 
+## Inheritance Example
+
+(More on this later)
+
+```cpp
+#include <iostream>
+#include <string>
+#include <exception> // for std::exception
+
+using namespace std;
+
+class IndexOutOfBoundException : public std::runtime_error
+{
+  public:
+    IndexOutOfBoundException(const std::string message = "Index was out of bound")
+      : std::runtime_error(message.c_str()) {
+    }
+};
+
+void index(void) {
+  throw IndexOutOfBoundException();
+}
+
+int main() {
+
+  try {
+    index();
+    std::cout << "This is never outputted !!!" << std::endl;
+  } catch (const std::string &message) {
+    std::cout << "Something went wrong: " << message << std::endl;
+  } catch (const IndexOutOfBoundException &except) {
+    std::cout << "Something went wrong: " << except.what() << std::endl;
+  }
+
+  return 0;
+}
+```
 
 Make sure to add later, important:
 
