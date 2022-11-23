@@ -14,6 +14,10 @@ Arrays are among the oldest and most important data structures, and are used by 
 
 Arrays are useful mostly because the element indices can be computed at run time. Among other things, this feature allows a single iterative statement to process arbitrarily many elements of an array. For that reason, the elements of an array data structure are required to have the same size and should use the same data representation.
 
+::: tip 🔍 Lookup Tables
+Arrays are often used to implement tables, especially lookup tables; the word **table** is sometimes used as a synonym of array. In computer science, a lookup table is an array that replaces runtime computation with a simpler array indexing operation. The savings in terms of processing time can be significant, since retrieving a value from memory is often faster than undergoing an "expensive" computation or input/output operation. The tables may be precalculated and stored in static program storage, calculated (or "pre-fetched") as part of a program's initialization phase.
+:::
+
 ## One Dimensional Arrays
 
 An array is a **container object** that holds a **fixed number of values** of a **single type**. The length of an array is established when the array is created. After creation, its length is fixed.

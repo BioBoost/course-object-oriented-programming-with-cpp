@@ -222,5 +222,6 @@ std::cout << "Code continues here" << std::endl;
 
 
 Make sure to add later, important:
-https://www.learncpp.com/cpp-tutorial/145-exceptions-classes-and-inheritance/
-https://www.learncpp.com/cpp-tutorial/14-6-rethrowing-exceptions/
+
+* [https://www.learncpp.com/cpp-tutorial/145-exceptions-classes-and-inheritance/](https://www.learncpp.com/cpp-tutorial/145-exceptions-classes-and-inheritance/)
+* [https://www.learncpp.com/cpp-tutorial/14-6-rethrowing-exceptions/](https://www.learncpp.com/cpp-tutorial/14-6-rethrowing-exceptions/)
